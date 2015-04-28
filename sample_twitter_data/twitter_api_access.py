@@ -6,6 +6,8 @@ import json
 # on my token, not on an actual clients token as we will want to do
 # on the website, i.e. doesn't actually implement OAuth for a user
 
+directory = 'hillary_sample_tweets_2/'
+
 # Output content of json API request
 def output_content(content_json, file_string):
     # file to write to
@@ -47,9 +49,11 @@ token = oauth.Token(creds['token'],
 client = oauth.Client(consumer, token)
 
 # Build API Search request
+count = 25
+
 twitter_api_url = 'https://api.twitter.com/1.1'
 timeline_endpoint = '/statuses/user_timeline.json'
-timeline_query_string = 'screen_name=HillaryClinton&count=5&include_rts=1'
+timeline_query_string = 'screen_name=HillaryClinton&count='+ str(count) +'&include_rts=1'
 
 # Endpoint + id.json
 retweet_endpoint = '/statuses/retweets/'
@@ -66,7 +70,7 @@ print resp
 print content
 
 content_json = json.loads(content)
-output_content(content_json, 'twitter_api_resp_content.txt')
+output_content(content_json, 'hillary_sample_tweets_2.txt')
 output_retweets(content_json)
 
 
