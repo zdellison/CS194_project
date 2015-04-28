@@ -56,7 +56,7 @@ ROOT_URLCONF = 'twitter_sample.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['twitter_sample/templates','twitter_login/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
