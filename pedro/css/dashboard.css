@@ -1,0 +1,51 @@
+
+#viewport{
+	height: 170vh;
+	background-image: url(squared_metal.png);
+}
+#left_header{
+	background: rgba(35,44,56,0.90);
+	width: 25vw;
+	height: 178vh;
+}
+#top_header{
+	height: 20vh;
+	background: #FFFFFF;
+	border: 1px solid #979797;
+}
+.dashboard{
+	background-image: url(squared_metal.png);
+}
+#dashboard_body_top{
+	height: 55vh;
+	padding-left: 5vh;
+	padding-right: 5vh;
+}
+
+.d3js_box{
+	background: #FFFFFF;
+	border: 1px solid #979797;
+}
+.divisor{
+	height: 7vh;
+	background-image: url(squared_metal.png);
+}
+
+#top_d3js_box{
+	height: 55vh;
+
+}
+.body_d3js_box{
+	height: 37vh;
+	width: 37vh;
+	margin-left: 5vh;
+	margin-right: 5vh;
+	float: left;
+	
+}
+.nomargin{
+	padding: 0 !important;
+   margin: 0 !important;
+}
+
+
