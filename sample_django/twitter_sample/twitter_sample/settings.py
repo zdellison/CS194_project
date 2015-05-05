@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_auth',
+    'twitter_login'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -131,11 +132,11 @@ AUTHENTICATION_BACKENDS = (
 
 # Authentication Keys for Twitter App Authentication
 
-TWITTER_CONSUMER_KEY         = 'btarao9ZFHk3lukxxE8ku'
-TWITTER_CONSUMER_SECRET      = '7YlUGx2bf51elaQyx6EeWy3wlGfO1xi9pQUl095Q6CClgFc4b9'
+TWITTER_CONSUMER_KEY         = '1RCPzCFBpcAeDQko4nF7Tg4QX'
+TWITTER_CONSUMER_SECRET      = '4TfJfYmcmkspOGDrqWn8NP0b9dUjSTrvIgZ0XJt3eeJjElFNzG'
 
 # Login settings as described by Twitter App Authentication
 
-LOGIN_URL          = '/login-form/'
-LOGIN_REDIRECT_URL = '/logged-in/'
-LOGIN_ERROR_URL    = '/login-error/'
+LOGIN_URL          = '/login/'
+
+AUTH_PROFILE_MODULE = 'twitter_login.Profile'
