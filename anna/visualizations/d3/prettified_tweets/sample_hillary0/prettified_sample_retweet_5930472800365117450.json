@@ -1,0 +1,215 @@
+{
+    "contributors": null, 
+    "coordinates": null, 
+    "created_at": "Tue Apr 28 22:53:17 +0000 2015", 
+    "entities": {
+        "hashtags": [
+            {
+                "indices": [
+                    134, 
+                    146
+                ], 
+                "text": "LoveMustWin"
+            }, 
+            {
+                "indices": [
+                    147, 
+                    148
+                ], 
+                "text": "LoveCantWait"
+            }
+        ], 
+        "symbols": [], 
+        "urls": [], 
+        "user_mentions": [
+            {
+                "id": 1339835893, 
+                "id_str": "1339835893", 
+                "indices": [
+                    3, 
+                    18
+                ], 
+                "name": "Hillary Clinton", 
+                "screen_name": "HillaryClinton"
+            }
+        ]
+    }, 
+    "favorite_count": 0, 
+    "favorited": false, 
+    "geo": null, 
+    "id": 593186249365557249, 
+    "id_str": "593186249365557249", 
+    "in_reply_to_screen_name": null, 
+    "in_reply_to_status_id": null, 
+    "in_reply_to_status_id_str": null, 
+    "in_reply_to_user_id": null, 
+    "in_reply_to_user_id_str": null, 
+    "lang": "en", 
+    "place": null, 
+    "retweet_count": 11028, 
+    "retweeted": false, 
+    "retweeted_status": {
+        "contributors": null, 
+        "coordinates": null, 
+        "created_at": "Tue Apr 28 13:41:04 +0000 2015", 
+        "entities": {
+            "hashtags": [
+                {
+                    "indices": [
+                        114, 
+                        126
+                    ], 
+                    "text": "LoveMustWin"
+                }, 
+                {
+                    "indices": [
+                        127, 
+                        140
+                    ], 
+                    "text": "LoveCantWait"
+                }
+            ], 
+            "symbols": [], 
+            "urls": [], 
+            "user_mentions": []
+        }, 
+        "favorite_count": 11622, 
+        "favorited": false, 
+        "geo": null, 
+        "id": 593047280036511745, 
+        "id_str": "593047280036511745", 
+        "in_reply_to_screen_name": null, 
+        "in_reply_to_status_id": null, 
+        "in_reply_to_status_id_str": null, 
+        "in_reply_to_user_id": null, 
+        "in_reply_to_user_id_str": null, 
+        "lang": "en", 
+        "place": null, 
+        "retweet_count": 11028, 
+        "retweeted": false, 
+        "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>", 
+        "text": "Every loving couple &amp; family deserves to be recognized &amp; treated equally under the law across our nation. #LoveMustWin #LoveCantWait \u2013H", 
+        "truncated": false, 
+        "user": {
+            "contributors_enabled": false, 
+            "created_at": "Tue Apr 09 18:04:35 +0000 2013", 
+            "default_profile": false, 
+            "default_profile_image": false, 
+            "description": "Wife, mom, grandma, women+kids advocate, FLOTUS, Senator, SecState, hair icon, pantsuit aficionado, 2016 presidential candidate. Tweets from Hillary signed \u2013H", 
+            "entities": {
+                "description": {
+                    "urls": []
+                }, 
+                "url": {
+                    "urls": [
+                        {
+                            "display_url": "hillaryclinton.com", 
+                            "expanded_url": "http://www.hillaryclinton.com", 
+                            "indices": [
+                                0, 
+                                22
+                            ], 
+                            "url": "http://t.co/ESBw0Arq44"
+                        }
+                    ]
+                }
+            }, 
+            "favourites_count": 2, 
+            "follow_request_sent": false, 
+            "followers_count": 3442134, 
+            "following": false, 
+            "friends_count": 14, 
+            "geo_enabled": false, 
+            "id": 1339835893, 
+            "id_str": "1339835893", 
+            "is_translation_enabled": false, 
+            "is_translator": false, 
+            "lang": "en", 
+            "listed_count": 15810, 
+            "location": "New York", 
+            "name": "Hillary Clinton", 
+            "notifications": false, 
+            "profile_background_color": "0057B8", 
+            "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_tile": false, 
+            "profile_banner_url": "https://pbs.twimg.com/profile_banners/1339835893/1428866827", 
+            "profile_image_url": "http://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+            "profile_link_color": "0057B8", 
+            "profile_sidebar_border_color": "000000", 
+            "profile_sidebar_fill_color": "000000", 
+            "profile_text_color": "000000", 
+            "profile_use_background_image": false, 
+            "protected": false, 
+            "screen_name": "HillaryClinton", 
+            "statuses_count": 244, 
+            "time_zone": "Eastern Time (US & Canada)", 
+            "url": "http://t.co/ESBw0Arq44", 
+            "utc_offset": -14400, 
+            "verified": true
+        }
+    }, 
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>", 
+    "text": "RT @HillaryClinton: Every loving couple &amp; family deserves to be recognized &amp; treated equally under the law across our nation. #LoveMustWin \u2026", 
+    "truncated": false, 
+    "user": {
+        "contributors_enabled": false, 
+        "created_at": "Wed Oct 29 18:16:58 +0000 2014", 
+        "default_profile": false, 
+        "default_profile_image": false, 
+        "description": "it takes a village, and it takes knowing in our hearts, that it is human to love and be loved. were all worthy of respect, love, and equal rights.", 
+        "entities": {
+            "description": {
+                "urls": []
+            }, 
+            "url": {
+                "urls": [
+                    {
+                        "display_url": "kaleidopyitorres.tumblr.com", 
+                        "expanded_url": "http://kaleidopyitorres.tumblr.com", 
+                        "indices": [
+                            0, 
+                            22
+                        ], 
+                        "url": "http://t.co/wGrSENnt8H"
+                    }
+                ]
+            }
+        }, 
+        "favourites_count": 1881, 
+        "follow_request_sent": false, 
+        "followers_count": 149, 
+        "following": false, 
+        "friends_count": 149, 
+        "geo_enabled": false, 
+        "id": 2850163011, 
+        "id_str": "2850163011", 
+        "is_translation_enabled": false, 
+        "is_translator": false, 
+        "lang": "en", 
+        "listed_count": 2, 
+        "location": "grey's \u2022 ouat \u2022 pp \u2022 oitnb ", 
+        "name": "eileen", 
+        "notifications": false, 
+        "profile_background_color": "009988", 
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png", 
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png", 
+        "profile_background_tile": false, 
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/2850163011/1425050065", 
+        "profile_image_url": "http://pbs.twimg.com/profile_images/586395207442141187/bgo5-3wF_normal.jpg", 
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/586395207442141187/bgo5-3wF_normal.jpg", 
+        "profile_link_color": "000077", 
+        "profile_sidebar_border_color": "000000", 
+        "profile_sidebar_fill_color": "000000", 
+        "profile_text_color": "000000", 
+        "profile_use_background_image": false, 
+        "protected": false, 
+        "screen_name": "kaleidopytorres", 
+        "statuses_count": 7834, 
+        "time_zone": "Tijuana", 
+        "url": "http://t.co/wGrSENnt8H", 
+        "utc_offset": -25200, 
+        "verified": false
+    }
+}

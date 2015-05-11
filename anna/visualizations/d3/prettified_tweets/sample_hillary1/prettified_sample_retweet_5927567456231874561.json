@@ -1,0 +1,357 @@
+{
+    "contributors": null, 
+    "coordinates": null, 
+    "created_at": "Tue Apr 28 21:41:05 +0000 2015", 
+    "entities": {
+        "hashtags": [], 
+        "media": [
+            {
+                "display_url": "pic.twitter.com/0XMT89VAz3", 
+                "expanded_url": "http://twitter.com/HillaryClinton/status/592756745623187456/photo/1", 
+                "id": 592756744629198849, 
+                "id_str": "592756744629198849", 
+                "indices": [
+                    82, 
+                    104
+                ], 
+                "media_url": "http://pbs.twimg.com/media/CDnlHmHXIAEKW9_.png", 
+                "media_url_https": "https://pbs.twimg.com/media/CDnlHmHXIAEKW9_.png", 
+                "sizes": {
+                    "large": {
+                        "h": 512, 
+                        "resize": "fit", 
+                        "w": 1024
+                    }, 
+                    "medium": {
+                        "h": 300, 
+                        "resize": "fit", 
+                        "w": 600
+                    }, 
+                    "small": {
+                        "h": 170, 
+                        "resize": "fit", 
+                        "w": 340
+                    }, 
+                    "thumb": {
+                        "h": 150, 
+                        "resize": "crop", 
+                        "w": 150
+                    }
+                }, 
+                "source_status_id": 592756745623187456, 
+                "source_status_id_str": "592756745623187456", 
+                "source_user_id": 1339835893, 
+                "source_user_id_str": "1339835893", 
+                "type": "photo", 
+                "url": "http://t.co/0XMT89VAz3"
+            }
+        ], 
+        "symbols": [], 
+        "urls": [
+            {
+                "display_url": "hrc.io/1b6uutA", 
+                "expanded_url": "http://hrc.io/1b6uutA", 
+                "indices": [
+                    59, 
+                    81
+                ], 
+                "url": "http://t.co/kCFoGLXqho"
+            }
+        ], 
+        "user_mentions": [
+            {
+                "id": 1339835893, 
+                "id_str": "1339835893", 
+                "indices": [
+                    3, 
+                    18
+                ], 
+                "name": "Hillary Clinton", 
+                "screen_name": "HillaryClinton"
+            }
+        ]
+    }, 
+    "extended_entities": {
+        "media": [
+            {
+                "display_url": "pic.twitter.com/0XMT89VAz3", 
+                "expanded_url": "http://twitter.com/HillaryClinton/status/592756745623187456/photo/1", 
+                "id": 592756744629198849, 
+                "id_str": "592756744629198849", 
+                "indices": [
+                    82, 
+                    104
+                ], 
+                "media_url": "http://pbs.twimg.com/media/CDnlHmHXIAEKW9_.png", 
+                "media_url_https": "https://pbs.twimg.com/media/CDnlHmHXIAEKW9_.png", 
+                "sizes": {
+                    "large": {
+                        "h": 512, 
+                        "resize": "fit", 
+                        "w": 1024
+                    }, 
+                    "medium": {
+                        "h": 300, 
+                        "resize": "fit", 
+                        "w": 600
+                    }, 
+                    "small": {
+                        "h": 170, 
+                        "resize": "fit", 
+                        "w": 340
+                    }, 
+                    "thumb": {
+                        "h": 150, 
+                        "resize": "crop", 
+                        "w": 150
+                    }
+                }, 
+                "source_status_id": 592756745623187456, 
+                "source_status_id_str": "592756745623187456", 
+                "source_user_id": 1339835893, 
+                "source_user_id_str": "1339835893", 
+                "type": "photo", 
+                "url": "http://t.co/0XMT89VAz3"
+            }
+        ]
+    }, 
+    "favorite_count": 0, 
+    "favorited": false, 
+    "geo": null, 
+    "id": 593168082106880001, 
+    "id_str": "593168082106880001", 
+    "in_reply_to_screen_name": null, 
+    "in_reply_to_status_id": null, 
+    "in_reply_to_status_id_str": null, 
+    "in_reply_to_user_id": null, 
+    "in_reply_to_user_id_str": null, 
+    "lang": "en", 
+    "place": null, 
+    "possibly_sensitive": false, 
+    "retweet_count": 268, 
+    "retweeted": false, 
+    "retweeted_status": {
+        "contributors": null, 
+        "coordinates": null, 
+        "created_at": "Mon Apr 27 18:26:35 +0000 2015", 
+        "entities": {
+            "hashtags": [], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/0XMT89VAz3", 
+                    "expanded_url": "http://twitter.com/HillaryClinton/status/592756745623187456/photo/1", 
+                    "id": 592756744629198849, 
+                    "id_str": "592756744629198849", 
+                    "indices": [
+                        62, 
+                        84
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CDnlHmHXIAEKW9_.png", 
+                    "media_url_https": "https://pbs.twimg.com/media/CDnlHmHXIAEKW9_.png", 
+                    "sizes": {
+                        "large": {
+                            "h": 512, 
+                            "resize": "fit", 
+                            "w": 1024
+                        }, 
+                        "medium": {
+                            "h": 300, 
+                            "resize": "fit", 
+                            "w": 600
+                        }, 
+                        "small": {
+                            "h": 170, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "type": "photo", 
+                    "url": "http://t.co/0XMT89VAz3"
+                }
+            ], 
+            "symbols": [], 
+            "urls": [
+                {
+                    "display_url": "hrc.io/1b6uutA", 
+                    "expanded_url": "http://hrc.io/1b6uutA", 
+                    "indices": [
+                        39, 
+                        61
+                    ], 
+                    "url": "http://t.co/kCFoGLXqho"
+                }
+            ], 
+            "user_mentions": []
+        }, 
+        "extended_entities": {
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/0XMT89VAz3", 
+                    "expanded_url": "http://twitter.com/HillaryClinton/status/592756745623187456/photo/1", 
+                    "id": 592756744629198849, 
+                    "id_str": "592756744629198849", 
+                    "indices": [
+                        62, 
+                        84
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CDnlHmHXIAEKW9_.png", 
+                    "media_url_https": "https://pbs.twimg.com/media/CDnlHmHXIAEKW9_.png", 
+                    "sizes": {
+                        "large": {
+                            "h": 512, 
+                            "resize": "fit", 
+                            "w": 1024
+                        }, 
+                        "medium": {
+                            "h": 300, 
+                            "resize": "fit", 
+                            "w": 600
+                        }, 
+                        "small": {
+                            "h": 170, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "type": "photo", 
+                    "url": "http://t.co/0XMT89VAz3"
+                }
+            ]
+        }, 
+        "favorite_count": 549, 
+        "favorited": false, 
+        "geo": null, 
+        "id": 592756745623187456, 
+        "id_str": "592756745623187456", 
+        "in_reply_to_screen_name": null, 
+        "in_reply_to_status_id": null, 
+        "in_reply_to_status_id_str": null, 
+        "in_reply_to_user_id": null, 
+        "in_reply_to_user_id_str": null, 
+        "lang": "en", 
+        "place": null, 
+        "possibly_sensitive": false, 
+        "retweet_count": 268, 
+        "retweeted": false, 
+        "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>", 
+        "text": "Read Hillary's thank you note to Iowa: http://t.co/kCFoGLXqho http://t.co/0XMT89VAz3", 
+        "truncated": false, 
+        "user": {
+            "contributors_enabled": false, 
+            "created_at": "Tue Apr 09 18:04:35 +0000 2013", 
+            "default_profile": false, 
+            "default_profile_image": false, 
+            "description": "Wife, mom, grandma, women+kids advocate, FLOTUS, Senator, SecState, hair icon, pantsuit aficionado, 2016 presidential candidate. Tweets from Hillary signed \u2013H", 
+            "entities": {
+                "description": {
+                    "urls": []
+                }, 
+                "url": {
+                    "urls": [
+                        {
+                            "display_url": "hillaryclinton.com", 
+                            "expanded_url": "http://www.hillaryclinton.com", 
+                            "indices": [
+                                0, 
+                                22
+                            ], 
+                            "url": "http://t.co/ESBw0Arq44"
+                        }
+                    ]
+                }
+            }, 
+            "favourites_count": 2, 
+            "follow_request_sent": false, 
+            "followers_count": 3442309, 
+            "following": false, 
+            "friends_count": 14, 
+            "geo_enabled": false, 
+            "id": 1339835893, 
+            "id_str": "1339835893", 
+            "is_translation_enabled": false, 
+            "is_translator": false, 
+            "lang": "en", 
+            "listed_count": 15809, 
+            "location": "New York", 
+            "name": "Hillary Clinton", 
+            "notifications": false, 
+            "profile_background_color": "0057B8", 
+            "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_tile": false, 
+            "profile_banner_url": "https://pbs.twimg.com/profile_banners/1339835893/1428866827", 
+            "profile_image_url": "http://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+            "profile_link_color": "0057B8", 
+            "profile_sidebar_border_color": "000000", 
+            "profile_sidebar_fill_color": "000000", 
+            "profile_text_color": "000000", 
+            "profile_use_background_image": false, 
+            "protected": false, 
+            "screen_name": "HillaryClinton", 
+            "statuses_count": 244, 
+            "time_zone": "Eastern Time (US & Canada)", 
+            "url": "http://t.co/ESBw0Arq44", 
+            "utc_offset": -14400, 
+            "verified": true
+        }
+    }, 
+    "source": "<a href=\"http://twitter.com/#!/download/ipad\" rel=\"nofollow\">Twitter for iPad</a>", 
+    "text": "RT @HillaryClinton: Read Hillary's thank you note to Iowa: http://t.co/kCFoGLXqho http://t.co/0XMT89VAz3", 
+    "truncated": false, 
+    "user": {
+        "contributors_enabled": false, 
+        "created_at": "Tue Apr 20 00:22:15 +0000 2010", 
+        "default_profile": true, 
+        "default_profile_image": false, 
+        "description": "Stroke survivor, Mother, Grandmother, liberal dem,blame Reagan for Econ. mess,am that nice lady @ church", 
+        "entities": {
+            "description": {
+                "urls": []
+            }
+        }, 
+        "favourites_count": 411, 
+        "follow_request_sent": false, 
+        "followers_count": 5058, 
+        "following": false, 
+        "friends_count": 4572, 
+        "geo_enabled": false, 
+        "id": 134971995, 
+        "id_str": "134971995", 
+        "is_translation_enabled": false, 
+        "is_translator": false, 
+        "lang": "en", 
+        "listed_count": 342, 
+        "location": "Colorado", 
+        "name": "Betty", 
+        "notifications": false, 
+        "profile_background_color": "C0DEED", 
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png", 
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png", 
+        "profile_background_tile": false, 
+        "profile_image_url": "http://pbs.twimg.com/profile_images/1309634395/ebc9001c-a294-4c56-a740-7c7f6e0b6887_normal.png", 
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1309634395/ebc9001c-a294-4c56-a740-7c7f6e0b6887_normal.png", 
+        "profile_link_color": "0084B4", 
+        "profile_sidebar_border_color": "C0DEED", 
+        "profile_sidebar_fill_color": "DDEEF6", 
+        "profile_text_color": "333333", 
+        "profile_use_background_image": true, 
+        "protected": false, 
+        "screen_name": "missb62", 
+        "statuses_count": 783359, 
+        "time_zone": "Mountain Time (US & Canada)", 
+        "url": null, 
+        "utc_offset": -21600, 
+        "verified": false
+    }
+}

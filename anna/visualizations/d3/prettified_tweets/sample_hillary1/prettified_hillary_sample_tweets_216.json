@@ -1,0 +1,387 @@
+{
+    "contributors": null, 
+    "coordinates": null, 
+    "created_at": "Fri Apr 24 20:14:19 +0000 2015", 
+    "entities": {
+        "hashtags": [
+            {
+                "indices": [
+                    103, 
+                    112
+                ], 
+                "text": "sctweets"
+            }
+        ], 
+        "media": [
+            {
+                "display_url": "pic.twitter.com/H2qFBd9ncs", 
+                "expanded_url": "http://twitter.com/HillaryforSC/status/591635380090195968/photo/1", 
+                "id": 591635285634584577, 
+                "id_str": "591635285634584577", 
+                "indices": [
+                    113, 
+                    135
+                ], 
+                "media_url": "http://pbs.twimg.com/media/CDXpKFzWEAEhVog.jpg", 
+                "media_url_https": "https://pbs.twimg.com/media/CDXpKFzWEAEhVog.jpg", 
+                "sizes": {
+                    "large": {
+                        "h": 1414, 
+                        "resize": "fit", 
+                        "w": 1024
+                    }, 
+                    "medium": {
+                        "h": 828, 
+                        "resize": "fit", 
+                        "w": 600
+                    }, 
+                    "small": {
+                        "h": 469, 
+                        "resize": "fit", 
+                        "w": 340
+                    }, 
+                    "thumb": {
+                        "h": 150, 
+                        "resize": "crop", 
+                        "w": 150
+                    }
+                }, 
+                "source_status_id": 591635380090195968, 
+                "source_status_id_str": "591635380090195968", 
+                "source_user_id": 3071251042, 
+                "source_user_id_str": "3071251042", 
+                "type": "photo", 
+                "url": "http://t.co/H2qFBd9ncs"
+            }
+        ], 
+        "symbols": [], 
+        "urls": [
+            {
+                "display_url": "hillaryclinton.com/volunteer/sout\u2026", 
+                "expanded_url": "https://www.hillaryclinton.com/volunteer/south-carolina/", 
+                "indices": [
+                    79, 
+                    102
+                ], 
+                "url": "https://t.co/QrtWYYWhvI"
+            }
+        ], 
+        "user_mentions": [
+            {
+                "id": 3071251042, 
+                "id_str": "3071251042", 
+                "indices": [
+                    3, 
+                    16
+                ], 
+                "name": "Hillary for SC", 
+                "screen_name": "HillaryforSC"
+            }
+        ]
+    }, 
+    "extended_entities": {
+        "media": [
+            {
+                "display_url": "pic.twitter.com/H2qFBd9ncs", 
+                "expanded_url": "http://twitter.com/HillaryforSC/status/591635380090195968/photo/1", 
+                "id": 591635285634584577, 
+                "id_str": "591635285634584577", 
+                "indices": [
+                    113, 
+                    135
+                ], 
+                "media_url": "http://pbs.twimg.com/media/CDXpKFzWEAEhVog.jpg", 
+                "media_url_https": "https://pbs.twimg.com/media/CDXpKFzWEAEhVog.jpg", 
+                "sizes": {
+                    "large": {
+                        "h": 1414, 
+                        "resize": "fit", 
+                        "w": 1024
+                    }, 
+                    "medium": {
+                        "h": 828, 
+                        "resize": "fit", 
+                        "w": 600
+                    }, 
+                    "small": {
+                        "h": 469, 
+                        "resize": "fit", 
+                        "w": 340
+                    }, 
+                    "thumb": {
+                        "h": 150, 
+                        "resize": "crop", 
+                        "w": 150
+                    }
+                }, 
+                "source_status_id": 591635380090195968, 
+                "source_status_id_str": "591635380090195968", 
+                "source_user_id": 3071251042, 
+                "source_user_id_str": "3071251042", 
+                "type": "photo", 
+                "url": "http://t.co/H2qFBd9ncs"
+            }
+        ]
+    }, 
+    "favorite_count": 0, 
+    "favorited": false, 
+    "geo": null, 
+    "id": 591696692224851969, 
+    "id_str": "591696692224851969", 
+    "in_reply_to_screen_name": null, 
+    "in_reply_to_status_id": null, 
+    "in_reply_to_status_id_str": null, 
+    "in_reply_to_user_id": null, 
+    "in_reply_to_user_id_str": null, 
+    "lang": "en", 
+    "place": null, 
+    "possibly_sensitive": false, 
+    "retweet_count": 170, 
+    "retweeted": false, 
+    "retweeted_status": {
+        "contributors": null, 
+        "coordinates": null, 
+        "created_at": "Fri Apr 24 16:10:41 +0000 2015", 
+        "entities": {
+            "hashtags": [
+                {
+                    "indices": [
+                        85, 
+                        94
+                    ], 
+                    "text": "sctweets"
+                }
+            ], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/H2qFBd9ncs", 
+                    "expanded_url": "http://twitter.com/HillaryforSC/status/591635380090195968/photo/1", 
+                    "id": 591635285634584577, 
+                    "id_str": "591635285634584577", 
+                    "indices": [
+                        95, 
+                        117
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CDXpKFzWEAEhVog.jpg", 
+                    "media_url_https": "https://pbs.twimg.com/media/CDXpKFzWEAEhVog.jpg", 
+                    "sizes": {
+                        "large": {
+                            "h": 1414, 
+                            "resize": "fit", 
+                            "w": 1024
+                        }, 
+                        "medium": {
+                            "h": 828, 
+                            "resize": "fit", 
+                            "w": 600
+                        }, 
+                        "small": {
+                            "h": 469, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "type": "photo", 
+                    "url": "http://t.co/H2qFBd9ncs"
+                }
+            ], 
+            "symbols": [], 
+            "urls": [
+                {
+                    "display_url": "hillaryclinton.com/volunteer/sout\u2026", 
+                    "expanded_url": "https://www.hillaryclinton.com/volunteer/south-carolina/", 
+                    "indices": [
+                        61, 
+                        84
+                    ], 
+                    "url": "https://t.co/QrtWYYWhvI"
+                }
+            ], 
+            "user_mentions": []
+        }, 
+        "extended_entities": {
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/H2qFBd9ncs", 
+                    "expanded_url": "http://twitter.com/HillaryforSC/status/591635380090195968/photo/1", 
+                    "id": 591635285634584577, 
+                    "id_str": "591635285634584577", 
+                    "indices": [
+                        95, 
+                        117
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CDXpKFzWEAEhVog.jpg", 
+                    "media_url_https": "https://pbs.twimg.com/media/CDXpKFzWEAEhVog.jpg", 
+                    "sizes": {
+                        "large": {
+                            "h": 1414, 
+                            "resize": "fit", 
+                            "w": 1024
+                        }, 
+                        "medium": {
+                            "h": 828, 
+                            "resize": "fit", 
+                            "w": 600
+                        }, 
+                        "small": {
+                            "h": 469, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "type": "photo", 
+                    "url": "http://t.co/H2qFBd9ncs"
+                }
+            ]
+        }, 
+        "favorite_count": 306, 
+        "favorited": false, 
+        "geo": null, 
+        "id": 591635380090195968, 
+        "id_str": "591635380090195968", 
+        "in_reply_to_screen_name": null, 
+        "in_reply_to_status_id": null, 
+        "in_reply_to_status_id_str": null, 
+        "in_reply_to_user_id": null, 
+        "in_reply_to_user_id_str": null, 
+        "lang": "en", 
+        "place": null, 
+        "possibly_sensitive": false, 
+        "retweet_count": 170, 
+        "retweeted": false, 
+        "source": "<a href=\"https://about.twitter.com/products/tweetdeck\" rel=\"nofollow\">TweetDeck</a>", 
+        "text": "Our commit to vote cards are in! Sign up to volunteer today: https://t.co/QrtWYYWhvI #sctweets http://t.co/H2qFBd9ncs", 
+        "truncated": false, 
+        "user": {
+            "contributors_enabled": false, 
+            "created_at": "Thu Mar 05 00:00:29 +0000 2015", 
+            "default_profile": true, 
+            "default_profile_image": false, 
+            "description": "Hillary for South Carolina  is the official account for our grassroots team to elect @HillaryClinton. Follow us for updates & to get involved! #Hillary2016", 
+            "entities": {
+                "description": {
+                    "urls": []
+                }, 
+                "url": {
+                    "urls": [
+                        {
+                            "display_url": "fb.me/HillaryforSC", 
+                            "expanded_url": "http://fb.me/HillaryforSC", 
+                            "indices": [
+                                0, 
+                                22
+                            ], 
+                            "url": "http://t.co/va6RhDU3Iy"
+                        }
+                    ]
+                }
+            }, 
+            "favourites_count": 0, 
+            "follow_request_sent": false, 
+            "followers_count": 1386, 
+            "following": false, 
+            "friends_count": 1, 
+            "geo_enabled": false, 
+            "id": 3071251042, 
+            "id_str": "3071251042", 
+            "is_translation_enabled": false, 
+            "is_translator": false, 
+            "lang": "en", 
+            "listed_count": 42, 
+            "location": "South Carolina", 
+            "name": "Hillary for SC", 
+            "notifications": false, 
+            "profile_background_color": "C0DEED", 
+            "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_tile": false, 
+            "profile_banner_url": "https://pbs.twimg.com/profile_banners/3071251042/1428867443", 
+            "profile_image_url": "http://pbs.twimg.com/profile_images/593037507270324225/62h_GLZg_normal.png", 
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/593037507270324225/62h_GLZg_normal.png", 
+            "profile_link_color": "0084B4", 
+            "profile_sidebar_border_color": "C0DEED", 
+            "profile_sidebar_fill_color": "DDEEF6", 
+            "profile_text_color": "333333", 
+            "profile_use_background_image": true, 
+            "protected": false, 
+            "screen_name": "HillaryforSC", 
+            "statuses_count": 36, 
+            "time_zone": null, 
+            "url": "http://t.co/va6RhDU3Iy", 
+            "utc_offset": null, 
+            "verified": false
+        }
+    }, 
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>", 
+    "text": "RT @HillaryforSC: Our commit to vote cards are in! Sign up to volunteer today: https://t.co/QrtWYYWhvI #sctweets http://t.co/H2qFBd9ncs", 
+    "truncated": false, 
+    "user": {
+        "contributors_enabled": false, 
+        "created_at": "Tue Apr 09 18:04:35 +0000 2013", 
+        "default_profile": false, 
+        "default_profile_image": false, 
+        "description": "Wife, mom, grandma, women+kids advocate, FLOTUS, Senator, SecState, hair icon, pantsuit aficionado, 2016 presidential candidate. Tweets from Hillary signed \u2013H", 
+        "entities": {
+            "description": {
+                "urls": []
+            }, 
+            "url": {
+                "urls": [
+                    {
+                        "display_url": "hillaryclinton.com", 
+                        "expanded_url": "http://www.hillaryclinton.com", 
+                        "indices": [
+                            0, 
+                            22
+                        ], 
+                        "url": "http://t.co/ESBw0Arq44"
+                    }
+                ]
+            }
+        }, 
+        "favourites_count": 2, 
+        "follow_request_sent": false, 
+        "followers_count": 3442309, 
+        "following": false, 
+        "friends_count": 14, 
+        "geo_enabled": false, 
+        "id": 1339835893, 
+        "id_str": "1339835893", 
+        "is_translation_enabled": false, 
+        "is_translator": false, 
+        "lang": "en", 
+        "listed_count": 15809, 
+        "location": "New York", 
+        "name": "Hillary Clinton", 
+        "notifications": false, 
+        "profile_background_color": "0057B8", 
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png", 
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png", 
+        "profile_background_tile": false, 
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1339835893/1428866827", 
+        "profile_image_url": "http://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+        "profile_link_color": "0057B8", 
+        "profile_sidebar_border_color": "000000", 
+        "profile_sidebar_fill_color": "000000", 
+        "profile_text_color": "000000", 
+        "profile_use_background_image": false, 
+        "protected": false, 
+        "screen_name": "HillaryClinton", 
+        "statuses_count": 244, 
+        "time_zone": "Eastern Time (US & Canada)", 
+        "url": "http://t.co/ESBw0Arq44", 
+        "utc_offset": -14400, 
+        "verified": true
+    }
+}

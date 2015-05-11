@@ -1,0 +1,223 @@
+{
+    "contributors": null, 
+    "coordinates": null, 
+    "created_at": "Tue Apr 28 21:40:50 +0000 2015", 
+    "entities": {
+        "hashtags": [
+            {
+                "indices": [
+                    114, 
+                    126
+                ], 
+                "text": "LoveMustWin"
+            }, 
+            {
+                "indices": [
+                    127, 
+                    140
+                ], 
+                "text": "LoveCantWait"
+            }
+        ], 
+        "symbols": [], 
+        "urls": [
+            {
+                "display_url": "youtube.com/watch?v=Ij4Mf2\u2026", 
+                "expanded_url": "https://www.youtube.com/watch?v=Ij4Mf2eSyG4", 
+                "indices": [
+                    90, 
+                    113
+                ], 
+                "url": "https://t.co/OFdXpdmWUi"
+            }
+        ], 
+        "user_mentions": [
+            {
+                "id": 1339835893, 
+                "id_str": "1339835893", 
+                "indices": [
+                    3, 
+                    18
+                ], 
+                "name": "Hillary Clinton", 
+                "screen_name": "HillaryClinton"
+            }
+        ]
+    }, 
+    "favorite_count": 0, 
+    "favorited": false, 
+    "geo": null, 
+    "id": 593168016927428608, 
+    "id_str": "593168016927428608", 
+    "in_reply_to_screen_name": null, 
+    "in_reply_to_status_id": null, 
+    "in_reply_to_status_id_str": null, 
+    "in_reply_to_user_id": null, 
+    "in_reply_to_user_id_str": null, 
+    "lang": "en", 
+    "place": null, 
+    "possibly_sensitive": false, 
+    "retweet_count": 600, 
+    "retweeted": false, 
+    "retweeted_status": {
+        "contributors": null, 
+        "coordinates": null, 
+        "created_at": "Tue Apr 28 14:59:49 +0000 2015", 
+        "entities": {
+            "hashtags": [
+                {
+                    "indices": [
+                        94, 
+                        106
+                    ], 
+                    "text": "LoveMustWin"
+                }, 
+                {
+                    "indices": [
+                        107, 
+                        120
+                    ], 
+                    "text": "LoveCantWait"
+                }
+            ], 
+            "symbols": [], 
+            "urls": [
+                {
+                    "display_url": "youtube.com/watch?v=Ij4Mf2\u2026", 
+                    "expanded_url": "https://www.youtube.com/watch?v=Ij4Mf2eSyG4", 
+                    "indices": [
+                        70, 
+                        93
+                    ], 
+                    "url": "https://t.co/OFdXpdmWUi"
+                }
+            ], 
+            "user_mentions": []
+        }, 
+        "favorite_count": 1196, 
+        "favorited": false, 
+        "geo": null, 
+        "id": 593067097573449730, 
+        "id_str": "593067097573449730", 
+        "in_reply_to_screen_name": null, 
+        "in_reply_to_status_id": null, 
+        "in_reply_to_status_id_str": null, 
+        "in_reply_to_user_id": null, 
+        "in_reply_to_user_id_str": null, 
+        "lang": "en", 
+        "place": null, 
+        "possibly_sensitive": false, 
+        "retweet_count": 600, 
+        "retweeted": false, 
+        "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>", 
+        "text": "Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait", 
+        "truncated": false, 
+        "user": {
+            "contributors_enabled": false, 
+            "created_at": "Tue Apr 09 18:04:35 +0000 2013", 
+            "default_profile": false, 
+            "default_profile_image": false, 
+            "description": "Wife, mom, grandma, women+kids advocate, FLOTUS, Senator, SecState, hair icon, pantsuit aficionado, 2016 presidential candidate. Tweets from Hillary signed \u2013H", 
+            "entities": {
+                "description": {
+                    "urls": []
+                }, 
+                "url": {
+                    "urls": [
+                        {
+                            "display_url": "hillaryclinton.com", 
+                            "expanded_url": "http://www.hillaryclinton.com", 
+                            "indices": [
+                                0, 
+                                22
+                            ], 
+                            "url": "http://t.co/ESBw0Arq44"
+                        }
+                    ]
+                }
+            }, 
+            "favourites_count": 2, 
+            "follow_request_sent": false, 
+            "followers_count": 3442309, 
+            "following": false, 
+            "friends_count": 14, 
+            "geo_enabled": false, 
+            "id": 1339835893, 
+            "id_str": "1339835893", 
+            "is_translation_enabled": false, 
+            "is_translator": false, 
+            "lang": "en", 
+            "listed_count": 15809, 
+            "location": "New York", 
+            "name": "Hillary Clinton", 
+            "notifications": false, 
+            "profile_background_color": "0057B8", 
+            "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_tile": false, 
+            "profile_banner_url": "https://pbs.twimg.com/profile_banners/1339835893/1428866827", 
+            "profile_image_url": "http://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+            "profile_link_color": "0057B8", 
+            "profile_sidebar_border_color": "000000", 
+            "profile_sidebar_fill_color": "000000", 
+            "profile_text_color": "000000", 
+            "profile_use_background_image": false, 
+            "protected": false, 
+            "screen_name": "HillaryClinton", 
+            "statuses_count": 244, 
+            "time_zone": "Eastern Time (US & Canada)", 
+            "url": "http://t.co/ESBw0Arq44", 
+            "utc_offset": -14400, 
+            "verified": true
+        }
+    }, 
+    "source": "<a href=\"http://twitter.com/#!/download/ipad\" rel=\"nofollow\">Twitter for iPad</a>", 
+    "text": "RT @HillaryClinton: Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait", 
+    "truncated": false, 
+    "user": {
+        "contributors_enabled": false, 
+        "created_at": "Tue Apr 20 00:22:15 +0000 2010", 
+        "default_profile": true, 
+        "default_profile_image": false, 
+        "description": "Stroke survivor, Mother, Grandmother, liberal dem,blame Reagan for Econ. mess,am that nice lady @ church", 
+        "entities": {
+            "description": {
+                "urls": []
+            }
+        }, 
+        "favourites_count": 411, 
+        "follow_request_sent": false, 
+        "followers_count": 5058, 
+        "following": false, 
+        "friends_count": 4572, 
+        "geo_enabled": false, 
+        "id": 134971995, 
+        "id_str": "134971995", 
+        "is_translation_enabled": false, 
+        "is_translator": false, 
+        "lang": "en", 
+        "listed_count": 342, 
+        "location": "Colorado", 
+        "name": "Betty", 
+        "notifications": false, 
+        "profile_background_color": "C0DEED", 
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png", 
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png", 
+        "profile_background_tile": false, 
+        "profile_image_url": "http://pbs.twimg.com/profile_images/1309634395/ebc9001c-a294-4c56-a740-7c7f6e0b6887_normal.png", 
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1309634395/ebc9001c-a294-4c56-a740-7c7f6e0b6887_normal.png", 
+        "profile_link_color": "0084B4", 
+        "profile_sidebar_border_color": "C0DEED", 
+        "profile_sidebar_fill_color": "DDEEF6", 
+        "profile_text_color": "333333", 
+        "profile_use_background_image": true, 
+        "protected": false, 
+        "screen_name": "missb62", 
+        "statuses_count": 783359, 
+        "time_zone": "Mountain Time (US & Canada)", 
+        "url": null, 
+        "utc_offset": -21600, 
+        "verified": false
+    }
+}
