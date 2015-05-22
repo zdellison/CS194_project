@@ -8,5 +8,4 @@ urlpatterns = [
 
     url(r'^twitter_login/', include('twitter_login.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'', include('social_auth.urls')),
 ]
