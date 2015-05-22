@@ -5,4 +5,6 @@ from api.views import *
 
 urlpatterns = [
     url(r'init', init),
+    url(r'get_tweets_by_user_id', get_tweets_by_user_id),
+    url(r'get_users_retweet_by_original_user', get_users_retweet_by_original_user)
 ]
