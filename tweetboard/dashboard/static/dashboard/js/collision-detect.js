@@ -2,7 +2,7 @@
 
 var dataset;
 
-d3.json("sample_users.json", function(json){
+d3.json("/api/sample_users", function(error, json){
   dataset = json;
   var nodes = d3.range(dataset.users.length + 1).map(function() { return {radius: dataset.users[0].age}; }),
     root = nodes[0],
@@ -12,7 +12,7 @@ d3.json("sample_users.json", function(json){
 
 var width = $('#top_d3js_box').width();
 var height = $('#top_d3js_box').height();
-window.alert(width, height);
+
 
 
 root.radius = 0;

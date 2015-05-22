@@ -8,5 +8,6 @@ urlpatterns = [
 
     url(r'^login/', include('login.urls')),
     url(r'^dashboard/', include('dashboard.urls')),
+    url(r'^api/', include('api.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ]

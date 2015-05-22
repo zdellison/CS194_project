@@ -9,7 +9,7 @@
 
 }
 #left_header{
-	background: rgba(35,44,56,0.90);
+	background: rgba(36,44,57,0.90);
 	height: 165vh;
 	max-width: 400px; 
 	min-width: 250px;
@@ -63,8 +63,15 @@
 
 #profile_pic{
 	content: url(prof_pic.jpg);
-	width: 15vh;
-	height: 12vh;
+	width: 13vh;
+	height: 11vh;
+}
+
+#logo{
+	content: url(tweetboard_transp.png);
+	width: 35vh;
+	height: 5.5vh;
+	margin: 0 auto;
 }
 
 #arrow_down_pic{
