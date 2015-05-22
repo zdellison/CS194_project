@@ -1,0 +1,200 @@
+/*
+ * notes for msb
+ */
+/* pedro sanzovo: */
+.name_title{
+	font-family: 'Raleway-Light';
+font-size: 26px;
+color: #C6B04F;
+line-height: 37px;
+}
+.top_row{
+	height: 10px;
+}
+#top_space{
+	height: 40px;
+}
+#middle_space{
+	height: 20px;
+}
+#between_space{
+	height: 35px;
+}
+#final_space{
+	height:20px;
+}
+.separation{
+	height: 30px;
+}
+.separation_inside{
+	height: 58px;
+}
+.project_title{
+	/* snowchella: */
+	font-family: 'Raleway';
+	font-size: 20px;
+	color: #FFFFFF;
+	line-height: 29px;
+	padding-left: 10px;
+	padding-top: 30px;
+}
+.project_title_page{
+	/* quotely: */
+font-family: 'Raleway';
+font-size: 24px;
+color: #FFFFFF;
+line-height: 33px;
+}
+.step_title{
+	/*  needfinding 2: */
+font-family: 'Raleway';
+font-size: 20px;
+color: #FFFFFF;
+line-height: 30px;
+}
+.step_description{
+/* We tested multiple p 3: */
+font-family: 'Raleway-ExtraLight';
+font-size: 18px;
+color: #4A4A4A;
+line-height: 21px;
+}
+.project_desc{
+	/* poster and shirst : */
+font-family: 'Raleway-ExtraLight';
+font-size: 16px;
+color: #FFFFFF;
+line-height: 29px;
+padding-left: 10px;
+}
+.subtitles{
+	/* designer: */
+	font-family: 'Raleway-Light';
+	font-size: 20px;
+	color: #000000;
+	line-height: 29px;
+}
+.body_text{
+	/* hi! i’m a brazilian : */
+font-family: 'Raleway-ExtraLight';
+font-size: 14px;
+color: #4A4A4A;
+line-height: 25px;
+}
+#overlay_special_hotel{
+	position: absolute;
+	top: 0;
+	left: 15px;
+	width: 89%;
+	height: 48%;
+	opacity: 0;
+	background-color: #C6B04F;
+}
+#overlay_special_shirt{
+	position: absolute;
+	top: 195px;
+	left: 15px;
+	width: 89%;
+	height: 49%;
+	opacity: 0;
+	background-color: #C6B04F;
+}
+#overlay_special_audrey{
+	position: absolute;
+	top: 0;
+	left: 20px;
+	width: 89%;
+	height: 48%;
+	opacity: 0;
+	background-color: #C6B04F;
+}
+#overlay_special_art{
+	position: absolute;
+	top: 195px;
+	left: 20px;
+	width: 89%;
+	height: 49%;
+	opacity: 0;
+	background-color: #C6B04F;
+}
+
+.parent_images{
+	position: relative;
+	max-width: 1000px;
+}
+.overlay{
+	position: absolute;
+	top: 0;
+	left: 15px;
+	width: 88%;
+	height: 100%;
+
+	opacity: 0;
+	background-color: #C6B04F;
+}
+.overlay:hover, #overlay_special_hotel:hover, #overlay_special_shirt:hover, 
+#overlay_special_audrey:hover, #overlay_special_art:hover{
+	opacity: 0.8;
+}
+/*
+ * Navbar color customizations from http://smarchal.com/twbscolor/
+ * http://smarchal.com/twbscolor/?bd=7d0512&bh=943943&cd=ecf0f1&ch=ffbbbc
+ */
+.navbar-default {
+    /*background-image: linear-gradient(to bottom,#943943 0,#7d0512 100%);*/
+    background-image: none;
+    background-color: #7d0512;
+    /*border-color: #943943;*/
+}
+
+.container{
+  background-color: rgb(155,155,155);
+  margin-right: 0px;
+}
+
+.left_header {
+  background-color: white;
+  height: 222px;
+  width: 243px;
+  float: right;
+}
+#left_header_top_inside{
+  background-color: white;
+  height: 405px;
+  width: 243px;
+  float: right;
+}
+.left_header_mid_inside{
+  background-color: white;
+  height: 320px;
+  width: 243px;
+  float: right;
+}
+
+.left_header_large {
+  background-color: white;
+  height: 380px;
+  width: 243px;
+  float: right;
+}
+
+#first_row {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+#second_row {
+	padding-bottom: 20px;
+	padding-left: 10px;
+}
+
+#spacing {
+	height: 15px;
+}
+
+#snowchella, #hotel, #shirt {
+	padding-left: 15px;
+}
+#audrey, #art{
+	padding-left: 20px;
+}
+
