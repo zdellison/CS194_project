@@ -2,11 +2,7 @@
 
 var dataset;
 
-<<<<<<< HEAD
-d3.json("/api/sample_users", function(error, json){
-=======
-d3.json("/api/get_users_retweet_by_original_user?user_id=Hillary Clinton", function(error, json){
->>>>>>> master
+d3.json("sample_users.json", function(json){
   dataset = json;
   var nodes = d3.range(dataset.users.length + 1).map(function() { return {radius: dataset.users[0].age}; }),
     root = nodes[0],
@@ -16,7 +12,7 @@ d3.json("/api/get_users_retweet_by_original_user?user_id=Hillary Clinton", funct
 
 var width = $('#top_d3js_box').width();
 var height = $('#top_d3js_box').height();
-
+window.alert(width, height);
 
 
 root.radius = 0;

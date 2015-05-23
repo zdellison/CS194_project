@@ -1,0 +1,244 @@
+/*change margins */
+#container{
+	
+}
+
+#viewport{
+	height: 165vh;
+	background-image: url(squared_metal.png);
+
+}
+#left_header{
+	background: rgba(36,44,57,0.90);
+	height: 165vh;
+	max-width: 400px; 
+	min-width: 250px;
+}
+#top_header{
+	height: 20vh;
+	background: #FFFFFF;
+}
+.dashboard{
+	background-image: url(squared_metal.png);
+}
+#dashboard_body_top{
+	height: 55vh;
+	padding-left: 5vw;
+	padding-right: 5vw;
+}
+
+.d3js_box{
+	background: #FFFFFF;
+	border: 1px solid #979797;
+}
+.divisor{
+	height: 7vh;
+	background-image: url(squared_metal.png);
+}
+.wrapper_box{
+	width: 30%;
+	height: 37vh;
+	float: left;
+}
+#top_d3js_box{
+	height: 55vh;
+	
+}
+#top_bar_d3js_box{
+	height: 10vh;
+	margin-top: 2vh;
+}
+.body_d3js_box{
+	height: 30vh;
+	width: 21vw;
+	margin-left: 5vw;
+	margin-right: 0vw;
+	float: left;
+	
+}
+.nomargin{
+	padding: 0 !important;
+   margin: 0 !important;
+}
+
+#profile_pic{
+	content: url(prof_pic.jpg);
+	width: 13vh;
+	height: 11vh;
+}
+
+#logo{
+	content: url(tweetboard_transp.png);
+	width: 35vh;
+	height: 5.5vh;
+	margin: 0 auto;
+}
+
+#arrow_down_pic{
+	content: url(arrow_down.png);
+	float: right;
+	margin-right: 1vw;
+	margin-top: 0.25vh;
+	opacity: 0.4;
+}
+
+.top_divisor{
+	height: 4vh;
+}
+
+#profile_name{
+	/* Hillary Clinton: */
+	font-family: Raleway-ExtraLight;
+	font-size: 20px;
+	color: #C8C8C8;
+	line-height: 29px;
+}
+
+.profile_text{
+	/* @clinton2016: */
+	font-family: Raleway-Light;
+	font-size: 16px;
+	color: #9B9B9B;
+	line-height: 23px;
+}
+
+.side_button{
+	/* Rectangle 44: */
+  background: #D8D8D8;
+  border: 2px solid #4A4A4A;
+  border-radius: 3px;
+  height: 8vh;
+  vertical-align: middle;
+  margin-left: 1.5vw;
+  margin-right: 0.5vw;
+  display: block;
+  max-width: 400px; 
+	min-width: 250px;
+}
+
+.side_button_text{
+	/* DASHBOARD: */
+  margin-left: 1vw;
+  font-family: Raleway-Light;
+  font-size: 3vh;
+  color: #4A4A4A;
+  line-height: 29px;
+  display: inline-block;
+  text-align: left;
+  margin-top: 1.5vh;
+}
+
+
+.tweet_items{
+  /*background: transparent;*/
+  /* Line: */
+  border: 1px solid #C8C8C8;
+  height: 13.5vh;
+  max-width: 400px; 
+  min-width: 250px;
+  vertical-align: middle;
+   margin-left: 0.5vw;
+   margin-right: 0.5vw;
+  display: block;
+  text-align: left;
+}
+
+#search_item{
+	height: 6vh;	
+	
+  
+  vertical-align: middle;
+   margin-left: 0.5vw;
+   margin-right: 0.5vw;
+   margin-top: 1.5vh;
+   max-width: 400px; 
+  min-width: 250px;
+  display: block;
+  text-align: left;
+}
+
+#search_box{
+	/* Rectangle 28: */
+	background: #FFFFFF;
+	border: 1px solid #CCCCCC;
+	box-shadow: inset 0px 1px 0px 0px #ECECEC;
+	border-radius: 3px;
+	display: inline-block;
+	text-align: left;
+    height: 4vh;
+    margin-top: 0.8vh;
+   max-width: 400px; 
+  min-width: 250px;
+}
+
+#search_text{
+	/* Search...: */
+	opacity: 0.5;
+	font-size: 2.5vh;
+	color: #999999;
+	margin-left: 1vw;
+}
+
+.tweet_prof_name{
+	font-family: Raleway;
+	font-size: 16px;
+	color: #FFFFFF;
+	margin-left: 1vw;
+	margin-top: 0.5vw;
+	float: left;
+}
+.tweet_prof_twitter{
+	margin-top: 0.5vw;
+	font-family: Raleway-Thin;
+	font-size: 14px;
+	color: #FFFFFF;
+}
+.tweet{
+	font-family: Raleway-Thin;
+	font-size: 12px;
+	color: #9B9B9B;
+	float: left;
+	margin-left: 1vw;
+	margin-right: 1vw;
+}
+
+#page_title{
+	/* DASHBOARD: */
+	font-family: Raleway-Light;
+	font-size: 30px;
+	color: #4A4A4A;
+	line-height: 42px;
+	margin-top: 2vh;
+	margin-left: -30px;
+}
+#page_subtitle{
+	/* Placeholder for text: */
+	font-family: Raleway-Light;
+	font-size: 18px;
+	color: #9B9B9B;
+	line-height: 26px;
+	margin-left: -30px;
+}
+
+.top_bar{
+	/* Line: */
+	opacity: 0.3;
+	border: 1px solid #9B9B9B;
+	height: 4.5vh;
+}
+#profile_icon{
+	background-image: url(profile_icon.png);
+}
+#settings_icon{
+	background-image: url(settings_icon.png);
+}
+#logout_icon{
+	background-image: url(logout_icon.png);
+}
+
+#scrollable_items{
+	overflow-y: scroll;
+	max-height: 650px;
+}
+
+

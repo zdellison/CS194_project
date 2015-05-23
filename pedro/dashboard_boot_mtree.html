@@ -1,28 +1,26 @@
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-{% load staticfiles %}
-
+<!doctype html>
 <html>
     <head>
+        <meta charset="utf-8" />
+       
+        <link rel="stylesheet" type="text/css" href="css/dashboard_boot.css" />
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-theme.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/dashboard.css' %}" />
-		<link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/bootstrap.css' %}" />
-		<link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/bootstrap-theme.css' %}" />
-		<link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/mtree.css' %}" />
-		<link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/grey_box.css' %}" />
 
-		
-    <script src="{% static 'dashboard/js/dashboard.js' %}"></script>
-		<script src='http://cdnjs.cloudflare.com/ajax/libs/velocity/0.2.1/jquery.velocity.min.js'></script> 
-		
-		<script src="{% static 'dashboard/js/grey_box.js' %}"></script>
-		<script src="{% static 'dashboard/js/jquery.js' %}"></script>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="{% static 'dashboard/js/collision-detect.js' %}"></script>
-    <script src="{% static 'dashboard/js/accordion_menu.js' %}"></script>
+         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/jquery.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.js"></script>
+        <script src="js/grey_box.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+       
+      
+      
+      <link href="css/mtree.css" rel="stylesheet" type="text/css">
+      <link href="css/grey_box.css" rel="stylesheet" type="text/css">
 
-    
-
+  
     </head>
   
     <body>
@@ -41,23 +39,18 @@
           
             <div id="left_header">
 
-            <div class="row top_divisor"></div>
-            <div id="logo"> </div>  
-            <div class="row top_divisor"></div>
+              <div class="row top_divisor"></div>
               
               <div class="row" id="profile">
                 <div class="col-md-1"></div>
+                <div class="col-md-3">
+                  <div id="profile_pic"></div>
+                </div>
+                <div class="col-md-1"></div>
                 <div class="col-md-6">
                   <div id="profile_name"> Hillary Clinton </div>
-
                   <div class="profile_text"> @clinton2016 </div>
                   <div class="profile_text"> New York, NY </div>
-                </div>
-              
-                
-                
-                <div class="col-md-2">
-                 <div id="profile_pic"></div>
                 </div>
               </div>
 
@@ -212,7 +205,7 @@
             <div class="row divisor"></div>
             <div class="row dashboard" id="dashboard_body_top">
               <div class="d3js_box" id="top_d3js_box">
-              	
+                <script src="collision-detect.js"></script>
               </div>
             </div>
             <div class="row divisor"></div>
@@ -247,8 +240,12 @@
         </div>
       </div>
 
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+      <script src='http://cdnjs.cloudflare.com/ajax/libs/velocity/0.2.1/jquery.velocity.min.js'></script> 
+      <script src="js/mtree.js"></script> 
+      <script src="js/grey_box.js"></script>
 
      
-      <script src="{% static 'dashboard/js/mtree.js' %}"></script> 
+
     </body>
 </html>
