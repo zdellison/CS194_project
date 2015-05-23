@@ -1,0 +1,15 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/style.css' %}" />
+<script src="{% static 'dashboard/js/dashboard.js' %}"></script>
+
+<html>
+    <head>
+        <title>{{request.user.username}}'s Dashboard</title>
+    </head>
+    <body>
+        Welcome to the better dashboard, {{request.user.username}}.
+        <div id='example' onclick="externalFunction();">CLICK ME</div>
+    </body>
+</html>
