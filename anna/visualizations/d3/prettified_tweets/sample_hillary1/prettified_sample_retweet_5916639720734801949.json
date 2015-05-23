@@ -1,0 +1,206 @@
+{
+    "contributors": null, 
+    "coordinates": null, 
+    "created_at": "Sun Apr 26 23:59:46 +0000 2015", 
+    "entities": {
+        "hashtags": [], 
+        "symbols": [], 
+        "urls": [], 
+        "user_mentions": [
+            {
+                "id": 1339835893, 
+                "id_str": "1339835893", 
+                "indices": [
+                    3, 
+                    18
+                ], 
+                "name": "Hillary Clinton", 
+                "screen_name": "HillaryClinton"
+            }, 
+            {
+                "id": 44177383, 
+                "id_str": "44177383", 
+                "indices": [
+                    20, 
+                    34
+                ], 
+                "name": "Gabrielle Giffords", 
+                "screen_name": "GabbyGiffords"
+            }
+        ]
+    }, 
+    "favorite_count": 0, 
+    "favorited": false, 
+    "geo": null, 
+    "id": 592478204436172800, 
+    "id_str": "592478204436172800", 
+    "in_reply_to_screen_name": null, 
+    "in_reply_to_status_id": null, 
+    "in_reply_to_status_id_str": null, 
+    "in_reply_to_user_id": null, 
+    "in_reply_to_user_id_str": null, 
+    "lang": "en", 
+    "place": null, 
+    "retweet_count": 145, 
+    "retweeted": false, 
+    "retweeted_status": {
+        "contributors": null, 
+        "coordinates": null, 
+        "created_at": "Fri Apr 24 18:04:18 +0000 2015", 
+        "entities": {
+            "hashtags": [], 
+            "symbols": [], 
+            "urls": [], 
+            "user_mentions": [
+                {
+                    "id": 44177383, 
+                    "id_str": "44177383", 
+                    "indices": [
+                        0, 
+                        14
+                    ], 
+                    "name": "Gabrielle Giffords", 
+                    "screen_name": "GabbyGiffords"
+                }
+            ]
+        }, 
+        "favorite_count": 306, 
+        "favorited": false, 
+        "geo": null, 
+        "id": 591663972073480194, 
+        "id_str": "591663972073480194", 
+        "in_reply_to_screen_name": "GabbyGiffords", 
+        "in_reply_to_status_id": 591629690076430337, 
+        "in_reply_to_status_id_str": "591629690076430337", 
+        "in_reply_to_user_id": 44177383, 
+        "in_reply_to_user_id_str": "44177383", 
+        "lang": "en", 
+        "place": null, 
+        "retweet_count": 145, 
+        "retweeted": false, 
+        "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>", 
+        "text": "@GabbyGiffords, always inspiring to see you\u2014resilience, bravery, &amp; sheer determination personified. \u2013H", 
+        "truncated": false, 
+        "user": {
+            "contributors_enabled": false, 
+            "created_at": "Tue Apr 09 18:04:35 +0000 2013", 
+            "default_profile": false, 
+            "default_profile_image": false, 
+            "description": "Wife, mom, grandma, women+kids advocate, FLOTUS, Senator, SecState, hair icon, pantsuit aficionado, 2016 presidential candidate. Tweets from Hillary signed \u2013H", 
+            "entities": {
+                "description": {
+                    "urls": []
+                }, 
+                "url": {
+                    "urls": [
+                        {
+                            "display_url": "hillaryclinton.com", 
+                            "expanded_url": "http://www.hillaryclinton.com", 
+                            "indices": [
+                                0, 
+                                22
+                            ], 
+                            "url": "http://t.co/ESBw0Arq44"
+                        }
+                    ]
+                }
+            }, 
+            "favourites_count": 2, 
+            "follow_request_sent": false, 
+            "followers_count": 3442310, 
+            "following": false, 
+            "friends_count": 14, 
+            "geo_enabled": false, 
+            "id": 1339835893, 
+            "id_str": "1339835893", 
+            "is_translation_enabled": false, 
+            "is_translator": false, 
+            "lang": "en", 
+            "listed_count": 15809, 
+            "location": "New York", 
+            "name": "Hillary Clinton", 
+            "notifications": false, 
+            "profile_background_color": "0057B8", 
+            "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_tile": false, 
+            "profile_banner_url": "https://pbs.twimg.com/profile_banners/1339835893/1428866827", 
+            "profile_image_url": "http://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+            "profile_link_color": "0057B8", 
+            "profile_sidebar_border_color": "000000", 
+            "profile_sidebar_fill_color": "000000", 
+            "profile_text_color": "000000", 
+            "profile_use_background_image": false, 
+            "protected": false, 
+            "screen_name": "HillaryClinton", 
+            "statuses_count": 244, 
+            "time_zone": "Eastern Time (US & Canada)", 
+            "url": "http://t.co/ESBw0Arq44", 
+            "utc_offset": -14400, 
+            "verified": true
+        }
+    }, 
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>", 
+    "text": "RT @HillaryClinton: @GabbyGiffords, always inspiring to see you\u2014resilience, bravery, &amp; sheer determination personified. \u2013H", 
+    "truncated": false, 
+    "user": {
+        "contributors_enabled": false, 
+        "created_at": "Sat Sep 03 05:46:17 +0000 2011", 
+        "default_profile": false, 
+        "default_profile_image": false, 
+        "description": "Passionate to help Others. By Profession, I'm just a Business Person, and by Nature, I'm a Social Worker.", 
+        "entities": {
+            "description": {
+                "urls": []
+            }, 
+            "url": {
+                "urls": [
+                    {
+                        "display_url": "kashiftanweer.com", 
+                        "expanded_url": "http://www.kashiftanweer.com", 
+                        "indices": [
+                            0, 
+                            22
+                        ], 
+                        "url": "http://t.co/2hYNOpX31z"
+                    }
+                ]
+            }
+        }, 
+        "favourites_count": 573, 
+        "follow_request_sent": false, 
+        "followers_count": 62, 
+        "following": false, 
+        "friends_count": 303, 
+        "geo_enabled": false, 
+        "id": 366995047, 
+        "id_str": "366995047", 
+        "is_translation_enabled": false, 
+        "is_translator": false, 
+        "lang": "en", 
+        "listed_count": 7, 
+        "location": "", 
+        "name": "Kashif Tanweer", 
+        "notifications": false, 
+        "profile_background_color": "642D8B", 
+        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/378800000051193870/534f4ceac72f8bfaf37d2154411ac31a.jpeg", 
+        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/378800000051193870/534f4ceac72f8bfaf37d2154411ac31a.jpeg", 
+        "profile_background_tile": true, 
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/366995047/1353263204", 
+        "profile_image_url": "http://pbs.twimg.com/profile_images/550005314318110721/z6X9EAHT_normal.jpeg", 
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/550005314318110721/z6X9EAHT_normal.jpeg", 
+        "profile_link_color": "BF39D4", 
+        "profile_sidebar_border_color": "FFFFFF", 
+        "profile_sidebar_fill_color": "7AC3EE", 
+        "profile_text_color": "3D1957", 
+        "profile_use_background_image": true, 
+        "protected": false, 
+        "screen_name": "KashifTanweer", 
+        "statuses_count": 3019, 
+        "time_zone": "Karachi", 
+        "url": "http://t.co/2hYNOpX31z", 
+        "utc_offset": 18000, 
+        "verified": false
+    }
+}

@@ -1,0 +1,202 @@
+{
+    "contributors": null, 
+    "coordinates": null, 
+    "created_at": "Tue Apr 28 23:17:06 +0000 2015", 
+    "entities": {
+        "hashtags": [
+            {
+                "indices": [
+                    134, 
+                    146
+                ], 
+                "text": "LoveMustWin"
+            }, 
+            {
+                "indices": [
+                    147, 
+                    148
+                ], 
+                "text": "LoveCantWait"
+            }
+        ], 
+        "symbols": [], 
+        "urls": [], 
+        "user_mentions": [
+            {
+                "id": 1339835893, 
+                "id_str": "1339835893", 
+                "indices": [
+                    3, 
+                    18
+                ], 
+                "name": "Hillary Clinton", 
+                "screen_name": "HillaryClinton"
+            }
+        ]
+    }, 
+    "favorite_count": 0, 
+    "favorited": false, 
+    "geo": null, 
+    "id": 593192244603166720, 
+    "id_str": "593192244603166720", 
+    "in_reply_to_screen_name": null, 
+    "in_reply_to_status_id": null, 
+    "in_reply_to_status_id_str": null, 
+    "in_reply_to_user_id": null, 
+    "in_reply_to_user_id_str": null, 
+    "lang": "en", 
+    "place": null, 
+    "retweet_count": 11143, 
+    "retweeted": false, 
+    "retweeted_status": {
+        "contributors": null, 
+        "coordinates": null, 
+        "created_at": "Tue Apr 28 13:41:04 +0000 2015", 
+        "entities": {
+            "hashtags": [
+                {
+                    "indices": [
+                        114, 
+                        126
+                    ], 
+                    "text": "LoveMustWin"
+                }, 
+                {
+                    "indices": [
+                        127, 
+                        140
+                    ], 
+                    "text": "LoveCantWait"
+                }
+            ], 
+            "symbols": [], 
+            "urls": [], 
+            "user_mentions": []
+        }, 
+        "favorite_count": 11726, 
+        "favorited": false, 
+        "geo": null, 
+        "id": 593047280036511745, 
+        "id_str": "593047280036511745", 
+        "in_reply_to_screen_name": null, 
+        "in_reply_to_status_id": null, 
+        "in_reply_to_status_id_str": null, 
+        "in_reply_to_user_id": null, 
+        "in_reply_to_user_id_str": null, 
+        "lang": "en", 
+        "place": null, 
+        "retweet_count": 11143, 
+        "retweeted": false, 
+        "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>", 
+        "text": "Every loving couple &amp; family deserves to be recognized &amp; treated equally under the law across our nation. #LoveMustWin #LoveCantWait \u2013H", 
+        "truncated": false, 
+        "user": {
+            "contributors_enabled": false, 
+            "created_at": "Tue Apr 09 18:04:35 +0000 2013", 
+            "default_profile": false, 
+            "default_profile_image": false, 
+            "description": "Wife, mom, grandma, women+kids advocate, FLOTUS, Senator, SecState, hair icon, pantsuit aficionado, 2016 presidential candidate. Tweets from Hillary signed \u2013H", 
+            "entities": {
+                "description": {
+                    "urls": []
+                }, 
+                "url": {
+                    "urls": [
+                        {
+                            "display_url": "hillaryclinton.com", 
+                            "expanded_url": "http://www.hillaryclinton.com", 
+                            "indices": [
+                                0, 
+                                22
+                            ], 
+                            "url": "http://t.co/ESBw0Arq44"
+                        }
+                    ]
+                }
+            }, 
+            "favourites_count": 2, 
+            "follow_request_sent": false, 
+            "followers_count": 3442309, 
+            "following": false, 
+            "friends_count": 14, 
+            "geo_enabled": false, 
+            "id": 1339835893, 
+            "id_str": "1339835893", 
+            "is_translation_enabled": false, 
+            "is_translator": false, 
+            "lang": "en", 
+            "listed_count": 15809, 
+            "location": "New York", 
+            "name": "Hillary Clinton", 
+            "notifications": false, 
+            "profile_background_color": "0057B8", 
+            "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_tile": false, 
+            "profile_banner_url": "https://pbs.twimg.com/profile_banners/1339835893/1428866827", 
+            "profile_image_url": "http://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+            "profile_link_color": "0057B8", 
+            "profile_sidebar_border_color": "000000", 
+            "profile_sidebar_fill_color": "000000", 
+            "profile_text_color": "000000", 
+            "profile_use_background_image": false, 
+            "protected": false, 
+            "screen_name": "HillaryClinton", 
+            "statuses_count": 244, 
+            "time_zone": "Eastern Time (US & Canada)", 
+            "url": "http://t.co/ESBw0Arq44", 
+            "utc_offset": -14400, 
+            "verified": true
+        }
+    }, 
+    "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>", 
+    "text": "RT @HillaryClinton: Every loving couple &amp; family deserves to be recognized &amp; treated equally under the law across our nation. #LoveMustWin \u2026", 
+    "truncated": false, 
+    "user": {
+        "contributors_enabled": false, 
+        "created_at": "Mon Jan 17 05:55:18 +0000 2011", 
+        "default_profile": false, 
+        "default_profile_image": false, 
+        "description": "@livy_phillips is mine all mine \u2022 ship '18", 
+        "entities": {
+            "description": {
+                "urls": []
+            }
+        }, 
+        "favourites_count": 13790, 
+        "follow_request_sent": false, 
+        "followers_count": 1976, 
+        "following": false, 
+        "friends_count": 368, 
+        "geo_enabled": false, 
+        "id": 239260297, 
+        "id_str": "239260297", 
+        "is_translation_enabled": false, 
+        "is_translator": false, 
+        "lang": "en", 
+        "listed_count": 2, 
+        "location": "", 
+        "name": "chels", 
+        "notifications": false, 
+        "profile_background_color": "1A1B1F", 
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme9/bg.gif", 
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme9/bg.gif", 
+        "profile_background_tile": false, 
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/239260297/1426221173", 
+        "profile_image_url": "http://pbs.twimg.com/profile_images/587138547615842307/O2YvFrjX_normal.jpg", 
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/587138547615842307/O2YvFrjX_normal.jpg", 
+        "profile_link_color": "2FC2EF", 
+        "profile_sidebar_border_color": "181A1E", 
+        "profile_sidebar_fill_color": "252429", 
+        "profile_text_color": "666666", 
+        "profile_use_background_image": true, 
+        "protected": false, 
+        "screen_name": "skulllikecage", 
+        "statuses_count": 8636, 
+        "time_zone": "Eastern Time (US & Canada)", 
+        "url": null, 
+        "utc_offset": -14400, 
+        "verified": false
+    }
+}

@@ -1,0 +1,207 @@
+{
+    "contributors": null, 
+    "coordinates": null, 
+    "created_at": "Sun Apr 26 22:14:24 +0000 2015", 
+    "entities": {
+        "hashtags": [], 
+        "symbols": [], 
+        "urls": [
+            {
+                "display_url": "hrc.io/1KaQEHy", 
+                "expanded_url": "http://hrc.io/1KaQEHy", 
+                "indices": [
+                    117, 
+                    139
+                ], 
+                "url": "http://t.co/1PcrROd7Tr"
+            }
+        ], 
+        "user_mentions": [
+            {
+                "id": 1339835893, 
+                "id_str": "1339835893", 
+                "indices": [
+                    3, 
+                    18
+                ], 
+                "name": "Hillary Clinton", 
+                "screen_name": "HillaryClinton"
+            }
+        ]
+    }, 
+    "favorite_count": 0, 
+    "favorited": false, 
+    "geo": null, 
+    "id": 592451689510141952, 
+    "id_str": "592451689510141952", 
+    "in_reply_to_screen_name": null, 
+    "in_reply_to_status_id": null, 
+    "in_reply_to_status_id_str": null, 
+    "in_reply_to_user_id": null, 
+    "in_reply_to_user_id_str": null, 
+    "lang": "en", 
+    "place": null, 
+    "possibly_sensitive": false, 
+    "retweet_count": 701, 
+    "retweeted": false, 
+    "retweeted_status": {
+        "contributors": null, 
+        "coordinates": null, 
+        "created_at": "Fri Apr 24 01:25:36 +0000 2015", 
+        "entities": {
+            "hashtags": [], 
+            "symbols": [], 
+            "urls": [
+                {
+                    "display_url": "hrc.io/1KaQEHy", 
+                    "expanded_url": "http://hrc.io/1KaQEHy", 
+                    "indices": [
+                        97, 
+                        119
+                    ], 
+                    "url": "http://t.co/1PcrROd7Tr"
+                }
+            ], 
+            "user_mentions": []
+        }, 
+        "favorite_count": 740, 
+        "favorited": false, 
+        "geo": null, 
+        "id": 591412642193022976, 
+        "id_str": "591412642193022976", 
+        "in_reply_to_screen_name": null, 
+        "in_reply_to_status_id": null, 
+        "in_reply_to_status_id_str": null, 
+        "in_reply_to_user_id": null, 
+        "in_reply_to_user_id_str": null, 
+        "lang": "en", 
+        "place": null, 
+        "possibly_sensitive": false, 
+        "retweet_count": 701, 
+        "retweeted": false, 
+        "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>", 
+        "text": "We're looking for engineers to help create the next big thing in digital campaigning. Apply now: http://t.co/1PcrROd7Tr", 
+        "truncated": false, 
+        "user": {
+            "contributors_enabled": false, 
+            "created_at": "Tue Apr 09 18:04:35 +0000 2013", 
+            "default_profile": false, 
+            "default_profile_image": false, 
+            "description": "Wife, mom, grandma, women+kids advocate, FLOTUS, Senator, SecState, hair icon, pantsuit aficionado, 2016 presidential candidate. Tweets from Hillary signed \u2013H", 
+            "entities": {
+                "description": {
+                    "urls": []
+                }, 
+                "url": {
+                    "urls": [
+                        {
+                            "display_url": "hillaryclinton.com", 
+                            "expanded_url": "http://www.hillaryclinton.com", 
+                            "indices": [
+                                0, 
+                                22
+                            ], 
+                            "url": "http://t.co/ESBw0Arq44"
+                        }
+                    ]
+                }
+            }, 
+            "favourites_count": 2, 
+            "follow_request_sent": false, 
+            "followers_count": 3442311, 
+            "following": false, 
+            "friends_count": 14, 
+            "geo_enabled": false, 
+            "id": 1339835893, 
+            "id_str": "1339835893", 
+            "is_translation_enabled": false, 
+            "is_translator": false, 
+            "lang": "en", 
+            "listed_count": 15809, 
+            "location": "New York", 
+            "name": "Hillary Clinton", 
+            "notifications": false, 
+            "profile_background_color": "0057B8", 
+            "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_tile": false, 
+            "profile_banner_url": "https://pbs.twimg.com/profile_banners/1339835893/1428866827", 
+            "profile_image_url": "http://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+            "profile_link_color": "0057B8", 
+            "profile_sidebar_border_color": "000000", 
+            "profile_sidebar_fill_color": "000000", 
+            "profile_text_color": "000000", 
+            "profile_use_background_image": false, 
+            "protected": false, 
+            "screen_name": "HillaryClinton", 
+            "statuses_count": 244, 
+            "time_zone": "Eastern Time (US & Canada)", 
+            "url": "http://t.co/ESBw0Arq44", 
+            "utc_offset": -14400, 
+            "verified": true
+        }
+    }, 
+    "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>", 
+    "text": "RT @HillaryClinton: We're looking for engineers to help create the next big thing in digital campaigning. Apply now: http://t.co/1PcrROd7Tr", 
+    "truncated": false, 
+    "user": {
+        "contributors_enabled": false, 
+        "created_at": "Wed May 09 22:46:00 +0000 2012", 
+        "default_profile": false, 
+        "default_profile_image": false, 
+        "description": "Communications Coordinator at the Academy of Interactive Entertainment (@AIE_USA). @kwucoyotes and @ULRaginCajuns alum. Political activist. Huge @Saints fan.", 
+        "entities": {
+            "description": {
+                "urls": []
+            }, 
+            "url": {
+                "urls": [
+                    {
+                        "display_url": "depamgtgrp.us", 
+                        "expanded_url": "http://www.depamgtgrp.us", 
+                        "indices": [
+                            0, 
+                            22
+                        ], 
+                        "url": "http://t.co/MnpM9VYDjP"
+                    }
+                ]
+            }
+        }, 
+        "favourites_count": 19135, 
+        "follow_request_sent": false, 
+        "followers_count": 6429, 
+        "following": false, 
+        "friends_count": 4926, 
+        "geo_enabled": true, 
+        "id": 575815317, 
+        "id_str": "575815317", 
+        "is_translation_enabled": false, 
+        "is_translator": false, 
+        "lang": "en", 
+        "listed_count": 101, 
+        "location": "Lafayette, LA", 
+        "name": "Tony Depa", 
+        "notifications": false, 
+        "profile_background_color": "022330", 
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme15/bg.png", 
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme15/bg.png", 
+        "profile_background_tile": false, 
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/575815317/1423694231", 
+        "profile_image_url": "http://pbs.twimg.com/profile_images/593129936002686977/v9G0Nxi2_normal.jpg", 
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/593129936002686977/v9G0Nxi2_normal.jpg", 
+        "profile_link_color": "0084B4", 
+        "profile_sidebar_border_color": "A8C7F7", 
+        "profile_sidebar_fill_color": "C0DFEC", 
+        "profile_text_color": "333333", 
+        "profile_use_background_image": true, 
+        "protected": false, 
+        "screen_name": "DepaTony", 
+        "statuses_count": 6398, 
+        "time_zone": "Central Time (US & Canada)", 
+        "url": "http://t.co/MnpM9VYDjP", 
+        "utc_offset": -18000, 
+        "verified": false
+    }
+}
