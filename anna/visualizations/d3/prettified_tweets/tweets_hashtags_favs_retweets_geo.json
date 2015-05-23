@@ -1,0 +1,936 @@
+{
+    "tweets": [
+        {
+            "coordinates": [
+                -118.0491, 
+                43.9566
+            ], 
+            "favorite_count": 0, 
+            "gender": 0, 
+            "hashtags": [
+                "LoveMustWin"
+            ], 
+            "retweet_count": 95, 
+            "tweet_text": "RT @HillaryforIA: Read Cindy's #LoveMustWin story: http://t.co/fpkCNnoa7g http://t.co/G42Cw1EbI4"
+        }, 
+        {
+            "coordinates": [
+                -123.6733, 
+                33.7325
+            ], 
+            "favorite_count": 1548, 
+            "gender": 0, 
+            "hashtags": [
+                "LoveCantWait", 
+                "LoveMustWin"
+            ], 
+            "retweet_count": 1594, 
+            "tweet_text": "RT if you're standing with Jared, Nate, and Hillary for equal rights. #LoveCantWait #LoveMustWin http://t.co/9XcxKrpdGK"
+        }, 
+        {
+            "coordinates": [
+                -64.4858, 
+                35.4462
+            ], 
+            "favorite_count": 672, 
+            "gender": 1, 
+            "hashtags": [
+                "Hillary2016"
+            ], 
+            "retweet_count": 308, 
+            "tweet_text": "\u2764\ufe0f numbers? The #Hillary2016 analytics team is looking for nerds with a passion for data\u2014apply now to join the team! http://t.co/VxYIksVxMJ"
+        }, 
+        {
+            "coordinates": [
+                -101.8707, 
+                45.2075
+            ], 
+            "favorite_count": 1194, 
+            "gender": 1, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 593, 
+            "tweet_text": "Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait"
+        }, 
+        {
+            "coordinates": [
+                -106.9352, 
+                44.551
+            ], 
+            "favorite_count": 11622, 
+            "gender": 2, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 11028, 
+            "tweet_text": "Every loving couple &amp; family deserves to be recognized &amp; treated equally under the law across our nation. #LoveMustWin #LoveCantWait \u2013H"
+        }, 
+        {
+            "coordinates": [
+                -77.7995, 
+                26.6087
+            ], 
+            "favorite_count": 0, 
+            "gender": 0, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 11028, 
+            "tweet_text": "RT @HillaryClinton: Every loving couple &amp; family deserves to be recognized &amp; treated equally under the law across our nation. #LoveMustWin \u2026"
+        }, 
+        {
+            "coordinates": [
+                -79.5256, 
+                33.8279
+            ], 
+            "favorite_count": 0, 
+            "gender": 0, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 11028, 
+            "tweet_text": "RT @HillaryClinton: Every loving couple &amp; family deserves to be recognized &amp; treated equally under the law across our nation. #LoveMustWin \u2026"
+        }, 
+        {
+            "coordinates": [
+                -92.4647, 
+                46.6227
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 11028, 
+            "tweet_text": "RT @HillaryClinton: Every loving couple &amp; family deserves to be recognized &amp; treated equally under the law across our nation. #LoveMustWin \u2026"
+        }, 
+        {
+            "coordinates": [
+                -80.6955, 
+                48.5596
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 11028, 
+            "tweet_text": "RT @HillaryClinton: Every loving couple &amp; family deserves to be recognized &amp; treated equally under the law across our nation. #LoveMustWin \u2026"
+        }, 
+        {
+            "coordinates": [
+                -75.6062, 
+                41.1342
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 11028, 
+            "tweet_text": "RT @HillaryClinton: Every loving couple &amp; family deserves to be recognized &amp; treated equally under the law across our nation. #LoveMustWin \u2026"
+        }, 
+        {
+            "coordinates": [
+                -75.7978, 
+                26.9403
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 11028, 
+            "tweet_text": "RT @HillaryClinton: Every loving couple &amp; family deserves to be recognized &amp; treated equally under the law across our nation. #LoveMustWin \u2026"
+        }, 
+        {
+            "coordinates": [
+                -101.8986, 
+                48.3352
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 11028, 
+            "tweet_text": "RT @HillaryClinton: Every loving couple &amp; family deserves to be recognized &amp; treated equally under the law across our nation. #LoveMustWin \u2026"
+        }, 
+        {
+            "coordinates": [
+                -106.2918, 
+                21.4966
+            ], 
+            "favorite_count": 0, 
+            "gender": 0, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 11028, 
+            "tweet_text": "RT @HillaryClinton: Every loving couple &amp; family deserves to be recognized &amp; treated equally under the law across our nation. #LoveMustWin \u2026"
+        }, 
+        {
+            "coordinates": [
+                -116.4637, 
+                25.6944
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 11028, 
+            "tweet_text": "RT @HillaryClinton: Every loving couple &amp; family deserves to be recognized &amp; treated equally under the law across our nation. #LoveMustWin \u2026"
+        }, 
+        {
+            "coordinates": [
+                -107.889, 
+                40.2024
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 11028, 
+            "tweet_text": "RT @HillaryClinton: Every loving couple &amp; family deserves to be recognized &amp; treated equally under the law across our nation. #LoveMustWin \u2026"
+        }, 
+        {
+            "coordinates": [
+                -74.0963, 
+                21.5872
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 11028, 
+            "tweet_text": "RT @HillaryClinton: Every loving couple &amp; family deserves to be recognized &amp; treated equally under the law across our nation. #LoveMustWin \u2026"
+        }, 
+        {
+            "coordinates": [
+                -93.7305, 
+                23.178
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 11028, 
+            "tweet_text": "RT @HillaryClinton: Every loving couple &amp; family deserves to be recognized &amp; treated equally under the law across our nation. #LoveMustWin \u2026"
+        }, 
+        {
+            "coordinates": [
+                -80.2459, 
+                35.938
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 11028, 
+            "tweet_text": "RT @HillaryClinton: Every loving couple &amp; family deserves to be recognized &amp; treated equally under the law across our nation. #LoveMustWin \u2026"
+        }, 
+        {
+            "coordinates": [
+                -77.2146, 
+                21.2676
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 11028, 
+            "tweet_text": "RT @HillaryClinton: Every loving couple &amp; family deserves to be recognized &amp; treated equally under the law across our nation. #LoveMustWin \u2026"
+        }, 
+        {
+            "coordinates": [
+                -89.5193, 
+                34.3917
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 593, 
+            "tweet_text": "RT @HillaryClinton: Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait"
+        }, 
+        {
+            "coordinates": [
+                -123.0792, 
+                37.8323
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 593, 
+            "tweet_text": "RT @HillaryClinton: Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait"
+        }, 
+        {
+            "coordinates": [
+                -111.335, 
+                25.1807
+            ], 
+            "favorite_count": 0, 
+            "gender": 0, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 593, 
+            "tweet_text": "RT @HillaryClinton: Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait"
+        }, 
+        {
+            "coordinates": [
+                -87.2369, 
+                44.7604
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 593, 
+            "tweet_text": "RT @HillaryClinton: Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait"
+        }, 
+        {
+            "coordinates": [
+                -89.1344, 
+                29.7198
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 593, 
+            "tweet_text": "RT @HillaryClinton: Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait"
+        }, 
+        {
+            "coordinates": [
+                -77.84, 
+                42.0709
+            ], 
+            "favorite_count": 0, 
+            "gender": 0, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 593, 
+            "tweet_text": "RT @HillaryClinton: Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait"
+        }, 
+        {
+            "coordinates": [
+                -115.649, 
+                40.1753
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 593, 
+            "tweet_text": "RT @HillaryClinton: Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait"
+        }, 
+        {
+            "coordinates": [
+                -103.5288, 
+                41.1516
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 593, 
+            "tweet_text": "RT @HillaryClinton: Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait"
+        }, 
+        {
+            "coordinates": [
+                -62.5493, 
+                21.7985
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 593, 
+            "tweet_text": "RT @HillaryClinton: Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait"
+        }, 
+        {
+            "coordinates": [
+                -120.1359, 
+                34.2815
+            ], 
+            "favorite_count": 0, 
+            "gender": 0, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 593, 
+            "tweet_text": "RT @HillaryClinton: Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait"
+        }, 
+        {
+            "coordinates": [
+                -92.893, 
+                22.8736
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 593, 
+            "tweet_text": "RT @HillaryClinton: Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait"
+        }, 
+        {
+            "coordinates": [
+                -82.9644, 
+                26.1423
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 593, 
+            "tweet_text": "RT @HillaryClinton: Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait"
+        }, 
+        {
+            "coordinates": [
+                -88.5769, 
+                47.6318
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 593, 
+            "tweet_text": "RT @HillaryClinton: Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait"
+        }, 
+        {
+            "coordinates": [
+                -95.3313, 
+                22.2908
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 593, 
+            "tweet_text": "RT @HillaryClinton: Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait"
+        }, 
+        {
+            "coordinates": [
+                -95.8014, 
+                28.3487
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 593, 
+            "tweet_text": "RT @HillaryClinton: Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait"
+        }, 
+        {
+            "coordinates": [
+                -94.9829, 
+                47.3424
+            ], 
+            "favorite_count": 0, 
+            "gender": 0, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 593, 
+            "tweet_text": "RT @HillaryClinton: Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait"
+        }, 
+        {
+            "coordinates": [
+                -95.1276, 
+                31.2121
+            ], 
+            "favorite_count": 0, 
+            "gender": 0, 
+            "hashtags": [
+                "LoveMustWin", 
+                "LoveCantWait"
+            ], 
+            "retweet_count": 593, 
+            "tweet_text": "RT @HillaryClinton: Hillary &amp; a grandpa from Iowa talk marriage equality over coffee: https://t.co/OFdXpdmWUi #LoveMustWin #LoveCantWait"
+        }, 
+        {
+            "coordinates": [
+                -119.3125, 
+                40.6926
+            ], 
+            "favorite_count": 0, 
+            "gender": 0, 
+            "hashtags": [
+                "Hillary2016"
+            ], 
+            "retweet_count": 308, 
+            "tweet_text": "RT @HillaryClinton: \u2764\ufe0f numbers? The #Hillary2016 analytics team is looking for nerds with a passion for data\u2014apply now to join the team! ht\u2026"
+        }, 
+        {
+            "coordinates": [
+                -70.3764, 
+                47.6769
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "Hillary2016"
+            ], 
+            "retweet_count": 308, 
+            "tweet_text": "RT @HillaryClinton: \u2764\ufe0f numbers? The #Hillary2016 analytics team is looking for nerds with a passion for data\u2014apply now to join the team! ht\u2026"
+        }, 
+        {
+            "coordinates": [
+                -73.8948, 
+                42.3954
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "Hillary2016"
+            ], 
+            "retweet_count": 308, 
+            "tweet_text": "RT @HillaryClinton: \u2764\ufe0f numbers? The #Hillary2016 analytics team is looking for nerds with a passion for data\u2014apply now to join the team! ht\u2026"
+        }, 
+        {
+            "coordinates": [
+                -91.0488, 
+                26.4117
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "Hillary2016"
+            ], 
+            "retweet_count": 308, 
+            "tweet_text": "RT @HillaryClinton: \u2764\ufe0f numbers? The #Hillary2016 analytics team is looking for nerds with a passion for data\u2014apply now to join the team! ht\u2026"
+        }, 
+        {
+            "coordinates": [
+                -93.1862, 
+                30.0404
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "Hillary2016"
+            ], 
+            "retweet_count": 308, 
+            "tweet_text": "RT @HillaryClinton: \u2764\ufe0f numbers? The #Hillary2016 analytics team is looking for nerds with a passion for data\u2014apply now to join the team! ht\u2026"
+        }, 
+        {
+            "coordinates": [
+                -94.3931, 
+                26.6662
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "Hillary2016"
+            ], 
+            "retweet_count": 308, 
+            "tweet_text": "RT @HillaryClinton: \u2764\ufe0f numbers? The #Hillary2016 analytics team is looking for nerds with a passion for data\u2014apply now to join the team! ht\u2026"
+        }, 
+        {
+            "coordinates": [
+                -83.3212, 
+                25.9238
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "Hillary2016"
+            ], 
+            "retweet_count": 308, 
+            "tweet_text": "RT @HillaryClinton: \u2764\ufe0f numbers? The #Hillary2016 analytics team is looking for nerds with a passion for data\u2014apply now to join the team! ht\u2026"
+        }, 
+        {
+            "coordinates": [
+                -109.2231, 
+                34.7352
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "Hillary2016"
+            ], 
+            "retweet_count": 308, 
+            "tweet_text": "RT @HillaryClinton: \u2764\ufe0f numbers? The #Hillary2016 analytics team is looking for nerds with a passion for data\u2014apply now to join the team! ht\u2026"
+        }, 
+        {
+            "coordinates": [
+                -112.1782, 
+                43.2226
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "Hillary2016"
+            ], 
+            "retweet_count": 308, 
+            "tweet_text": "RT @HillaryClinton: \u2764\ufe0f numbers? The #Hillary2016 analytics team is looking for nerds with a passion for data\u2014apply now to join the team! ht\u2026"
+        }, 
+        {
+            "coordinates": [
+                -93.092, 
+                36.1841
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "Hillary2016"
+            ], 
+            "retweet_count": 308, 
+            "tweet_text": "RT @HillaryClinton: \u2764\ufe0f numbers? The #Hillary2016 analytics team is looking for nerds with a passion for data\u2014apply now to join the team! ht\u2026"
+        }, 
+        {
+            "coordinates": [
+                -78.3124, 
+                37.438
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "Hillary2016"
+            ], 
+            "retweet_count": 308, 
+            "tweet_text": "RT @HillaryClinton: \u2764\ufe0f numbers? The #Hillary2016 analytics team is looking for nerds with a passion for data\u2014apply now to join the team! ht\u2026"
+        }, 
+        {
+            "coordinates": [
+                -65.8208, 
+                32.0253
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "Hillary2016"
+            ], 
+            "retweet_count": 308, 
+            "tweet_text": "RT @HillaryClinton: \u2764\ufe0f numbers? The #Hillary2016 analytics team is looking for nerds with a passion for data\u2014apply now to join the team! ht\u2026"
+        }, 
+        {
+            "coordinates": [
+                -90.2927, 
+                27.8104
+            ], 
+            "favorite_count": 0, 
+            "gender": 0, 
+            "hashtags": [
+                "Hillary2016"
+            ], 
+            "retweet_count": 308, 
+            "tweet_text": "RT @HillaryClinton: \u2764\ufe0f numbers? The #Hillary2016 analytics team is looking for nerds with a passion for data\u2014apply now to join the team! ht\u2026"
+        }, 
+        {
+            "coordinates": [
+                -71.7767, 
+                34.2678
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "Hillary2016"
+            ], 
+            "retweet_count": 308, 
+            "tweet_text": "RT @HillaryClinton: \u2764\ufe0f numbers? The #Hillary2016 analytics team is looking for nerds with a passion for data\u2014apply now to join the team! ht\u2026"
+        }, 
+        {
+            "coordinates": [
+                -82.8469, 
+                37.2155
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "Hillary2016"
+            ], 
+            "retweet_count": 308, 
+            "tweet_text": "RT @HillaryClinton: \u2764\ufe0f numbers? The #Hillary2016 analytics team is looking for nerds with a passion for data\u2014apply now to join the team! ht\u2026"
+        }, 
+        {
+            "coordinates": [
+                -63.9613, 
+                46.6656
+            ], 
+            "favorite_count": 0, 
+            "gender": 0, 
+            "hashtags": [
+                "Hillary2016"
+            ], 
+            "retweet_count": 308, 
+            "tweet_text": "RT @HillaryClinton: \u2764\ufe0f numbers? The #Hillary2016 analytics team is looking for nerds with a passion for data\u2014apply now to join the team! ht\u2026"
+        }, 
+        {
+            "coordinates": [
+                -105.3243, 
+                41.3088
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "Hillary2016"
+            ], 
+            "retweet_count": 308, 
+            "tweet_text": "RT @HillaryClinton: \u2764\ufe0f numbers? The #Hillary2016 analytics team is looking for nerds with a passion for data\u2014apply now to join the team! ht\u2026"
+        }, 
+        {
+            "coordinates": [
+                -113.9315, 
+                31.5287
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "Hillary2016"
+            ], 
+            "retweet_count": 308, 
+            "tweet_text": "RT @HillaryClinton: \u2764\ufe0f numbers? The #Hillary2016 analytics team is looking for nerds with a passion for data\u2014apply now to join the team! ht\u2026"
+        }, 
+        {
+            "coordinates": [
+                -101.7792, 
+                32.5645
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "LoveCantWait", 
+                "LoveMustWin"
+            ], 
+            "retweet_count": 1594, 
+            "tweet_text": "RT @HillaryClinton: RT if you're standing with Jared, Nate, and Hillary for equal rights. #LoveCantWait #LoveMustWin http://t.co/9XcxKrpdGK"
+        }, 
+        {
+            "coordinates": [
+                -102.4164, 
+                37.2989
+            ], 
+            "favorite_count": 0, 
+            "gender": 0, 
+            "hashtags": [
+                "LoveCantWait", 
+                "LoveMustWin"
+            ], 
+            "retweet_count": 1594, 
+            "tweet_text": "RT @HillaryClinton: RT if you're standing with Jared, Nate, and Hillary for equal rights. #LoveCantWait #LoveMustWin http://t.co/9XcxKrpdGK"
+        }, 
+        {
+            "coordinates": [
+                -82.1715, 
+                36.9432
+            ], 
+            "favorite_count": 0, 
+            "gender": 0, 
+            "hashtags": [
+                "LoveCantWait", 
+                "LoveMustWin"
+            ], 
+            "retweet_count": 1594, 
+            "tweet_text": "RT @HillaryClinton: RT if you're standing with Jared, Nate, and Hillary for equal rights. #LoveCantWait #LoveMustWin http://t.co/9XcxKrpdGK"
+        }, 
+        {
+            "coordinates": [
+                -74.4143, 
+                20.1052
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "LoveCantWait", 
+                "LoveMustWin"
+            ], 
+            "retweet_count": 1594, 
+            "tweet_text": "RT @HillaryClinton: RT if you're standing with Jared, Nate, and Hillary for equal rights. #LoveCantWait #LoveMustWin http://t.co/9XcxKrpdGK"
+        }, 
+        {
+            "coordinates": [
+                -122.4336, 
+                20.7894
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "LoveCantWait", 
+                "LoveMustWin"
+            ], 
+            "retweet_count": 1594, 
+            "tweet_text": "RT @HillaryClinton: RT if you're standing with Jared, Nate, and Hillary for equal rights. #LoveCantWait #LoveMustWin http://t.co/9XcxKrpdGK"
+        }, 
+        {
+            "coordinates": [
+                -116.4817, 
+                35.2557
+            ], 
+            "favorite_count": 0, 
+            "gender": 0, 
+            "hashtags": [
+                "LoveCantWait", 
+                "LoveMustWin"
+            ], 
+            "retweet_count": 1594, 
+            "tweet_text": "RT @HillaryClinton: RT if you're standing with Jared, Nate, and Hillary for equal rights. #LoveCantWait #LoveMustWin http://t.co/9XcxKrpdGK"
+        }, 
+        {
+            "coordinates": [
+                -90.9341, 
+                32.1171
+            ], 
+            "favorite_count": 0, 
+            "gender": 1, 
+            "hashtags": [
+                "LoveCantWait", 
+                "LoveMustWin"
+            ], 
+            "retweet_count": 1594, 
+            "tweet_text": "RT @HillaryClinton: RT if you're standing with Jared, Nate, and Hillary for equal rights. #LoveCantWait #LoveMustWin http://t.co/9XcxKrpdGK"
+        }, 
+        {
+            "coordinates": [
+                -74.8115, 
+                43.188
+            ], 
+            "favorite_count": 0, 
+            "gender": 0, 
+            "hashtags": [
+                "LoveCantWait", 
+                "LoveMustWin"
+            ], 
+            "retweet_count": 1594, 
+            "tweet_text": "RT @HillaryClinton: RT if you're standing with Jared, Nate, and Hillary for equal rights. #LoveCantWait #LoveMustWin http://t.co/9XcxKrpdGK"
+        }, 
+        {
+            "coordinates": [
+                -94.3318, 
+                22.5313
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "LoveCantWait", 
+                "LoveMustWin"
+            ], 
+            "retweet_count": 1594, 
+            "tweet_text": "RT @HillaryClinton: RT if you're standing with Jared, Nate, and Hillary for equal rights. #LoveCantWait #LoveMustWin http://t.co/9XcxKrpdGK"
+        }, 
+        {
+            "coordinates": [
+                -115.156, 
+                46.9218
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "LoveCantWait", 
+                "LoveMustWin"
+            ], 
+            "retweet_count": 1594, 
+            "tweet_text": "RT @HillaryClinton: RT if you're standing with Jared, Nate, and Hillary for equal rights. #LoveCantWait #LoveMustWin http://t.co/9XcxKrpdGK"
+        }, 
+        {
+            "coordinates": [
+                -93.9192, 
+                20.7493
+            ], 
+            "favorite_count": 0, 
+            "gender": 0, 
+            "hashtags": [
+                "LoveCantWait", 
+                "LoveMustWin"
+            ], 
+            "retweet_count": 1594, 
+            "tweet_text": "RT @HillaryClinton: RT if you're standing with Jared, Nate, and Hillary for equal rights. #LoveCantWait #LoveMustWin http://t.co/9XcxKrpdGK"
+        }, 
+        {
+            "coordinates": [
+                -124.2688, 
+                32.0665
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "LoveCantWait", 
+                "LoveMustWin"
+            ], 
+            "retweet_count": 1594, 
+            "tweet_text": "RT @HillaryClinton: RT if you're standing with Jared, Nate, and Hillary for equal rights. #LoveCantWait #LoveMustWin http://t.co/9XcxKrpdGK"
+        }, 
+        {
+            "coordinates": [
+                -100.304, 
+                40.1093
+            ], 
+            "favorite_count": 0, 
+            "gender": 0, 
+            "hashtags": [
+                "LoveCantWait", 
+                "LoveMustWin"
+            ], 
+            "retweet_count": 1594, 
+            "tweet_text": "RT @HillaryClinton: RT if you're standing with Jared, Nate, and Hillary for equal rights. #LoveCantWait #LoveMustWin http://t.co/9XcxKrpdGK"
+        }, 
+        {
+            "coordinates": [
+                -108.456, 
+                47.7679
+            ], 
+            "favorite_count": 0, 
+            "gender": 2, 
+            "hashtags": [
+                "LoveCantWait", 
+                "LoveMustWin"
+            ], 
+            "retweet_count": 1594, 
+            "tweet_text": "RT @HillaryClinton: RT if you're standing with Jared, Nate, and Hillary for equal rights. #LoveCantWait #LoveMustWin http://t.co/9XcxKrpdGK"
+        }
+    ]
+}

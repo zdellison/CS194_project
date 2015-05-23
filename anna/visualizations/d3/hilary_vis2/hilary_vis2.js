@@ -1,40 +1,12 @@
+// notes:
+// add an index
+// change radius based on something
+// color code more effectively based on something else
+
+
+
+
 var hashtags;
-
-// var color = d3.scale.category20b();
-
-// d3.json("../prettified_tweets/hashtags_and_favorites.json", function(json) {
-
-
-// 	dataset = json;
-
-// 	var svgContainer = d3.select("body").append("svg").attr("width", 1000).attr("height", 1000);
-// 	var svg = d3.select("svg");
-// 	var circle = svg.selectAll("circle").data(dataset.hashtags);
-// 	var circleEnter = circle.enter().append("circle");
-// 	circleEnter.attr("fill", "steelblue");
-// 	circleEnter.attr("cy", 60);
-// 	circleEnter.attr("cx", function (d, i) {return i * 100 + 30; });
-// 	circleEnter.attr("r", function(d) {return d.retweet_count / 100}); // make dependent on the favorites or retweet count
-// 	circleEnter.attr("text", function(d) {return d.text})
-
-
-// 	 $('svg circle').tipsy({ 
-//         gravity: 'w', 
-//         html: true, 
-//         title: function() {
-//           var d = this.__data__, hashtag_text = d.text, favorites = d.favorite_count, retweets = d.retweet_count;
-//           return hashtag_text + ", " + favorites + ", " + retweets; 
-//         }
-
-//       });
-
-
-
-// });
-
-
-// need to format something that has json in the format of:
-// hashtags {text: "blah", favorite_count: 100}, {text: "blah", favorite_count: 100}
 
 var width = 960,
     height = 500,
@@ -42,23 +14,13 @@ var width = 960,
     clusterPadding = 6, // separation between different-color circles
     maxRadius = 12;
 
-// var n = 200, // total number of circles
-    // m = 10; // number of distinct clusters
 
-// var color = d3.scale.category10()
-//     .domain(d3.range(m));
-
-// // The largest node for each cluster.
-// var clusters = new Array(m);
-
-
-d3.json("../prettified_tweets/hashtags_and_favorites.json", function(json) {
+d3.json("../prettified_tweets/hashtags_and_favorites2.json", function(json) {
 	hashtags = json.hashtags;
 
 
-
-  var n = hashtags.length // a circle for each hashtag
-	var m = 4 // number of distinct clusters, 0-100 retweets is cluster 1, 100-500 is cluster 2, 500-1000 is cluster 3
+  var n = hashtags.length; // a circle for each hashtag
+	var m = 4; // number of distinct clusters, 0-100 retweets is cluster 1, 100-500 is cluster 2, 500-1000 is cluster 3
 				// anything above 1000 is cluster 4
 
 
@@ -68,21 +30,49 @@ d3.json("../prettified_tweets/hashtags_and_favorites.json", function(json) {
 	var clusters = new Array(m);
 
 
-	var nodes = d3.range(n).map(function() {
+  hashtags.forEach(function(d) {
 
 
-  		var i = Math.floor(Math.random() * m), // should be dependent on favorites
-    	 	r = Math.sqrt((i + 1) / m * -Math.log(Math.random())) * maxRadius, // should be dependent on retweets
-    	  	d = {cluster: i, radius: r, text: "hashtag_text"}; // put in stuff from the actual json data
-  		if (!clusters[i] || (r > clusters[i].radius)) clusters[i] = d;
+    console.log(d.retweet_count);
+    console.log(d.favorite_count);
+    var i = d.retweet_count % 3; // should be based on a sentiment property
 
-  		return d;
-	});
+
+    var r = maxRadius;
+    if (d.favorite_count > 1000) {
+      r = 50;
+    }
+    else if (d.favorite_count > 500 && d.favorite_count <=1000) {
+      r = 20;
+    }
+    else {
+      r = 10;
+    }
+    // var r = maxRadius;
+
+    d.radius = r;
+    d.cluster = i;
+    var x = Math.cos(i / m * 2 * Math.PI) * 200 + width / 2 + Math.random();
+    var y = Math.sin(i / m * 2 * Math.PI) * 200 + height / 2 + Math.random();
+    d.x = x;
+    d.y = y;
+    var hashtag_text = d.text;
+    new_d = {cluster: i, radius: r, text: hashtag_text, x: x, y: y}
+    if (!clusters[i] || (r > clusters[i].radius)) clusters[i] = new_d;
+  });
+
+
+  console.log(hashtags);
+
+// d3.layout.pack().sort(null).size()
+
+
+
 
 	var force = d3.layout.force()
-    	.nodes(nodes)
+    	.nodes(hashtags)
     	.size([width, height])
-    	.gravity(.02)
+    	.gravity(.01)
     	.charge(0)
     	.on("tick", tick)
     	.start();
@@ -94,13 +84,43 @@ d3.json("../prettified_tweets/hashtags_and_favorites.json", function(json) {
 	var circle = svg.selectAll("circle")
     	.data(hashtags)
   		.enter().append("circle")
-    	.attr("r", function(d) { return Math.log(d.retweet_count) * maxRadius; })
-    	.style("fill", function(d) { return color(1); })
+    	.attr("r", function(d) { return d.radius; })
+    	.style("fill", function(d) { return color(d.cluster); })
     	.call(force.drag);
+
+
+
+  // index element for circle sizes
+  var index_elem = d3.select("svg").append("g").attr("id", "index_elem");
+
+
+
+  // var size_index_data = [{"text": ">1000", "y": 10}, {"text": "500-1000", "y": 20}, {"text":"<500", "y": 50}];
+   index_elem.append("text").text("Size of circle indicates").attr({x:800,y:310,"text-anchor":"middle"});
+   // here can have wether it's favorites or number of retweets based on what user selects from the menu
+   index_elem.append("text").text("number of favorites").attr({x:800,y:322,"text-anchor":"middle"});
+   index_elem.selectAll("circle").data([10,20,50]).enter().append("circle")
+        .attr({cx:800,cy:function(d) {return 440-d},r:String}).attr("text", "index")
+        .style({fill:"none","stroke-width":2,stroke:"#ccc","stroke-dasharray":"2 2"});
+    index_elem.append("text").text(">1000").attr({x:800, y: 380, "text-anchor": "middle", "font-size": "12px"})
+    index_elem.append("text").text("500-1000").attr({x:800, y: 415, "text-anchor": "middle", "font-size": "10px"});
+    index_elem.append("text").text("<500").attr({x:800, y: 430, "text-anchor": "middle", "font-size": "10px"});
+
+
+    var color_index_data = [{"text": "positive", "y": 40}, {"text": "neutral", "y": 80}, {"text":"negative", "y": 120}];
+    var color_index = d3.select("svg").append("g").attr("id", "color_index");
+    color_index.append("text").text("Color of circle").attr({x:800, y: 100, "text-anchor":"middle"});
+    color_index.append("text").text("indicates sentiment").attr({x:800, y: 112, "text-anchor":"middle"});
+    color_index.selectAll("circle").data(color_index_data).enter().append("circle")
+      .attr({cx:800, cy: function(d) {return 100+d.y}, r: maxRadius})
+      .style({fill: function(d, i) {return color(i)}});
+
+
+
 
 	function tick(e) {
   		circle
-      	// .each(cluster(10 * e.alpha * e.alpha))
+      	.each(cluster(10 * e.alpha * e.alpha))
       	.each(collide(.5))
       	.attr("cx", function(d) { return d.x; })
       	.attr("cy", function(d) { return d.y; });
@@ -127,7 +147,7 @@ d3.json("../prettified_tweets/hashtags_and_favorites.json", function(json) {
 
 // Resolves collisions between d and all other circles.
 	function collide(alpha) {
-  		var quadtree = d3.geom.quadtree(nodes);
+  		var quadtree = d3.geom.quadtree(hashtags);
   		return function(d) {
     		var r = d.radius + maxRadius + Math.max(padding, clusterPadding),
         	nx1 = d.x - r,
@@ -154,6 +174,7 @@ d3.json("../prettified_tweets/hashtags_and_favorites.json", function(json) {
 	}
 
 
+  // make the ones in the visualization more specific
 	$('svg circle').tipsy({ 
         gravity: 'w', 
         html: true, 
