@@ -2,13 +2,9 @@
 
 var dataset;
 
-<<<<<<< HEAD
-d3.json("/api/sample_users", function(error, json){
-=======
 d3.json("/api/get_users_retweet_by_original_user?user_id=Hillary Clinton", function(error, json){
->>>>>>> master
   dataset = json;
-  var nodes = d3.range(dataset.users.length + 1).map(function() { return {radius: dataset.users[0].age}; }),
+  var nodes = d3.range(dataset.users.length + 1).map(function() { return {radius: 5}; }),
     root = nodes[0],
     color = d3.scale.category10();
 
