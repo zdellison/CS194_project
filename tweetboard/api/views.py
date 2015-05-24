@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate
 # Project
 from login.models import Profile
 
-import tweepy as tp
+# import tweepy as tp
 
 def get_api_with_auth(request):
     profile = Profile.objects.get(pk=request.session['_auth_user_id'])
@@ -46,6 +46,33 @@ def init(request):
 	})
 
     response['tweetsArray'] = recent_tweets
+
+    return JsonResponse(response)
+
+def sample_users(request):
+    response = {
+        "users": [
+            {
+                "name": "Anna",
+                "age": 21,
+                "gender": "female"
+            },
+            {
+                "name": "Pedro",
+                "age": 22,
+                "gender": "male"
+            },
+            {
+                "name": "Paul",
+                "age": 22,
+                "gender": "male"
+            },
+            {
+                "name": "Zach",
+                "age": 22,
+                "gender": "male"
+            }
+        ]}
 
     return JsonResponse(response)
 
