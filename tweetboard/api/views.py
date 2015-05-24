@@ -7,8 +7,7 @@ from django.contrib.auth import authenticate
 
 # Project
 from login.models import Profile
-
-# import tweepy as tp
+import tweepy as tp
 
 def get_api_with_auth(request):
     profile = Profile.objects.get(pk=request.session['_auth_user_id'])
