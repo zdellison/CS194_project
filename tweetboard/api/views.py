@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate
 # Project
 from login.models import Profile
 
-# import tweepy as tp
+import tweepy as tp
 
 def get_api_with_auth(request):
     profile = Profile.objects.get(pk=request.session['_auth_user_id'])
@@ -138,4 +138,48 @@ def get_users_retweet_by_original_user(request):
 
     response = {'tweets':retweeted_tweets,'users':users}
     return JsonResponse(response)
-                
+
+# Return user info when given a user's Twitter id
+@login_required
+def get_user_by_id(request):
+    api = get_api_with_auth(request)
+
+    user = {}
+    user_resp = api.get_user(id = request.GET['user_id'])
+    user['name'] = user_resp.name
+    user['id'] = user_resp.id
+    user['created_at'] = user_resp.created_at
+    user['location'] = user_resp.location
+    user['favourites_count'] = user_resp.favourites_count
+    user['followers_count'] = user_resp.followers_count
+    user['listed_count'] = user_resp.listed_count
+    user['statuses_count'] = user_resp.statuses_count
+    user['friends_count'] = user_resp.friends_count
+    user['screen_name'] = user_resp.screen_name
+#    user['gender'] = user_resp.gender
+
+    response = {'user': user}
+    return JsonResponse(response)
+    
+# Return tweet info when given tweet id
+@login_required
+def get_tweet_by_id(request):
+    api = get_api_with_auth(request)
+
+    tweet = {}
+    t_resp = api.get_status(id = request.GET['status_id'])
+    
+    tweet['text'] = t_resp.text
+    tweet['created_at'] = t_resp.created_at
+    tweet['hashtags'] = t_resp.entities['hashtags']
+    tweet['urls'] = t_resp.entities['urls']
+    if t_resp.favorited:
+        tweet['favourite_count'] = t_resp.favourite_count
+    else: tweet['favourite_count'] = 0
+    if t_resp.retweeted:
+        tweet['retweet_count'] = t_resp.retweet_count
+    else: tweet['retweet_count'] = 0
+    tweet['coordinates'] = t_resp.coordinates
+
+    response = {'status': tweet}
+    return JsonResponse(response)
