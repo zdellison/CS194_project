@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'get_users_retweet_by_original_user', get_users_retweet_by_original_user),
     url(r'get_user_by_id', get_user_by_id),
     url(r'get_tweet_by_id', get_tweet_by_id),
+    url(r'get_retweet_user_info', get_retweet_user_info),
 ]

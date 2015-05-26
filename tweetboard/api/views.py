@@ -9,7 +9,13 @@ from django.contrib.auth import authenticate
 from login.models import Profile
 
 import tweepy as tp
+from textblob import TextBlob as tb
 
+# ================================
+# INTERNAL METHODS
+# ================================
+
+# Method returns an OAUTH authorized api instance from tweepy.py
 def get_api_with_auth(request):
     profile = Profile.objects.get(pk=request.session['_auth_user_id'])
 
@@ -19,6 +25,60 @@ def get_api_with_auth(request):
 
     return api
 
+# Method returns a dict of processed user data from a tweepy User instance
+def get_user_info(user_id, api):
+    user = {}
+    user_resp = api.get_user(id = user_id)
+    user['name'] = user_resp.name
+    user['id'] = user_resp.id
+    user['created_at'] = user_resp.created_at
+    user['location'] = user_resp.location
+    user['favourites_count'] = user_resp.favourites_count
+    user['followers_count'] = user_resp.followers_count
+    user['listed_count'] = user_resp.listed_count
+    user['statuses_count'] = user_resp.statuses_count
+    user['friends_count'] = user_resp.friends_count
+    user['screen_name'] = user_resp.screen_name
+#    user['gender'] = user_resp.gender
+    return user
+
+# Method returns a dict of processed tweet data from a tweepy status
+def get_tweet_info(tweet):
+    processed_tweet = {
+            'tweetId': tweet.id,
+            'created_by_id': tweet.user.id,
+            'created_at': tweet.created_at,
+            'favorited': tweet.favorited,
+            'retweeted': tweet.retweeted,
+            'text': tweet.text,
+            'coordinates': tweet.coordinates
+        }
+    if 'hashtags' in tweet.entities:
+        processed_tweet['hashtags'] = tweet.entities['hashtags']
+    else:
+        processed_tweet['hashtags'] = None
+    if 'media' in tweet.entities:
+        processed_tweet['media'] = tweet.entities['media']
+    else: processed_tweet['media'] = None
+    if tweet.retweeted:
+        processed_tweet['retweet_count'] = tweet.retweet_count
+    else: processed_tweet['retweet_count'] = 0   
+    if tweet.favorited:
+        processed_tweet['favorites_count'] = tweet.favorites_count
+    else: processed_tweet['favorites_count'] = 0
+
+    # Get Sentiment
+    blob = tb(tweet.text)
+    sentiment = {'polarity': blob.sentiment.polarity, 
+            'subjectivity': blob.sentiment.subjectivity
+            }
+    processed_tweet['sentiment'] = sentiment
+
+    return processed_tweet
+
+# =========================
+# PUBLIC URL-ROUTED METHODS
+# =========================
 
 @login_required
 def init(request):
@@ -83,29 +143,7 @@ def get_tweets_by_user_id(request):
     recent_tweets = []
     tweets = api.user_timeline(id=request.GET['user_id'],count=25,)
     for tweet in tweets:
-        processed_tweet = {
-            'tweetId': tweet.id,
-            'created_by_id': tweet.user.id,
-            'created_at': tweet.created_at,
-            'favorited': tweet.favorited,
-            'retweet_count': tweet.retweet_count,
-            'text': tweet.text,
-            'coordinates': tweet.coordinates
-        }
-
-        if 'hashtags' in tweet.entities:
-            processed_tweet['hashtags'] = tweet.entities['hashtags']
-        else:
-            processed_tweet['hashtags'] = None
-        if 'media' in tweet.entities:
-            processed_tweet['media'] = tweet.entities['media']
-        else: processed_tweet['media'] = None
-        if tweet.favorited:
-            processed_tweet['favorites_count'] = tweet.favorites_count
-        else: processed_tweet['favorites_count'] = 0
-
-        recent_tweets.append(processed_tweet)
-
+        recent_tweets.append(get_tweet_info(tweet))
 
     response = {}
     response['tweets'] = recent_tweets
@@ -125,16 +163,7 @@ def get_users_retweet_by_original_user(request):
             retweeted_tweets.append(tweet.id)
             retweets = api.retweets(tweet.id)
             for retweet in retweets:
-                users.append({
-                    'user_id': retweet.user.id,
-                    'name': retweet.user.name,
-                    #'gender': retweet.user.gender,
-                    'followers': retweet.user.followers_count,
-                    'friends': retweet.user.friends_count,
-                    'favorites': retweet.user.favourites_count,
-                    'listed': retweet.user.listed_count
-                })
-
+                users.append(get_user_info(retweet.user.id, api))
 
     response = {'tweets':retweeted_tweets,'users':users}
     return JsonResponse(response)
@@ -143,43 +172,31 @@ def get_users_retweet_by_original_user(request):
 @login_required
 def get_user_by_id(request):
     api = get_api_with_auth(request)
-
-    user = {}
-    user_resp = api.get_user(id = request.GET['user_id'])
-    user['name'] = user_resp.name
-    user['id'] = user_resp.id
-    user['created_at'] = user_resp.created_at
-    user['location'] = user_resp.location
-    user['favourites_count'] = user_resp.favourites_count
-    user['followers_count'] = user_resp.followers_count
-    user['listed_count'] = user_resp.listed_count
-    user['statuses_count'] = user_resp.statuses_count
-    user['friends_count'] = user_resp.friends_count
-    user['screen_name'] = user_resp.screen_name
-#    user['gender'] = user_resp.gender
-
-    response = {'user': user}
+    response = {'user': get_user_info(request.GET['user_id'], api)}
     return JsonResponse(response)
-    
+
+
 # Return tweet info when given tweet id
 @login_required
 def get_tweet_by_id(request):
     api = get_api_with_auth(request)
 
     tweet = {}
-    t_resp = api.get_status(id = request.GET['status_id'])
-    
-    tweet['text'] = t_resp.text
-    tweet['created_at'] = t_resp.created_at
-    tweet['hashtags'] = t_resp.entities['hashtags']
-    tweet['urls'] = t_resp.entities['urls']
-    if t_resp.favorited:
-        tweet['favourite_count'] = t_resp.favourite_count
-    else: tweet['favourite_count'] = 0
-    if t_resp.retweeted:
-        tweet['retweet_count'] = t_resp.retweet_count
-    else: tweet['retweet_count'] = 0
-    tweet['coordinates'] = t_resp.coordinates
+    t_resp = api.get_status(id = request.GET['tweet_id'])
 
-    response = {'status': tweet}
+    response = {'tweet': get_tweet_info(t_resp)}
+    return JsonResponse(response)
+
+# Given a Tweet ID, return user info about previous 100 users that retweeted it
+@login_required
+def get_retweet_user_info(request):
+    api = get_api_with_auth(request)
+    retweets = api.retweets(request.GET['tweet_id'])
+    users = []
+    retweet_ids = []
+    for retweet in retweets:
+        users.append(get_user_info(retweet.user.id, api))
+        retweet_ids.append(retweet.id)
+
+    response = {'users': users, 'retweets': retweet_ids}
     return JsonResponse(response)
