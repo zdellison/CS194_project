@@ -5,4 +5,5 @@ from dashboard.views import *
 
 urlpatterns = [
     url(r'^$', index, name='index'),
+    url(r'vizit', vizit),
 ]
