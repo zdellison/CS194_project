@@ -1,0 +1,215 @@
+{
+    "contributors": null, 
+    "coordinates": null, 
+    "created_at": "Tue Apr 28 17:36:25 +0000 2015", 
+    "entities": {
+        "hashtags": [], 
+        "symbols": [], 
+        "urls": [
+            {
+                "display_url": "hrc.io/1EtWG5m", 
+                "expanded_url": "http://hrc.io/1EtWG5m", 
+                "indices": [
+                    81, 
+                    103
+                ], 
+                "url": "http://t.co/8ebS4Zd5M6"
+            }
+        ], 
+        "user_mentions": [
+            {
+                "id": 1339835893, 
+                "id_str": "1339835893", 
+                "indices": [
+                    3, 
+                    18
+                ], 
+                "name": "Hillary Clinton", 
+                "screen_name": "HillaryClinton"
+            }, 
+            {
+                "id": 120153772, 
+                "id_str": "120153772", 
+                "indices": [
+                    63, 
+                    79
+                ], 
+                "name": "Women in the World", 
+                "screen_name": "WomenintheWorld"
+            }
+        ]
+    }, 
+    "favorite_count": 0, 
+    "favorited": false, 
+    "geo": null, 
+    "id": 593106507958358017, 
+    "id_str": "593106507958358017", 
+    "in_reply_to_screen_name": null, 
+    "in_reply_to_status_id": null, 
+    "in_reply_to_status_id_str": null, 
+    "in_reply_to_user_id": null, 
+    "in_reply_to_user_id_str": null, 
+    "lang": "en", 
+    "place": null, 
+    "possibly_sensitive": false, 
+    "retweet_count": 567, 
+    "retweeted": false, 
+    "retweeted_status": {
+        "contributors": null, 
+        "coordinates": null, 
+        "created_at": "Sun Apr 26 19:33:17 +0000 2015", 
+        "entities": {
+            "hashtags": [], 
+            "symbols": [], 
+            "urls": [
+                {
+                    "display_url": "hrc.io/1EtWG5m", 
+                    "expanded_url": "http://hrc.io/1EtWG5m", 
+                    "indices": [
+                        61, 
+                        83
+                    ], 
+                    "url": "http://t.co/8ebS4Zd5M6"
+                }
+            ], 
+            "user_mentions": [
+                {
+                    "id": 120153772, 
+                    "id_str": "120153772", 
+                    "indices": [
+                        43, 
+                        59
+                    ], 
+                    "name": "Women in the World", 
+                    "screen_name": "WomenintheWorld"
+                }
+            ]
+        }, 
+        "favorite_count": 758, 
+        "favorited": false, 
+        "geo": null, 
+        "id": 592411143672569856, 
+        "id_str": "592411143672569856", 
+        "in_reply_to_screen_name": null, 
+        "in_reply_to_status_id": null, 
+        "in_reply_to_status_id_str": null, 
+        "in_reply_to_user_id": null, 
+        "in_reply_to_user_id_str": null, 
+        "lang": "en", 
+        "place": null, 
+        "possibly_sensitive": false, 
+        "retweet_count": 567, 
+        "retweeted": false, 
+        "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>", 
+        "text": "ICYMI: Watch Hillary's keynote speech from @WomenintheWorld. http://t.co/8ebS4Zd5M6", 
+        "truncated": false, 
+        "user": {
+            "contributors_enabled": false, 
+            "created_at": "Tue Apr 09 18:04:35 +0000 2013", 
+            "default_profile": false, 
+            "default_profile_image": false, 
+            "description": "Wife, mom, grandma, women+kids advocate, FLOTUS, Senator, SecState, hair icon, pantsuit aficionado, 2016 presidential candidate. Tweets from Hillary signed \u2013H", 
+            "entities": {
+                "description": {
+                    "urls": []
+                }, 
+                "url": {
+                    "urls": [
+                        {
+                            "display_url": "hillaryclinton.com", 
+                            "expanded_url": "http://www.hillaryclinton.com", 
+                            "indices": [
+                                0, 
+                                22
+                            ], 
+                            "url": "http://t.co/ESBw0Arq44"
+                        }
+                    ]
+                }
+            }, 
+            "favourites_count": 2, 
+            "follow_request_sent": false, 
+            "followers_count": 3442309, 
+            "following": false, 
+            "friends_count": 14, 
+            "geo_enabled": false, 
+            "id": 1339835893, 
+            "id_str": "1339835893", 
+            "is_translation_enabled": false, 
+            "is_translator": false, 
+            "lang": "en", 
+            "listed_count": 15809, 
+            "location": "New York", 
+            "name": "Hillary Clinton", 
+            "notifications": false, 
+            "profile_background_color": "0057B8", 
+            "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_tile": false, 
+            "profile_banner_url": "https://pbs.twimg.com/profile_banners/1339835893/1428866827", 
+            "profile_image_url": "http://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+            "profile_link_color": "0057B8", 
+            "profile_sidebar_border_color": "000000", 
+            "profile_sidebar_fill_color": "000000", 
+            "profile_text_color": "000000", 
+            "profile_use_background_image": false, 
+            "protected": false, 
+            "screen_name": "HillaryClinton", 
+            "statuses_count": 244, 
+            "time_zone": "Eastern Time (US & Canada)", 
+            "url": "http://t.co/ESBw0Arq44", 
+            "utc_offset": -14400, 
+            "verified": true
+        }
+    }, 
+    "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>", 
+    "text": "RT @HillaryClinton: ICYMI: Watch Hillary's keynote speech from @WomenintheWorld. http://t.co/8ebS4Zd5M6", 
+    "truncated": false, 
+    "user": {
+        "contributors_enabled": false, 
+        "created_at": "Sat Oct 16 18:13:48 +0000 2010", 
+        "default_profile": false, 
+        "default_profile_image": false, 
+        "description": "\u2022show choir enthusiast\u2022 \u2022musical theater nerd\u2022", 
+        "entities": {
+            "description": {
+                "urls": []
+            }
+        }, 
+        "favourites_count": 20804, 
+        "follow_request_sent": false, 
+        "followers_count": 725, 
+        "following": false, 
+        "friends_count": 625, 
+        "geo_enabled": true, 
+        "id": 203623684, 
+        "id_str": "203623684", 
+        "is_translation_enabled": false, 
+        "is_translator": false, 
+        "lang": "en", 
+        "listed_count": 2, 
+        "location": "good ole' nebrasker", 
+        "name": "jordan\u2b50\ufe0f", 
+        "notifications": false, 
+        "profile_background_color": "C0DEED", 
+        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/378800000003772897/508450f84e00394f6c2346549785cfb7.jpeg", 
+        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/378800000003772897/508450f84e00394f6c2346549785cfb7.jpeg", 
+        "profile_background_tile": false, 
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/203623684/1430107392", 
+        "profile_image_url": "http://pbs.twimg.com/profile_images/592539462971691010/16yI07uz_normal.jpg", 
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/592539462971691010/16yI07uz_normal.jpg", 
+        "profile_link_color": "F013A3", 
+        "profile_sidebar_border_color": "FFFFFF", 
+        "profile_sidebar_fill_color": "DDEEF6", 
+        "profile_text_color": "333333", 
+        "profile_use_background_image": true, 
+        "protected": false, 
+        "screen_name": "justifiedjordan", 
+        "statuses_count": 13436, 
+        "time_zone": "Central Time (US & Canada)", 
+        "url": null, 
+        "utc_offset": -18000, 
+        "verified": false
+    }
+}

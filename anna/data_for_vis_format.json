@@ -1,0 +1,55 @@
+{
+	"hashtags": [
+        {
+            "favorite_count": 0, 
+            "retweet_count": 95, 
+            "text": "LoveMustWin"
+        }
+    ]
+},
+{
+    "tweets": [
+        {
+        	"tweet_id": 100,
+        	"created_by_id": 100,
+            "created_at": "Tue Apr 28 21:28:22 +0000 2015", 
+            "favorite_count": 0, 
+            "retweet_count": 102,
+            "text": "blah blah #blah",
+            "hashtags": ["#HillaryforIA", "#Hilary2016"],
+            "media": "media_url_here"
+        }
+    ] 
+},
+{
+    "retweets": [
+        {
+            "coordinates": [
+                -118.0491, 
+                43.9566
+            ], 
+            "favorite_count": 0, 
+            "gender": 0, 
+            "hashtags": [
+                "LoveMustWin"
+            ], 
+            "retweet_count": 95, 
+            "user_id": 101,
+            "text": "RT @HillaryforIA: Read Cindy's #LoveMustWin story: http://t.co/fpkCNnoa7g http://t.co/G42Cw1EbI4"
+        }
+    ]
+},
+{
+	"users": [
+		{
+			"user_id": 0,
+			"name": "so and so",
+			"gender": 0,
+			"geo_location": [-188.0491, 43.9566],
+			"followers": 10,
+			"following": 15,
+			"total_tweets": 100
+		}
+
+	]
+}

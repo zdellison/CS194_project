@@ -1,0 +1,171 @@
+{
+    "contributors": null, 
+    "coordinates": null, 
+    "created_at": "Tue Apr 28 23:01:40 +0000 2015", 
+    "entities": {
+        "hashtags": [], 
+        "symbols": [], 
+        "urls": [], 
+        "user_mentions": [
+            {
+                "id": 1339835893, 
+                "id_str": "1339835893", 
+                "indices": [
+                    3, 
+                    18
+                ], 
+                "name": "Hillary Clinton", 
+                "screen_name": "HillaryClinton"
+            }
+        ]
+    }, 
+    "favorite_count": 0, 
+    "favorited": false, 
+    "geo": null, 
+    "id": 593188357540286464, 
+    "id_str": "593188357540286464", 
+    "in_reply_to_screen_name": null, 
+    "in_reply_to_status_id": null, 
+    "in_reply_to_status_id_str": null, 
+    "in_reply_to_user_id": null, 
+    "in_reply_to_user_id_str": null, 
+    "lang": "en", 
+    "place": null, 
+    "retweet_count": 5907, 
+    "retweeted": false, 
+    "retweeted_status": {
+        "contributors": null, 
+        "coordinates": null, 
+        "created_at": "Tue Apr 28 02:44:01 +0000 2015", 
+        "entities": {
+            "hashtags": [], 
+            "symbols": [], 
+            "urls": [], 
+            "user_mentions": []
+        }, 
+        "favorite_count": 7726, 
+        "favorited": false, 
+        "geo": null, 
+        "id": 592881927725658112, 
+        "id_str": "592881927725658112", 
+        "in_reply_to_screen_name": null, 
+        "in_reply_to_status_id": null, 
+        "in_reply_to_status_id_str": null, 
+        "in_reply_to_user_id": null, 
+        "in_reply_to_user_id_str": null, 
+        "lang": "en", 
+        "place": null, 
+        "retweet_count": 5907, 
+        "retweeted": false, 
+        "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>", 
+        "text": "Tonight I am praying for peace &amp; safety for all in Baltimore, &amp; for Freddie Gray's family - his death is a tragedy that demands answers. -H", 
+        "truncated": false, 
+        "user": {
+            "contributors_enabled": false, 
+            "created_at": "Tue Apr 09 18:04:35 +0000 2013", 
+            "default_profile": false, 
+            "default_profile_image": false, 
+            "description": "Wife, mom, grandma, women+kids advocate, FLOTUS, Senator, SecState, hair icon, pantsuit aficionado, 2016 presidential candidate. Tweets from Hillary signed \u2013H", 
+            "entities": {
+                "description": {
+                    "urls": []
+                }, 
+                "url": {
+                    "urls": [
+                        {
+                            "display_url": "hillaryclinton.com", 
+                            "expanded_url": "http://www.hillaryclinton.com", 
+                            "indices": [
+                                0, 
+                                22
+                            ], 
+                            "url": "http://t.co/ESBw0Arq44"
+                        }
+                    ]
+                }
+            }, 
+            "favourites_count": 2, 
+            "follow_request_sent": false, 
+            "followers_count": 3442309, 
+            "following": false, 
+            "friends_count": 14, 
+            "geo_enabled": false, 
+            "id": 1339835893, 
+            "id_str": "1339835893", 
+            "is_translation_enabled": false, 
+            "is_translator": false, 
+            "lang": "en", 
+            "listed_count": 15809, 
+            "location": "New York", 
+            "name": "Hillary Clinton", 
+            "notifications": false, 
+            "profile_background_color": "0057B8", 
+            "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_tile": false, 
+            "profile_banner_url": "https://pbs.twimg.com/profile_banners/1339835893/1428866827", 
+            "profile_image_url": "http://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+            "profile_link_color": "0057B8", 
+            "profile_sidebar_border_color": "000000", 
+            "profile_sidebar_fill_color": "000000", 
+            "profile_text_color": "000000", 
+            "profile_use_background_image": false, 
+            "protected": false, 
+            "screen_name": "HillaryClinton", 
+            "statuses_count": 244, 
+            "time_zone": "Eastern Time (US & Canada)", 
+            "url": "http://t.co/ESBw0Arq44", 
+            "utc_offset": -14400, 
+            "verified": true
+        }
+    }, 
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>", 
+    "text": "RT @HillaryClinton: Tonight I am praying for peace &amp; safety for all in Baltimore, &amp; for Freddie Gray's family - his death is a tragedy that\u2026", 
+    "truncated": false, 
+    "user": {
+        "contributors_enabled": false, 
+        "created_at": "Sun Jun 09 23:18:52 +0000 2013", 
+        "default_profile": false, 
+        "default_profile_image": false, 
+        "description": "", 
+        "entities": {
+            "description": {
+                "urls": []
+            }
+        }, 
+        "favourites_count": 562, 
+        "follow_request_sent": false, 
+        "followers_count": 15, 
+        "following": false, 
+        "friends_count": 35, 
+        "geo_enabled": false, 
+        "id": 1496853848, 
+        "id_str": "1496853848", 
+        "is_translation_enabled": true, 
+        "is_translator": false, 
+        "lang": "en", 
+        "listed_count": 1, 
+        "location": "", 
+        "name": "johnnysgrrl", 
+        "notifications": false, 
+        "profile_background_color": "94D487", 
+        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/584761915055800321/3Zshx0Uk.jpg", 
+        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/584761915055800321/3Zshx0Uk.jpg", 
+        "profile_background_tile": false, 
+        "profile_image_url": "http://pbs.twimg.com/profile_images/588916375629860864/7nmfN7dd_normal.jpg", 
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/588916375629860864/7nmfN7dd_normal.jpg", 
+        "profile_link_color": "9266CC", 
+        "profile_sidebar_border_color": "C0DEED", 
+        "profile_sidebar_fill_color": "DDEEF6", 
+        "profile_text_color": "333333", 
+        "profile_use_background_image": true, 
+        "protected": false, 
+        "screen_name": "johnnysgrrl", 
+        "statuses_count": 320, 
+        "time_zone": "Eastern Time (US & Canada)", 
+        "url": null, 
+        "utc_offset": -14400, 
+        "verified": false
+    }
+}

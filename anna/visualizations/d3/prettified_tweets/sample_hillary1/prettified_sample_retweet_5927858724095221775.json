@@ -1,0 +1,207 @@
+{
+    "contributors": null, 
+    "coordinates": null, 
+    "created_at": "Tue Apr 28 20:27:51 +0000 2015", 
+    "entities": {
+        "hashtags": [], 
+        "symbols": [], 
+        "urls": [
+            {
+                "display_url": "cards.twitter.com/cards/18ce53ys\u2026", 
+                "expanded_url": "https://cards.twitter.com/cards/18ce53ysfi6/i8ax", 
+                "indices": [
+                    86, 
+                    109
+                ], 
+                "url": "https://t.co/l2lPjM5p2l"
+            }
+        ], 
+        "user_mentions": [
+            {
+                "id": 1339835893, 
+                "id_str": "1339835893", 
+                "indices": [
+                    3, 
+                    18
+                ], 
+                "name": "Hillary Clinton", 
+                "screen_name": "HillaryClinton"
+            }
+        ]
+    }, 
+    "favorite_count": 0, 
+    "favorited": false, 
+    "geo": null, 
+    "id": 593149651219525632, 
+    "id_str": "593149651219525632", 
+    "in_reply_to_screen_name": null, 
+    "in_reply_to_status_id": null, 
+    "in_reply_to_status_id_str": null, 
+    "in_reply_to_user_id": null, 
+    "in_reply_to_user_id_str": null, 
+    "lang": "en", 
+    "place": null, 
+    "possibly_sensitive": false, 
+    "retweet_count": 312, 
+    "retweeted": false, 
+    "retweeted_status": {
+        "contributors": null, 
+        "coordinates": null, 
+        "created_at": "Mon Apr 27 20:22:20 +0000 2015", 
+        "entities": {
+            "hashtags": [], 
+            "symbols": [], 
+            "urls": [
+                {
+                    "display_url": "cards.twitter.com/cards/18ce53ys\u2026", 
+                    "expanded_url": "https://cards.twitter.com/cards/18ce53ysfi6/i8ax", 
+                    "indices": [
+                        66, 
+                        89
+                    ], 
+                    "url": "https://t.co/l2lPjM5p2l"
+                }
+            ], 
+            "user_mentions": []
+        }, 
+        "favorite_count": 486, 
+        "favorited": false, 
+        "geo": null, 
+        "id": 592785872409522177, 
+        "id_str": "592785872409522177", 
+        "in_reply_to_screen_name": null, 
+        "in_reply_to_status_id": null, 
+        "in_reply_to_status_id_str": null, 
+        "in_reply_to_user_id": null, 
+        "in_reply_to_user_id_str": null, 
+        "lang": "en", 
+        "place": null, 
+        "possibly_sensitive": false, 
+        "retweet_count": 312, 
+        "retweeted": false, 
+        "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>", 
+        "text": "Don't miss your chance to get a free Hillary 2016 bumper sticker! https://t.co/l2lPjM5p2l", 
+        "truncated": false, 
+        "user": {
+            "contributors_enabled": false, 
+            "created_at": "Tue Apr 09 18:04:35 +0000 2013", 
+            "default_profile": false, 
+            "default_profile_image": false, 
+            "description": "Wife, mom, grandma, women+kids advocate, FLOTUS, Senator, SecState, hair icon, pantsuit aficionado, 2016 presidential candidate. Tweets from Hillary signed \u2013H", 
+            "entities": {
+                "description": {
+                    "urls": []
+                }, 
+                "url": {
+                    "urls": [
+                        {
+                            "display_url": "hillaryclinton.com", 
+                            "expanded_url": "http://www.hillaryclinton.com", 
+                            "indices": [
+                                0, 
+                                22
+                            ], 
+                            "url": "http://t.co/ESBw0Arq44"
+                        }
+                    ]
+                }
+            }, 
+            "favourites_count": 2, 
+            "follow_request_sent": false, 
+            "followers_count": 3442309, 
+            "following": false, 
+            "friends_count": 14, 
+            "geo_enabled": false, 
+            "id": 1339835893, 
+            "id_str": "1339835893", 
+            "is_translation_enabled": false, 
+            "is_translator": false, 
+            "lang": "en", 
+            "listed_count": 15809, 
+            "location": "New York", 
+            "name": "Hillary Clinton", 
+            "notifications": false, 
+            "profile_background_color": "0057B8", 
+            "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png", 
+            "profile_background_tile": false, 
+            "profile_banner_url": "https://pbs.twimg.com/profile_banners/1339835893/1428866827", 
+            "profile_image_url": "http://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/593032903107485696/u7GWaekZ_normal.png", 
+            "profile_link_color": "0057B8", 
+            "profile_sidebar_border_color": "000000", 
+            "profile_sidebar_fill_color": "000000", 
+            "profile_text_color": "000000", 
+            "profile_use_background_image": false, 
+            "protected": false, 
+            "screen_name": "HillaryClinton", 
+            "statuses_count": 244, 
+            "time_zone": "Eastern Time (US & Canada)", 
+            "url": "http://t.co/ESBw0Arq44", 
+            "utc_offset": -14400, 
+            "verified": true
+        }
+    }, 
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>", 
+    "text": "RT @HillaryClinton: Don't miss your chance to get a free Hillary 2016 bumper sticker! https://t.co/l2lPjM5p2l", 
+    "truncated": false, 
+    "user": {
+        "contributors_enabled": false, 
+        "created_at": "Tue Mar 24 03:18:12 +0000 2015", 
+        "default_profile": true, 
+        "default_profile_image": false, 
+        "description": "Brown Students for Hillary is a community of students at Brown University supporting Hillary Clinton's candidacy for President of the United States!", 
+        "entities": {
+            "description": {
+                "urls": []
+            }, 
+            "url": {
+                "urls": [
+                    {
+                        "display_url": "facebook.com/BrownStudentsF\u2026", 
+                        "expanded_url": "https://www.facebook.com/BrownStudentsForHillary", 
+                        "indices": [
+                            0, 
+                            23
+                        ], 
+                        "url": "https://t.co/6nxUhnPdUl"
+                    }
+                ]
+            }
+        }, 
+        "favourites_count": 2, 
+        "follow_request_sent": false, 
+        "followers_count": 26, 
+        "following": false, 
+        "friends_count": 67, 
+        "geo_enabled": false, 
+        "id": 3105794610, 
+        "id_str": "3105794610", 
+        "is_translation_enabled": false, 
+        "is_translator": false, 
+        "lang": "en", 
+        "listed_count": 0, 
+        "location": "Providence, RI", 
+        "name": "Students for Hillary", 
+        "notifications": false, 
+        "profile_background_color": "C0DEED", 
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png", 
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png", 
+        "profile_background_tile": false, 
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/3105794610/1427168796", 
+        "profile_image_url": "http://pbs.twimg.com/profile_images/580207238276517889/nI9ZsuEP_normal.png", 
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/580207238276517889/nI9ZsuEP_normal.png", 
+        "profile_link_color": "0084B4", 
+        "profile_sidebar_border_color": "C0DEED", 
+        "profile_sidebar_fill_color": "DDEEF6", 
+        "profile_text_color": "333333", 
+        "profile_use_background_image": true, 
+        "protected": false, 
+        "screen_name": "Brown_SFH", 
+        "statuses_count": 16, 
+        "time_zone": null, 
+        "url": "https://t.co/6nxUhnPdUl", 
+        "utc_offset": null, 
+        "verified": false
+    }
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	
+	<title>Application Usage &amp; Threat Report</title>
+    <meta name="description" content=""/>
+    <meta name="keywords" content="" />
+	<link rel="stylesheet" type="text/css" href="aur_styles.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="cse-results.css?v=2" />
+
+<!--[if lte IE 8]>
+<script type="text/javascript">
+    window.location = "ie8/all_apps.html";
+</script>
+<![endif]-->
+
+
+</head>
+<body onload="document.getElementById('saveThisImg').src=''">
+
+<!--hide elements for cufon in IE-->
+<style type="text/css">
+.post .intro-content, #sidebar .tab-holder strong, .testimonials-boxs h3, #three-boxs strong, #header .tagline, .tabset-one .tab-box strong.replace{ visibility : hidden }
+</style>
+
+<!-- Page start -->
+<div id="main" class=" subpage ">
+<!-- Header -->
+<div id="header" style="position:relative;">
+	<h1 class="logo"><a href="/">Palo Alto <small>Networks</small></a></h1>
+	<div class="tagline">Application Usage &amp; Threat Report</div>	
+    		
+<!--	<p style="position:absolute; top:44px; right:190px; color:#fff;"><strong>Call:</strong> (866) 320-4788</p>-->
+
+
+	</div>
+</div>
+		<!-- Cease: Rounded Corners -->	
+		<!-- Begin: Container -->
+		<div id="container" style="margin-bottom:0;">
+		<!-- <div id="sidebar">
+		  <h2>Key Questions</h2>
+		  <p class="subhead">Select a question, see an answer</p>
+		  <a class="button" href="#">Which application subcategories are consuming the most bandwidth?</a>
+		  <a class="button" href="#">Which applications deliver the most exploits?</a>
+		  <a class="button" href="#">Which applications are common malware vectors?</a>
+		  <a class="button" href="#">How much bandwidth does social networking really consume?</a>
+		  <a class="button" href="#">How many file sharing variants are in use?</a>
+		  <a class="button" href="#">How much bandwidth is consumed by photo-video applications?</a>
+		  <a class="button" href="#">How many remote access applications were found?</a>
+		  <a class="button" href="#">Which proxy and encrypted tunnels are most commonly found?</a>
+		  <a class="button" href="#">Browse applications</a>
+		  <a class="button" href="#">Browse threats</a>
+          <a class="report_button" href="http://www.paloaltonetworks.com/literature/whitepapers/aur-report.html">Download Complete Report</a>
+            <p class="mousetype">The Palo Alto Networks Application Usage &amp; Threat Report (10 edition, February 2013) uses data collected from application traffic analysis conducted across 3,000+ organizations worldwide.</p>
+		</div>			 -->	
+			<!-- Begin: Content -->
+		  <div id="content">
+          	<div id="interact_wrap"><div id="interact">
+            <p id="menu">Datasets: 
+            	<select id="select_dataset" style="width:158px;">
+                	<optgroup label="Applications">
+              			<option selected value="All Applications">All Applications</option>
+			          	<option value="Applications by Subcategory">Applications by Subcategory</option>
+			          	<option value="File Sharing">File Sharing</option>
+			          	<option value="Photo-Video">Photo-Video</option>
+			          	<option value="Remote Access">Remote Access</option>
+			          	<option value="Social Networking">Social Networking</option>
+			          	<option value="Proxy &amp; Encrypted Tunnels">Proxy &amp; Encrypted Tunnels</option>
+          			</optgroup>
+          	  		<optgroup label="Threats">
+          	  			<option value="All Threats">All Threats</option>
+          	  			<option value="Exploits by Application">Exploits by Application</option>
+          	  			<option value="Malware by Application">Malware by Application</option></select>
+          			</optgroup>
+              	<select id="select_region" style="width:117px;">
+              		<option value="Worldwide" selected>Worldwide</option>
+		          	<option value="Americas/Canada">Americas/Canada</option>
+		          	<option value="Europe">Europe</option>
+		          	<option value="Asia-Pacific">Asia-Pacific</option>
+		          	<option value="Japan">Japan</option>
+          		</select>
+          	</p>
+
+            <div id="view_selection" class="btn-group">
+        <a href="#" id="all" class="btn active">All</a>
+        <a href="#" id="category" class="btn">Category</a>
+        <a href="#" id="technology" class="btn">Technology</a>
+        <a href="#" id="frequency" class="btn">Frequency</a>
+     			 </div>
+            <p id="riskpanel">Risk:
+            <a href="#" class="risk" id="risk_1"><img src="images/risk_1.png" width="26" height="25" /></a><a href="#" class="risk" id="risk_2"><img src="images/risk_2.png" width="26" height="25" /></a><a href="#" class="risk" id="risk_3"><img src="images/risk_3.png" width="26" height="25" /></a><a href="#" class="risk" id="risk_4"><img src="images/risk_4.png" width="26" height="25" /></a><a href="#" class="risk" id="risk_5"><img src="images/risk_5.png" width="26" height="25" /></a><a href="#" class="risk" id="risk_all"><img src="images/risk_all.png" width="26" height="27" /></a><span class="spacer">&nbsp;</span><a href="#"><img src="images/risk_help.png" width="26" height="27" align="right" /></a></p>
+            </div></div>
+            <div id="data_display" style="z-index:10">
+            	<div id="data_left">
+	            <h2>Application Bandwidth</h2>
+	            <p><span class="field">Region:</span>&nbsp;<span class="value">Worldwide</span></p>
+	            <p><span class="field">Applications:</span>&nbsp;<span class="value">apps by subcategory</span></p>
+	            <p><span class="field">View:</span>&nbsp;<span class="value">All</span></p>
+	            <p><span class="field">Risk:</span>&nbsp;<span class="value">All</span></p>
+                <br />
+                </div>
+                <div id="data_right">
+                <h3>Data Summary</h3>
+                <p><span class="field">Bandwidth:</span>&nbsp;<span class="value">1,611,469,610,276,040 bytes</span></p>
+                <p><span class="field">% of total bandwidth:</span>&nbsp;<span class="value">16.6%</span></p>
+                <p><span class="field">Frequency of use:</span>&nbsp;<span class="value">99%</span></p>
+                <p><span class="field">Sessions consumed:</span>&nbsp;<span class="value">3.11%</span></p>
+                <p><span class="field"># of apps:</span>&nbsp;<span class="value">140</span></p>
+                <br />
+                </div>
+                <p>&nbsp;</p>
+            </div>
+<div class="post" style="margin:0;padding:0;">
+					
+        <div id="chart" style="height:794px"></div>
+		    </div>
+</div>
+		  <!-- Cease: Content -->
+		
+		</div>
+		<!-- Cease: Container -->
+        
+
+
+
+<script src="includes/d3.v3.min.js"></script>
+<script src="includes/pan.js"></script>
+<script>pan.view({
+	id:"chart",
+	appfile:"includes/data.csv",
+	threatfile:"includes/threats.csv",
+	minrad:3,
+	collide:0.1,
+	friction:.3,
+	charge:-2.5,
+	gravity:0.5,
+strata:true})</script>
+
+
+
+</body>
+</html>
