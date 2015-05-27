@@ -20,6 +20,7 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(data) {
 
   // console.log(error);
 	users = data.tweets;
+  console.log(users);
 
 
  //  var n = hashtags.length; // a circle for each hashtag
@@ -95,13 +96,13 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(data) {
   function cluster(alpha) {
       return function(d) {
         var cluster = clusters[d.cluster];
-        console.log(clusters);
-        console.log(d.cluster);
+        // console.log(clusters);
+        // console.log(d.cluster);
         // console.log(cluster);
         // var cluster = 1;
         if (cluster === d) return;
-        console.log(d);
-        console.log(cluster);
+        // console.log(d);
+        // console.log(cluster);
         var x = d.x - cluster.x,
           y = d.y - cluster.y,
           l = Math.sqrt(x * x + y * y),
