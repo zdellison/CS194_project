@@ -16,17 +16,17 @@ var width = 960,
     maxRadius = 12;
 
 
-d3.json("/api/get_users_retweet_by_original_user?user_id=HillaryClinton", function(data) {
+d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(data) {
 
   // console.log(error);
-	users = data.users;
+	users = data.tweets;
 
 
  //  var n = hashtags.length; // a circle for each hashtag
 	// var m = 4; // number of distinct clusters, 0-100 retweets is cluster 1, 100-500 is cluster 2, 500-1000 is cluster 3
 	// 			// anything above 1000 is cluster 4
 
-  var m = 4;
+  var m = 3;
 	var color = d3.scale.category10().domain(d3.range(m));
 
 	// The largest node for each cluster.
@@ -35,15 +35,28 @@ d3.json("/api/get_users_retweet_by_original_user?user_id=HillaryClinton", functi
 
   users.forEach(function(d) {
 
-    console.log(d);
-    var i = d.favorites % 3; 
-    var r = maxRadius;
+    // console.log(d);
+    var i = 0;
+    if (d.sentiment.polarity < 0) {
+      i = 1;
+    } else if (d.sentiment.polarity == 0) {
+      i = 2;
+    }
+
+    // console.log(d.sentiment.polarity);
+
+    var r = maxRadius + maxRadius * d.sentiment.subjectivity;
     var x = Math.cos(i / m * 2 * Math.PI) * 200 + width / 2 + Math.random();
     var y = Math.sin(i / m * 2 * Math.PI) * 200 + height / 2 + Math.random();
+    // console.log(x);
+    // console.log(y);
     d.x = x;
     d.y = y;
-    var name = d.name;
-    new_d = {cluster: i, radius: maxRadius, text: name, x: x, y: y}
+    d.cluster = i;
+    d.radius = r;
+    var tweet_text = d.text;
+    new_d = {cluster: i, radius: r, text: tweet_text, x: x, y: y}
+    // console.log(new_d);
     if (!clusters[i] || (r > clusters[i].radius)) clusters[i] = new_d;
   });
 
@@ -71,6 +84,7 @@ d3.json("/api/get_users_retweet_by_original_user?user_id=HillaryClinton", functi
 
 
 	function tick(e) {
+
   		circle
       	.each(cluster(10 * e.alpha * e.alpha))
       	.each(collide(.5))
@@ -81,9 +95,13 @@ d3.json("/api/get_users_retweet_by_original_user?user_id=HillaryClinton", functi
   function cluster(alpha) {
       return function(d) {
         var cluster = clusters[d.cluster];
-        console.log(cluster);
+        console.log(clusters);
+        console.log(d.cluster);
+        // console.log(cluster);
+        // var cluster = 1;
         if (cluster === d) return;
         console.log(d);
+        console.log(cluster);
         var x = d.x - cluster.x,
           y = d.y - cluster.y,
           l = Math.sqrt(x * x + y * y),
@@ -132,7 +150,7 @@ d3.json("/api/get_users_retweet_by_original_user?user_id=HillaryClinton", functi
         gravity: 'w', 
         html: true, 
         title: function() {
-          var d = this.__data__, username = d.name
+          var d = this.__data__, username = d.text
           return username
         }
 
