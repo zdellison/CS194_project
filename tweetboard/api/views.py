@@ -10,6 +10,9 @@ from login.models import Profile
 
 import tweepy as tp
 from textblob import TextBlob as tb
+from gender_detector import GenderDetector as gd
+
+detector = gd('us')
 
 # ================================
 # INTERNAL METHODS
@@ -39,7 +42,11 @@ def get_user_info(user_id, api):
     user['statuses_count'] = user_resp.statuses_count
     user['friends_count'] = user_resp.friends_count
     user['screen_name'] = user_resp.screen_name
-#    user['gender'] = user_resp.gender
+
+    # Get gender:
+    first_name = user_resp.name.split(' ', 1)[0]
+    user['gender'] = detector.guess(first_name)
+
     return user
 
 # Method returns a dict of processed tweet data from a tweepy status
