@@ -9,12 +9,12 @@
 
 var users;
 
-var width = 960,
-    height = 500,
-    padding = 1.5, // separation between same-color circles
+var padding = 1.5, // separation between same-color circles
     clusterPadding = 6, // separation between different-color circles
     maxRadius = 12;
 
+var width = $('#top_d3js_box').width();
+var height = $('#top_d3js_box').height();
 
 d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(data) {
 
@@ -69,7 +69,7 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(data) {
     	.on("tick", tick)
     	.start();
 
-	var svg = d3.select("body").append("svg")
+	var svg = d3.select("#top_d3js_box").append("svg")
     	.attr("width", width)
     	.attr("height", height);
 
