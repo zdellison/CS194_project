@@ -4,6 +4,7 @@
 // color code more effectively based on something else
 
 
+// d3.json("/api/get_users_retweet_by_original_user?user_id=Hillary Clinton", function(error, json)
 
 
 var hashtags;
