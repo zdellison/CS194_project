@@ -9,9 +9,9 @@
 
 var users;
 
-var padding = 1.5, // separation between same-color circles
+var padding = 1, // separation between same-color circles
     clusterPadding = 6, // separation between different-color circles
-    maxRadius = 12;
+    maxRadius = 14;
 
 var width = $('#top_d3js_box').width();
 var height = $('#top_d3js_box').height();
@@ -95,13 +95,13 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(data) {
   function cluster(alpha) {
       return function(d) {
         var cluster = clusters[d.cluster];
-        console.log(clusters);
-        console.log(d.cluster);
+        //console.log(clusters);
+        //console.log(d.cluster);
         // console.log(cluster);
         // var cluster = 1;
         if (cluster === d) return;
-        console.log(d);
-        console.log(cluster);
+        //console.log(d);
+        //console.log(cluster);
         var x = d.x - cluster.x,
           y = d.y - cluster.y,
           l = Math.sqrt(x * x + y * y),
