@@ -16,11 +16,14 @@ var padding = 1.5, // separation between same-color circles
 var width = $('#top_d3js_box').width();
 var height = $('#top_d3js_box').height();
 
+// var width = 950;
+// var height = 500;
+
 d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(data) {
 
   // console.log(error);
 	users = data.tweets;
-  console.log(users);
+  // console.log(users);
 
 
  //  var n = hashtags.length; // a circle for each hashtag
@@ -36,7 +39,7 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(data) {
 
   users.forEach(function(d) {
 
-    // console.log(d);
+    console.log(d);
     var i = 0;
     if (d.sentiment.polarity < 0) {
       i = 1;
@@ -44,20 +47,20 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(data) {
       i = 2;
     }
 
-    // console.log(d.sentiment.polarity);
+    console.log(d.sentiment.polarity);
 
     var r = maxRadius + maxRadius * d.sentiment.subjectivity;
     var x = Math.cos(i / m * 2 * Math.PI) * 200 + width / 2 + Math.random();
     var y = Math.sin(i / m * 2 * Math.PI) * 200 + height / 2 + Math.random();
-    // console.log(x);
-    // console.log(y);
+    console.log(x);
+    console.log(y);
     d.x = x;
     d.y = y;
     d.cluster = i;
     d.radius = r;
     var tweet_text = d.text;
     new_d = {cluster: i, radius: r, text: tweet_text, x: x, y: y}
-    // console.log(new_d);
+    console.log(new_d);
     if (!clusters[i] || (r > clusters[i].radius)) clusters[i] = new_d;
   });
 
@@ -71,6 +74,7 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(data) {
     	.start();
 
 	var svg = d3.select("#top_d3js_box").append("svg")
+  // var svg = d3.select("body").append("svg")
     	.attr("width", width)
     	.attr("height", height);
 
@@ -145,15 +149,46 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(data) {
   		};
 	}
 
+    var index_elem = d3.select("svg").append("g").attr("id", "index_elem");
+
+    // var size_index_data = [{"text": ">1000", "y": 10}, {"text": "500-1000", "y": 20}, {"text":"<500", "y": 50}];
+   index_elem.append("text").text("Size of circle indicates").attr({x:100,y:height-160,"text-anchor":"middle"});
+   // here can have wether it's favorites or number of retweets based on what user selects from the menu
+   index_elem.append("text").text("subjectivity").attr({x:100,y:height-148,"text-anchor":"middle"});
+   index_elem.selectAll("circle").data([10,20,50]).enter().append("circle")
+        .attr({cx:100,cy:function(d) {return height-20-d},r:String}).attr("text", "index")
+        .style({fill:"none","stroke-width":2,stroke:"#ccc","stroke-dasharray":"2 2"});
+    index_elem.append("text").text("1.0").attr({x:100, y: height-80, "text-anchor": "middle", "font-size": "12px"})
+    index_elem.append("text").text("0.5").attr({x:100, y: height-45, "text-anchor": "middle", "font-size": "10px"});
+    index_elem.append("text").text("0").attr({x:100, y: height-28, "text-anchor": "middle", "font-size": "10px"});
+
+
+    var color_index_data = [{"text": "positive", "y": 40}, {"text": "negative", "y": 80}, {"text":"neutral", "y": 120}];
+    var color_index = d3.select("svg").append("g").attr("id", "color_index");
+    color_index.append("text").text("Color of circle").attr({x:100, y: 20, "text-anchor":"middle"});
+    color_index.append("text").text("indicates sentiment").attr({x:100, y: 32, "text-anchor":"middle"});
+    color_index.selectAll("circle").data(color_index_data).enter().append("circle")
+      .attr({cx:100, cy: function(d) {return 20+d.y}, r: maxRadius})
+      .style({fill: function(d, i) {return color(i)}});
+
+
 
   // make the ones in the visualization more specific
 	$('svg circle').tipsy({ 
         gravity: 'w', 
         html: true, 
         title: function() {
-          var d = this.__data__, username = d.text
-          return username
+          var d = this.__data__
+          if (d.text) {
+            return d.text
+          } 
+          return ''
         }
 
     });
+
+
+  // create an index
+    // index element for circle sizes
+
 });
