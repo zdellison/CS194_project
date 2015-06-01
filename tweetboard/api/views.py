@@ -201,9 +201,11 @@ def get_retweet_user_info(request):
     retweets = api.retweets(request.GET['tweet_id'])
     users = []
     retweet_ids = []
+    created_at = []
     for retweet in retweets:
         users.append(get_user_info(retweet.user.id, api))
         retweet_ids.append(retweet.id)
+        created_at.append(retweet.created_at)
 
-    response = {'users': users, 'retweets': retweet_ids}
+    response = {'users': users, 'retweets': retweet_ids, 'created_at': created_at}
     return JsonResponse(response)
