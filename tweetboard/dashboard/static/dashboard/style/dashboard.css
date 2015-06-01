@@ -128,13 +128,12 @@
   margin-top: 1.5vh;
 }
 
-
 .tweet_items{
   /*background: transparent;*/
   /* Line: */
   border: 1px solid #C8C8C8;
-  height: 13.5vh;
-  max-width: 400px; 
+  height: 15vh;
+  max-width: 450px; 
   min-width: 250px;
   vertical-align: middle;
    margin-left: 0.5vw;
