@@ -9,24 +9,28 @@
 
 var users;
 
-var width = 960,
-    height = 500,
-    padding = 1.5, // separation between same-color circles
+var padding = 1.5, // separation between same-color circles
     clusterPadding = 6, // separation between different-color circles
     maxRadius = 12;
 
+var width = $('#top_d3js_box').width();
+var height = $('#top_d3js_box').height();
 
-d3.json("/api/get_users_retweet_by_original_user?user_id=HillaryClinton", function(data) {
+// var width = 950;
+// var height = 500;
+
+d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(data) {
 
   // console.log(error);
-	users = data.users;
+	users = data.tweets;
+  // console.log(users);
 
 
  //  var n = hashtags.length; // a circle for each hashtag
 	// var m = 4; // number of distinct clusters, 0-100 retweets is cluster 1, 100-500 is cluster 2, 500-1000 is cluster 3
 	// 			// anything above 1000 is cluster 4
 
-  var m = 4;
+  var m = 3;
 	var color = d3.scale.category10().domain(d3.range(m));
 
 	// The largest node for each cluster.
@@ -36,14 +40,27 @@ d3.json("/api/get_users_retweet_by_original_user?user_id=HillaryClinton", functi
   users.forEach(function(d) {
 
     console.log(d);
-    var i = d.favorites % 3; 
-    var r = maxRadius;
+    var i = 0;
+    if (d.sentiment.polarity < 0) {
+      i = 1;
+    } else if (d.sentiment.polarity == 0) {
+      i = 2;
+    }
+
+    console.log(d.sentiment.polarity);
+
+    var r = maxRadius + maxRadius * d.sentiment.subjectivity;
     var x = Math.cos(i / m * 2 * Math.PI) * 200 + width / 2 + Math.random();
     var y = Math.sin(i / m * 2 * Math.PI) * 200 + height / 2 + Math.random();
+    console.log(x);
+    console.log(y);
     d.x = x;
     d.y = y;
-    var name = d.name;
-    new_d = {cluster: i, radius: maxRadius, text: name, x: x, y: y}
+    d.cluster = i;
+    d.radius = r;
+    var tweet_text = d.text;
+    new_d = {cluster: i, radius: r, text: tweet_text, x: x, y: y}
+    console.log(new_d);
     if (!clusters[i] || (r > clusters[i].radius)) clusters[i] = new_d;
   });
 
@@ -56,7 +73,8 @@ d3.json("/api/get_users_retweet_by_original_user?user_id=HillaryClinton", functi
     	.on("tick", tick)
     	.start();
 
-	var svg = d3.select("body").append("svg")
+	var svg = d3.select("#top_d3js_box").append("svg")
+  // var svg = d3.select("body").append("svg")
     	.attr("width", width)
     	.attr("height", height);
 
@@ -71,6 +89,7 @@ d3.json("/api/get_users_retweet_by_original_user?user_id=HillaryClinton", functi
 
 
 	function tick(e) {
+
   		circle
       	.each(cluster(10 * e.alpha * e.alpha))
       	.each(collide(.5))
@@ -81,9 +100,13 @@ d3.json("/api/get_users_retweet_by_original_user?user_id=HillaryClinton", functi
   function cluster(alpha) {
       return function(d) {
         var cluster = clusters[d.cluster];
-        console.log(cluster);
+        // console.log(clusters);
+        // console.log(d.cluster);
+        // console.log(cluster);
+        // var cluster = 1;
         if (cluster === d) return;
-        console.log(d);
+        // console.log(d);
+        // console.log(cluster);
         var x = d.x - cluster.x,
           y = d.y - cluster.y,
           l = Math.sqrt(x * x + y * y),
@@ -126,15 +149,46 @@ d3.json("/api/get_users_retweet_by_original_user?user_id=HillaryClinton", functi
   		};
 	}
 
+    var index_elem = d3.select("svg").append("g").attr("id", "index_elem");
+
+    // var size_index_data = [{"text": ">1000", "y": 10}, {"text": "500-1000", "y": 20}, {"text":"<500", "y": 50}];
+   index_elem.append("text").text("Size of circle indicates").attr({x:100,y:height-160,"text-anchor":"middle"});
+   // here can have wether it's favorites or number of retweets based on what user selects from the menu
+   index_elem.append("text").text("subjectivity").attr({x:100,y:height-148,"text-anchor":"middle"});
+   index_elem.selectAll("circle").data([10,20,50]).enter().append("circle")
+        .attr({cx:100,cy:function(d) {return height-20-d},r:String}).attr("text", "index")
+        .style({fill:"none","stroke-width":2,stroke:"#ccc","stroke-dasharray":"2 2"});
+    index_elem.append("text").text("1.0").attr({x:100, y: height-80, "text-anchor": "middle", "font-size": "12px"})
+    index_elem.append("text").text("0.5").attr({x:100, y: height-45, "text-anchor": "middle", "font-size": "10px"});
+    index_elem.append("text").text("0").attr({x:100, y: height-28, "text-anchor": "middle", "font-size": "10px"});
+
+
+    var color_index_data = [{"text": "positive", "y": 40}, {"text": "negative", "y": 80}, {"text":"neutral", "y": 120}];
+    var color_index = d3.select("svg").append("g").attr("id", "color_index");
+    color_index.append("text").text("Color of circle").attr({x:100, y: 20, "text-anchor":"middle"});
+    color_index.append("text").text("indicates sentiment").attr({x:100, y: 32, "text-anchor":"middle"});
+    color_index.selectAll("circle").data(color_index_data).enter().append("circle")
+      .attr({cx:100, cy: function(d) {return 20+d.y}, r: maxRadius})
+      .style({fill: function(d, i) {return color(i)}});
+
+
 
   // make the ones in the visualization more specific
 	$('svg circle').tipsy({ 
         gravity: 'w', 
         html: true, 
         title: function() {
-          var d = this.__data__, username = d.name
-          return username
+          var d = this.__data__
+          if (d.text) {
+            return d.text
+          } 
+          return ''
         }
 
     });
+
+
+  // create an index
+    // index element for circle sizes
+
 });
