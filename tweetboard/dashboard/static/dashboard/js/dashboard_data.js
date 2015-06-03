@@ -11,6 +11,8 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(data) {
   		console.log(d.text);
 		var list_div = document.createElement("li");
 		$(list_div).attr("class", "tweet_items");
+		var href_wrapper = document.createElement("a");
+		$(href_wrapper).attr("href", "tweet");
 		var div_tweet_name = document.createElement("div");
 		$(div_tweet_name).attr("class", "tweet_prof_name").text("Hillary Clinton");
 		var div_tweet_handle = document.createElement("div");
@@ -18,9 +20,10 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(data) {
 		var div_tweet_body = document.createElement("div");
 		$(div_tweet_body).attr("class", "tweet").text(d.text);
 
-		$(list_div).append(div_tweet_name);
-		$(list_div).append(div_tweet_handle);
-		$(list_div).append(div_tweet_body);
+		$(list_div).append(href_wrapper);
+		$(href_wrapper).append(div_tweet_name);
+		$(href_wrapper).append(div_tweet_handle);
+		$(href_wrapper).append(div_tweet_body);
 		
 	    document.getElementById("tweet_items_list").appendChild(list_div);
 	});
