@@ -11,6 +11,7 @@ from login.models import Profile
 import tweepy as tp
 from textblob import TextBlob as tb
 from gender_detector import GenderDetector as gd
+import re
 
 detector = gd('us')
 
@@ -43,9 +44,12 @@ def get_user_info(user_id, api):
     user['friends_count'] = user_resp.friends_count
     user['screen_name'] = user_resp.screen_name
 
-    # Get gender:
+   # Get gender:
     first_name = user_resp.name.split(' ', 1)[0]
-    user['gender'] = detector.guess(first_name)
+    if re.match('[A-Za-z]*', first_name):
+        print "First Name: ", first_name
+        user['gender'] = detector.guess(first_name)
+    else: user['gender'] = 'unknown'
 
     return user
 
@@ -56,9 +60,9 @@ def get_tweet_info(tweet):
             'created_by_id': tweet.user.id,
             'created_at': tweet.created_at,
             'favorited': tweet.favorited,
-            'retweeted': tweet.retweeted,
             'text': tweet.text,
-            'coordinates': tweet.coordinates
+            'coordinates': tweet.coordinates,
+            'retweet_count': tweet.retweet_count
         }
     if 'hashtags' in tweet.entities:
         processed_tweet['hashtags'] = tweet.entities['hashtags']
@@ -67,9 +71,6 @@ def get_tweet_info(tweet):
     if 'media' in tweet.entities:
         processed_tweet['media'] = tweet.entities['media']
     else: processed_tweet['media'] = None
-    if tweet.retweeted:
-        processed_tweet['retweet_count'] = tweet.retweet_count
-    else: processed_tweet['retweet_count'] = 0   
     if tweet.favorited:
         processed_tweet['favorites_count'] = tweet.favorites_count
     else: processed_tweet['favorites_count'] = 0
@@ -201,9 +202,11 @@ def get_retweet_user_info(request):
     retweets = api.retweets(request.GET['tweet_id'])
     users = []
     retweet_ids = []
+    created_at = []
     for retweet in retweets:
         users.append(get_user_info(retweet.user.id, api))
         retweet_ids.append(retweet.id)
+        created_at.append(retweet.created_at)
 
-    response = {'users': users, 'retweets': retweet_ids}
+    response = {'users': users, 'retweets': retweet_ids, 'created_at': created_at}
     return JsonResponse(response)
