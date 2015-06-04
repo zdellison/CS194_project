@@ -5,7 +5,7 @@
 <html>
     <head>
         <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/dashboard.css' %}" />
+		
 		<link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/bootstrap.css' %}" />
 		<link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/bootstrap-theme.css' %}" />
 		<link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/mtree.css' %}" />
@@ -20,6 +20,7 @@
     <script src="http://d3js.org/d3.v3.min.js"></script>
      <script src="{% static 'dashboard/js/jquery.tipsy.js' %}"></script>
      <script src="{% static 'dashboard/js/dashboard_data.js' %}"></script>
+    
 		<script src="{% static 'dashboard/js/grey_box.js' %}"></script>
 		
     
@@ -33,6 +34,7 @@
     </head>
   
     <body>
+        <div id="hidden_tweet_id" style="visibility: hidden; height: 0px"> {{tweet_id}} </div>
          <div id="block"></div>
           <div id="grey_container">
               
@@ -74,7 +76,7 @@
                   
                   <li class="side_button">
                    
-                        <a href="#" class="side_button_text"> NEW TWEET </a>
+                        <a href="#" class="side_button_text"> DASHBOARD </a>
                     
                   </li>
                   <li class="side_button">
@@ -87,74 +89,7 @@
                          <div style="height: 2vh;"></div>
 
                         <ul id="tweet_items_list"></ul>
-                   <!--
-                    <ul>
-                     
-                      <li>
-                         <a href="#" class="tweet_items">
-                            <div class="tweet_prof_name">Hillary Clinton </div>
-                            <div class="tweet_prof_twitter">  @clinton2016</div>
-                            <div class="tweet" id="tweet1"></div>
-                          </a>
-                      </li>
-                      <li>
-                         <a href="#" class="tweet_items">
-                            <div class="tweet_prof_name">Hillary Clinton </div>
-                            <div class="tweet_prof_twitter">   @clinton2016</div>
-                            <div class="tweet" id="tweet2"></div>
-                          </a>
-                      </li>
-                      <li>
-                         <a href="#" class="tweet_items">
-                            <div class="tweet_prof_name">Hillary Clinton </div>
-                            <div class="tweet_prof_twitter">   @clinton2016</div>
-                            <div class="tweet"id="tweet3"></div>
-                          </a>
-                      </li>
-                      <li>
-                         <a href="#" class="tweet_items">
-                            <div class="tweet_prof_name">Hillary Clinton </div>
-                            <div class="tweet_prof_twitter">   @clinton2016</div>
-                            <div class="tweet"id="tweet4"></div>
-                          </a>
-                      </li>
-                      <li>
-                         <a href="#" class="tweet_items">
-                            <div class="tweet_prof_name">Hillary Clinton </div>
-                            <div class="tweet_prof_twitter">   @clinton2016</div>
-                            <div class="tweet"id="tweet5"></div>
-                          </a>
-                      </li>
-                      <li>
-                         <a href="#" class="tweet_items">
-                            <div class="tweet_prof_name">Hillary Clinton </div>
-                            <div class="tweet_prof_twitter">   @clinton2016</div>
-                            <div class="tweet"id="tweet6"></div>
-                          </a>
-                      </li>
-                      <li>
-                         <a href="#" class="tweet_items">
-                            <div class="tweet_prof_name">Hillary Clinton </div>
-                            <div class="tweet_prof_twitter">   @clinton2016</div>
-                            <div class="tweet"id="tweet7"></div>
-                          </a>
-                      </li>
-                      <li>
-                         <a href="#" class="tweet_items">
-                            <div class="tweet_prof_name">Hillary Clinton </div>
-                            <div class="tweet_prof_twitter">   @clinton2016</div>
-                            <div class="tweet"id="tweet8"></div>
-                          </a>
-                      </li>
-                      <li>
-                         <a href="#" class="tweet_items">
-                            <div class="tweet_prof_name">Hillary Clinton </div>
-                            <div class="tweet_prof_twitter">   @clinton2016</div>
-                            <div class="tweet"id="tweet9"></div>
-                          </a>
-                      </li>
-                    </ul>
-                  -->
+             
                   </li>
                  
               </ul>
@@ -189,8 +124,7 @@
 
                 <div class="col-md-1"></div>
                 <div class="col-md-4">
-                  <div id="page_title"> DASHBOARD </div>
-                  <div id="page_subtitle"> Analysis of 25 most recent tweets </div>
+                  <div id="page_title"> TWEET </div>
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-md-5">
@@ -205,6 +139,8 @@
 
        
             
+            <div class="row divisor"></div>
+            <div class="row" id="tweet_body"> {{tweet_id}} </div>
             <div class="row divisor"></div>
             <div class="row dashboard" id="dashboard_body_top">
               <div class="d3js_box" id="top_d3js_box">
@@ -224,17 +160,6 @@
               </div>
             </div>
 
-            <div class="row dashboard secondary_level">
-              <div class="wrapper_box nomargin">
-                <div class="d3js_box body_d3js_box"></div>
-              </div>
-              <div class="wrapper_box nomargin">
-                <div class="d3js_box body_d3js_box"></div>
-              </div>
-              <div class="wrapper_box nomargin">
-                <div class="d3js_box body_d3js_box"></div>
-              </div>
-            </div>
 
            
 
@@ -246,5 +171,7 @@
 
      
       <script src="{% static 'dashboard/js/mtree.js' %}"></script> 
+       <script src="{% static 'dashboard/js/tweet_data.js' %}"></script>
+       <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/dashboard.css' %}" />
     </body>
 </html>

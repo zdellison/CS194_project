@@ -240,4 +240,12 @@
 	max-height: 650px;
 }
 
+#tweet_body{
+  text-align: center;
+  font-family: Raleway;
+  font-size: 16px;
+  color: rgba(36,44,57,0.90);
+	
+}
+
 
