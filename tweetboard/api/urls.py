@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'get_user_by_id', get_user_by_id),
     url(r'get_tweet_by_id', get_tweet_by_id),
     url(r'get_retweet_user_info', get_retweet_user_info),
+    url(r'get_gender_total_for_recent_tweets', get_gender_total_for_recent_tweets),
 ]
