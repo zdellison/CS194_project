@@ -32,7 +32,6 @@ def get_api_with_auth(request):
 def get_gender(user):
     first_name = user.name.split(' ', 1)[0]
     if re.match('[A-Za-z]+', first_name):
-        print "First Name: ", first_name
         return detector.guess(first_name)
     else: return 'unknown'
 
@@ -53,13 +52,7 @@ def get_user_info(user_id, api):
 
    # Get gender:
     user['gender'] = get_gender(user_resp)
-
-#    first_name = user_resp.name.split(' ', 1)[0]
-#    if re.match('[A-Za-z]+', first_name):
-#        print "First Name: ", first_name
-#        user['gender'] = detector.guess(first_name)
-#    else: user['gender'] = 'unknown'
-
+    
     return user
 
 # Method returns a dict of processed tweet data from a tweepy status
@@ -189,7 +182,7 @@ def get_users_retweet_by_original_user(request):
     for tweet in tweets:
         if tweet.retweet_count > 0:
             retweeted_tweets.append(tweet.id)
-            retweets = api.retweets(tweet.id)
+            retweets = api.retweets(tweet.id, count=100)
             for retweet in retweets:
                 users.append(get_user_info(retweet.user.id, api))
 
@@ -246,16 +239,20 @@ def get_gender_total_for_recent_tweets(request):
     total_retweets = 0
     # Set to 10 for now to prevent hitting rate limit as much...
     # TODO: Switch back to 25 once Paul has integrated DB
-    tweets = api.user_timeline(id=request.GET['user_id'], count=10)
+    tweets = api.user_timeline(id=request.GET['user_id'], count=25)
     for tweet in tweets:
-        retweets = api.retweets(tweet.id)
+        retweets = api.retweets(tweet.id, count=100)
         total_retweets += tweet.retweet_count
         for retweet in retweets:
             retweet_count += 1
             user = retweet.author
             gender_totals[get_gender(user)] += 1
 
-    response = {'gender_totals': gender_totals}
+    response = {
+            'gender_totals': gender_totals,
+            'retweet_count': retweet_count,
+            'total_retweets': total_retweets,
+            }
     return JsonResponse(response)
 
 
