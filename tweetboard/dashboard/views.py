@@ -23,4 +23,5 @@ def tweet(request):
 
 @login_required
 def landing(request):
+	context = {}
 	return render(request, 'landing.html', context)

@@ -1,0 +1,75 @@
+#container{
+    background-color: #242C39;
+}
+
+#top_space{
+  height: 10vh;
+}
+
+#choose{
+        
+        font-family: HelveticaNeue-UltraLight;
+        font-size: 32px;
+        color: #9B9B9B;
+        line-height: 60px;
+        text-align: center;
+}
+
+#tweetBoard{
+        text-align: center;
+       
+        display: block;
+        margin-left: 32.5vw;
+        margin-right: auto;
+}
+
+#logo_1{
+        /* tweetBoard: */
+        font-family: Dosis-Bold;
+        font-size: 80px;
+        color: #50E3C2;
+        letter-spacing: 4.16px;
+        line-height: 127px;
+        text-align: center;
+        float: left;
+}
+#logo_2{
+        /* tweetBoard: */
+        font-family: Dosis-Bold;
+        font-size: 80px;
+        color: white;
+        letter-spacing: 4.16px;
+        line-height: 127px;
+        float: left;
+        text-align: center;
+        
+}
+
+.spacing{
+  height: 10vh;
+}
+
+#candidates{
+
+}
+
+.candidates_pics{
+    /* Rectangle 29: */
+
+height: 30vh;
+width: 35vh;
+/* Rectangle 32 Copy: */
+border: 3px solid #979797;
+border-radius: 21px;
+}
+
+.candidates_names{
+        /* Hillary Clinton: */
+/* Hillary Clinton: */
+font-family: HelveticaNeue-UltraLight;
+font-size: 22px;
+color: #979797;
+line-height: 60px;
+text-align: center;
+padding-right: 4vw;
+}
