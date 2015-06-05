@@ -56,7 +56,8 @@ def get_tweet_info(tweet):
             'created_by_id': tweet.user.id,
             'created_at': tweet.created_at,
             'favorited': tweet.favorited,
-            'retweeted': tweet.retweeted,
+            'retweet_count': tweet.retweet_count,
+            # 'favourites_count': tweet.favorites_count,
             'text': tweet.text,
             'coordinates': tweet.coordinates
         }
@@ -67,11 +68,11 @@ def get_tweet_info(tweet):
     if 'media' in tweet.entities:
         processed_tweet['media'] = tweet.entities['media']
     else: processed_tweet['media'] = None
-    if tweet.retweeted:
-        processed_tweet['retweet_count'] = tweet.retweet_count
-    else: processed_tweet['retweet_count'] = 0   
+    # if tweet.retweeted:
+    #     processed_tweet['retweet_count'] = tweet.retweet_count
+    # else: processed_tweet['retweet_count'] = 0   
     if tweet.favorited:
-        processed_tweet['favorites_count'] = tweet.favorites_count
+        processed_tweet['favorites_count'] = tweet.favourites_count
     else: processed_tweet['favorites_count'] = 0
 
     # Get Sentiment
