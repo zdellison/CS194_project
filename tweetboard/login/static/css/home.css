@@ -1,0 +1,70 @@
+body{
+	background-color: #242C39;
+}
+
+#top_space{
+	height: 20vh;
+}
+
+#welcome{
+	/* Welcome to: */
+	font-family: HelveticaNeue-UltraLight;
+	font-size: 42px;
+	color: #9B9B9B;
+	line-height: 60px;
+	text-align: center;
+}
+
+.spacing{
+	height: 30vh;
+}
+
+#tweetBoard{
+	text-align: center;
+  	width: 50vw;
+  	display: block;
+  	margin-left: 32.5vw;
+  	margin-right: auto;
+}
+
+#logo_1{
+	/* tweetBoard: */
+	font-family: Dosis-Bold;
+	font-size: 80px;
+	color: #50E3C2;
+	letter-spacing: 4.16px;
+	line-height: 127px;
+	text-align: center;
+	float: left;
+}
+#logo_2{
+	/* tweetBoard: */
+	font-family: Dosis-Bold;
+	font-size: 80px;
+	color: white;
+	letter-spacing: 4.16px;
+	line-height: 127px;
+	float: left;
+	text-align: center;
+	
+}
+
+#login_box{
+	/* Rectangle 30: */
+	border: 1px solid #9B9B9B;
+	border-radius: 21px;
+	text-align: center;
+  	width: 30vw;
+  	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+#login_text{
+	text-align: center;
+	/* Login with Twitter: */
+	font-family: HelveticaNeue-UltraLight;
+	font-size: 32px;
+	color: #9B9B9B;
+	line-height: 49px;
+	text-decoration: none;
+}

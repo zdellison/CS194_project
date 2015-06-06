@@ -1,7 +1,38 @@
-{% extends "base.html" %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-{% block title %} Login Page {% endblock %}
+{% load staticfiles %}
 
-{% block content %}
-<a rel="nofollow" href="/login/login/" >Login With Twitter</a>
-{% endblock %}
+<html>
+    <head></head>
+  
+    <body>
+       
+      <div id="container">
+
+        <div class="row" id="top_space"></div>
+        <div class="row" id="welcome"> Welcome to </div>
+        
+        <div class="row" id="tweetboard">
+          <div class="nomargin" id="logo_1">tweet</div>
+          <div class="nomargin" id="logo_2">Board</div>
+        </div>
+
+        <div class="row spacing"></div>
+
+       
+
+        <div class="row" id="login_box">
+          <a rel="nofollow" href="/login/login/" id="login_text"> Login with Twitter </a>
+        </div>
+       
+      </div>
+
+      <link href='http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
+     
+
+      <script src="{% static 'dashboard/js/dashboard.js' %}"></script>
+
+    </body>
+</html>

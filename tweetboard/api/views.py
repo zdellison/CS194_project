@@ -11,6 +11,7 @@ from login.models import Profile
 import tweepy as tp
 from textblob import TextBlob as tb
 from gender_detector import GenderDetector as gd
+import re
 
 detector = gd('us')
 
@@ -28,6 +29,12 @@ def get_api_with_auth(request):
 
     return api
 
+def get_gender(user):
+    first_name = user.name.split(' ', 1)[0]
+    if re.match('[A-Za-z]+', first_name):
+        return detector.guess(first_name)
+    else: return 'unknown'
+
 # Method returns a dict of processed user data from a tweepy User instance
 def get_user_info(user_id, api):
     user = {}
@@ -43,23 +50,27 @@ def get_user_info(user_id, api):
     user['friends_count'] = user_resp.friends_count
     user['screen_name'] = user_resp.screen_name
 
-    # Get gender:
-    first_name = user_resp.name.split(' ', 1)[0]
-    user['gender'] = detector.guess(first_name)
-
+   # Get gender:
+    user['gender'] = get_gender(user_resp)
+    
     return user
 
 # Method returns a dict of processed tweet data from a tweepy status
 def get_tweet_info(tweet):
     processed_tweet = {
-            'tweetId': tweet.id,
+            'tweet_id': tweet.id,
             'created_by_id': tweet.user.id,
             'created_at': tweet.created_at,
-            'favorited': tweet.favorited,
-            'retweet_count': tweet.retweet_count,
-            # 'favourites_count': tweet.favorites_count,
             'text': tweet.text,
-            'coordinates': tweet.coordinates
+            'coordinates': tweet.coordinates,
+            # Note: only returns a non-zero favorite_count for an original
+            # tweet. We'd need to look up the original tweet itself to get
+            # the favorite_count, which is possible.
+            'favorite_count': tweet.favorite_count,
+            'retweet_count': tweet.retweet_count
+# This favorited field only tells us if we, the authenticated user have
+# favorited this tweet, which isn't that helpful.
+#            'favorited': tweet.favorited,
         }
     if 'hashtags' in tweet.entities:
         processed_tweet['hashtags'] = tweet.entities['hashtags']
@@ -68,12 +79,13 @@ def get_tweet_info(tweet):
     if 'media' in tweet.entities:
         processed_tweet['media'] = tweet.entities['media']
     else: processed_tweet['media'] = None
-    # if tweet.retweeted:
-    #     processed_tweet['retweet_count'] = tweet.retweet_count
-    # else: processed_tweet['retweet_count'] = 0   
-    if tweet.favorited:
-        processed_tweet['favorites_count'] = tweet.favourites_count
-    else: processed_tweet['favorites_count'] = 0
+
+#    if tweet.favorite_count:
+#        processed_tweet['favorite_count'] = tweet.favorite_count
+#    else: processed_tweet['favorite_count'] = 0
+#    if tweet.retweet_count:
+#        processed_tweet['retweet_count'] = tweet.retweet_count
+#    else: processed_tweet['retweet_count'] = 0
 
     # Get Sentiment
     blob = tb(tweet.text)
@@ -149,7 +161,7 @@ def get_tweets_by_user_id(request):
     api = get_api_with_auth(request)
 
     recent_tweets = []
-    tweets = api.user_timeline(id=request.GET['user_id'],count=25,)
+    tweets = api.user_timeline(id=request.GET['user_id'], count=25)
     for tweet in tweets:
         recent_tweets.append(get_tweet_info(tweet))
 
@@ -159,6 +171,7 @@ def get_tweets_by_user_id(request):
     return JsonResponse(response)
 
 # Given a user, return all users who have retweeted their previous 10 tweets
+# NOTE: Don't use this, it burns through rate limiting and was only an example
 @login_required
 def get_users_retweet_by_original_user(request):
     api = get_api_with_auth(request)
@@ -169,14 +182,14 @@ def get_users_retweet_by_original_user(request):
     for tweet in tweets:
         if tweet.retweet_count > 0:
             retweeted_tweets.append(tweet.id)
-            retweets = api.retweets(tweet.id)
+            retweets = api.retweets(tweet.id, count=100)
             for retweet in retweets:
                 users.append(get_user_info(retweet.user.id, api))
 
     response = {'tweets':retweeted_tweets,'users':users}
     return JsonResponse(response)
 
-# Return user info when given a user's Twitter id
+# Return user info when given a user's Twitter ID
 @login_required
 def get_user_by_id(request):
     api = get_api_with_auth(request)
@@ -184,7 +197,7 @@ def get_user_by_id(request):
     return JsonResponse(response)
 
 
-# Return tweet info when given tweet id
+# Return tweet info when given Tweet ID
 @login_required
 def get_tweet_by_id(request):
     api = get_api_with_auth(request)
@@ -210,3 +223,37 @@ def get_retweet_user_info(request):
 
     response = {'users': users, 'retweets': retweet_ids, 'created_at': created_at}
     return JsonResponse(response)
+
+# Given User ID, for the last 25 tweets, how many of the users that retweeted
+# were male, female or unknown.
+@login_required
+def get_gender_total_for_recent_tweets(request):
+    api = get_api_with_auth(request)
+
+    gender_totals = {
+            'male': 0,
+            'female': 0,
+            'unknown': 0,
+            }
+    retweet_count = 0
+    total_retweets = 0
+    # Set to 10 for now to prevent hitting rate limit as much...
+    # TODO: Switch back to 25 once Paul has integrated DB
+    tweets = api.user_timeline(id=request.GET['user_id'], count=25)
+    for tweet in tweets:
+        retweets = api.retweets(tweet.id, count=100)
+        total_retweets += tweet.retweet_count
+        for retweet in retweets:
+            retweet_count += 1
+            user = retweet.author
+            gender_totals[get_gender(user)] += 1
+
+    response = {
+            'gender_totals': gender_totals,
+            'retweet_count': retweet_count,
+            'total_retweets': total_retweets,
+            }
+    return JsonResponse(response)
+
+
+

@@ -130,4 +130,4 @@ def twitter_authenticated(request):
 
     #context = {}
     #return render(request, 'dashboard.html', context)
-    return HttpResponseRedirect('/dashboard/')
+    return HttpResponseRedirect('/dashboard/landing')

@@ -1,0 +1,64 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+{% load staticfiles %}
+
+<html>
+    <head></head>
+  
+    <body>
+       
+      <div id="container">
+
+        <div class="row nomargin" id="top_space"></div>
+
+        <div class="row nomargin" id="tweetboard">
+          <div id="logo_1">tweet</div>
+          <div id="logo_2">Board</div>
+        </div>
+
+
+        <div class="row" id="choose"> choose a candidate </div>
+
+        <div class="row spacing"></div>
+        <div class="row" id="candidates">
+        	<div class="col-md-2" style="margin-right: 1.5vw;"></div>
+        	<div class="col-md-8 ">
+        		<div class="row">
+        			<div class="col-md-4">
+        				<a rel="nofollow" href="/dashboard?user=HillaryClinton">
+	        				<div class="row candidates_pics" id="hillary_pic"></div>
+	        				<div class="row candidates_names"> Hillary Clinton </div>
+        				</a>
+        			</div>
+        			<div class="col-md-4">
+        				<a rel="nofollow" href="/dashboard?user=JebBush">
+	        				<div class="row candidates_pics" id="jeb_pic"></div>
+	        				<div class="row candidates_names"> Jeb Bush </div>
+	        			</a>
+        			</div>
+        			<div class="col-md-4 ">
+        				<a rel="nofollow" href="/dashboard?user=RickSantorum">
+	        				<div class="row candidates_pics" id="rick_pic"></div>
+	        				<div class="row candidates_names"> Rick Santorum </div>
+	        			</a>
+	        		</div>
+        		</div>
+        		
+        	</div>
+        </div>
+
+        <div class="row spacing"></div>
+        <div class="row spacing"></div>
+       
+       
+      </div>
+
+        <link href='http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/landing.css' %}" />
+      <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/bootstrap-theme.css' %}" />
+      <script src="{% static 'dashboard/js/dashboard.js' %}"></script>
+
+    </body>
+</html>
