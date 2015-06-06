@@ -1,3 +1,6 @@
+// more about showing / hiding elements: http://bl.ocks.org/d3noob/5d621a60e2d1d02086bf
+
+
 function wrap(text, width) {
   text.each(function() {
     var text = d3.select(this),
@@ -70,7 +73,7 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(error, dat
     		// xAxis = d3.svg.axis().scale(xScale).orient("bottom");
 
     // setup y
-	var yValue = function(d) { return d.favorites_count;}, // data -> value
+	var yValue = function(d) { return d.favorite_count;}, // data -> value
     	yMap = function(d) { return y(yValue(d));} // data -> display
     	// yAxis = d3.svg.axis().scale(yScale).orient("left");
 
@@ -84,7 +87,7 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(error, dat
 	dataset.forEach(function(d) {
 		d.created_at = parseDate(d.created_at);
 		d.retweet_count = +d.retweet_count;
-		d.favorites_count = +d.favorites_count;
+		d.favorites_count = +d.favorite_count;
 		// d.text = d.text;
 		d.r = 7;
 	});
@@ -93,7 +96,7 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(error, dat
 
 	// Scale the range of the data
 	x.domain(d3.extent(dataset, function(d) { return d.created_at; }));
-	y.domain([0, d3.max(dataset, function(d) { return Math.max(d.favorites_count, d.retweet_count); })]);
+	y.domain([0, d3.max(dataset, function(d) { return Math.max(d.favorite_count, d.retweet_count); })]);
 
 
 
@@ -137,32 +140,34 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(error, dat
        .attr("cy", yMap2); 
 
 
-	svg.append("text")
+	svg.append("text").attr("id", "favorites_text")
 		.attr("transform", "translate(" + 10 + "," + (10) + ")")
-		.style("fill", "steelblue").
-		on("click", function(){
-
+		.style("fill", "steelblue")
+		.on("click", function(){
     	var active   = retweetdot.active ? false : true,
       	newOpacity = active ? 0 : 1;
     // Hide or show the elements
-    d3.selectAll("#retweetdot").attr("r", function(d) {
+      d3.selectAll("#retweetdot").style("opacity", newOpacity);
       // console.log(d);
-      return newOpacity * d.r;});
-    retweetdot.active = active;
-  }).text("Favorites");
+        // return newOpacity * d.r;});
+        retweetdot.active = active;
+      }).text("Favorites");
 
 	svg.append("text")
 		.attr("transform", "translate(" + 10 + "," + (30) + ")")
 		.style("fill", "coral").
 		on("click", function(){
 
+
+
     	var active   = dotfav.active ? false : true,
       	newOpacity = active ? 0 : 1;
     // Hide or show the elements
-    d3.selectAll("#dotfav").attr("r", function(d) {
-      console.log(d);
-      return newOpacity * d.r;});
-    dotfav.active = active;
+      d3.selectAll("#dotfav").style("opacity", newOpacity);
+  // .attr("r", function(d) {
+  //     console.log(d);
+  //     return newOpacity * d.r;});
+     dotfav.active = active;
   }).text("Retweets");
 
 
@@ -172,7 +177,7 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(error, dat
         title: function() {
           var d = this.__data__
           if (d.text) {
-          	var heading = d.text + '<br/>' +  (d.created_at).toString() + "<br/>Favorites: " + (d.favorites_count).toString() + "<br/>Retweets: " + (d.retweet_count).toString();
+          	var heading = d.text + '<br/>' +  (d.created_at).toString() + "<br/>Favorites: " + (d.favorite_count).toString() + "<br/>Retweets: " + (d.retweet_count).toString();
             return heading;
           } 
           return '';
