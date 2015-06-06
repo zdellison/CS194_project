@@ -1,0 +1,19 @@
+{
+    "tweet": {
+        "coordinates": null, 
+        "created_at": "2015-05-25T02:04:06", 
+        "created_by_id": 1339835893, 
+        "favorited": false, 
+        "favorites_count": 0, 
+        "hashtags": [], 
+        "media": null, 
+        "retweet_count": 0, 
+        "retweeted": false, 
+        "sentiment": {
+            "polarity": 0.5666666666666668, 
+            "subjectivity": 0.5666666666666668
+        }, 
+        "text": "Win a free trip to meet Hillary. Need we say more? http://t.co/ZQm4MMtIts", 
+        "tweetId": 602656356953399296
+    }
+}

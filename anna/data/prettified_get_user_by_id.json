@@ -1,0 +1,15 @@
+{
+    "user": {
+        "created_at": "2013-04-09T18:04:35", 
+        "favourites_count": 36, 
+        "followers_count": 3587638, 
+        "friends_count": 17, 
+        "gender": "unknown", 
+        "id": 1339835893, 
+        "listed_count": 16405, 
+        "location": "New York", 
+        "name": "Hillary Clinton", 
+        "screen_name": "HillaryClinton", 
+        "statuses_count": 513
+    }
+}
