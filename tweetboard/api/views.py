@@ -80,13 +80,6 @@ def get_tweet_info(tweet):
         processed_tweet['media'] = tweet.entities['media']
     else: processed_tweet['media'] = None
 
-#    if tweet.favorite_count:
-#        processed_tweet['favorite_count'] = tweet.favorite_count
-#    else: processed_tweet['favorite_count'] = 0
-#    if tweet.retweet_count:
-#        processed_tweet['retweet_count'] = tweet.retweet_count
-#    else: processed_tweet['retweet_count'] = 0
-
     # Get Sentiment
     blob = tb(tweet.text)
     sentiment = {'polarity': blob.sentiment.polarity, 
