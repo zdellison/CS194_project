@@ -49,6 +49,7 @@ def get_user_info(user_id, api):
     user['statuses_count'] = user_resp.statuses_count
     user['friends_count'] = user_resp.friends_count
     user['screen_name'] = user_resp.screen_name
+    user['profile_image_url'] = user_resp.profile_image_url
 
    # Get gender:
     user['gender'] = get_gender(user_resp)
@@ -232,7 +233,7 @@ def get_gender_total_for_recent_tweets(request):
     total_retweets = 0
     # Set to 10 for now to prevent hitting rate limit as much...
     # TODO: Switch back to 25 once Paul has integrated DB
-    tweets = api.user_timeline(id=request.GET['user_id'], count=25)
+    tweets = api.user_timeline(id=request.GET['user_id'], count=10)
     for tweet in tweets:
         retweets = api.retweets(tweet.id, count=100)
         total_retweets += tweet.retweet_count
