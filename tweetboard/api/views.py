@@ -1,4 +1,4 @@
-# Django
+#Django
 from django.shortcuts import render
 from django.conf import settings
 from django.http import JsonResponse
@@ -123,33 +123,6 @@ def init(request):
 
     return JsonResponse(response)
 
-def sample_users(request):
-    response = {
-        "users": [
-            {
-                "name": "Anna",
-                "age": 21,
-                "gender": "female"
-            },
-            {
-                "name": "Pedro",
-                "age": 22,
-                "gender": "male"
-            },
-            {
-                "name": "Paul",
-                "age": 22,
-                "gender": "male"
-            },
-            {
-                "name": "Zach",
-                "age": 22,
-                "gender": "male"
-            }
-        ]}
-
-    return JsonResponse(response)
-
 @login_required
 def get_tweets_by_user_id(request):
     api = get_api_with_auth(request)
@@ -206,12 +179,18 @@ def get_tweet_by_id(request):
 @login_required
 def get_retweet_user_info(request):
     api = get_api_with_auth(request)
-    retweets = api.retweets(request.GET['tweet_id'])
+    tweet = api.get_status(id = request.GET['tweet_id'])
+    retweets = api.retweets(request.GET['tweet_id'], count=100)
     users = []
     retweet_ids = []
     created_at = []
+    user_ids = []
     for retweet in retweets:
-        users.append(get_user_info(retweet.user.id, api))
+        user = get_user_info(retweet.user.id, api)
+        friendship = api.show_friendship(source_id=user['id'], target_id=tweet.user.id)[0]
+        user['following_candidate'] = friendship.following
+        user['followed_by_candidate'] = friendship.followed_by
+        users.append(user)
         retweet_ids.append(retweet.id)
         created_at.append(retweet.created_at)
 
