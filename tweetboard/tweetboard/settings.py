@@ -37,7 +37,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social_auth',
+
+    # NOTE: Not using social_auth anymore
+    #    'social_auth',
     'login',
     'dashboard',
     'api'
@@ -109,32 +111,34 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# NOTE: Not using the social_auth package anymore...
+
 # Set up Authentication Backends, specifically for Twitter Auth
 # Based on dependency for Django Social Auth
 
-AUTHENTICATION_BACKENDS = (
-   'social_auth.backends.twitter.TwitterBackend',
-   #'social_auth.backends.facebook.FacebookBackend',
-   #'social_auth.backends.google.GoogleOAuthBackend',
-   #'social_auth.backends.google.GoogleOAuth2Backend',
-   #'social_auth.backends.google.GoogleBackend',
-   #'social_auth.backends.yahoo.YahooBackend',
-   #'social_auth.backends.browserid.BrowserIDBackend',
-   #'social_auth.backends.contrib.linkedin.LinkedinBackend',
-   #'social_auth.backends.contrib.disqus.DisqusBackend',
-   #'social_auth.backends.contrib.livejournal.LiveJournalBackend',
-   #'social_auth.backends.contrib.orkut.OrkutBackend',
-   #'social_auth.backends.contrib.foursquare.FoursquareBackend',
-   #'social_auth.backends.contrib.github.GithubBackend',
-   #'social_auth.backends.contrib.vk.VKOAuth2Backend',
-   #'social_auth.backends.contrib.live.LiveBackend',
-   #'social_auth.backends.contrib.skyrock.SkyrockBackend',
-   #'social_auth.backends.contrib.yahoo.YahooOAuthBackend',
-   #'social_auth.backends.contrib.readability.ReadabilityBackend',
-   #'social_auth.backends.contrib.fedora.FedoraBackend',
-   #'social_auth.backends.OpenIDBackend',
-   'django.contrib.auth.backends.ModelBackend',
-)
+#AUTHENTICATION_BACKENDS = (
+#   'social_auth.backends.twitter.TwitterBackend',
+#   #'social_auth.backends.facebook.FacebookBackend',
+#   #'social_auth.backends.google.GoogleOAuthBackend',
+#   #'social_auth.backends.google.GoogleOAuth2Backend',
+#   #'social_auth.backends.google.GoogleBackend',
+#   #'social_auth.backends.yahoo.YahooBackend',
+#   #'social_auth.backends.browserid.BrowserIDBackend',
+#   #'social_auth.backends.contrib.linkedin.LinkedinBackend',
+#   #'social_auth.backends.contrib.disqus.DisqusBackend',
+#   #'social_auth.backends.contrib.livejournal.LiveJournalBackend',
+#   #'social_auth.backends.contrib.orkut.OrkutBackend',
+#   #'social_auth.backends.contrib.foursquare.FoursquareBackend',
+#   #'social_auth.backends.contrib.github.GithubBackend',
+#   #'social_auth.backends.contrib.vk.VKOAuth2Backend',
+#   #'social_auth.backends.contrib.live.LiveBackend',
+#   #'social_auth.backends.contrib.skyrock.SkyrockBackend',
+#   #'social_auth.backends.contrib.yahoo.YahooOAuthBackend',
+#   #'social_auth.backends.contrib.readability.ReadabilityBackend',
+#   #'social_auth.backends.contrib.fedora.FedoraBackend',
+#   #'social_auth.backends.OpenIDBackend',
+#   'django.contrib.auth.backends.ModelBackend',
+#)
 
 # Authentication Keys for Twitter App Authentication
 
