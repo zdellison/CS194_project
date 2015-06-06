@@ -11,8 +11,8 @@
     </head>
   
     <body>
-       <div id="hidden_user" style="visibility: hidden; height: 0px"> {{user_id}} </div>
-        <div id="hidden_tweet_id" style="visibility: hidden; height: 0px"> {{tweet_id}} </div>
+       
+       <div id="hidden_tweet_id" style="visibility: hidden; height: 0px">{{tweet_id}}</div>
          <div id="block"></div>
           <div id="grey_container">
               
@@ -86,7 +86,7 @@
                   <div class="col-md-2 nomargin">
                     <div class="top_bar" id="top_bar_right">
                         <div class="col-md-4 nomargin">
-                           <a class="icons top_bar nomargin" id="home_wrapper"> <div id="home_icon"></div> </a>
+                           <a class="icons top_bar nomargin" id="home_wrapper"> <img src="static/dashboard/style/profile_icon3.png" id="home_icon"></img> </a>
                         </div>
                         <div class="col-md-4 nomargin">
                           <a class="icons top_bar nomargin" id="logout_wrapper"> <div id="logout_icon"></div> </a>
@@ -159,7 +159,7 @@
     <script src="{% static 'dashboard/js/jquery.js' %}"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
      <script src="{% static 'dashboard/js/jquery.tipsy.js' %}"></script>
-     <script src="{% static 'dashboard/js/dashboard_data.js' %}"></script>
+    
     
     <script src="{% static 'dashboard/js/grey_box.js' %}"></script>
     

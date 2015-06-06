@@ -3,16 +3,23 @@
 var tweet_id = document.getElementById("hidden_tweet_id").innerHTML;
 var user_id;
 
-d3.json("/api/get_tweet_by_id?tweet_id="+tweet_id, function(data) {
+console.log(tweet_id);
+
+var string = "/api/get_tweet_by_id?tweet_id="+tweet_id;
+console.log(string);
+
+d3.json(string, function(data) {
+
+	console.log(data);
 	
 	document.getElementById("tweet_body").innerHTML = data.tweet.text;
 	user_id = data.tweet.created_by_id;
 	
-	d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
+	d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(da) {
 
 	  // console.log(error);
-		var users = data.tweets;
-		var handle = data.screen_name;
+		var users = da.tweets;
+		var handle = da.screen_name;
 	/*
 		document.getElementById("profile_name").innerHTML = data.name;
 		document.getElementById("user_handle").innerHTML = data.id;
@@ -42,8 +49,11 @@ d3.json("/api/get_tweet_by_id?tweet_id="+tweet_id, function(data) {
 	
 	});
 
+	user_id = data.tweet.created_by_id;
+	console.log(user_id);
 	d3.json("/api/get_user_by_id?user_id="+user_id, function(d) {
 
+	console.log(d);
 
 	var name = d.user.name;
 	var screen_name = d.user.screen_name;
