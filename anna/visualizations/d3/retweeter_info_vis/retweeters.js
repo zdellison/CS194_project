@@ -1,6 +1,6 @@
 
 
-var hashtags;
+var users;
 
 var	margin = {top: 30, right: 40, bottom: 70, left: 50};
 var width = 960,
@@ -10,11 +10,11 @@ var width = 960,
     maxRadius = 12;
 
 
-d3.json("../prettified_tweets/hashtags_and_favorites2.json", function(json) {
-	hashtags = json.hashtags;
+d3.json("../../../data/prettified_get_retweet_user_info.json", function(json) {
+	users = json.users;
 
 
-  	var n = hashtags.length; // a circle for each hashtag
+  var n = users.length; // a circle for each hashtag
 	var m = 4; // number of distinct clusters, 0-100 retweets is cluster 1, 100-500 is cluster 2, 500-1000 is cluster 3
 				// anything above 1000 is cluster 4
 
@@ -25,19 +25,16 @@ d3.json("../prettified_tweets/hashtags_and_favorites2.json", function(json) {
 	var clusters = new Array(m);
 
 
-  hashtags.forEach(function(d) {
+  users.forEach(function(d) {
 
-
-    console.log(d.retweet_count);
-    console.log(d.favorite_count);
-    var i = d.retweet_count % 3; // should be based on a sentiment property
+    var i = d.favourites_count % 3; // should be based on a sentiment property
 
 
     var r = maxRadius;
-    if (d.favorite_count > 1000) {
+    if (d.friends_count > 1000) {
       r = 50;
     }
-    else if (d.favorite_count > 500 && d.favorite_count <=1000) {
+    else if (d.friends_count > 500 && d.friends_count <=1000) {
       r = 20;
     }
     else {
@@ -51,14 +48,14 @@ d3.json("../prettified_tweets/hashtags_and_favorites2.json", function(json) {
     var y = Math.sin(i / m * 2 * Math.PI) * 200 + height / 2 + Math.random();
     d.x = x;
     d.y = y;
-    var hashtag_text = d.text;
-    new_d = {cluster: i, radius: r, text: hashtag_text, x: x, y: y}
+    var name = d.name;
+    new_d = {cluster: i, radius: r, text: name, x: x, y: y}
     if (!clusters[i] || (r > clusters[i].radius)) clusters[i] = new_d;
   });
 
 
 	var force = d3.layout.force()
-    	.nodes(hashtags)
+    	.nodes(users)
     	.size([width, height])
     	.gravity(.01)
     	.charge(0)
@@ -70,36 +67,17 @@ d3.json("../prettified_tweets/hashtags_and_favorites2.json", function(json) {
     	.attr("height", height);
 
 	var circle = svg.selectAll("circle")
-    	.data(hashtags)
+    	.data(users)
   		.enter().append("circle")
     	.attr("r", function(d) { return d.radius; })
-    	.attr("id", function(d) {return "cluster" + d.cluster; })
+    	.attr("id", function(d) {return "cluster" + d.gender; })
     	.style("fill", function(d) { return color(d.cluster); })
     	.call(force.drag);
 
 
 
-  // index element for circle sizes
-  // var index_elem = d3.select("svg").append("g").attr("id", "index_elem");
 
-	svg.append("text")
-	.attr("x", 0)             
-	.attr("y", margin.top + 10)    
-	.attr("class", "legend")
-	.style("fill", "steelblue")         
-	.on("click", function(){
-		// Determine if current line is visible
-		var active   = cluster0.active ? false : true,
-		  newOpacity = active ? 0 : 1;
-		// Hide or show the elements
-		d3.selectAll("#cluster0").attr("r", function(d) {
-			console.log(d);
-			return newOpacity * d.radius;});
-		
-		// Update whether or not the elements are active
-		cluster0.active = active;
-	})
-	.text("First cluster");
+
 
 
 
@@ -133,7 +111,7 @@ d3.json("../prettified_tweets/hashtags_and_favorites2.json", function(json) {
 
 // Resolves collisions between d and all other circles.
 	function collide(alpha) {
-  		var quadtree = d3.geom.quadtree(hashtags);
+  		var quadtree = d3.geom.quadtree(users);
   		return function(d) {
     		var r = d.radius + maxRadius + Math.max(padding, clusterPadding),
         	nx1 = d.x - r,
@@ -158,6 +136,100 @@ d3.json("../prettified_tweets/hashtags_and_favorites2.json", function(json) {
     		});
   		};
 	}
+
+    // index element for circle sizes
+  // var index_elem = d3.select("svg").append("g").attr("id", "index_elem");
+
+  svg.append("text")
+  .attr("x", 100)             
+  .attr("y", margin.top + 10)    
+  .attr("class", "legend")
+  .style("fill", "steelblue")         
+  .on("click", function(){
+    // Determine if current line is visible
+    var active   = clusterfemale.active ? false : true,
+      newOpacity = active ? 0 : 1;
+    // Hide or show the elements
+    d3.selectAll("#clustermale").attr("r", function(d) {
+      console.log(d);
+      return newOpacity * d.radius;});
+
+    d3.selectAll("#clusterunknown").attr("r", function(d) {
+      console.log(d);
+      return newOpacity * d.radius;});
+
+
+      // d3.selectAll("#clusterfemale").attr("r", function(d) {
+      //   return (active ? 1 : 0) * d.radius;
+      // });
+    
+    // Update whether or not the elements are active
+    clusterfemale.active = active;
+    force.start();
+  })
+  .text("females");
+
+
+  svg.append("text")
+  .attr("x", 100)             
+  .attr("y", margin.top + 30)    
+  .attr("class", "legend")
+  .style("fill", "steelblue")         
+  .on("click", function(){
+    // Determine if current line is visible
+    var active   = clustermale.active ? false : true,
+      newOpacity = active ? 0 : 1;
+    // Hide or show the elements
+    d3.selectAll("#clusterfemale").attr("r", function(d) {
+      console.log(d);
+      return newOpacity * d.radius;});
+
+    d3.selectAll("#clusterunknown").attr("r", function(d) {
+      return newOpacity * d.radius;
+    });
+
+
+    // d3.selectAll("#clustermale").attr("r", function(d) {
+    //   return (active ? 1 : 0) * d.radius;
+    // });
+    
+    // Update whether or not the elements are active
+    clustermale.active = active;
+    force.start();
+  })
+  .text("males");
+
+  svg.append("text")
+  .attr("x", 100)             
+  .attr("y", margin.top + 50)    
+  .attr("class", "legend")
+  .style("fill", "steelblue")         
+  .on("click", function(){
+    // Determine if current line is visible
+    var active   = clusterunknown.active ? false : true,
+      newOpacity = active ? 0 : 1;
+    // Hide or show the elements
+    d3.selectAll("#clusterfemale").attr("r", function(d) {
+      console.log(d);
+      return newOpacity * d.radius;});
+
+        d3.selectAll("#clustermale").attr("r", function(d) {
+      console.log(d);
+      return newOpacity * d.radius;});
+
+      // d3.selectAll("#clusterunknown").attr("r", function(d) {
+      //   return (active ? 1 : 0) * d.radius;
+      // });
+
+    
+    // Update whether or not the elements are active
+    clusterunknown.active = active;
+    force.start();
+  })
+  .text("unknown");
+
+
+
 
 
   // make the ones in the visualization more specific

@@ -1,0 +1,1097 @@
+{
+    "tweets": [
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-30T20:37:34", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [], 
+            "media": null, 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 1.0, 
+                "subjectivity": 0.75
+            }, 
+            "text": "RT @adamslily: Great organizing today across Iowa! Waterloo https://t.co/pbhD4HtNJo Cedar Rapids https://t.co/fOEdIeO9G2 Iowa City https://\u2026", 
+            "tweetId": 604748507921166336
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-30T20:04:44", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/Klq9l4NfRY", 
+                    "expanded_url": "http://twitter.com/HillaryClinton/status/604740243611373569/photo/1", 
+                    "id": 604740141299732480, 
+                    "id_str": "604740141299732480", 
+                    "indices": [
+                        75, 
+                        97
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CGR39FeXEAAUgNg.png", 
+                    "media_url_https": "https://pbs.twimg.com/media/CGR39FeXEAAUgNg.png", 
+                    "sizes": {
+                        "large": {
+                            "h": 1314, 
+                            "resize": "fit", 
+                            "w": 1024
+                        }, 
+                        "medium": {
+                            "h": 770, 
+                            "resize": "fit", 
+                            "w": 600
+                        }, 
+                        "small": {
+                            "h": 436, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "type": "photo", 
+                    "url": "http://t.co/Klq9l4NfRY"
+                }
+            ], 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.0, 
+                "subjectivity": 0.0
+            }, 
+            "text": "Summer essentials: Sunglasses. Iced Tea. This tank: http://t.co/PEF4gRjDgK http://t.co/Klq9l4NfRY", 
+            "tweetId": 604740243611373569
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-30T18:52:40", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/yB4WdzNAiT", 
+                    "expanded_url": "http://twitter.com/HillaryClinton/status/604722107579277312/photo/1", 
+                    "id": 604722084590309376, 
+                    "id_str": "604722084590309376", 
+                    "indices": [
+                        50, 
+                        72
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CGRniC_W0AAOp93.jpg", 
+                    "media_url_https": "https://pbs.twimg.com/media/CGRniC_W0AAOp93.jpg", 
+                    "sizes": {
+                        "large": {
+                            "h": 768, 
+                            "resize": "fit", 
+                            "w": 1024
+                        }, 
+                        "medium": {
+                            "h": 450, 
+                            "resize": "fit", 
+                            "w": 600
+                        }, 
+                        "small": {
+                            "h": 255, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "type": "photo", 
+                    "url": "http://t.co/yB4WdzNAiT"
+                }
+            ], 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.5, 
+                "subjectivity": 1.0
+            }, 
+            "text": "One of Hillary's favorite moments from this week. http://t.co/yB4WdzNAiT", 
+            "tweetId": 604722107579277312
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-30T17:39:27", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [], 
+            "media": null, 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.6166666666666667, 
+                "subjectivity": 0.8166666666666667
+            }, 
+            "text": "Welcome to the race, Gov. O'Malley. Looking forward to discussing strong families and communities. -H", 
+            "tweetId": 604703680919662592
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-29T23:29:28", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/4zDXGPbcvU", 
+                    "expanded_url": "http://twitter.com/HillaryClinton/status/604429379490344960/photo/1", 
+                    "id": 604429374713171968, 
+                    "id_str": "604429374713171968", 
+                    "indices": [
+                        25, 
+                        47
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CGNdUFuXEAAIbRd.jpg", 
+                    "media_url_https": "https://pbs.twimg.com/media/CGNdUFuXEAAIbRd.jpg", 
+                    "sizes": {
+                        "large": {
+                            "h": 768, 
+                            "resize": "fit", 
+                            "w": 1024
+                        }, 
+                        "medium": {
+                            "h": 450, 
+                            "resize": "fit", 
+                            "w": 600
+                        }, 
+                        "small": {
+                            "h": 255, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "type": "photo", 
+                    "url": "http://t.co/4zDXGPbcvU"
+                }
+            ], 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.0, 
+                "subjectivity": 0.0
+            }, 
+            "text": "Hats off to the weekend. http://t.co/4zDXGPbcvU", 
+            "tweetId": 604429379490344960
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-29T20:29:53", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/jQ01sVdqVW", 
+                    "expanded_url": "http://twitter.com/HillaryClinton/status/604384185336246272/photo/1", 
+                    "id": 604383362602639360, 
+                    "id_str": "604383362602639360", 
+                    "indices": [
+                        0, 
+                        22
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CGMzd1QWIAA3ynN.jpg", 
+                    "media_url_https": "https://pbs.twimg.com/media/CGMzd1QWIAA3ynN.jpg", 
+                    "sizes": {
+                        "large": {
+                            "h": 482, 
+                            "resize": "fit", 
+                            "w": 601
+                        }, 
+                        "medium": {
+                            "h": 481, 
+                            "resize": "fit", 
+                            "w": 600
+                        }, 
+                        "small": {
+                            "h": 272, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "type": "photo", 
+                    "url": "http://t.co/jQ01sVdqVW"
+                }
+            ], 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.0, 
+                "subjectivity": 0.0
+            }, 
+            "text": "http://t.co/jQ01sVdqVW", 
+            "tweetId": 604384185336246272
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-29T18:34:01", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [
+                {
+                    "indices": [
+                        118, 
+                        130
+                    ], 
+                    "text": "Hillary2016"
+                }
+            ], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/kDvFeuMr62", 
+                    "expanded_url": "http://twitter.com/kat_rogers/status/604344128705548289/photo/1", 
+                    "id": 604344122669948928, 
+                    "id_str": "604344122669948928", 
+                    "indices": [
+                        139, 
+                        140
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CGMPxxHWYAAfj0d.jpg", 
+                    "media_url_https": "https://pbs.twimg.com/media/CGMPxxHWYAAfj0d.jpg", 
+                    "sizes": {
+                        "large": {
+                            "h": 768, 
+                            "resize": "fit", 
+                            "w": 1024
+                        }, 
+                        "medium": {
+                            "h": 450, 
+                            "resize": "fit", 
+                            "w": 600
+                        }, 
+                        "small": {
+                            "h": 255, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "source_status_id": 604344128705548289, 
+                    "source_status_id_str": "604344128705548289", 
+                    "source_user_id": 240558399, 
+                    "source_user_id_str": "240558399", 
+                    "type": "photo", 
+                    "url": "http://t.co/kDvFeuMr62"
+                }
+            ], 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.0, 
+                "subjectivity": 0.0
+            }, 
+            "text": "RT @kat_rogers: Jim is a WW2 vet and longtime @HillaryClinton supporter. \"Volunteering is in my genes.\" @HillaryforNH #Hillary2016 http://t\u2026", 
+            "tweetId": 604355026891448320
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-29T17:37:51", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/WqqBvmG4qB", 
+                    "expanded_url": "http://twitter.com/HillaryClinton/status/604340892246220800/photo/1", 
+                    "id": 604337060678352896, 
+                    "id_str": "604337060678352896", 
+                    "indices": [
+                        103, 
+                        125
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CGMJWtJWQAADM2M.png", 
+                    "media_url_https": "https://pbs.twimg.com/media/CGMJWtJWQAADM2M.png", 
+                    "sizes": {
+                        "large": {
+                            "h": 1109, 
+                            "resize": "fit", 
+                            "w": 750
+                        }, 
+                        "medium": {
+                            "h": 887, 
+                            "resize": "fit", 
+                            "w": 600
+                        }, 
+                        "small": {
+                            "h": 502, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "type": "photo", 
+                    "url": "http://t.co/WqqBvmG4qB"
+                }
+            ], 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.3833333333333333, 
+                "subjectivity": 0.4666666666666666
+            }, 
+            "text": "Girls just wanna have fun bumper stickers. Get your own: http://t.co/OJfT2z9Zg2 (Thanks, @lenadunham!) http://t.co/WqqBvmG4qB", 
+            "tweetId": 604340892246220800
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-29T16:03:32", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [], 
+            "media": null, 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.8, 
+                "subjectivity": 1.0
+            }, 
+            "text": "\ud83d\udc4f\ud83d\udc4f\ud83d\udc4f Happy Friday from fashion icon @johnpodesta.  https://t.co/jVzVougnFn", 
+            "tweetId": 604317156281483265
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-29T12:46:44", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [
+                {
+                    "indices": [
+                        14, 
+                        26
+                    ], 
+                    "text": "HillaryInSC"
+                }
+            ], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/fLW5LJJ5wk", 
+                    "expanded_url": "http://twitter.com/HillaryClinton/status/604267631072415745/photo/1", 
+                    "id": 604267570179477504, 
+                    "id_str": "604267570179477504", 
+                    "indices": [
+                        107, 
+                        129
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CGLKJ03WEAAmPL7.jpg", 
+                    "media_url_https": "https://pbs.twimg.com/media/CGLKJ03WEAAmPL7.jpg", 
+                    "sizes": {
+                        "large": {
+                            "h": 685, 
+                            "resize": "fit", 
+                            "w": 960
+                        }, 
+                        "medium": {
+                            "h": 428, 
+                            "resize": "fit", 
+                            "w": 600
+                        }, 
+                        "small": {
+                            "h": 242, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "type": "photo", 
+                    "url": "http://t.co/fLW5LJJ5wk"
+                }
+            ], 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": -0.1125, 
+                "subjectivity": 0.1875
+            }, 
+            "text": "Highlights of #HillaryInSC: small business, equal pay, and a few local specialties. http://t.co/FECNrOzto9 http://t.co/fLW5LJJ5wk", 
+            "tweetId": 604267631072415745
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-29T02:10:08", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/sZDTVrfRZo", 
+                    "expanded_url": "http://twitter.com/HillaryClinton/status/604107426514780160/photo/1", 
+                    "id": 604106810639937537, 
+                    "id_str": "604106810639937537", 
+                    "indices": [
+                        111, 
+                        133
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CGI38Y6WcAEaG5P.png", 
+                    "media_url_https": "https://pbs.twimg.com/media/CGI38Y6WcAEaG5P.png", 
+                    "sizes": {
+                        "large": {
+                            "h": 512, 
+                            "resize": "fit", 
+                            "w": 1024
+                        }, 
+                        "medium": {
+                            "h": 300, 
+                            "resize": "fit", 
+                            "w": 600
+                        }, 
+                        "small": {
+                            "h": 170, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "type": "photo", 
+                    "url": "http://t.co/sZDTVrfRZo"
+                }
+            ], 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.125, 
+                "subjectivity": 0.21666666666666667
+            }, 
+            "text": "It's the first big event of Hillary's campaign. You should be there. Enter by midnight: http://t.co/2AvWlZM7LJ http://t.co/sZDTVrfRZo", 
+            "tweetId": 604107426514780160
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-29T01:34:26", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/BdzaS08n41", 
+                    "expanded_url": "http://twitter.com/HillaryClinton/status/604098438804934657/photo/1", 
+                    "id": 604098438356189185, 
+                    "id_str": "604098438356189185", 
+                    "indices": [
+                        40, 
+                        62
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CGIwVDuWwAE6Zw_.png", 
+                    "media_url_https": "https://pbs.twimg.com/media/CGIwVDuWwAE6Zw_.png", 
+                    "sizes": {
+                        "large": {
+                            "h": 512, 
+                            "resize": "fit", 
+                            "w": 1024
+                        }, 
+                        "medium": {
+                            "h": 300, 
+                            "resize": "fit", 
+                            "w": 600
+                        }, 
+                        "small": {
+                            "h": 170, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "type": "photo", 
+                    "url": "http://t.co/BdzaS08n41"
+                }
+            ], 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.0, 
+                "subjectivity": 0.0
+            }, 
+            "text": "Two Ls, not one. http://t.co/ZwBBZ0j9OG http://t.co/BdzaS08n41", 
+            "tweetId": 604098438804934657
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-29T00:52:41", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [], 
+            "media": null, 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.6000000000000001, 
+                "subjectivity": 0.6000000000000001
+            }, 
+            "text": "Win a free trip to hang out with Hillary. The deadline to enter is TONIGHT\u2014don't miss out: http://t.co/2AvWlZM7LJ", 
+            "tweetId": 604087932367020033
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-29T00:04:24", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [
+                {
+                    "indices": [
+                        9, 
+                        21
+                    ], 
+                    "text": "Hillary2016"
+                }
+            ], 
+            "media": null, 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.0, 
+                "subjectivity": 0.0
+            }, 
+            "text": "Join the #Hillary2016 list\u2014all you need to spell is your email address. http://t.co/ZwBBZ0j9OG", 
+            "tweetId": 604075784987369472
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-28T23:39:26", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/TqWjAGRXyI", 
+                    "expanded_url": "http://twitter.com/TheBriefing2016/status/604066945202278401/photo/1", 
+                    "id": 604066944774492160, 
+                    "id_str": "604066944774492160", 
+                    "indices": [
+                        107, 
+                        129
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CGITr4_W0AA0vrT.png", 
+                    "media_url_https": "https://pbs.twimg.com/media/CGITr4_W0AA0vrT.png", 
+                    "sizes": {
+                        "large": {
+                            "h": 512, 
+                            "resize": "fit", 
+                            "w": 1024
+                        }, 
+                        "medium": {
+                            "h": 300, 
+                            "resize": "fit", 
+                            "w": 600
+                        }, 
+                        "small": {
+                            "h": 170, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "source_status_id": 604066945202278401, 
+                    "source_status_id_str": "604066945202278401", 
+                    "source_user_id": 3232054991, 
+                    "source_user_id_str": "3232054991", 
+                    "type": "photo", 
+                    "url": "http://t.co/TqWjAGRXyI"
+                }
+            ], 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.0, 
+                "subjectivity": 0.0
+            }, 
+            "text": "RT @TheBriefing2016: Don't miss Hillary's guest column in the Cedar Rapids Gazette: http://t.co/kuPFbN2e1x http://t.co/TqWjAGRXyI", 
+            "tweetId": 604069501714460673
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-28T19:46:44", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/jY2u2lOjWL", 
+                    "expanded_url": "http://twitter.com/HillaryClinton/status/604010940808445952/photo/1", 
+                    "id": 604010753717325825, 
+                    "id_str": "604010753717325825", 
+                    "indices": [
+                        117, 
+                        139
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CGHglI_WUAEV2Ee.jpg", 
+                    "media_url_https": "https://pbs.twimg.com/media/CGHglI_WUAEV2Ee.jpg", 
+                    "sizes": {
+                        "large": {
+                            "h": 768, 
+                            "resize": "fit", 
+                            "w": 1024
+                        }, 
+                        "medium": {
+                            "h": 450, 
+                            "resize": "fit", 
+                            "w": 600
+                        }, 
+                        "small": {
+                            "h": 255, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "type": "photo", 
+                    "url": "http://t.co/jY2u2lOjWL"
+                }
+            ], 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.0, 
+                "subjectivity": 0.0
+            }, 
+            "text": "A moment of reflection on the campaign trail: Hillary and Reverend Hunt talk about faith at a South Carolina bakery. http://t.co/jY2u2lOjWL", 
+            "tweetId": 604010940808445952
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-28T15:25:04", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [
+                {
+                    "indices": [
+                        108, 
+                        120
+                    ], 
+                    "text": "Hillary2016"
+                }
+            ], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/eupoLD2p8w", 
+                    "expanded_url": "http://twitter.com/HillaryforIA/status/603732172273360896/photo/1", 
+                    "id": 603709951186358273, 
+                    "id_str": "603709951186358273", 
+                    "indices": [
+                        121, 
+                        140
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CGDPAIPU0AEV5zO.jpg", 
+                    "media_url_https": "https://pbs.twimg.com/media/CGDPAIPU0AEV5zO.jpg", 
+                    "sizes": {
+                        "large": {
+                            "h": 682, 
+                            "resize": "fit", 
+                            "w": 1024
+                        }, 
+                        "medium": {
+                            "h": 400, 
+                            "resize": "fit", 
+                            "w": 600
+                        }, 
+                        "small": {
+                            "h": 226, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "source_status_id": 603732172273360896, 
+                    "source_status_id_str": "603732172273360896", 
+                    "source_user_id": 3056142064, 
+                    "source_user_id_str": "3056142064", 
+                    "type": "photo", 
+                    "url": "http://t.co/eupoLD2p8w"
+                }
+            ], 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.0, 
+                "subjectivity": 0.25
+            }, 
+            "text": "RT @HillaryforIA: Ashlyn, Danielle, and Aditi are standing with Hillary because she\u2019ll fight for equal pay. #Hillary2016 http://t.co/eupoLD\u2026", 
+            "tweetId": 603945088675352576
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-28T12:48:17", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/EIVHijRSfI", 
+                    "expanded_url": "http://twitter.com/HillaryClinton/status/603905631309983746/photo/1", 
+                    "id": 603905630584381442, 
+                    "id_str": "603905630584381442", 
+                    "indices": [
+                        16, 
+                        38
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CGGA-KzXIAI71qL.jpg", 
+                    "media_url_https": "https://pbs.twimg.com/media/CGGA-KzXIAI71qL.jpg", 
+                    "sizes": {
+                        "large": {
+                            "h": 768, 
+                            "resize": "fit", 
+                            "w": 1024
+                        }, 
+                        "medium": {
+                            "h": 450, 
+                            "resize": "fit", 
+                            "w": 600
+                        }, 
+                        "small": {
+                            "h": 255, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "type": "photo", 
+                    "url": "http://t.co/EIVHijRSfI"
+                }
+            ], 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.0, 
+                "subjectivity": 0.0
+            }, 
+            "text": "Hometown pride. http://t.co/EIVHijRSfI", 
+            "tweetId": 603905631309983746
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-28T01:40:28", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [], 
+            "media": null, 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": -0.2, 
+                "subjectivity": 0.6
+            }, 
+            "text": "Being a champion for everyday Americans isn't just about talking\u2014it's also about listening. http://t.co/RjiNYWFXpU", 
+            "tweetId": 603737569180913665
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-27T23:35:54", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [
+                {
+                    "indices": [
+                        79, 
+                        91
+                    ], 
+                    "text": "hillary2016"
+                }
+            ], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/yzq5suvCFf", 
+                    "expanded_url": "http://twitter.com/jackmenner/status/603617392011317250/photo/1", 
+                    "id": 603617390920794112, 
+                    "id_str": "603617390920794112", 
+                    "indices": [
+                        92, 
+                        114
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CGB60aYVAAAqiYz.jpg", 
+                    "media_url_https": "https://pbs.twimg.com/media/CGB60aYVAAAqiYz.jpg", 
+                    "sizes": {
+                        "large": {
+                            "h": 1024, 
+                            "resize": "fit", 
+                            "w": 576
+                        }, 
+                        "medium": {
+                            "h": 1024, 
+                            "resize": "fit", 
+                            "w": 576
+                        }, 
+                        "small": {
+                            "h": 604, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "source_status_id": 603617392011317250, 
+                    "source_status_id_str": "603617392011317250", 
+                    "source_user_id": 213551394, 
+                    "source_user_id_str": "213551394", 
+                    "type": "photo", 
+                    "url": "http://t.co/yzq5suvCFf"
+                }
+            ], 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": -0.125, 
+                "subjectivity": 0.25
+            }, 
+            "text": "RT @jackmenner: It's not exactly news, but I know what I'll be doing on Feb 1. #hillary2016 http://t.co/yzq5suvCFf", 
+            "tweetId": 603706223612063744
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-27T22:55:51", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/DY32ByokFW", 
+                    "expanded_url": "http://twitter.com/HillaryClinton/status/603696142044557312/photo/1", 
+                    "id": 603695771746082816, 
+                    "id_str": "603695771746082816", 
+                    "indices": [
+                        113, 
+                        135
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CGDCGxtUoAA8nsd.jpg", 
+                    "media_url_https": "https://pbs.twimg.com/media/CGDCGxtUoAA8nsd.jpg", 
+                    "sizes": {
+                        "large": {
+                            "h": 767, 
+                            "resize": "fit", 
+                            "w": 1024
+                        }, 
+                        "medium": {
+                            "h": 449, 
+                            "resize": "fit", 
+                            "w": 600
+                        }, 
+                        "small": {
+                            "h": 254, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "type": "photo", 
+                    "url": "http://t.co/DY32ByokFW"
+                }
+            ], 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.06666666666666667, 
+                "subjectivity": 0.15
+            }, 
+            "text": "Hillary on equal pay: \"This is not a women\u2019s issue. This is a family issue. This is an American economic issue.\" http://t.co/DY32ByokFW", 
+            "tweetId": 603696142044557312
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-27T21:05:57", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [], 
+            "media": null, 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.0, 
+                "subjectivity": 0.25
+            }, 
+            "text": "How do you know Hillary will fight for equal pay? She's been doing it for years. Learn about her record and ideas: http://t.co/rtOLGS6c3X", 
+            "tweetId": 603668484627771392
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-27T19:50:40", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [
+                {
+                    "indices": [
+                        105, 
+                        117
+                    ], 
+                    "text": "Hillary2016"
+                }
+            ], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/RPeNV4z3Ri", 
+                    "expanded_url": "http://twitter.com/ashleyburns316/status/603618303895011329/photo/1", 
+                    "id": 603618293904080896, 
+                    "id_str": "603618293904080896", 
+                    "indices": [
+                        118, 
+                        140
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/CGB7o-QUgAAhPX4.jpg", 
+                    "media_url_https": "https://pbs.twimg.com/media/CGB7o-QUgAAhPX4.jpg", 
+                    "sizes": {
+                        "large": {
+                            "h": 640, 
+                            "resize": "fit", 
+                            "w": 640
+                        }, 
+                        "medium": {
+                            "h": 600, 
+                            "resize": "fit", 
+                            "w": 600
+                        }, 
+                        "small": {
+                            "h": 340, 
+                            "resize": "fit", 
+                            "w": 340
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "source_status_id": 603618303895011329, 
+                    "source_status_id_str": "603618303895011329", 
+                    "source_user_id": 330130333, 
+                    "source_user_id_str": "330130333", 
+                    "type": "photo", 
+                    "url": "http://t.co/RPeNV4z3Ri"
+                }
+            ], 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.25, 
+                "subjectivity": 0.2
+            }, 
+            "text": "RT @ashleyburns316: Thanks Team @HillaryClinton for my personalized 'H'! Perks of being a Founding Donor #Hillary2016 http://t.co/RPeNV4z3Ri", 
+            "tweetId": 603649539837399040
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-27T18:45:44", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [], 
+            "media": null, 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.0, 
+                "subjectivity": 1.0
+            }, 
+            "text": "RT @HillaryforSC: \u201cWe need to raise wages for the lowest paid jobs in America\u2014which are disproportionately held by women, especially women \u2026", 
+            "tweetId": 603633198464167937
+        }, 
+        {
+            "coordinates": null, 
+            "created_at": "2015-05-27T18:39:00", 
+            "created_by_id": 1339835893, 
+            "favorited": false, 
+            "favorites_count": 0, 
+            "hashtags": [
+                {
+                    "indices": [
+                        131, 
+                        140
+                    ], 
+                    "text": "HillaryInSC"
+                }
+            ], 
+            "media": null, 
+            "retweet_count": 0, 
+            "retweeted": false, 
+            "sentiment": {
+                "polarity": 0.06666666666666667, 
+                "subjectivity": 0.15
+            }, 
+            "text": "RT @HillaryforSC: Hillary on equal pay: \"This is not a women\u2019s issue. This is a family issue. This is an American economic issue.\" #Hillary\u2026", 
+            "tweetId": 603631506129551362
+        }
+    ]
+}

@@ -51,6 +51,7 @@ d3.json("../prettified_tweets/retweets_and_dates2.json", function(error, data) {
 		d.created_at = parseDate(d.created_at);
 		d.retweet_count = +d.retweet_count;
 		d.favorite_count = +d.favorite_count;
+		d.r = 3.5;
 	});
 
 
@@ -100,34 +101,34 @@ d3.json("../prettified_tweets/retweets_and_dates2.json", function(error, data) {
     	yMap2 = function(d) {return y(yValue2(d));}
 
 // draw favorite dots
-  // svg.selectAll(".dot")
-  //     .data(dataset)
-  //   .enter().append("circle")
-  //     .attr("class", "dot")
-  //     .attr("r", 3.5)
-  //     .attr("cx", xMap)
-  //     .attr("cy", yMap)
-  //     .style("fill", function(d) { return "steelblue";}) 
-  //     .on("mouseover", function(d) {
-  //         tooltip.transition()
-  //              .duration(200)
-  //              .style("opacity", .9);
-  //         tooltip.html(d.created_at + "<br/> (" + x(d) 
-	 //        + ", " + y(d) + ")")
-  //              .style("left", (d3.event.pageX + 5) + "px")
-  //              .style("top", (d3.event.pageY - 28) + "px");
-  //     })
-  //     .on("mouseout", function(d) {
-  //         tooltip.transition()
-  //              .duration(500)
-  //              .style("opacity", 0);
-  //     });
-
-      // draw retweet dots
-  svg.selectAll(".dot")
+  svg.selectAll("#dotfav")
       .data(dataset)
     .enter().append("circle")
-      .attr("class", "dot")
+      .attr("id", "dotfav")
+      .attr("r", 3.5)
+      .attr("cx", xMap)
+      .attr("cy", yMap)
+      .style("fill", function(d) { return "steelblue";}) 
+      .on("mouseover", function(d) {
+          tooltip.transition()
+               .duration(200)
+               .style("opacity", .9);
+          tooltip.html(d.created_at + "<br/> (" + x(d) 
+	        + ", " + y(d) + ")")
+               .style("left", (d3.event.pageX + 5) + "px")
+               .style("top", (d3.event.pageY - 28) + "px");
+      })
+      .on("mouseout", function(d) {
+          tooltip.transition()
+               .duration(500)
+               .style("opacity", 0);
+      });
+
+      // draw retweet dots
+  svg.selectAll("#retweetdot")
+      .data(dataset)
+   		.enter().append("circle")
+      .attr("id", "retweetdot") 
       .attr("r", 3.5)
       .attr("cx", xMap)
       .attr("cy", yMap2)
@@ -148,12 +149,33 @@ d3.json("../prettified_tweets/retweets_and_dates2.json", function(error, data) {
       });
 
 
-	// svg.append("text")
-	// 	.attr("transform", "translate(" + (width+3) + "," + y(dataset[0].retweet_count) + ")")
-	// 	.attr("dy", ".35em")
-	// 	.attr("text-anchor", "start")
-	// 	.style("fill", "steelblue")
-	// 	.text("Retweets");
+	svg.append("text")
+		.attr("transform", "translate(" + 10 + "," + (10) + ")")
+		.style("fill", "steelblue").
+		on("click", function(){
+
+    	var active   = retweetdot.active ? false : true,
+      	newOpacity = active ? 0 : 1;
+    // Hide or show the elements
+    d3.selectAll("#retweetdot").attr("r", function(d) {
+      console.log(d);
+      return newOpacity * d.r;});
+    retweetdot.active = active;
+  }).text("Retweets");
+
+	svg.append("text")
+		.attr("transform", "translate(" + 10 + "," + (30) + ")")
+		.style("fill", "coral").
+		on("click", function(){
+
+    	var active   = dotfav.active ? false : true,
+      	newOpacity = active ? 0 : 1;
+    // Hide or show the elements
+    d3.selectAll("#dotfav").attr("r", function(d) {
+      console.log(d);
+      return newOpacity * d.r;});
+    dotfav.active = active;
+  }).text("Favorites");
 
 // console.log(dataset.length-1);
 // console.log(dataset[dataset.length-1].open);

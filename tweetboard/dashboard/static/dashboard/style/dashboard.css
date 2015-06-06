@@ -185,6 +185,7 @@
 	margin-left: 1vw;
 	margin-top: 0.5vw;
 	float: left;
+
 }
 .tweet_prof_twitter{
 	margin-top: 0.5vw;
@@ -225,14 +226,13 @@
 	border: 1px solid #9B9B9B;
 	height: 4.5vh;
 }
-#profile_icon{
-	background-image: url(profile_icon.png);
-}
-#settings_icon{
-	background-image: url(settings_icon.png);
-}
-#logout_icon{
-	background-image: url(logout_icon.png);
+#home_icon{
+	/* Fill 14: */
+	color: rgba(35,44,56,0.50);
+	background-image: url(profile_icon3.png);
+	width: 7vh;
+	height: 10vh;
+	background-repeat: no-repeat;;
 }
 
 #scrollable_items{

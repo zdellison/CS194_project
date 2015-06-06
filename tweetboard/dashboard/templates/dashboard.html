@@ -18,7 +18,7 @@
     </head>
   
     <body>
-         <div id="block"></div>
+      <div id="block"></div>
       <div id="hidden_user" style="visibility: hidden; height: 0px"> {{user_id}} </div>
 
       <div id="container">
@@ -68,74 +68,7 @@
                          <div style="height: 2vh;"></div>
 
                         <ul id="tweet_items_list"></ul>
-                   <!--
-                    <ul>
-                     
-                      <li>
-                         <a href="#" class="tweet_items">
-                            <div class="tweet_prof_name">Hillary Clinton </div>
-                            <div class="tweet_prof_twitter">  @clinton2016</div>
-                            <div class="tweet" id="tweet1"></div>
-                          </a>
-                      </li>
-                      <li>
-                         <a href="#" class="tweet_items">
-                            <div class="tweet_prof_name">Hillary Clinton </div>
-                            <div class="tweet_prof_twitter">   @clinton2016</div>
-                            <div class="tweet" id="tweet2"></div>
-                          </a>
-                      </li>
-                      <li>
-                         <a href="#" class="tweet_items">
-                            <div class="tweet_prof_name">Hillary Clinton </div>
-                            <div class="tweet_prof_twitter">   @clinton2016</div>
-                            <div class="tweet"id="tweet3"></div>
-                          </a>
-                      </li>
-                      <li>
-                         <a href="#" class="tweet_items">
-                            <div class="tweet_prof_name">Hillary Clinton </div>
-                            <div class="tweet_prof_twitter">   @clinton2016</div>
-                            <div class="tweet"id="tweet4"></div>
-                          </a>
-                      </li>
-                      <li>
-                         <a href="#" class="tweet_items">
-                            <div class="tweet_prof_name">Hillary Clinton </div>
-                            <div class="tweet_prof_twitter">   @clinton2016</div>
-                            <div class="tweet"id="tweet5"></div>
-                          </a>
-                      </li>
-                      <li>
-                         <a href="#" class="tweet_items">
-                            <div class="tweet_prof_name">Hillary Clinton </div>
-                            <div class="tweet_prof_twitter">   @clinton2016</div>
-                            <div class="tweet"id="tweet6"></div>
-                          </a>
-                      </li>
-                      <li>
-                         <a href="#" class="tweet_items">
-                            <div class="tweet_prof_name">Hillary Clinton </div>
-                            <div class="tweet_prof_twitter">   @clinton2016</div>
-                            <div class="tweet"id="tweet7"></div>
-                          </a>
-                      </li>
-                      <li>
-                         <a href="#" class="tweet_items">
-                            <div class="tweet_prof_name">Hillary Clinton </div>
-                            <div class="tweet_prof_twitter">   @clinton2016</div>
-                            <div class="tweet"id="tweet8"></div>
-                          </a>
-                      </li>
-                      <li>
-                         <a href="#" class="tweet_items">
-                            <div class="tweet_prof_name">Hillary Clinton </div>
-                            <div class="tweet_prof_twitter">   @clinton2016</div>
-                            <div class="tweet"id="tweet9"></div>
-                          </a>
-                      </li>
-                    </ul>
-                  -->
+    
                   </li>
                  
               </ul>
@@ -153,14 +86,12 @@
                   </div>
                   <div class="col-md-2 nomargin">
                     <div class="top_bar" id="top_bar_right">
-                        <div class="col-md-4 nomargin">
-                          <div class="icons top_bar nomargin"> <div id="profile_icon"></div> </div>
+                         <div class="col-md-4 nomargin">
+                          <div id="home_icon"><a class="icons top_bar" id="home_wrapper">  </a></div>
+                           
                         </div>
                         <div class="col-md-4 nomargin">
-                          <div class="icons top_bar nomargin"> <div id="settings_icon"></div> </div>
-                        </div>
-                        <div class="col-md-4 nomargin">
-                          <div class="icons top_bar nomargin"> <div id="logout_icon"></div> </div>
+                          <a class="icons top_bar nomargin" id="logout_wrapper"> <div id="logout_icon"></div> </a>
                         </div>
                     </div>
 
@@ -226,7 +157,7 @@
 
 
        <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/dashboard.css' %}" />
+    
     <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/bootstrap.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/bootstrap-theme.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/mtree.css' %}" />
@@ -242,6 +173,7 @@
      <script src="{% static 'dashboard/js/jquery.tipsy.js' %}"></script>
      <script src="{% static 'dashboard/js/dashboard_data.js' %}"></script>
       <script src="{% static 'dashboard/js/user_data.js' %}"></script>
+      <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/dashboard.css' %}" />
      
       <script src="{% static 'dashboard/js/mtree.js' %}"></script> 
     </body>
