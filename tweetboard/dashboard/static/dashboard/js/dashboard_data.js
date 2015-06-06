@@ -6,7 +6,6 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 
   // console.log(error);
 	var users = data.tweets;
-	var user = data.user;
 	var handle = data.screen_name;
 /*
 	document.getElementById("profile_name").innerHTML = data.name;
@@ -19,7 +18,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 		var list_div = document.createElement("li");
 		$(list_div).attr("class", "tweet_items");
 		var href_wrapper = document.createElement("a");
-		$(href_wrapper).attr("href", "tweet");
+		$(href_wrapper).attr("href", "tweet?id="+d.tweet_id);
 		var div_tweet_name = document.createElement("div");
 		$(div_tweet_name).attr("class", "tweet_prof_name");
 		var div_tweet_handle = document.createElement("div");
@@ -36,3 +35,4 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 	});
 	
 });
+
