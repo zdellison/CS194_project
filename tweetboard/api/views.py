@@ -59,7 +59,7 @@ def get_user_info(user_id, api):
 # Method returns a dict of processed tweet data from a tweepy status
 def get_tweet_info(tweet):
     processed_tweet = {
-            'tweet_id': tweet.id,
+            'tweet_id': tweet.id_str,
             'created_by_id': tweet.user.id,
             'created_at': tweet.created_at,
             'text': tweet.text,
