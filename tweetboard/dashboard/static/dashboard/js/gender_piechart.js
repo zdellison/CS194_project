@@ -16,7 +16,7 @@ var pie = d3.layout.pie()
     .sort(null)
     .value(function(d) { return d.count; });
 
-var svg = d3.select("body").append("svg")
+var svg_gender_tweet = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height)
   .append("g")
@@ -46,7 +46,7 @@ d3.json("/api/get_retweet_user_info?tweet_id=602656356953399296", function(error
   d3format_gender_counts[2] = {"gender": "unknown", "count": gender_counts["unknown"]};
 
 
-  var g = svg.selectAll(".arc")
+  var g = svg_gender_tweet.selectAll(".arc")
       .data(pie(d3format_gender_counts))
     .enter().append("g")
       .attr("class", "arc");

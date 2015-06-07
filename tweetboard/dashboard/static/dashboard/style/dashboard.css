@@ -32,7 +32,7 @@
 	padding-right: 5vw;
 }
 #dashboard_body_top_2{
-	height: 50vh;
+	height: 45vh;
 	padding-left: 5vw;
 	padding-right: 5vw;
 }
@@ -46,8 +46,8 @@
 	background-image: url(squared_metal.png);
 }
 .wrapper_box{
-	width: 30%;
-	height: 37vh;
+	width: 45%;
+	height: 28vw;
 	float: left;
 }
 #top_d3js_box{
@@ -63,10 +63,10 @@
 	margin-top: 2vh;
 }
 .body_d3js_box{
-	height: 30vh;
-	width: 21vw;
+	height: 25vw;
+	width: 32vw;
 	margin-left: 5vw;
-	margin-right: 0vw;
+	margin-right: 10vw;
 	float: left;
 	
 }
