@@ -1,6 +1,6 @@
 
 
-body { font: 9px Arial;
+#top_d3js_box_2 { font: 9px Arial;
 	font-weight: normal;}
 
 
@@ -11,5 +11,3 @@ body { font: 9px Arial;
     stroke-width: 1;
     shape-rendering: crispEdges;
 }
-
-</style>

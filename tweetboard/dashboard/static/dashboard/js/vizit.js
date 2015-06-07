@@ -14,7 +14,7 @@ var padding = 1.5, // separation between same-color circles
     maxRadius = 12;
 
 var width = $('#top_d3js_box').width();
-var height = $('#top_d3js_box').height();
+var height_1 = $('#top_d3js_box').height();
 
 //var width = 950;
 //var height = 500;
@@ -49,10 +49,10 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 
     // console.log(d.sentiment.polarity);
 
-    // var r = maxRadius + maxRadius * d.sentiment.subjectivity;
+    var r = maxRadius + maxRadius * d.sentiment.subjectivity;
     var r = 25;
     if (d.sentiment.subjectivity == 1.0) {
-      r = 50;
+      r = 40;
     }
     else if (d.sentiment.subjectivity == 0) {
       r = 10;
@@ -60,8 +60,20 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
     else if (d.sentiment.subjectivity < 0.5) {
       r = 15;
     }
+    // var r = maxRadius;
+    // if (d.retweet_count < 100) {
+    //       r = 10;
+    // }
+    // else if (d.retweet_count < 500) {
+    //   r = 20;
+    // }
+    // else {
+    //   r = 40;
+    // }
+
+
     var x = Math.cos(i / m * 2 * Math.PI) * 200 + width / 2 + Math.random();
-    var y = Math.sin(i / m * 2 * Math.PI) * 200 + height / 2 + Math.random();
+    var y = Math.sin(i / m * 2 * Math.PI) * 200 + height_1 / 2 + Math.random();
     // console.log(x);
     // console.log(y);
     d.x = x;
@@ -78,7 +90,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 
 	var force = d3.layout.force()
     	.nodes(tweets)
-    	.size([width, height])
+    	.size([width, height_1])
     	.gravity(.01)
     	.charge(0)
     	.on("tick", tick)
@@ -87,7 +99,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 	var svg = d3.select("#top_d3js_box").append("svg")
   //var svg = d3.select("body").append("svg")
     	.attr("width", width)
-    	.attr("height", height);
+    	.attr("height", height_1);
 
 
   var circle = svg.selectAll("circle")
@@ -169,24 +181,30 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 
     var color_index_data = [{"text": "positive", "y": 40}, {"text": "negative", "y": 80}, {"text":"neutral", "y": 120}];
     var color_index = d3.select("svg").append("g").attr("id", "color_index");
-    color_index.append("text").text("Color of circle").attr({x:100, y: 20, "text-anchor":"middle"});
-    color_index.append("text").text("indicates sentiment").attr({x:100, y: 32, "text-anchor":"middle"});
+    color_index.append("text").text("Color of circle").attr({x:100, y: 20, "text-anchor":"middle"}).attr("font-size", "11px");
+    color_index.append("text").text("indicates sentiment").attr({x:100, y: 32, "text-anchor":"middle"}).attr("font-size", "11px");
     color_index.selectAll("circle").data(color_index_data).enter().append("circle")
       .attr({cx:100, cy: function(d) {return 20+d.y}, r: maxRadius})
       .style({fill: function(d, i) {return color(i)}});
 
     // var size_index_data = [{"text": ">1000", "y": 10}, {"text": "500-1000", "y": 20}, {"text":"<500", "y": 50}];
-   index_elem.append("text").text("Size of circle indicates").attr({x:100,y:height-160,"text-anchor":"middle"});
+   index_elem.append("text").text("Size of circle indicates").attr({x:100,y:height_1-164,"text-anchor":"middle"}).attr("font-size", "11px");
    // here can have wether it's favorites or number of retweets based on what user selects from the menu
-   index_elem.append("text").attr("id", "subj").text("subjectivity").attr({x:100,y:height-148,"text-anchor":"middle"}).attr("font-weight", "bold")
+   index_elem.append("text").attr("id", "subj").text("subjectivity").attr({x:100,y:height_1-148,"text-anchor":"middle"}).attr("font-weight", "bold").attr("font-size", "11px")
     .on("click", function (d) {
       d3.select(this).attr("font-weight", "bold");
       d3.select("#fav").attr("font-weight", "normal");
       d3.select("#retweet").attr("font-weight", "normal");
+
+      d3.select("#big-circle-value").text("1.0");
+      d3.select("#medium-circle-value").text("0.5");
+      d3.select("#small-circle-value").text("0.0");
+
+
       d3.selectAll("#tweet_circle").attr("r", function (d) {
         // d.radius = maxRadius + maxRadius * d.sentiment.subjectivity;
         if (d.sentiment.subjectivity == 1.0) {
-          d.radius = 50;
+          d.radius = 40;
         }
         else if (d.sentiment.subjectivity == 0) {
           d.raidus = 10;
@@ -203,7 +221,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
       force.start();
     });
 
-    index_elem.append("text").attr("id", "fav").text("favorites").attr({x:100,y:height-138,"text-anchor":"middle"})
+    index_elem.append("text").attr("id", "fav").text("favorites").attr({x:100,y:height_1-132,"text-anchor":"middle"}).attr("font-size", "11px")
     .on("click", function (d) {
       d3.select(this).attr("font-weight", "bold");
       d3.select("#subj").attr("font-weight", "normal");
@@ -219,7 +237,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
           d.radius = 20;
         }
         else {
-          d.favorite_count = 50;
+          d.favorite_count = 40;
         }
         return d.radius;
       });
@@ -234,7 +252,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
       force.start();
     });
 
-    index_elem.append("text").attr("id", "retweet").text("retweets").attr({x:100,y:height-128,"text-anchor":"middle"})
+    index_elem.append("text").attr("id", "retweet").text("retweets").attr({x:100,y:height_1-116,"text-anchor":"middle"}).attr("font-size", "11px")
     .on("click", function () {
       d3.select(this).attr("font-weight", "bold");
       d3.select("#fav").attr("font-weight", "normal");
@@ -248,7 +266,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
           d.radius = 20;
         }
         else {
-          d.radius = 50;
+          d.radius = 40;
         }
         return d.radius;
       });
@@ -265,12 +283,12 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 
 
 
-   index_elem.selectAll("circle").data([10,20,50]).enter().append("circle")
-        .attr({cx:100,cy:function(d) {return height-20-d},r:String}).attr("text", "index")
+   index_elem.selectAll("circle").data([10,20,40]).enter().append("circle")
+        .attr({cx:100,cy:function(d) {return height_1-20-d},r:String}).attr("text", "index")
         .style({fill:"none","stroke-width":2,stroke:"#ccc","stroke-dasharray":"2 2"});
-    index_elem.append("text").text("1.0").attr("id", "big-circle-value").attr({x:100, y: height-80, "text-anchor": "middle", "font-size": "12px"})
-    index_elem.append("text").text("0.5").attr("id", "medium-circle-value").attr({x:100, y: height-45, "text-anchor": "middle", "font-size": "10px"});
-    index_elem.append("text").text("0").attr("id", "small-circle-value").attr({x:100, y: height-28, "text-anchor": "middle", "font-size": "10px"});
+    index_elem.append("text").text("1.0").attr("id", "big-circle-value").attr({x:100, y: height_1-80, "text-anchor": "middle", "font-size": "12px"})
+    index_elem.append("text").text("0.5").attr("id", "medium-circle-value").attr({x:100, y: height_1-45, "text-anchor": "middle", "font-size": "10px"});
+    index_elem.append("text").text("0").attr("id", "small-circle-value").attr({x:100, y: height_1-28, "text-anchor": "middle", "font-size": "10px"});
 
 
 
@@ -322,3 +340,4 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
     // index element for circle sizes
 
 });
+

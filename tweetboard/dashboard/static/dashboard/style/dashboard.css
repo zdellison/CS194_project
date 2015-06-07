@@ -27,7 +27,12 @@
 	background-image: url(squared_metal.png);
 }
 #dashboard_body_top{
-	height: 55vh;
+	height: 65vh;
+	padding-left: 5vw;
+	padding-right: 5vw;
+}
+#dashboard_body_top_2{
+	height: 50vh;
 	padding-left: 5vw;
 	padding-right: 5vw;
 }
@@ -46,7 +51,11 @@
 	float: left;
 }
 #top_d3js_box{
-	height: 55vh;
+	height: 60vh;
+	
+}
+#top_d3js_box_2{
+	height: 40vh;
 	
 }
 #top_bar_d3js_box{
