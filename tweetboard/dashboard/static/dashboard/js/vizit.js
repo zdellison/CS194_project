@@ -13,13 +13,13 @@ var padding = 1.5, // separation between same-color circles
     clusterPadding = 6, // separation between different-color circles
     maxRadius = 12;
 
-// var width = $('#top_d3js_box').width();
-// var height = $('#top_d3js_box').height();
+var width = $('#top_d3js_box').width();
+var height = $('#top_d3js_box').height();
 
-var width = 950;
-var height = 500;
-
-d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(data) {
+//var width = 950;
+//var height = 500;
+var user_id = document.getElementById("hidden_user").innerHTML;
+d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 
   // console.log(error);
 	tweets = data.tweets;
@@ -68,8 +68,9 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(data) {
     d.y = y;
     d.cluster = i;
     d.radius = r;
+
     var tweet_text = d.text;
-    new_d = {cluster: i, radius: r, text: tweet_text, x: x, y: y};
+    new_d = {cluster: i, radius: r, text: tweet_text, x: x, y: y, tweet_id : d.tweet_id};
     // console.log(new_d);
     if (!clusters[i] || (r > clusters[i].radius)) clusters[i] = new_d;
   });
@@ -83,8 +84,8 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(data) {
     	.on("tick", tick)
     	.start();
 
-	// var svg = d3.select("#top_d3js_box").append("svg")
-  var svg = d3.select("body").append("svg")
+	var svg = d3.select("#top_d3js_box").append("svg")
+  //var svg = d3.select("body").append("svg")
     	.attr("width", width)
     	.attr("height", height);
 
@@ -95,7 +96,11 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(data) {
       .attr("id", "tweet_circle")
       .attr("r", function(d) { return d.radius; })
       .style("fill", function(d) { return color(d.cluster); })
-      .call(force.drag);
+      .call(force.drag)
+      .on("click", function(d) {
+        window.location = "/dashboard/tweet?id=" + d.tweet_id;
+      });
+
 
 
 
