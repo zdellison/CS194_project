@@ -1,5 +1,6 @@
 
 var user_id = document.getElementById("hidden_user").innerHTML;
+document.getElementById("dashboard_link").setAttribute("href", "/dashboard?user="+user_id);
 
 d3.json("/api/get_user_by_id?user_id="+user_id, function(data) {
 
@@ -70,6 +71,8 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 		var div_tweet_body = document.createElement("div");
 		$(div_tweet_body).attr("class", "tweet").text(d.text);
 		var div_tweet_id = document.createElement("div");
+
+
 
 		$(list_div).append(href_wrapper);
 		$(href_wrapper).append(div_tweet_name);

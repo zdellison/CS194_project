@@ -234,7 +234,7 @@ def get_retweet_user_info(request):
             })
 
     response = {'users': users}
-   return JsonResponse(response)
+    return JsonResponse(response)
 
 # Given User ID, for the last 25 tweets, how many of the users that retweeted
 # were male, female or unknown.
