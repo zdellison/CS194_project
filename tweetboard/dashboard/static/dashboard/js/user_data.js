@@ -16,7 +16,7 @@ d3.json("/api/get_user_by_id?user_id="+user_id, function(data) {
 	document.getElementById("my_tweets").innerHTML = name.substr(0, name.indexOf(' ')).toUpperCase() + "'S TWEETS";
 	document.getElementById("map_text").innerHTML = name.substr(0, name.indexOf(' ')).toUpperCase() + "'S MAP";
 	document.getElementById("questions").innerHTML = "QUESTIONS FOR " + name.substr(0, name.indexOf(' ')).toUpperCase();
-
+	document.getElementById("questions").setAttribute("href", "/dashboard/questions?user="+screen_name);
 
 	document.getElementById("back_home").setAttribute("href", "/dashboard?user="+screen_name);
 	document.getElementById("logout").setAttribute("href", "/login/logout");

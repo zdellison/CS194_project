@@ -26,10 +26,11 @@ function wrap(text, width) {
 }
 
 
-
+// pedro changes 800 and 300 width / height values to the selection of the div's width and height, but keep the margins
 var	margin = {top: 30, right: 40, bottom: 30, left: 50},
-	width = 800 - margin.left - margin.right,
-	height = 300 - margin.top - margin.bottom;
+
+	width = $('#top_d3js_box_2').width() - margin.left - margin.right,
+	height = $('#top_d3js_box_2').height() - margin.top - margin.bottom - 20;
 
 // var	parseDate = d3.time.format("%a %b %e %X %Z %Y").parse;
 var	parseDate = d3.time.format("%Y-%m-%dT%X").parse;
@@ -44,8 +45,8 @@ var	yAxis = d3.svg.axis().scale(y)
 	.orient("left").ticks(10);
 
 
-  
-var	svg = d3.select("body")
+// pedro change body to the div id box
+var	svg = d3.select("#top_d3js_box_2")
 	.append("svg")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom + margin.bottom)
@@ -54,12 +55,16 @@ var	svg = d3.select("body")
 
 
 // add the tooltip area to the webpage
-var tooltip = d3.select("body").append("div")
+// pedro changes body to the div id
+var tooltip = d3.select("#top_d3js_box_2").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
 // Get the data
-d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(error, data) {
+
+// pedro changes api call
+var user_id = document.getElementById("hidden_user").innerHTML;
+d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 	dataset = data.tweets;
 
 
@@ -141,34 +146,43 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(error, dat
 
 
 	svg.append("text").attr("id", "favorites_text")
-		.attr("transform", "translate(" + 10 + "," + (10) + ")")
+		.attr("transform", "translate(" + 30 + "," + (10) + ")")
 		.style("fill", "steelblue")
 		.on("click", function(){
-    	var active   = retweetdot.active ? false : true,
-      	newOpacity = active ? 0 : 1;
-    // Hide or show the elements
-      d3.selectAll("#retweetdot").style("opacity", newOpacity);
-      // console.log(d);
-        // return newOpacity * d.r;});
-        retweetdot.active = active;
+
+      d3.select(this).attr("font-weight", "bold");
+      d3.select("#both_text").attr("font-weight", "normal");
+      d3.select("#retweets_text").attr("font-weight", "normal");
+
+      d3.selectAll("#retweetdot").style("opacity", 0);
+      d3.selectAll("#dotfav").style("opacity", 1);
+
       }).text("Favorites");
 
-	svg.append("text")
-		.attr("transform", "translate(" + 10 + "," + (30) + ")")
+	svg.append("text").attr("id", "retweets_text")
+		.attr("transform", "translate(" + 30 + "," + (30) + ")")
 		.style("fill", "coral").
 		on("click", function(){
+      d3.select(this).attr("font-weight", "bold");
+      d3.select("#both_text").attr("font-weight", "normal");
+      d3.select("#favorite_text").attr("font-weight", "normal");
 
-
-
-    	var active   = dotfav.active ? false : true,
-      	newOpacity = active ? 0 : 1;
-    // Hide or show the elements
-      d3.selectAll("#dotfav").style("opacity", newOpacity);
-  // .attr("r", function(d) {
-  //     console.log(d);
-  //     return newOpacity * d.r;});
-     dotfav.active = active;
+      d3.selectAll("#dotfav").style("opacity", 0);
+      d3.selectAll("#retweetdot").style("opacity", 1);
   }).text("Retweets");
+
+  svg.append("text").attr("id", "both_text")
+    .attr("transform", "translate(" + 30 + "," + (50) + ")").attr("font-weight", "bold")
+    .style("fill", "green").
+    on("click", function(){
+      d3.select(this).attr("font-weight", "bold");
+      d3.select("#retweets_text").attr("font-weight", "normal");
+      d3.select("#favorites_text").attr("font-weight", "normal");
+
+
+      d3.selectAll("#dotfav").style("opacity", 1);
+      d3.selectAll("#retweetdot").style("opacity", 1);
+  }).text("Both");
 
 
 	$('svg circle').tipsy({ 
