@@ -18,6 +18,11 @@
 	height: 20vh;
 	background: #FFFFFF;
 }
+
+#top_header_tweet{
+	height: 23vh;
+	background: #FFFFFF;
+}
 .dashboard{
 	background-image: url(squared_metal.png);
 }
@@ -249,13 +254,13 @@
 	border: 1px solid #9B9B9B;
 	height: 6vh;
 }
-#home_icon{
+.home_icon{
 	/* Fill 14: */
-	max-width: 100%;
+	max-width: 80%;
     position: absolute;
 	background-repeat: no-repeat;;
 }
-#home_wrapper{
+.home_wrapper{
 	position: relative;
 }
 #scrollable_items{

@@ -7,6 +7,9 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
   // console.log(error);
 	var users = data.tweets;
 	var handle = data.screen_name;
+	var favorite_total = 0;
+	var retweet_total = 0;
+	var count = 0;
 /*
 	document.getElementById("profile_name").innerHTML = data.name;
 	document.getElementById("user_handle").innerHTML = data.id;
@@ -14,6 +17,10 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 */
 
   	users.forEach(function(d) {
+
+  		count = count + 1;
+  		favorite_total = favorite_total + d.favorite_count;
+  		retweet_total = retweet_total + d.retweet_count;
   		//console.log(d.text);
 		var list_div = document.createElement("li");
 		$(list_div).attr("class", "tweet_items");
@@ -37,6 +44,9 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 		
 	    document.getElementById("tweet_items_list").appendChild(list_div);
 	});
+
+	document.getElementById("retweet_count").innerHTML = retweet_total/count;
+	document.getElementById("favorite_count").innerHTML = favorite_total/count;
 	
 });
 

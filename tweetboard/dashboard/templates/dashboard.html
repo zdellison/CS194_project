@@ -85,14 +85,20 @@
             <div class="row" id="top_header">
 
            <div class="row top_divisor">
-                  <div class="col-md-11" style="padding-right: 0px;">
+                  <div class="col-md-10" style="padding-right: 0px;">
                     <div class="top_bar" id="top_bar_left" style="border-right: 0px;"></div>
                   </div>
                   <div class="col-md-1 nomargin">
                     
-                        <div class="top_bar icons col-md-6 nomargin" id="home_wrapper">
+                        <div class="top_bar  col-md-6 nomargin" class="home_wrapper">
+                           <a id="logout" > 
+                            <img src="{% static 'dashboard/style/logout.png' %}" class="home_icon" style="margin-top: 3px; margin-left: 2px;"></img> 
+                          </a>
+                        </div>
+
+                        <div class="top_bar  col-md-6 nomargin" class="home_wrapper">
                            <a id="back_home" > 
-                            <img src="{% static 'dashboard/style/home.png' %}" id="home_icon"></img> 
+                            <img src="{% static 'dashboard/style/home.png' %}" class="home_icon" style="margin-left: 3px; margin-top=1px;"></img> 
                           </a>
                         </div>
                        
@@ -103,19 +109,37 @@
                 
 
                 <div class="col-md-1"></div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                   <div id="page_title"> DASHBOARD </div>
                   <div id="page_subtitle"> Analysis of 25 most recent tweets </div>
                 </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-5">
-                  <div class="d3js_box" id="top_bar_d3js_box">
 
 
+                 <div class="col-md-7">
+                  <div id="top_bar_d3js_box nomargin">
+                    
+
+                     <div class="col-md-4 stats_box" style="padding: 0px;">
+                      <div class="stats" id="followers_count"></div>
+                      <div class="stats_text"> followers </div>
+                      
+                    </div>
+
+
+                    <div class="col-md-4 stats_box">
+                      <div class="stats" id="retweet_count"></div>
+                      <div class="stats_text"> avg retweets </div>
+                    </div>
+                    
+                     <div class="col-md-4 stats_box">
+                      <div class="stats" id="favorite_count"></div>
+                      <div class="stats_text"> avg favorites </div>
+                    </div>
 
                   </div>
-                </div>  
-                <div class="col-md-1"></div>
+                </div>
+
+   
             </div>
 
        

@@ -15,6 +15,7 @@ d3.json(string, function(data) {
 
 	document.getElementById("retweet_count").innerHTML = data.tweet.retweet_count;
 	document.getElementById("favorite_count").innerHTML = data.tweet.favorite_count;
+
 	
 	//document.getElementById("date_created").innerHTML = data.tweet.created_at;
 	
@@ -55,6 +56,7 @@ d3.json(string, function(data) {
 	user_id = data.tweet.created_by_id;
 	
 	document.getElementById("dashboard_link").setAttribute("href", "/dashboard?user="+user_id);
+	document.getElementById("logout").setAttribute("href", "/login/logout");
 
 	d3.json("/api/get_user_by_id?user_id="+user_id, function(d) {
 

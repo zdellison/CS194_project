@@ -12,8 +12,11 @@ d3.json("/api/get_user_by_id?user_id="+user_id, function(data) {
 	document.getElementById("user_handle").innerHTML = screen_name;
 	document.getElementById("user_location").innerHTML = data.user.location;
 	document.getElementById("profile_pic").src = data.user.profile_image_url;
+	document.getElementById("followers_count").innerHTML = data.user.followers_count;
 
-	document.getElementById("home_wrapper").setAttribute("href", "/dashboard?user="+screen_name);
+
+	document.getElementById("back_home").setAttribute("href", "/dashboard?user="+screen_name);
+	document.getElementById("logout").setAttribute("href", "/login/logout");
 	
 	var names = document.getElementsByClassName("tweet_prof_name");
 	//console.log(names);
