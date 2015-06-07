@@ -3,14 +3,15 @@
 
 var hashtags;
 
-var width_hashtags = 960,
-    height_hashtags = 500,
+
+var width_hashtags = $('#d3js_box_2').width(),
+    height_hashtags = $('#d3js_box_2').height(),
     padding_hashtags = 1.5, // separation between same-color circles
     clusterPadding_hashtags = 6, // separation between different-color circles
     maxRadius_hashtags = 12;
 
-
-d3.json("/api/get_tweets_by_user_id?user_id=RandPaul", function(json) {
+var user_id = document.getElementById("hidden_user").innerHTML;
+d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(json) {
 	tweets = json.tweets;
   // console.log(tweets);
 
@@ -113,7 +114,7 @@ d3.json("/api/get_tweets_by_user_id?user_id=RandPaul", function(json) {
     	.on("tick", tick)
     	.start();
 
-	var svg_hashtags = d3.select("body").append("svg")
+	var svg_hashtags = d3.select("#d3js_box_2").append("svg")
     	.attr("width", width_hashtags)
     	.attr("height", height_hashtags);
 
@@ -145,11 +146,11 @@ d3.json("/api/get_tweets_by_user_id?user_id=RandPaul", function(json) {
   //   index_elem.append("text").text("<500").attr({x:800, y: 430, "text-anchor": "middle", "font-size": "10px"});
 
 
-    var color_index_data = [{"text": "0-50 retweets", "y": 40}, {"text": "50-100 retweets", "y": 80}, {"text":"100-500 retweets", "y": 120}, {"text":">500 retweets", "y": 160}];
-    var color_index = d3.select("svg").append("g").attr("id", "color_index");
+    var color_index_data_hashtags = [{"text": "0-50 retweets", "y": 40}, {"text": "50-100 retweets", "y": 80}, {"text":"100-500 retweets", "y": 120}, {"text":">500 retweets", "y": 160}];
+    var color_index_hashtags = d3.select("svg").append("g").attr("id", "color_index");
     // color_index.append("text").text("Color of circle").attr({x:800, y: 100, "text-anchor":"middle"});
     // color_index.append("text").text("indicates sentiment").attr({x:800, y: 112, "text-anchor":"middle"});
-    color_index.selectAll("circle").data(color_index_data).enter().append("circle")
+    color_index_hashtags.selectAll("circle").data(color_index_data).enter().append("circle")
       .attr({cx:100, cy: function(d) {return 100+d.y}, r: maxRadius_hashtags})
       .style({fill: function(d, i) {return color_hashtags(i)}});
 
@@ -157,10 +158,10 @@ d3.json("/api/get_tweets_by_user_id?user_id=RandPaul", function(json) {
     // text_color_index.selectAll("text").data(color_index_data).enter().append("text")
     //   .text(function (d) { return d.text; }).style("fill", function(d,i) {return color(i)});
 
-    color_index.append("text").text("0-50 retweets").attr({x:150, y: 140, "text-anchor": "middle", "font-size": "10px"})
-    color_index.append("text").text("50-100 retweets").attr({x:150, y: 180, "text-anchor": "middle", "font-size": "10px"});
-    color_index.append("text").text("100-500 retweets").attr({x:150, y: 220, "text-anchor": "middle", "font-size": "10px"});
-    color_index.append("text").text(">500 retweets").attr({x:150, y: 260, "text-anchor": "middle", "font-size": "10px"});
+    color_index_hashtags.append("text").text("0-50 retweets").attr({x:150, y: 140, "text-anchor": "middle", "font-size": "10px"})
+    color_index_hashtags.append("text").text("50-100 retweets").attr({x:150, y: 180, "text-anchor": "middle", "font-size": "10px"});
+    color_index_hashtags.append("text").text("100-500 retweets").attr({x:150, y: 220, "text-anchor": "middle", "font-size": "10px"});
+    color_index_hashtags.append("text").text(">500 retweets").attr({x:150, y: 260, "text-anchor": "middle", "font-size": "10px"});
 
 
 
