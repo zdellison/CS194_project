@@ -25,11 +25,15 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 		$(div_tweet_handle).attr("class", "tweet_prof_twitter");
 		var div_tweet_body = document.createElement("div");
 		$(div_tweet_body).attr("class", "tweet").text(d.text);
+		var div_tweet_id = document.createElement("div");
+		$(div_tweet_id).attr("class", "tweet").text(d.tweet_id);
+		console.log(d.tweet_id);
 
 		$(list_div).append(href_wrapper);
 		$(href_wrapper).append(div_tweet_name);
 		$(href_wrapper).append(div_tweet_handle);
 		$(href_wrapper).append(div_tweet_body);
+		$(href_wrapper).append(div_tweet_id);
 		
 	    document.getElementById("tweet_items_list").appendChild(list_div);
 	});

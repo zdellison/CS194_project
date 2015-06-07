@@ -15,11 +15,11 @@ d3.json("/api/get_user_by_id?user_id="+user_id, function(data) {
 	document.getElementById("home_wrapper").setAttribute("href", "/dashboard?user="+screen_name);
 	
 	var names = document.getElementsByClassName("tweet_prof_name");
-	console.log(names);
+	//console.log(names);
 	var screen_names = document.getElementsByClassName("tweet_prof_twitter");
 
 		for(s in names){
-			console.log(s.innerHTML);
+			//console.log(s.innerHTML);
 			s.innerHTML = name;
 			console.log(names);
 		}
