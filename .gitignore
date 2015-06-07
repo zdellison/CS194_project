@@ -1,1 +1,2 @@
 *.pyc
+tweetboard/db.sqlite3
