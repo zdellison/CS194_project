@@ -34,12 +34,16 @@
             <div id="left_header">
 
             <div class="row top_divisor"></div>
-            <div id="logo"> </div>  
+           <a href="/dashboard/landing" class="nomargin" id="tweetboard">
+                <div id="logo_1">tweet</div>
+                <div id="logo_2">Board</div>
+            </a>
+            <div class="row top_divisor"></div>
             <div class="row top_divisor"></div>
               
               <div class="row" id="profile">
-                <div class="col-md-1"></div>
-                <div class="col-md-6">
+                <div class="col-md-2"></div>
+                <div class="col-md-5">
                   <div id="profile_name"> </div>
 
                   <div class="profile_text" id="user_handle"> </div>
@@ -49,7 +53,7 @@
                 
                 
                 <div class="col-md-2">
-                 <div id="profile_pic"></div>
+                 <img id="profile_pic"></img>
                 </div>
               </div>
 
@@ -64,9 +68,20 @@
                   </li>
                   <li class="side_button">
                    
+                        <a href="#" class="side_button_text" id="map_text"> </a>
+                    
+                  </li>
+                  <li class="side_button">
+                   
+                        <a href="#" class="side_button_text" id="questions"> </a>
+                    
+                  </li>
+                  <li class="side_button">
+                   
 
-                        <a href="#" class="side_button_text"> INDIVIDUAL TWEETS 
-                          <div id="arrow_down_pic"></div>
+                        <a href="#" > 
+                          <div class="side_button_text" id="my_tweets"></div>
+                          <div class="arrow_down_pic"></div>
                         </a>
 
                          <div style="height: 2vh;"></div>
@@ -74,6 +89,7 @@
                         <ul id="tweet_items_list"></ul>
     
                   </li>
+                
                  
               </ul>
 
@@ -84,39 +100,62 @@
           <div class="col-md-9">
             <div class="row" id="top_header">
 
-                <div class="row top_divisor">
+           <div class="row top_divisor">
                   <div class="col-md-10" style="padding-right: 0px;">
                     <div class="top_bar" id="top_bar_left" style="border-right: 0px;"></div>
                   </div>
-                  <div class="col-md-2 nomargin">
-                    <div class="top_bar" id="top_bar_right">
-                         <div class="col-md-4 nomargin">
-                          <div id="home_icon"><a class="icons top_bar" id="home_wrapper">  </a></div>
-                           
+                  <div class="col-md-1 nomargin">
+                    
+                        <div class="top_bar  col-md-6 nomargin" class="home_wrapper">
+                           <a id="logout" > 
+                            <img src="{% static 'dashboard/style/logout.png' %}" class="home_icon" style="margin-top: 3px; margin-left: 2px;"></img> 
+                          </a>
                         </div>
-                        <div class="col-md-4 nomargin">
-                          <a class="icons top_bar nomargin" id="logout_wrapper"> <div id="logout_icon"></div> </a>
+
+                        <div class="top_bar  col-md-6 nomargin" class="home_wrapper">
+                           <a id="back_home" > 
+                            <img src="{% static 'dashboard/style/home.png' %}" class="home_icon" style="margin-left: 3px; margin-top=1px;"></img> 
+                          </a>
                         </div>
-                    </div>
+                       
+                   
 
                     </div> 
                   </div>
                 
 
                 <div class="col-md-1"></div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                   <div id="page_title"> DASHBOARD </div>
                   <div id="page_subtitle"> Analysis of 25 most recent tweets </div>
                 </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-5">
-                  <div class="d3js_box" id="top_bar_d3js_box">
 
 
+                 <div class="col-md-7">
+                  <div id="top_bar_d3js_box nomargin">
+                    
+
+                     <div class="col-md-4 stats_box" style="padding: 0px;">
+                      <div class="stats" id="followers_count"></div>
+                      <div class="stats_text"> followers </div>
+                      
+                    </div>
+
+
+                    <div class="col-md-4 stats_box">
+                      <div class="stats" id="retweet_count"></div>
+                      <div class="stats_text"> avg retweets </div>
+                    </div>
+                    
+                     <div class="col-md-4 stats_box">
+                      <div class="stats" id="favorite_count"></div>
+                      <div class="stats_text"> avg favorites </div>
+                    </div>
 
                   </div>
-                </div>  
-                <div class="col-md-1"></div>
+                </div>
+
+   
             </div>
 
        

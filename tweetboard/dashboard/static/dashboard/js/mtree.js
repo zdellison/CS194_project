@@ -18,7 +18,7 @@
     
   
   // Set initial styles 
-  $('.mtree ul').css({'overflow':(collapsed) ? 'hidden' : 'auto', 'height': (collapsed) ? 0 : '165vh', 'display': (collapsed) ? 'none' : 'block' });
+  $('.mtree ul').css({'overflow':(collapsed) ? 'hidden' : 'auto', 'height': (collapsed) ? 0 : '100vh', 'display': (collapsed) ? 'none' : 'block' });
   
   // Get node elements, and add classes for styling
   var node = $('.mtree li:has(ul)');  
@@ -75,7 +75,7 @@
     }
     
     // force auto height of element so actual height can be extracted
-    el.css({'height': '110vh'}); 
+    el.css({'height': '50vh'}); 
     el.css({'overflow-y': 'auto'});
     
     // listAnim: animate child elements when opening

@@ -11,23 +11,15 @@ d3.json("/api/get_user_by_id?user_id="+user_id, function(data) {
 	document.getElementById("profile_name").innerHTML = name;
 	document.getElementById("user_handle").innerHTML = screen_name;
 	document.getElementById("user_location").innerHTML = data.user.location;
+	document.getElementById("profile_pic").src = data.user.profile_image_url;
+	document.getElementById("followers_count").innerHTML = data.user.followers_count;
+	document.getElementById("my_tweets").innerHTML = name.substr(0, name.indexOf(' ')).toUpperCase() + "'S TWEETS";
+	document.getElementById("map_text").innerHTML = name.substr(0, name.indexOf(' ')).toUpperCase() + "'S MAP";
+	document.getElementById("questions").innerHTML = "QUESTIONS FOR " + name.substr(0, name.indexOf(' ')).toUpperCase();
 
-	document.getElementById("home_wrapper").setAttribute("href", "/dashboard?user="+screen_name);
+
+	document.getElementById("back_home").setAttribute("href", "/dashboard?user="+screen_name);
+	document.getElementById("logout").setAttribute("href", "/login/logout");
 	
-	var names = document.getElementsByClassName("tweet_prof_name");
-	console.log(names);
-	var screen_names = document.getElementsByClassName("tweet_prof_twitter");
-
-		for(s in names){
-			console.log(s.innerHTML);
-			s.innerHTML = name;
-			console.log(names);
-		}
-		
-
-		[].slice.call( screen_names ).forEach(function ( s ) {
-		    s.innerHTML = screen_name;
-		    
-		});
 
 });

@@ -59,7 +59,7 @@ def get_user_info(user_id, api):
 # Method returns a dict of processed tweet data from a tweepy status
 def get_tweet_info(tweet):
     processed_tweet = {
-            'tweet_id': tweet.id,
+            'tweet_id': tweet.id_str,
             'created_by_id': tweet.user.id,
             'created_at': tweet.created_at,
             'text': tweet.text,
@@ -136,6 +136,56 @@ def get_tweets_by_user_id(request):
     response['tweets'] = recent_tweets
 
     return JsonResponse(response)
+
+@login_required
+def get_positive_tweets_at_user_id(request):
+    api = get_api_with_auth(request)
+
+    recent_tweets = []
+    query = '@' + str(request.GET['user_id']) + ' :)'
+    print "Query: ", query
+    tweets = api.search(q=query, rpp=100)
+    for tweet in tweets:
+        recent_tweets.append(get_tweet_info(tweet))
+
+    response = {}
+    response['tweets'] = recent_tweets
+
+    return JsonResponse(response)
+
+@login_required
+def get_negative_tweets_at_user_id(request):
+    api = get_api_with_auth(request)
+
+    recent_tweets = []
+    query = '@' + str(request.GET['user_id']) + ' :('
+    print "Query: ", query
+    tweets = api.search(q=query, rpp=100)
+    for tweet in tweets:
+        recent_tweets.append(get_tweet_info(tweet))
+
+    response = {}
+    response['tweets'] = recent_tweets
+
+    return JsonResponse(response)
+
+
+@login_required
+def get_question_tweets_at_user_id(request):
+    api = get_api_with_auth(request)
+
+    recent_tweets = []
+    query = '@' + str(request.GET['user_id']) + ' ?'
+    print "Query: ", query
+    tweets = api.search(q=query, rpp=100)
+    for tweet in tweets:
+        recent_tweets.append(get_tweet_info(tweet))
+
+    response = {}
+    response['tweets'] = recent_tweets
+
+    return JsonResponse(response)
+
 
 # Given a user, return all users who have retweeted their previous 10 tweets
 # NOTE: Don't use this, it burns through rate limiting and was only an example

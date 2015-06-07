@@ -61,7 +61,7 @@ def twitter_logout(request):
     # Log a user out using Django's logout function and redirect them
     # back to the homepage.
     logout(request)
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect('/login')
 
 def twitter_authenticated(request):
     # Step 1. Use the request token in the session to build a new client.

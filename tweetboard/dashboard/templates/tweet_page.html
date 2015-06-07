@@ -11,8 +11,8 @@
     </head>
   
     <body>
-       <div id="hidden_user" style="visibility: hidden; height: 0px"> {{user_id}} </div>
-        <div id="hidden_tweet_id" style="visibility: hidden; height: 0px"> {{tweet_id}} </div>
+       
+       <div id="hidden_tweet_id" style="visibility: hidden; height: 0px">{{tweet_id}}</div>
          <div id="block"></div>
           <div id="grey_container">
               
@@ -29,12 +29,17 @@
             <div id="left_header">
 
             <div class="row top_divisor"></div>
-            <div id="logo"> </div>  
+           <a href="/dashboard/landing" class="nomargin" id="tweetboard">
+                <div id="logo_1">tweet</div>
+                <div id="logo_2">Board</div>
+            </a>
+            <div class="row top_divisor"></div>
+            <div class="row top_divisor"></div>
             <div class="row top_divisor"></div>
               
               <div class="row" id="profile">
-                <div class="col-md-1"></div>
-                <div class="col-md-6">
+                <div class="col-md-2"></div>
+                <div class="col-md-5">
                   <div id="profile_name">  </div>
 
                   <div class="profile_text" id="user_handle"> </div>
@@ -44,32 +49,44 @@
                 
                 
                 <div class="col-md-2">
-                 <div id="profile_pic"></div>
+                 <img id="profile_pic"></img>
                 </div>
               </div>
 
               <div class="top_divisor"></div>
 
                <ul class="mtree nomargin">
-                  
+
+
+                <li class="side_button">
+                   
+                         <a id="dashboard_link" class="side_button_text"> DASHBOARD </a>
+                    
+                  </li>
                   <li class="side_button">
                    
-                        <a href="#" class="side_button_text"> DASHBOARD </a>
+                        <a href="#" class="side_button_text" id="map_text"> </a>
+                    
+                  </li>
+                  <li class="side_button">
+                   
+                        <a href="#" class="side_button_text" id="questions"> </a>
                     
                   </li>
                   <li class="side_button">
                    
 
-                        <a href="#" class="side_button_text"> INDIVIDUAL TWEETS 
-                          <div id="arrow_down_pic"></div>
+                        <a href="#" > 
+                          <div class="side_button_text" id="my_tweets"></div>
+                          <div class="arrow_down_pic"></div>
                         </a>
 
                          <div style="height: 2vh;"></div>
 
                         <ul id="tweet_items_list"></ul>
-             
+    
                   </li>
-                 
+               
               </ul>
 
             </div>  
@@ -77,35 +94,53 @@
           </div>
         
           <div class="col-md-9">
-            <div class="row" id="top_header">
+            <div class="row" id="top_header_tweet">
 
                 <div class="row top_divisor">
                   <div class="col-md-10" style="padding-right: 0px;">
                     <div class="top_bar" id="top_bar_left" style="border-right: 0px;"></div>
                   </div>
-                  <div class="col-md-2 nomargin">
-                    <div class="top_bar" id="top_bar_right">
-                        <div class="col-md-4 nomargin">
-                           <a class="icons top_bar nomargin" id="home_wrapper"> <div id="home_icon"></div> </a>
+                   <div class="col-md-1 nomargin">
+                    
+                        <div class="top_bar  col-md-6 nomargin" class="home_wrapper">
+                           <a id="logout" > 
+                            <img src="{% static 'dashboard/style/logout.png' %}" class="home_icon" style="margin-top: 3px; margin-left: 2px;"></img> 
+                          </a>
                         </div>
-                        <div class="col-md-4 nomargin">
-                          <a class="icons top_bar nomargin" id="logout_wrapper"> <div id="logout_icon"></div> </a>
+
+                        <div class="top_bar  col-md-6 nomargin" class="home_wrapper">
+                           <a id="back_home" > 
+                            <img src="{% static 'dashboard/style/home.png' %}" class="home_icon" style="margin-left: 3px; margin-top=1px;"></img> 
+                          </a>
                         </div>
-                    </div>
+                       
+                   
 
                     </div> 
                   </div>
                 
 
                 <div class="col-md-1"></div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                   <div id="page_title"> TWEET </div>
+                  <div class="row" id="tweet_body"> </div>
                 </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-5">
-                  <div class="d3js_box" id="top_bar_d3js_box">
-
-
+                
+                <div class="col-md-4">
+                  <div id="top_bar_d3js_box nomargin">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-4 stats_box">
+                      <div class="stats" id="retweet_count"></div>
+                      <div class="stats_text"> retweets </div>
+                    </div>
+                    <div class="col-md-4"></div>
+                     <div class="col-md-4 stats_box">
+                      <div class="stats" id="favorite_count"></div>
+                      <div class="stats_text"> favorites </div>
+                    </div>
+                   
+                    
+                    
 
                   </div>
                 </div>  
@@ -115,8 +150,7 @@
        
             
             <div class="row divisor"></div>
-            <div class="row" id="tweet_body"> </div>
-            <div class="row divisor"></div>
+            
             <div class="row dashboard" id="dashboard_body_top">
               <div class="d3js_box" id="top_d3js_box">
               	
@@ -159,7 +193,7 @@
     <script src="{% static 'dashboard/js/jquery.js' %}"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
      <script src="{% static 'dashboard/js/jquery.tipsy.js' %}"></script>
-     <script src="{% static 'dashboard/js/dashboard_data.js' %}"></script>
+    
     
     <script src="{% static 'dashboard/js/grey_box.js' %}"></script>
     
