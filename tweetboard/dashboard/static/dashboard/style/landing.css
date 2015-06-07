@@ -61,6 +61,14 @@ width: 35vh;
 /* Rectangle 32 Copy: */
 border: 3px solid #979797;
 border-radius: 21px;
+position: relative;
+overflow: hidden;
+}
+
+.actual_pic{
+    max-width: 100%;
+    opacity: 0.6;
+    position: absolute;
 }
 
 .candidates_names{
