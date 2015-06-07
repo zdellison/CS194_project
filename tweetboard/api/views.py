@@ -203,7 +203,7 @@ def get_user_by_id(request):
 def get_tweet_by_id(request):
     api = get_api_with_auth(request)
 
-    tweet = Tweet.objects.get(tweet_id=request.GET['tweet_id')
+    tweet = Tweet.objects.get(tweet_id=request.GET['tweet_id'])
     response = {'tweet': tweet.to_obj()}
 
     return JsonResponse(response)

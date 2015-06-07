@@ -91,11 +91,8 @@ class Tweet(models.Model):
 	    tweets.append(tweet_obj.to_obj())
 
 	def refetch():
-	    print 'getting retweets'
 	    for t in to_update:
-		'got retweets for ' + str(t.tweet_id)
 		t.fetch_retweets(api, uid)
-	    print 'done getting retweets'
 
 	thread.start_new_thread(refetch, ())
 
