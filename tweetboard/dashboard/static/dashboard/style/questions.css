@@ -1,0 +1,25 @@
+table {
+    width:100%;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+table tr:nth-child(even) {
+    background-color: #eee;
+}
+table tr:nth-child(odd) {
+   background-color:#fff;
+}
+th{
+	font-family: Dosis-Bold;
+	font-size: 18px;
+}
+td{
+	font-family: Dosis-Light;
+	font-size: 14px;
+}

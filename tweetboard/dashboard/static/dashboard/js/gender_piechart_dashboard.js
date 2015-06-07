@@ -1,9 +1,11 @@
 // used tutorial: http://bl.ocks.org/mbostock/3887235
 
-// pedro changes width and height
-var width = 960,
-    height = 500,
-    radius = Math.min(width, height) / 2;
+
+//pedro
+var w_gender = $('#d3js_box_1').width(),
+    h_gender = $('#d3js_box_1').height(),
+    radius = Math.min(w_gender, h_gender) / 2;
+
 
 var color = d3.scale.ordinal()
     .range(["#98abc5", "#8a89a6", "#7b6888"]);
@@ -16,17 +18,17 @@ var pie = d3.layout.pie()
     .sort(null)
     .value(function(d) { return d.count; });
 
-
-// pedro changes what to select
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height)
+<<<<<<< HEAD
+var svg1 = d3.select("#d3js_box_1").append("svg")
+    .attr("width", w_gender)
+    .attr("height", h_gender)
   .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    .attr("transform", "translate(" + w_gender / 2 + "," + h_gender / 2 + ")");
+//pedro
+var user_id = document.getElementById("hidden_user").innerHTML;
+d3.json("/api/get_gender_total_for_recent_tweets?user_id="+user_id, function(error, data) {
+=======
 
-
-// pedro changes api call
-d3.json("/api/get_gender_total_for_recent_tweets?user_id=HillaryClinton", function(error, data) {
 
   totals = data.gender_totals;
   // gender_counts = {};
@@ -52,7 +54,7 @@ d3.json("/api/get_gender_total_for_recent_tweets?user_id=HillaryClinton", functi
   d3format_gender_counts[2] = {"gender": "unknown", "count": totals.unknown};
 
 
-  var g = svg.selectAll(".arc")
+  var g = svg1.selectAll(".arc")
       .data(pie(d3format_gender_counts))
     .enter().append("g")
       .attr("class", "arc");
