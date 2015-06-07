@@ -1,6 +1,6 @@
 // used tutorial: http://bl.ocks.org/mbostock/3887235
 
-
+// pedro changes width and height
 var width = 960,
     height = 500,
     radius = Math.min(width, height) / 2;
@@ -16,12 +16,16 @@ var pie = d3.layout.pie()
     .sort(null)
     .value(function(d) { return d.count; });
 
+
+// pedro changes what to select
 var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height)
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
+
+// pedro changes api call
 d3.json("/api/get_gender_total_for_recent_tweets?user_id=HillaryClinton", function(error, data) {
 
   totals = data.gender_totals;
@@ -38,8 +42,8 @@ d3.json("/api/get_gender_total_for_recent_tweets?user_id=HillaryClinton", functi
   //   var gender = d.gender;
   //   gender_counts[gender] += 1;
   // });
-
-  console.log(totals);
+// 
+  // console.log(totals);
 
   var d3format_gender_counts = new Array(3);
 

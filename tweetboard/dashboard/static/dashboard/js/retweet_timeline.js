@@ -92,28 +92,48 @@ d3.json("/api/get_retweet_user_info?tweet_id=602656356953399296", function(error
 
 
       // draw retweet dots
-  svg.selectAll(".dot")
-      .data(timestamps)
-    .enter().append("circle")
-      .attr("class", "dot")
-      .attr("r", 3.5)
-      .attr("cx", xMap)
-      .attr("cy", 0)
-      .style("fill", function(d) { return "coral";})
-      .on("mouseover", function(d) {
-          tooltip.transition()
-               .duration(200)
-               .style("opacity", .9);
-          tooltip.html(d + "<br/> (" + x(d) 
-	        + ", " + 30 + ")" + "<br/>" + "have any info here about the user that retweeted")
-               .style("left", (d3.event.pageX + 5) + "px")
-               .style("top", (d3.event.pageY - 28) + "px");
+  // svg.selectAll(".dot")
+  //     .data(timestamps)
+  //   .enter().append("circle")
+  //     .attr("class", "dot")
+  //     .attr("r", 3.5)
+  //     .attr("cx", xMap)
+  //     .attr("cy", 0)
+  //     .style("fill", function(d) { return "coral";})
+  //     .on("mouseover", function(d) {
+  //         tooltip.transition()
+  //              .duration(200)
+  //              .style("opacity", .9);
+  //         tooltip.html(d + "<br/> (" + x(d) 
+	 //        + ", " + 30 + ")" + "<br/>" + "have any info here about the user that retweeted")
+  //              .style("left", (d3.event.pageX + 5) + "px")
+  //              .style("top", (d3.event.pageY - 28) + "px");
+  //     })
+  //     .on("mouseout", function(d) {
+  //         tooltip.transition()
+  //              .duration(500)
+  //              .style("opacity", 0);
+  //     });
+
+
+  // draw favorite dots
+  svg.selectAll("#retweet_timeline_circles")
+      .data(dataset)
+      .enter().append("circle")
+      .attr("id", "retweet_timeline_circles")
+      .transition()  // Transition from old to new
+      .duration(10000)  // Length of animation
+      .each("start", function() {  // Start animation
+         d3.select(this)  // 'this' means the current element
+         .attr("fill", "steelblue")  // Change color
+         .attr("r", 7);  // Change size
       })
-      .on("mouseout", function(d) {
-          tooltip.transition()
-               .duration(500)
-               .style("opacity", 0);
-      });
+       .delay(function(d, i) {
+          return i / dataset.length * 500;  // Dynamic delay (i.e. each item delays a little longer)
+       })
+                        //.ease("linear")  // Transition easing - default 'variable' (i.e. has acceleration), also: 'circle', 'elastic', 'bounce', 'linear'
+       .attr("cx", xMap)
+       .attr("cy", yMap); 
 
 
     var labelheight = height - 25;
