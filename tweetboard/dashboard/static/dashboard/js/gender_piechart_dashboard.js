@@ -18,7 +18,6 @@ var pie = d3.layout.pie()
     .sort(null)
     .value(function(d) { return d.count; });
 
-<<<<<<< HEAD
 var svg1 = d3.select("#d3js_box_1").append("svg")
     .attr("width", w_gender)
     .attr("height", h_gender)
@@ -27,7 +26,7 @@ var svg1 = d3.select("#d3js_box_1").append("svg")
 //pedro
 var user_id = document.getElementById("hidden_user").innerHTML;
 d3.json("/api/get_gender_total_for_recent_tweets?user_id="+user_id, function(error, data) {
-=======
+
 
 
   totals = data.gender_totals;
