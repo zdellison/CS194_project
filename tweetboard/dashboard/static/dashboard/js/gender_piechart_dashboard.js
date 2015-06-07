@@ -1,9 +1,11 @@
 // used tutorial: http://bl.ocks.org/mbostock/3887235
 
+
 //pedro
 var w_gender = $('#d3js_box_1').width(),
     h_gender = $('#d3js_box_1').height(),
     radius = Math.min(w_gender, h_gender) / 2;
+
 
 var color = d3.scale.ordinal()
     .range(["#98abc5", "#8a89a6", "#7b6888"]);
@@ -16,6 +18,7 @@ var pie = d3.layout.pie()
     .sort(null)
     .value(function(d) { return d.count; });
 
+<<<<<<< HEAD
 var svg1 = d3.select("#d3js_box_1").append("svg")
     .attr("width", w_gender)
     .attr("height", h_gender)
@@ -24,6 +27,8 @@ var svg1 = d3.select("#d3js_box_1").append("svg")
 //pedro
 var user_id = document.getElementById("hidden_user").innerHTML;
 d3.json("/api/get_gender_total_for_recent_tweets?user_id="+user_id, function(error, data) {
+=======
+
 
   totals = data.gender_totals;
   // gender_counts = {};
@@ -39,8 +44,8 @@ d3.json("/api/get_gender_total_for_recent_tweets?user_id="+user_id, function(err
   //   var gender = d.gender;
   //   gender_counts[gender] += 1;
   // });
-
-  console.log(totals);
+// 
+  // console.log(totals);
 
   var d3format_gender_counts = new Array(3);
 
