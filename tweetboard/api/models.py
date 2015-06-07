@@ -113,7 +113,11 @@ class Tweet(models.Model):
 		rt_obj.retweet_id = rt.id
 		rt_obj.created_at = rt.created_at.replace(tzinfo=utc)
 		rt_obj.created_by = rt.user.id
+		print rt_obj.created_by
+		rt_obj.name = rt.user.name
+		rt_obj.make_user_data(rt.user)
 		rt_obj.save()
+
 	self.last_updated = datetime.datetime.utcnow().replace(tzinfo=utc)
 	self.save()
 
@@ -125,10 +129,39 @@ class Tweet(models.Model):
 		rt.delete()
 	    t.delete()
 
+class TwitterUser(models.Model):
+    name = models.CharField(max_length=50)
+    user_id = models.CharField(max_length=100)
+    created_at = models.DateTimeField()
+    num_favorites = models.IntegerField()
+    num_followers = models.IntegerField()
+    num_tweets = models.IntegerField()
+    num_friends = models.IntegerField()
+    screen_name = models.CharField(max_length=100)
+
 class Retweet(models.Model):
     tweet = models.ForeignKey(Tweet)
     retweet_id = models.CharField(max_length=50)
     created_at = models.DateTimeField(editable=False)
     created_by = models.CharField(max_length=50)
+    user_data = models.ForeignKey(TwitterUser, null=True)
+    name = models.CharField(max_length=50)
     # male/female/unknown
     gender = models.CharField(max_length=10)
+
+    def make_user_data(self, user):
+	u = TwitterUser()
+	u.name = user.name
+	u.user_id = user.id
+	u.created_at = user.created_at
+	u.num_favorites = user.favourites_count
+	u.num_followers = user.followers_count
+	u.num_tweets = user.statuses_count
+	u.num_friends = user.friends_count
+	u.screen_name = user.screen_name
+	u.save()
+	self.user_data = u
+
+    def delete(self):
+	self.user_data.delete()
+        return super(Retweet, self).delete()
