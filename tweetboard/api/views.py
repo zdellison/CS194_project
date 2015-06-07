@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate
 
 # Project
 from login.models import Profile
+from api.models import Tweet, Retweet
 
 import tweepy as tp
 from textblob import TextBlob as tb
@@ -160,10 +161,7 @@ def sample_users(request):
 def get_tweets_by_user_id(request):
     api = get_api_with_auth(request)
 
-    recent_tweets = []
-    tweets = api.user_timeline(id=request.GET['user_id'], count=25)
-    for tweet in tweets:
-        recent_tweets.append(get_tweet_info(tweet))
+    recent_tweets = Tweet.get_recent_tweets(api, request.GET['user_id'], 25)
 
     response = {}
     response['tweets'] = recent_tweets

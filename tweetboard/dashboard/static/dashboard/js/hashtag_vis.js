@@ -30,7 +30,7 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(json) {
     var num_hashtags = tweets[i].hashtags.length;
 
     for (var j = 0; j < num_hashtags; j++) {
-      var hashtag_text = tweets[i].hashtags[j].text
+      var hashtag_text = tweets[i].hashtags[j];
       if (hashtags_to_numtimes[hashtag_text] != null) {
         hashtags_to_numtimes[hashtag_text] += 1;
         hashtags_to_numretweets[hashtag_text] += tweets[i].retweet_count;
