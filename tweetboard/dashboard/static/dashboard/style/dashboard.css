@@ -102,11 +102,11 @@
         
 }
 
-#arrow_down_pic{
+.arrow_down_pic{
 	content: url(arrow_down.png);
 	float: right;
 	margin-right: 1vw;
-	margin-top: 0.25vh;
+	margin-top: 2vh;
 	opacity: 0.4;
 }
 
@@ -142,6 +142,7 @@
   display: block;
   max-width: 400px; 
 	min-width: 250px;
+	position: relative;
 }
 
 .side_button_text{
@@ -168,6 +169,7 @@
    margin-right: 0.5vw;
   display: block;
   text-align: left;
+  position: relative;
 }
 
 #search_item{
@@ -207,23 +209,23 @@
 }
 
 .tweet_prof_name{
-	font-family: Raleway;
-	font-size: 16px;
+	font-family: Dosis-Bold;
+	font-size: 18px;
 	color: #FFFFFF;
 	margin-left: 1vw;
-	margin-top: 0.5vw;
+	
 	float: left;
 
 }
 .tweet_prof_twitter{
-	margin-top: 0.5vw;
-	font-family: Raleway-Thin;
-	font-size: 14px;
+	
+	font-family: Dosis-Bold;
+	font-size: 16px;
 	color: #FFFFFF;
 }
 .tweet{
-	font-family: Raleway-Thin;
-	font-size: 12px;
+	font-family: Dosis;
+	font-size: 15px;
 	color: #9B9B9B;
 	float: left;
 	margin-left: 1vw;
@@ -289,6 +291,10 @@
 	font-family: Raleway-Light;
 	font-size: 18px;
   	color: rgba(36,44,57,0.90);
+}
+
+#side_tweets_at_me{
+	position: relative;
 }
 
 

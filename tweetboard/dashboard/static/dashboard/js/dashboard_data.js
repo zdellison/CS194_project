@@ -1,12 +1,21 @@
 
 
 var user_id = document.getElementById("hidden_user").innerHTML;
-console.log(user_id);
+var name;
+
+
 d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 
+	d3.json("/api/get_user_by_id?user_id="+user_id, function(data) {
+
+	name = data.user.name;
+	
+
+});
+	
   // console.log(error);
 	var users = data.tweets;
-	var handle = data.screen_name;
+	
 	var favorite_total = 0;
 	var retweet_total = 0;
 	var count = 0;
@@ -27,14 +36,17 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 		var href_wrapper = document.createElement("a");
 		$(href_wrapper).attr("href", "tweet?id="+d.tweet_id);
 		var div_tweet_name = document.createElement("div");
-		$(div_tweet_name).attr("class", "tweet_prof_name");
+		$(div_tweet_name).attr("class", "tweet_prof_name").text(name);
+		//console.log(name);
+		//$(div_tweet_name).html = name;
+		console.log($(div_tweet_name).html);
 		var div_tweet_handle = document.createElement("div");
-		$(div_tweet_handle).attr("class", "tweet_prof_twitter");
+		$(div_tweet_handle).attr("class", "tweet_prof_twitter").text("   @"+name.replace(/\s+/g, ''));
+		//console.log(handle);
+		//$(div_tweet_handle).html(handle);
 		var div_tweet_body = document.createElement("div");
 		$(div_tweet_body).attr("class", "tweet").text(d.text);
 		var div_tweet_id = document.createElement("div");
-		$(div_tweet_id).attr("class", "tweet").text(d.tweet_id);
-		console.log(d.tweet_id);
 
 		$(list_div).append(href_wrapper);
 		$(href_wrapper).append(div_tweet_name);
