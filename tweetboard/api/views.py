@@ -144,7 +144,10 @@ def get_positive_tweets_at_user_id(request):
     query = '@' + str(request.GET['user_id']) + ' :)'
     tweets = api.search(q=query, rpp=100)
     for tweet in tweets:
-        recent_tweets.append(get_tweet_info(tweet))
+        recent_tweets.append({
+            'tweet':get_tweet_info(tweet),
+            'user': get_user_info(tweet.author),
+            })
 
     response = {}
     response['tweets'] = recent_tweets
@@ -159,7 +162,10 @@ def get_negative_tweets_at_user_id(request):
     query = '@' + str(request.GET['user_id']) + ' :('
     tweets = api.search(q=query, rpp=100)
     for tweet in tweets:
-        recent_tweets.append(get_tweet_info(tweet))
+        recent_tweets.append({
+            'tweet':get_tweet_info(tweet),
+            'user': get_user_info(tweet.author),
+            })
 
     response = {}
     response['tweets'] = recent_tweets
@@ -175,7 +181,10 @@ def get_question_tweets_at_user_id(request):
     query = '@' + str(request.GET['user_id']) + ' ?'
     tweets = api.search(q=query, rpp=100)
     for tweet in tweets:
-        recent_tweets.append(get_tweet_info(tweet))
+        recent_tweets.append({
+            'tweet':get_tweet_info(tweet),
+            'user': get_user_info(tweet.author),
+            })
 
     response = {}
     response['tweets'] = recent_tweets
@@ -234,7 +243,7 @@ def get_retweet_user_info(request):
             })
 
     response = {'users': users}
-   return JsonResponse(response)
+    return JsonResponse(response)
 
 # Given User ID, for the last 25 tweets, how many of the users that retweeted
 # were male, female or unknown.
