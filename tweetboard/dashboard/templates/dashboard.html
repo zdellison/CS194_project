@@ -30,12 +30,16 @@
             <div id="left_header">
 
             <div class="row top_divisor"></div>
-            <div id="logo"> </div>  
+           <a href="/dashboard/landing" class="nomargin" id="tweetboard">
+                <div id="logo_1">tweet</div>
+                <div id="logo_2">Board</div>
+            </a>
+            <div class="row top_divisor"></div>
             <div class="row top_divisor"></div>
               
               <div class="row" id="profile">
-                <div class="col-md-1"></div>
-                <div class="col-md-6">
+                <div class="col-md-2"></div>
+                <div class="col-md-5">
                   <div id="profile_name"> </div>
 
                   <div class="profile_text" id="user_handle"> </div>
@@ -80,20 +84,19 @@
           <div class="col-md-9">
             <div class="row" id="top_header">
 
-                <div class="row top_divisor">
-                  <div class="col-md-10" style="padding-right: 0px;">
+           <div class="row top_divisor">
+                  <div class="col-md-11" style="padding-right: 0px;">
                     <div class="top_bar" id="top_bar_left" style="border-right: 0px;"></div>
                   </div>
-                  <div class="col-md-2 nomargin">
-                    <div class="top_bar" id="top_bar_right">
-                         <div class="col-md-4 nomargin">
-                          <div id="home_icon"><a class="icons top_bar" id="home_wrapper">  </a></div>
-                           
+                  <div class="col-md-1 nomargin">
+                    
+                        <div class="top_bar icons col-md-6 nomargin" id="home_wrapper">
+                           <a id="back_home" > 
+                            <img src="{% static 'dashboard/style/home.png' %}" id="home_icon"></img> 
+                          </a>
                         </div>
-                        <div class="col-md-4 nomargin">
-                          <a class="icons top_bar nomargin" id="logout_wrapper"> <div id="logout_icon"></div> </a>
-                        </div>
-                    </div>
+                       
+                   
 
                     </div> 
                   </div>

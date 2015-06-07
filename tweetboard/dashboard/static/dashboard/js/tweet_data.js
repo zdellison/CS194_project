@@ -3,17 +3,20 @@
 var tweet_id = document.getElementById("hidden_tweet_id").innerHTML;
 var user_id;
 
-console.log(tweet_id);
 
 var string = "/api/get_tweet_by_id?tweet_id="+tweet_id;
-console.log(string);
+
 
 d3.json(string, function(data) {
 
-	console.log(data);
 	
 	document.getElementById("tweet_body").innerHTML = data.tweet.text;
 	user_id = data.tweet.created_by_id;
+
+	document.getElementById("retweet_count").innerHTML = data.tweet.retweet_count;
+	document.getElementById("favorite_count").innerHTML = data.tweet.favorite_count;
+	
+	//document.getElementById("date_created").innerHTML = data.tweet.created_at;
 	
 	d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(da) {
 
@@ -50,10 +53,12 @@ d3.json(string, function(data) {
 	});
 
 	user_id = data.tweet.created_by_id;
-	console.log(user_id);
+	
+	document.getElementById("dashboard_link").setAttribute("href", "/dashboard?user="+user_id);
+
 	d3.json("/api/get_user_by_id?user_id="+user_id, function(d) {
 
-	console.log(d);
+	
 
 	var name = d.user.name;
 	var screen_name = d.user.screen_name;
@@ -61,8 +66,9 @@ d3.json(string, function(data) {
 	document.getElementById("profile_name").innerHTML = name;
 	document.getElementById("user_handle").innerHTML = screen_name;
 	document.getElementById("user_location").innerHTML = d.user.location;
+	document.getElementById("profile_pic").src = d.user.profile_image_url;
 
-	document.getElementById("home_wrapper").setAttribute("href", "/dashboard?user="+screen_name);
+	document.getElementById("back_home").setAttribute("href", "/dashboard?user="+screen_name);
 	
 	var names = document.getElementsByClassName("tweet_prof_name");
 	console.log(names);
