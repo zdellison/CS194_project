@@ -37,9 +37,8 @@ def get_gender(user):
     else: return 'unknown'
 
 # Method returns a dict of processed user data from a tweepy User instance
-def get_user_info(user_id, api):
+def get_user_info(user_resp):
     user = {}
-    user_resp = api.get_user(id = user_id)
     user['name'] = user_resp.name
     user['id'] = user_resp.id
     user['created_at'] = user_resp.created_at
@@ -122,12 +121,27 @@ def get_tweets_by_user_id(request):
     return JsonResponse(response)
 
 @login_required
+def get_tweets_at_user_id(request):
+    api = get_api_with_auth(request)
+
+    recent_tweets = []
+    query = '@' + str(request.GET['user_id'])
+    tweets = api.search(q=query, rpp=100)
+    for tweet in tweets:
+        recent_tweets.append(get_tweet_info(tweet))
+
+    response = {}
+    response['tweets'] = recent_tweets
+
+    return JsonResponse(response)
+
+
+@login_required
 def get_positive_tweets_at_user_id(request):
     api = get_api_with_auth(request)
 
     recent_tweets = []
     query = '@' + str(request.GET['user_id']) + ' :)'
-    print "Query: ", query
     tweets = api.search(q=query, rpp=100)
     for tweet in tweets:
         recent_tweets.append(get_tweet_info(tweet))
@@ -143,7 +157,6 @@ def get_negative_tweets_at_user_id(request):
 
     recent_tweets = []
     query = '@' + str(request.GET['user_id']) + ' :('
-    print "Query: ", query
     tweets = api.search(q=query, rpp=100)
     for tweet in tweets:
         recent_tweets.append(get_tweet_info(tweet))
@@ -160,7 +173,6 @@ def get_question_tweets_at_user_id(request):
 
     recent_tweets = []
     query = '@' + str(request.GET['user_id']) + ' ?'
-    print "Query: ", query
     tweets = api.search(q=query, rpp=100)
     for tweet in tweets:
         recent_tweets.append(get_tweet_info(tweet))
@@ -185,7 +197,7 @@ def get_users_retweet_by_original_user(request):
             retweeted_tweets.append(tweet.tweet_id)
             retweets = Retweet.objects.filter(tweet=tweet)
             for retweet in retweets:
-                users.append(get_user_info(retweet.created_by, api))
+                users.append(get_user_info(retweet.author))
 
     response = {'tweets':retweeted_tweets,'users':users}
     return JsonResponse(response)
@@ -194,7 +206,8 @@ def get_users_retweet_by_original_user(request):
 @login_required
 def get_user_by_id(request):
     api = get_api_with_auth(request)
-    response = {'user': get_user_info(request.GET['user_id'], api)}
+    user = api.get_user(id=request.GET['user_id'])
+    response = {'user': get_user_info(user)}
     return JsonResponse(response)
 
 
@@ -212,26 +225,16 @@ def get_tweet_by_id(request):
 @login_required
 def get_retweet_user_info(request):
     api = get_api_with_auth(request)
-
-    tweet = Tweet.objects.get(tweet_id=request.GET['tweet_id'])
-    retweets = Retweet.objects.filter(tweet=tweet)
-
+    retweets = api.retweets(request.GET['tweet_id'], count=100)
     users = []
-    retweet_ids = []
-    created_at = []
-    user_ids = []
-
     for retweet in retweets:
-        user = get_user_info(retweet.created_by, api)
-        friendship = api.show_friendship(source_id=user['id'], target_id=tweet.created_by)[0]
-        user['following_candidate'] = friendship.following
-        user['followed_by_candidate'] = friendship.followed_by
-        users.append(user)
-        retweet_ids.append(retweet.retweet_id)
-        created_at.append(retweet.created_at)
+        users.append({
+            'user': get_user_info(retweet.author),
+            'retweet': get_tweet_info(retweet)
+            })
 
-    response = {'users': users, 'retweets': retweet_ids, 'created_at': created_at}
-    return JsonResponse(response)
+    response = {'users': users}
+   return JsonResponse(response)
 
 # Given User ID, for the last 25 tweets, how many of the users that retweeted
 # were male, female or unknown.
@@ -265,4 +268,24 @@ def get_gender_total_for_recent_tweets(request):
     return JsonResponse(response)
 
 
+# Return a list of tweets at user_id from location given by query
+@login_required
+def get_place_tweets_at_user_id(request):
+    api = get_api_with_auth(request)
+
+    # First we need to get location ID
+    loc = api.geo_search(query=request.GET['place'])[0]
+    place = {'id': loc.id, 'name': loc.full_name}
+
+    recent_tweets = []
+    query = '@' + str(request.GET['user_id'])
+    tweets = api.search(q=query, rpp=100, place=loc.id)
+    for tweet in tweets:
+        recent_tweets.append(get_tweet_info(tweet))
+
+    response = {}
+    response['tweets'] = recent_tweets
+    response['place'] = place
+
+    return JsonResponse(response)
 
