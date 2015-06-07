@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate
 
 # Project
 from login.models import Profile
+from api.models import Tweet, Retweet
 
 import tweepy as tp
 from textblob import TextBlob as tb

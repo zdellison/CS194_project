@@ -9,7 +9,7 @@ d3.json("/api/get_user_by_id?user_id="+user_id, function(data) {
 	var screen_name = data.user.screen_name;
 	
 	document.getElementById("profile_name").innerHTML = name;
-	document.getElementById("user_handle").innerHTML = screen_name;
+	document.getElementById("user_handle").innerHTML = "@"+screen_name;
 	document.getElementById("user_location").innerHTML = data.user.location;
 	document.getElementById("profile_pic").src = data.user.profile_image_url;
 	document.getElementById("followers_count").innerHTML = data.user.followers_count;
