@@ -110,8 +110,9 @@ class Tweet(models.Model):
 	    if len(existing) == 0:
 		rt_obj = Retweet()
 		rt_obj.tweet = self
+		rt_obj.retweet_id = rt.id
 		rt_obj.created_at = rt.created_at.replace(tzinfo=utc)
-		#rt_obj.created_by = rt.user.id
+		rt_obj.created_by = rt.user.id
 		rt_obj.save()
 	self.last_updated = datetime.datetime.utcnow().replace(tzinfo=utc)
 	self.save()
@@ -128,5 +129,6 @@ class Retweet(models.Model):
     tweet = models.ForeignKey(Tweet)
     retweet_id = models.CharField(max_length=50)
     created_at = models.DateTimeField(editable=False)
+    created_by = models.CharField(max_length=50)
     # male/female/unknown
     gender = models.CharField(max_length=10)

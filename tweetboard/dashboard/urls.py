@@ -9,4 +9,5 @@ urlpatterns = [
     #url(r'^tweet/(?P<tweet_id>\d+)/',tweet),
     url(r'^tweet',tweet),
     url(r'^landing', landing),
+     url(r'^questions', questions),
  ]

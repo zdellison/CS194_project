@@ -25,3 +25,9 @@ def tweet(request):
 def landing(request):
 	context = {}
 	return render(request, 'landing.html', context)
+
+
+@login_required
+def questions(request):
+	context = {'user_id': request.GET['user']}
+	return render(request, 'questions.html', context)
