@@ -3,11 +3,11 @@
 
 var hashtags;
 
-var width = 960,
-    height = 500,
-    padding = 1.5, // separation between same-color circles
-    clusterPadding = 6, // separation between different-color circles
-    maxRadius = 12;
+var width_hashtags = 960,
+    height_hashtags = 500,
+    padding_hashtags = 1.5, // separation between same-color circles
+    clusterPadding_hashtags = 6, // separation between different-color circles
+    maxRadius_hashtags = 12;
 
 
 d3.json("/api/get_tweets_by_user_id?user_id=RandPaul", function(json) {
@@ -18,14 +18,14 @@ d3.json("/api/get_tweets_by_user_id?user_id=RandPaul", function(json) {
   // sum of retweets given hashtag was used  / number of tweets hashtag was used
 
 
-  var n = tweets.length; // a circle for each hashtag
-	var m = 4; // number of distinct clusters, 0-100 retweets is cluster 1, 100-500 is cluster 2, 500-1000 is cluster 3
+  var n_hashtags = tweets.length; // a circle for each hashtag
+	var m_hashtags = 4; // number of distinct clusters, 0-100 retweets is cluster 1, 100-500 is cluster 2, 500-1000 is cluster 3
 				// anything above 1000 is cluster 4
 
 
   var hashtags_to_numtimes = {}
   var hashtags_to_numretweets = {}
-  for (var i = 0; i < n; i++) {
+  for (var i = 0; i < n_hashtags; i++) {
     // var hashtag_text = hashtags[i].text;
     var num_hashtags = tweets[i].hashtags.length;
 
@@ -44,18 +44,18 @@ d3.json("/api/get_tweets_by_user_id?user_id=RandPaul", function(json) {
 
   // console.log(hashtags_to_numtimes);
 
-  n = Object.keys(hashtags_to_numtimes).length;
+  n_hashtags = Object.keys(hashtags_to_numtimes).length;
 
-	var color = d3.scale.category10().domain(d3.range(m));
+	var color_hashtags = d3.scale.category10().domain(d3.range(m_hashtags));
 
 	// The largest node for each cluster.
-	var clusters = new Array(m);
+	var clusters = new Array(m_hashtags);
 
   var keys = Object.keys(hashtags_to_numtimes);
 
   // console.log(keys);
 
-  var data = new Array(n);
+  var data_hashtags = new Array(n_hashtags);
 
 
 
@@ -74,20 +74,20 @@ d3.json("/api/get_tweets_by_user_id?user_id=RandPaul", function(json) {
 
 
     console.log(i);
-    var r = Math.log((num_retweeted + 1) / (hashtags_to_numtimes[d])) + maxRadius;
+    var r = Math.log((num_retweeted + 1) / (hashtags_to_numtimes[d])) + maxRadius_hashtags;
 
 
     d.radius = r;
     d.cluster = i;
-    var x = Math.cos(i / m * 2 * Math.PI) * 200 + width / 2 + Math.random();
-    var y = Math.sin(i / m * 2 * Math.PI) * 200 + height / 2 + Math.random();
+    var x = Math.cos(i / m_hashtags * 2 * Math.PI) * 200 + width_hashtags / 2 + Math.random();
+    var y = Math.sin(i / m_hashtags * 2 * Math.PI) * 200 + height_hashtags / 2 + Math.random();
     d.x = x;
     d.y = y;
     var hashtag_text = d;
     new_d = {cluster: i, radius: r, text: hashtag_text, x: x, y: y, times_retweeted: num_retweeted, times_used: hashtags_to_numtimes[d]}
 
 
-    data[k] = {"text": d, "radius": r, "x": x, "y": y, "cluster": i, "times_retweeted": num_retweeted, "times_used": hashtags_to_numtimes[d]} 
+    data_hashtags[k] = {"text": d, "radius": r, "x": x, "y": y, "cluster": i, "times_retweeted": num_retweeted, "times_used": hashtags_to_numtimes[d]} 
 
 
     // console.log(new_d);
@@ -105,26 +105,26 @@ d3.json("/api/get_tweets_by_user_id?user_id=RandPaul", function(json) {
 
 
 
-	var force = d3.layout.force()
-    	.nodes(data)
-    	.size([width, height])
-    	.gravity(.01)
-    	.charge(0)
+	var force_hashtags = d3.layout.force()
+    	.nodes(data_hashtags)
+    	.size([width_hashtags, height_hashtags])
+    	.gravity(.05)
+    	.charge(10)
     	.on("tick", tick)
     	.start();
 
-	var svg = d3.select("body").append("svg")
-    	.attr("width", width)
-    	.attr("height", height);
+	var svg_hashtags = d3.select("body").append("svg")
+    	.attr("width", width_hashtags)
+    	.attr("height", height_hashtags);
 
-	var circle = svg.selectAll("circle")
-    	.data(data)
+	var circle_hashtags = svg_hashtags.selectAll("circle")
+    	.data(data_hashtags)
   		.enter().append("circle")
     	.attr("r", function(d) { 
         // console.log(d);
         return d.radius; })
-    	.style("fill", function(d) { return color(d.cluster); })
-    	.call(force.drag);
+    	.style("fill", function(d) { return color_hashtags(d.cluster); })
+    	.call(force_hashtags.drag);
 
 
 
@@ -150,8 +150,8 @@ d3.json("/api/get_tweets_by_user_id?user_id=RandPaul", function(json) {
     // color_index.append("text").text("Color of circle").attr({x:800, y: 100, "text-anchor":"middle"});
     // color_index.append("text").text("indicates sentiment").attr({x:800, y: 112, "text-anchor":"middle"});
     color_index.selectAll("circle").data(color_index_data).enter().append("circle")
-      .attr({cx:100, cy: function(d) {return 100+d.y}, r: maxRadius})
-      .style({fill: function(d, i) {return color(i)}});
+      .attr({cx:100, cy: function(d) {return 100+d.y}, r: maxRadius_hashtags})
+      .style({fill: function(d, i) {return color_hashtags(i)}});
 
     // var text_color_index = d3.select('svg').append('g').attr('id', 'text_index');
     // text_color_index.selectAll("text").data(color_index_data).enter().append("text")
@@ -166,7 +166,7 @@ d3.json("/api/get_tweets_by_user_id?user_id=RandPaul", function(json) {
 
 
 	function tick(e) {
-  		circle
+  		circle_hashtags
       	.each(cluster(10 * e.alpha * e.alpha))
       	.each(collide(.5))
       	.attr("cx", function(d) { return d.x; })
@@ -196,9 +196,9 @@ d3.json("/api/get_tweets_by_user_id?user_id=RandPaul", function(json) {
 
 // Resolves collisions between d and all other circles.
 	function collide(alpha) {
-  		var quadtree = d3.geom.quadtree(data);
+  		var quadtree = d3.geom.quadtree(data_hashtags);
   		return function(d) {
-    		var r = d.radius + maxRadius + Math.max(padding, clusterPadding),
+    		var r = d.radius + maxRadius_hashtags + Math.max(padding_hashtags, clusterPadding_hashtags),
         	nx1 = d.x - r,
         	nx2 = d.x + r,
         	ny1 = d.y - r,
@@ -208,7 +208,7 @@ d3.json("/api/get_tweets_by_user_id?user_id=RandPaul", function(json) {
         			var x = d.x - quad.point.x,
             		y = d.y - quad.point.y,
             		l = Math.sqrt(x * x + y * y),
-            		r = d.radius + quad.point.radius + (d.cluster === quad.point.cluster ? padding : clusterPadding);
+            		r = d.radius + quad.point.radius + (d.cluster === quad.point.cluster ? padding_hashtags : clusterPadding_hashtags);
         			if (l < r) {
           				l = (l - r) / l * alpha;
           				d.x -= x *= l;

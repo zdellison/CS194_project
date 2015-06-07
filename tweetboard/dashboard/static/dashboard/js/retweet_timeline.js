@@ -1,6 +1,6 @@
-var	margin = {top: 30, right: 40, bottom: 30, left: 50},
-	width = 800 - margin.left - margin.right,
-	height = 150 - margin.top - margin.bottom;
+var	margin_timeline = {top: 30, right: 40, bottom: 30, left: 50},
+	width_timeline = 800 - margin_timeline.left - margin_timeline.right,
+	height_timeline = 150 - margin_timeline.top - margin_timeline.bottom;
 
 // "2012-02-07T01:00:24"
 var	parseDate = d3.time.format("%Y-%m-%dT%X").parse;
@@ -11,8 +11,8 @@ var	xAxis = d3.svg.axis().scale(x)
 	.orient("bottom").ticks(10);
 
   
-
-var svg = d3.select("body")
+// change what element we append it to
+var svg_retweet_timeline = d3.select("body")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -39,10 +39,10 @@ var svg = d3.select("body")
 
 
 
-// add the tooltip area to the webpage
-var tooltip = d3.select("body").append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
+// // add the tooltip area to the webpage
+// var tooltip = d3.select("body").append("div")
+//     .attr("class", "tooltip")
+//     .style("opacity", 0);
 
 // Get the data
 d3.json("/api/get_retweet_user_info?tweet_id=602656356953399296", function(error, data) {
@@ -74,7 +74,7 @@ d3.json("/api/get_retweet_user_info?tweet_id=602656356953399296", function(error
 
 
 
-	svg.append("g")			// Add the X Axis
+	svg_retweet_timeline.append("g")			// Add the X Axis
 		.attr("class", "x axis")
 		.attr("transform", "translate(0," + height/2.0 + ")")
 		.call(xAxis);
@@ -117,8 +117,8 @@ d3.json("/api/get_retweet_user_info?tweet_id=602656356953399296", function(error
 
 
   // draw favorite dots
-  svg.selectAll("#retweet_timeline_circles")
-      .data(dataset)
+  svg_retweet_timeline.selectAll("#retweet_timeline_circles")
+      .data(timestamps)
       .enter().append("circle")
       .attr("id", "retweet_timeline_circles")
       .transition()  // Transition from old to new
@@ -133,13 +133,28 @@ d3.json("/api/get_retweet_user_info?tweet_id=602656356953399296", function(error
        })
                         //.ease("linear")  // Transition easing - default 'variable' (i.e. has acceleration), also: 'circle', 'elastic', 'bounce', 'linear'
        .attr("cx", xMap)
-       .attr("cy", yMap); 
+       .attr("cy", 0); 
 
 
-    var labelheight = height - 25;
-    var labelgobj = svg.append("g").attr("id", "vis_label").attr("transform", "translate(0," + labelheight + ")");
-    var labelg2obj = labelgobj.append("g").attr("id", "inner_vis").attr("transform", "translate(0, 0)").attr("style", "opacity: 1;");
-    labelgobj.append("text").text("here goes original tweet").attr("dy", ".71em").attr("x", 0).attr("y", 9).attr("font-size", "25px").attr("style", "text-anchor: left;");
+    $('svg circle').tipsy({ 
+        gravity: 'w', 
+        html: true, 
+        title: function() {
+          var d = this.__data__
+          if (d.text) {
+            var heading = d.text + '<br/>' +  (d.created_at).toString();
+            return heading;
+          } 
+          return '';
+        }
+
+    });
+
+
+    // var labelheight = height - 25;
+    // var labelgobj = svg.append("g").attr("id", "vis_label").attr("transform", "translate(0," + labelheight + ")");
+    // var labelg2obj = labelgobj.append("g").attr("id", "inner_vis").attr("transform", "translate(0, 0)").attr("style", "opacity: 1;");
+    // labelgobj.append("text").text("here goes original tweet").attr("dy", ".71em").attr("x", 0).attr("y", 9).attr("font-size", "25px").attr("style", "text-anchor: left;");
 
 
 });
