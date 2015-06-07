@@ -10,16 +10,16 @@ var width = 960,
     maxRadius = 12;
 
 
-d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(json) {
+d3.json("/api/get_tweets_by_user_id?user_id=RandPaul", function(json) {
 	tweets = json.tweets;
-  console.log(tweets);
+  // console.log(tweets);
 
 
   // sum of retweets given hashtag was used  / number of tweets hashtag was used
 
 
   var n = tweets.length; // a circle for each hashtag
-	var m = 1; // number of distinct clusters, 0-100 retweets is cluster 1, 100-500 is cluster 2, 500-1000 is cluster 3
+	var m = 4; // number of distinct clusters, 0-100 retweets is cluster 1, 100-500 is cluster 2, 500-1000 is cluster 3
 				// anything above 1000 is cluster 4
 
 
@@ -53,7 +53,7 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(json) {
 
   var keys = Object.keys(hashtags_to_numtimes);
 
-  console.log(keys);
+  // console.log(keys);
 
   var data = new Array(n);
 
@@ -61,9 +61,20 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(json) {
 
   keys.forEach(function(d, k) {
 
-    var i = 1;
+    var i = 0;
+    var num_retweeted = hashtags_to_numretweets[d];
+    if (num_retweeted > 50 && num_retweeted <= 100) {
+      i = 1;
+    }
+    else if (num_retweeted > 100 && num_retweeted <= 500) {
+      i = 2;
+    } else {
+      i = 3;
+    }
 
-    var r = hashtags_to_numretweets[d] / hashtags_to_numtimes[d] + maxRadius;
+
+    console.log(i);
+    var r = Math.log((num_retweeted + 1) / (hashtags_to_numtimes[d])) + maxRadius;
 
 
     d.radius = r;
@@ -73,10 +84,10 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(json) {
     d.x = x;
     d.y = y;
     var hashtag_text = d;
-    new_d = {cluster: i, radius: r, text: hashtag_text, x: x, y: y, times_retweeted: hashtags_to_numretweets[d], times_used: hashtags_to_numtimes[d]}
+    new_d = {cluster: i, radius: r, text: hashtag_text, x: x, y: y, times_retweeted: num_retweeted, times_used: hashtags_to_numtimes[d]}
 
 
-    data[k] = {"text": d, "radius": r, "x": x, "y": y, "cluster": i, "times_retweeted": hashtags_to_numretweets[d], "times_used": hashtags_to_numtimes[d]} 
+    data[k] = {"text": d, "radius": r, "x": x, "y": y, "cluster": i, "times_retweeted": num_retweeted, "times_used": hashtags_to_numtimes[d]} 
 
 
     // console.log(new_d);
@@ -90,7 +101,7 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(json) {
 // d3.layout.pack().sort(null).size()
 
 
-  console.log(data);
+  // console.log(data);
 
 
 
@@ -110,9 +121,9 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(json) {
     	.data(data)
   		.enter().append("circle")
     	.attr("r", function(d) { 
-        console.log(d);
+        // console.log(d);
         return d.radius; })
-    	.style("fill", function(d) { return "steelblue"; })
+    	.style("fill", function(d) { return color(d.cluster); })
     	.call(force.drag);
 
 
@@ -134,13 +145,22 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(json) {
   //   index_elem.append("text").text("<500").attr({x:800, y: 430, "text-anchor": "middle", "font-size": "10px"});
 
 
-  //   var color_index_data = [{"text": "positive", "y": 40}, {"text": "neutral", "y": 80}, {"text":"negative", "y": 120}];
-  //   var color_index = d3.select("svg").append("g").attr("id", "color_index");
-  //   color_index.append("text").text("Color of circle").attr({x:800, y: 100, "text-anchor":"middle"});
-  //   color_index.append("text").text("indicates sentiment").attr({x:800, y: 112, "text-anchor":"middle"});
-  //   color_index.selectAll("circle").data(color_index_data).enter().append("circle")
-  //     .attr({cx:800, cy: function(d) {return 100+d.y}, r: maxRadius})
-  //     .style({fill: function(d, i) {return color(i)}});
+    var color_index_data = [{"text": "0-50 retweets", "y": 40}, {"text": "50-100 retweets", "y": 80}, {"text":"100-500 retweets", "y": 120}, {"text":">500 retweets", "y": 160}];
+    var color_index = d3.select("svg").append("g").attr("id", "color_index");
+    // color_index.append("text").text("Color of circle").attr({x:800, y: 100, "text-anchor":"middle"});
+    // color_index.append("text").text("indicates sentiment").attr({x:800, y: 112, "text-anchor":"middle"});
+    color_index.selectAll("circle").data(color_index_data).enter().append("circle")
+      .attr({cx:100, cy: function(d) {return 100+d.y}, r: maxRadius})
+      .style({fill: function(d, i) {return color(i)}});
+
+    // var text_color_index = d3.select('svg').append('g').attr('id', 'text_index');
+    // text_color_index.selectAll("text").data(color_index_data).enter().append("text")
+    //   .text(function (d) { return d.text; }).style("fill", function(d,i) {return color(i)});
+
+    color_index.append("text").text("0-50 retweets").attr({x:150, y: 140, "text-anchor": "middle", "font-size": "10px"})
+    color_index.append("text").text("50-100 retweets").attr({x:150, y: 180, "text-anchor": "middle", "font-size": "10px"});
+    color_index.append("text").text("100-500 retweets").attr({x:150, y: 220, "text-anchor": "middle", "font-size": "10px"});
+    color_index.append("text").text(">500 retweets").attr({x:150, y: 260, "text-anchor": "middle", "font-size": "10px"});
 
 
 
@@ -156,7 +176,7 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(json) {
 // Move d to be adjacent to the cluster node.
 	function cluster(alpha) {
   		return function(d) {
-        console.log(d);
+        // console.log(d);
    			var cluster = clusters[d.cluster];
 
     		if (cluster === d) return;
@@ -210,8 +230,11 @@ d3.json("/api/get_tweets_by_user_id?user_id=HillaryClinton", function(json) {
         title: function() {
 
           var d = this.__data__, hashtag_text = d.text
-          console.log(d);
-          return hashtag_text + "<br/>" + "times retweeted: " + d.times_retweeted.toString() + "<br/>" + "times used: " + d.times_used.toString()
+          if (d.times_retweeted != null) {
+          // console.log(d);
+            return "#" + hashtag_text + "<br/>" + "times retweeted: " + d.times_retweeted.toString() + "<br/>" + "times used: " + d.times_used.toString()
+          }
+          return '';
         }
 
     });

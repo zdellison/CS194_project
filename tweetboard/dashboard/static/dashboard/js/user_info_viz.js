@@ -3,7 +3,6 @@
 var user;
 
 
-
 d3.json("/api/get_user_by_id?user_id=HillaryClinton", function(data) {
 
   user = data.user;

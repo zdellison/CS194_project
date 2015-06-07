@@ -1,4 +1,4 @@
-# Django
+#Django
 from django.shortcuts import render
 from django.conf import settings
 from django.http import JsonResponse
@@ -50,6 +50,7 @@ def get_user_info(user_id, api):
     user['statuses_count'] = user_resp.statuses_count
     user['friends_count'] = user_resp.friends_count
     user['screen_name'] = user_resp.screen_name
+    user['profile_image_url'] = user_resp.profile_image_url
 
    # Get gender:
     user['gender'] = get_gender(user_resp)
@@ -59,7 +60,7 @@ def get_user_info(user_id, api):
 # Method returns a dict of processed tweet data from a tweepy status
 def get_tweet_info(tweet):
     processed_tweet = {
-            'tweet_id': tweet.id,
+            'tweet_id': tweet.id_str,
             'created_by_id': tweet.user.id,
             'created_at': tweet.created_at,
             'text': tweet.text,
@@ -80,13 +81,6 @@ def get_tweet_info(tweet):
     if 'media' in tweet.entities:
         processed_tweet['media'] = tweet.entities['media']
     else: processed_tweet['media'] = None
-
-#    if tweet.favorite_count:
-#        processed_tweet['favorite_count'] = tweet.favorite_count
-#    else: processed_tweet['favorite_count'] = 0
-#    if tweet.retweet_count:
-#        processed_tweet['retweet_count'] = tweet.retweet_count
-#    else: processed_tweet['retweet_count'] = 0
 
     # Get Sentiment
     blob = tb(tweet.text)
@@ -130,43 +124,69 @@ def init(request):
 
     return JsonResponse(response)
 
-def sample_users(request):
-    response = {
-        "users": [
-            {
-                "name": "Anna",
-                "age": 21,
-                "gender": "female"
-            },
-            {
-                "name": "Pedro",
-                "age": 22,
-                "gender": "male"
-            },
-            {
-                "name": "Paul",
-                "age": 22,
-                "gender": "male"
-            },
-            {
-                "name": "Zach",
-                "age": 22,
-                "gender": "male"
-            }
-        ]}
-
-    return JsonResponse(response)
-
 @login_required
 def get_tweets_by_user_id(request):
     api = get_api_with_auth(request)
 
-    recent_tweets = Tweet.get_recent_tweets(api, request.GET['user_id'], 25)
+    recent_tweets = []
+    tweets = api.user_timeline(id=request.GET['user_id'], count=25)
+    for tweet in tweets:
+        recent_tweets.append(get_tweet_info(tweet))
 
     response = {}
     response['tweets'] = recent_tweets
 
     return JsonResponse(response)
+
+@login_required
+def get_positive_tweets_at_user_id(request):
+    api = get_api_with_auth(request)
+
+    recent_tweets = []
+    query = '@' + str(request.GET['user_id']) + ' :)'
+    print "Query: ", query
+    tweets = api.search(q=query, rpp=100)
+    for tweet in tweets:
+        recent_tweets.append(get_tweet_info(tweet))
+
+    response = {}
+    response['tweets'] = recent_tweets
+
+    return JsonResponse(response)
+
+@login_required
+def get_negative_tweets_at_user_id(request):
+    api = get_api_with_auth(request)
+
+    recent_tweets = []
+    query = '@' + str(request.GET['user_id']) + ' :('
+    print "Query: ", query
+    tweets = api.search(q=query, rpp=100)
+    for tweet in tweets:
+        recent_tweets.append(get_tweet_info(tweet))
+
+    response = {}
+    response['tweets'] = recent_tweets
+
+    return JsonResponse(response)
+
+
+@login_required
+def get_question_tweets_at_user_id(request):
+    api = get_api_with_auth(request)
+
+    recent_tweets = []
+    query = '@' + str(request.GET['user_id']) + ' ?'
+    print "Query: ", query
+    tweets = api.search(q=query, rpp=100)
+    for tweet in tweets:
+        recent_tweets.append(get_tweet_info(tweet))
+
+    response = {}
+    response['tweets'] = recent_tweets
+
+    return JsonResponse(response)
+
 
 # Given a user, return all users who have retweeted their previous 10 tweets
 # NOTE: Don't use this, it burns through rate limiting and was only an example
@@ -210,12 +230,18 @@ def get_tweet_by_id(request):
 @login_required
 def get_retweet_user_info(request):
     api = get_api_with_auth(request)
-    retweets = api.retweets(request.GET['tweet_id'])
+    tweet = api.get_status(id = request.GET['tweet_id'])
+    retweets = api.retweets(request.GET['tweet_id'], count=100)
     users = []
     retweet_ids = []
     created_at = []
+    user_ids = []
     for retweet in retweets:
-        users.append(get_user_info(retweet.user.id, api))
+        user = get_user_info(retweet.user.id, api)
+        friendship = api.show_friendship(source_id=user['id'], target_id=tweet.user.id)[0]
+        user['following_candidate'] = friendship.following
+        user['followed_by_candidate'] = friendship.followed_by
+        users.append(user)
         retweet_ids.append(retweet.id)
         created_at.append(retweet.created_at)
 
@@ -237,7 +263,7 @@ def get_gender_total_for_recent_tweets(request):
     total_retweets = 0
     # Set to 10 for now to prevent hitting rate limit as much...
     # TODO: Switch back to 25 once Paul has integrated DB
-    tweets = api.user_timeline(id=request.GET['user_id'], count=25)
+    tweets = api.user_timeline(id=request.GET['user_id'], count=10)
     for tweet in tweets:
         retweets = api.retweets(tweet.id, count=100)
         total_retweets += tweet.retweet_count
