@@ -33,7 +33,7 @@ var	margin = {top: 30, right: 40, bottom: 30, left: 50},
 	height = $('#top_d3js_box_2').height() - margin.top - margin.bottom - 20;
 
 // var	parseDate = d3.time.format("%a %b %e %X %Z %Y").parse;
-var	parseDate = d3.time.format("%Y-%m-%dT%X").parse;
+var	parseDate = d3.time.format("%Y-%m-%dT%XZ").parse;
 
 var	x = d3.time.scale().range([0, width]);
 var	y = d3.scale.linear().range([height, 0]);
@@ -90,7 +90,9 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 
 
 	dataset.forEach(function(d) {
+    console.log("old time" + d.created_at);
 		d.created_at = parseDate(d.created_at);
+    console.log("new time: " + d.created_at);
 		d.retweet_count = +d.retweet_count;
 		d.favorites_count = +d.favorite_count;
 		// d.text = d.text;
@@ -191,6 +193,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
         title: function() {
           var d = this.__data__
           if (d.text) {
+            console.log(d);
           	var heading = d.text + '<br/>' +  (d.created_at).toString() + "<br/>Favorites: " + (d.favorite_count).toString() + "<br/>Retweets: " + (d.retweet_count).toString();
             return heading;
           } 
