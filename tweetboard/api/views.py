@@ -54,7 +54,7 @@ def get_user_info(user_id, api):
 
    # Get gender:
     user['gender'] = get_gender(user_resp)
-    
+
     return user
 
 # Method returns a dict of processed tweet data from a tweepy status
@@ -110,31 +110,14 @@ def init(request):
     response['userName'] = personal_info.name
     response['userPic'] = personal_info.profile_image_url
 
-    recent_tweets = []
-
-    tweets = api.user_timeline(count=25)
-
-    for tweet in tweets:
-	recent_tweets.append({
-	    'tweetId': tweet.id,
-	    'tweetBody': tweet.text
-	})
-
-    response['tweetsArray'] = recent_tweets
-
     return JsonResponse(response)
 
 @login_required
 def get_tweets_by_user_id(request):
     api = get_api_with_auth(request)
 
-    recent_tweets = []
-    tweets = api.user_timeline(id=request.GET['user_id'], count=25)
-    for tweet in tweets:
-        recent_tweets.append(get_tweet_info(tweet))
-
     response = {}
-    response['tweets'] = recent_tweets
+    response['tweets'] = Tweet.get_recent_tweets(api, request.GET['user_id'], 25)
 
     return JsonResponse(response)
 
@@ -196,13 +179,13 @@ def get_users_retweet_by_original_user(request):
 
     users = []
     retweeted_tweets = []
-    tweets = api.user_timeline(id=request.GET['user_id'], count=10)
+    tweets = Tweet.objects.filter(created_by=request.GET['user_id'])[:10]
     for tweet in tweets:
-        if tweet.retweet_count > 0:
-            retweeted_tweets.append(tweet.id)
-            retweets = api.retweets(tweet.id, count=100)
+        if tweet.num_retweets > 0:
+            retweeted_tweets.append(tweet.tweet_id)
+            retweets = Retweet.objects.filter(tweet=tweet)
             for retweet in retweets:
-                users.append(get_user_info(retweet.user.id, api))
+                users.append(get_user_info(retweet.created_by, api))
 
     response = {'tweets':retweeted_tweets,'users':users}
     return JsonResponse(response)
@@ -220,29 +203,31 @@ def get_user_by_id(request):
 def get_tweet_by_id(request):
     api = get_api_with_auth(request)
 
-    tweet = {}
-    t_resp = api.get_status(id = request.GET['tweet_id'])
+    tweet = Tweet.objects.get(tweet_id=request.GET['tweet_id'])
+    response = {'tweet': tweet.to_obj()}
 
-    response = {'tweet': get_tweet_info(t_resp)}
     return JsonResponse(response)
 
 # Given a Tweet ID, return user info about previous 100 users that retweeted it
 @login_required
 def get_retweet_user_info(request):
     api = get_api_with_auth(request)
-    tweet = api.get_status(id = request.GET['tweet_id'])
-    retweets = api.retweets(request.GET['tweet_id'], count=100)
+
+    tweet = Tweet.objects.get(tweet_id=request.GET['tweet_id'])
+    retweets = Retweet.objects.filter(tweet=tweet)
+
     users = []
     retweet_ids = []
     created_at = []
     user_ids = []
+
     for retweet in retweets:
-        user = get_user_info(retweet.user.id, api)
-        friendship = api.show_friendship(source_id=user['id'], target_id=tweet.user.id)[0]
+        user = get_user_info(retweet.created_by, api)
+        friendship = api.show_friendship(source_id=user['id'], target_id=tweet.created_by)[0]
         user['following_candidate'] = friendship.following
         user['followed_by_candidate'] = friendship.followed_by
         users.append(user)
-        retweet_ids.append(retweet.id)
+        retweet_ids.append(retweet.retweet_id)
         created_at.append(retweet.created_at)
 
     response = {'users': users, 'retweets': retweet_ids, 'created_at': created_at}
