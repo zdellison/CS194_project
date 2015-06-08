@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate
 
 # Project
 from login.models import Profile
-from api.models import Tweet, Retweet
+from api.models import Tweet, Retweet, Place, Place_Tweet
 
 import tweepy as tp
 from textblob import TextBlob as tb
@@ -275,18 +275,21 @@ def get_place_tweets_at_user_id(request):
     api = get_api_with_auth(request)
 
     # First we need to get location ID
-    loc = api.geo_search(query=request.GET['place'])[0]
-    place = {'id': loc.id, 'name': loc.full_name}
+#    loc = api.geo_search(query=request.GET['place'])[0]
+#    place = {'id': loc.id, 'name': loc.full_name}
+#
+#    recent_tweets = []
+#    query = '@' + str(request.GET['user_id'])
+#    tweets = api.search(q=query, rpp=100, place=loc.id)
+#    for tweet in tweets:
+#        recent_tweets.append(get_tweet_info(tweet))
 
-    recent_tweets = []
-    query = '@' + str(request.GET['user_id'])
-    tweets = api.search(q=query, rpp=100, place=loc.id)
-    for tweet in tweets:
-        recent_tweets.append(get_tweet_info(tweet))
+    place = Place.get_place(api, request.GET['place'], request.GET['user_screen_name'])
+    recent_tweets = place.get_tweets(api, request.GET['type'])
 
     response = {}
     response['tweets'] = recent_tweets
-    response['place'] = place
+    response['place'] = place.name
 
     return JsonResponse(response)
 
