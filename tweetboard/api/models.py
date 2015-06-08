@@ -1,9 +1,17 @@
 from django.db import models
 from textblob import TextBlob as tb
+from gender_detector import GenderDetector as gd
 import datetime
 import thread
 import json
 from django.utils.timezone import utc
+
+detector = gd('us')
+def get_gender(name):
+    first_name = name.split(' ', 1)[0]
+    if re.match('[A-Za-z]+', first_name):
+        return detector.guess(first_name)
+    else: return 'unknown'
 
 # Create your models here.
 class Tweet(models.Model):
@@ -112,8 +120,10 @@ class Tweet(models.Model):
 		rt_obj.tweet = self
 		rt_obj.retweet_id = rt.id
 		rt_obj.created_at = rt.created_at.replace(tzinfo=utc)
-		rt_obj.created_by = rt.user.id
+		rt_obj.make_user_data(rt.user)
+		rt_obj.text = rt.text
 		rt_obj.save()
+
 	self.last_updated = datetime.datetime.utcnow().replace(tzinfo=utc)
 	self.save()
 
@@ -125,10 +135,52 @@ class Tweet(models.Model):
 		rt.delete()
 	    t.delete()
 
+class TwitterUser(models.Model):
+    name = models.CharField(max_length=50)
+    user_id = models.CharField(max_length=100)
+    created_at = models.DateTimeField()
+    num_favorites = models.IntegerField()
+    num_followers = models.IntegerField()
+    num_tweets = models.IntegerField()
+    num_friends = models.IntegerField()
+    screen_name = models.CharField(max_length=100)
+
+    def to_obj(self):
+	obj = {}
+	obj['name'] = self.name
+	obj['id'] = self.user_id
+	obj['created_at'] = self.created_at
+	#obj['location'] = self.
+	obj['favourites_count'] = self.num_favorites
+	obj['followers_count'] = self.num_followers
+	obj['statuses_count'] = self.num_tweets
+	obj['friends_count'] = self.num_friends
+	obj['screen_name'] = self.screen_name
+	obj['gender'] = get_gender(self.name)
+
+	return obj
+
+
 class Retweet(models.Model):
     tweet = models.ForeignKey(Tweet)
     retweet_id = models.CharField(max_length=50)
     created_at = models.DateTimeField(editable=False)
-    created_by = models.CharField(max_length=50)
-    # male/female/unknown
-    gender = models.CharField(max_length=10)
+    user_data = models.ForeignKey(TwitterUser, null=True)
+    text = models.CharField(max_length=200)
+
+    def make_user_data(self, user):
+	u = TwitterUser()
+	u.name = user.name
+	u.user_id = user.id
+	u.created_at = user.created_at
+	u.num_favorites = user.favourites_count
+	u.num_followers = user.followers_count
+	u.num_tweets = user.statuses_count
+	u.num_friends = user.friends_count
+	u.screen_name = user.screen_name
+	u.save()
+	self.user_data = u
+
+    def delete(self):
+	self.user_data.delete()
+        return super(Retweet, self).delete()

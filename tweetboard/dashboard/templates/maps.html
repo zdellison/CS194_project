@@ -4,24 +4,9 @@
 
 <html>
     <head>
-      
-		<!-- <script src="{% static 'dashboard/js/grey_box.js' %}"></script> -->
-		
-    
-    
-    <script src="{% static 'dashboard/js/accordion_menu.js' %}"></script>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-
-     <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/tipsy.css' %}" />
-    <script src="{% static 'dashboard/js/jquery.js' %}"></script>
-
-     <script src="{% static 'dashboard/js/jquery.tipsy.js' %}"></script>
-
-    
-
     </head>
   
-    <body>
+     <body>
       <div id="block"></div>
       <div id="hidden_user" style="visibility: hidden; height: 0px"> {{user_id}} </div>
 
@@ -63,12 +48,12 @@
                   
                   <li class="side_button">
                    
-                        <a href="#" class="side_button_text"> DASHBOARD </a>
+                         <a id="dashboard_link" class="side_button_text"> DASHBOARD </a>
                     
                   </li>
                   <li class="side_button">
                    
-                        <a class="side_button_text" id="map_text"> </a>
+                        <a href="#" class="side_button_text" id="map_text"> </a>
                     
                   </li>
                   <li class="side_button">
@@ -97,14 +82,15 @@
         
           </div>
         
+        
           <div class="col-md-9">
-            <div class="row" id="top_header">
+            <div class="row" id="top_header_tweet">
 
-           <div class="row top_divisor">
+                <div class="row top_divisor">
                   <div class="col-md-10" style="padding-right: 0px;">
                     <div class="top_bar" id="top_bar_left" style="border-right: 0px;"></div>
                   </div>
-                  <div class="col-md-1 nomargin">
+                   <div class="col-md-1 nomargin">
                     
                         <div class="top_bar  col-md-6 nomargin" class="home_wrapper">
                            <a id="logout" > 
@@ -125,64 +111,26 @@
                 
 
                 <div class="col-md-1"></div>
-                <div class="col-md-3">
-                  <div id="page_title"> DASHBOARD </div>
-                  <div id="page_subtitle"> Analysis of 25 most recent tweets </div>
+                <div class="col-md-6">
+                  <div id="page_title"> MAP </div>
+                  <div class="row" id="tweet_body"> Click on the states to visualize tweets at the candidate </div>
                 </div>
-
-
-                 <div class="col-md-7">
-                  <div id="top_bar_d3js_box nomargin">
-                    
-
-                     <div class="col-md-4 stats_box" style="padding: 0px;">
-                      <div class="stats" id="followers_count"></div>
-                      <div class="stats_text"> followers </div>
-                      
-                    </div>
-
-
-                    <div class="col-md-4 stats_box">
-                      <div class="stats" id="retweet_count"></div>
-                      <div class="stats_text"> avg retweets </div>
-                    </div>
-                    
-                     <div class="col-md-4 stats_box">
-                      <div class="stats" id="favorite_count"></div>
-                      <div class="stats_text"> avg favorites </div>
-                    </div>
-
-                  </div>
-                </div>
-
-   
+              
+                
             </div>
 
        
             
             <div class="row divisor"></div>
+            
+            <div class="row">
+              <div class="col-md-1"></div>
+              <div class="col-md-10" id="map" style="margin-left: 15vw; width: 70vw; height: 60vh;"></div>
+              <div id="clicked-state"></div>
 
-            <div class="row dashboard" id="dashboard_body_top">
-              <div class="d3js_box" id="top_d3js_box">
-              </div>
-            </div>
-
-           
-
-            <div class="row dashboard" id="dashboard_body_top_2">
-              <div class="d3js_box" id="top_d3js_box_2">
-              </div>
+              
             </div>
             
-            <div class="row dashboard secondary_level">
-              <div class=" nomargin wrapper_box">
-                <div class="d3js_box body_d3js_box" id="d3js_box_1"></div>
-              </div>
-              <div class="nomargin wrapper_box">
-                <div class="d3js_box body_d3js_box" id="d3js_box_2"></div>
-              </div>
-             
-            </div>
 
 
            
@@ -193,36 +141,37 @@
       </div>
 
 
-       <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300' rel='stylesheet' type='text/css'>
     
     <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/bootstrap.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/bootstrap-theme.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/mtree.css' %}" />
-<!-- <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/grey_box.css' %}" />  -->
+    <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/grey_box.css' %}" />
 
 
     
     <script src="{% static 'dashboard/js/dashboard.js' %}"></script>
 
     <script src='http://cdnjs.cloudflare.com/ajax/libs/velocity/0.2.1/jquery.velocity.min.js'></script> 
+    <script src="{% static 'dashboard/js/jquery.js' %}"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+     <script src="{% static 'dashboard/js/jquery.tipsy.js' %}"></script>
+    
+    
+    <script src="{% static 'dashboard/js/grey_box.js' %}"></script>
+    
+    
+    
+    <script src="{% static 'dashboard/js/accordion_menu.js' %}"></script>
 
-     <script src="{% static 'dashboard/js/dashboard_data.js' %}"></script>
-      <script src="{% static 'dashboard/js/user_data.js' %}"></script>
-      <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/dashboard.css' %}" />
-     
+     <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/tipsy.css' %}" />
       <script src="{% static 'dashboard/js/mtree.js' %}"></script> 
-       <script src="{% static 'dashboard/js/vizit.js' %}"></script>
-
-<<<<<<< HEAD
-       <script src="{% static 'dashboard/js/timeline_scatterplot.js' %}"></script> 
-       <script src="{% static 'dashboard/js/gender_piechart_dashboard.js' %}"></script> 
-       
-=======
-       <script src="{% static 'dashboard/js/timeline_scatterplot.js' %}"></script>
-       <script src="{% static 'dashboard/js/gender_piechart_dashboard.js' %}"></script>
-       <script src="{% static 'dashboard/js/hashtag_vis.js' %}"></script>
->>>>>>> db09d79a5a619d372bc15e54c82937a7d88721bc
-
-       <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/timeline_scatterplot.css' %}" />
+        <script src="{% static 'dashboard/js/map_data.js' %}"></script>
+         <script src="{% static 'dashboard/js/raphael.js' %}"></script>
+          <script src="{% static 'dashboard/js/jquery.usmap.js' %}"></script>
+      
+     
+       <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/dashboard.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/questions.css' %}" />
     </body>
 </html>

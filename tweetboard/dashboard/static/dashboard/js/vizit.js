@@ -5,15 +5,15 @@
 
 
 // d3.json("/api/get_users_retweet_by_original_user?user_id=Hillary Clinton", function(error, json)
-
+(function () {
 
 var tweets;
 
-var padding = 1.5, // separation between same-color circles
-    clusterPadding = 6, // separation between different-color circles
-    maxRadius = 12;
+var padding_vizit = 1.5, // separation between same-color circles
+    clusterPadding_vizit = 6, // separation between different-color circles
+    maxRadius_vizit = 12;
 
-var width = $('#top_d3js_box').width();
+var width_1 = $('#top_d3js_box').width();
 var height_1 = $('#top_d3js_box').height();
 
 //var width = 950;
@@ -34,7 +34,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 	var color = d3.scale.category10().domain(d3.range(m));
 
 	// The largest node for each cluster.
-	var clusters = new Array(m);
+	var clusters_vizit = new Array(m);
 
 
   tweets.forEach(function(d) {
@@ -49,7 +49,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 
     // console.log(d.sentiment.polarity);
 
-    var r = maxRadius + maxRadius * d.sentiment.subjectivity;
+    var r = maxRadius_vizit + maxRadius_vizit * d.sentiment.subjectivity;
     var r = 25;
     if (d.sentiment.subjectivity == 1.0) {
       r = 40;
@@ -72,7 +72,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
     // }
 
 
-    var x = Math.cos(i / m * 2 * Math.PI) * 200 + width / 2 + Math.random();
+    var x = Math.cos(i / m * 2 * Math.PI) * 200 + width_1 / 2 + Math.random();
     var y = Math.sin(i / m * 2 * Math.PI) * 200 + height_1 / 2 + Math.random();
     // console.log(x);
     // console.log(y);
@@ -84,31 +84,31 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
     var tweet_text = d.text;
     new_d = {cluster: i, radius: r, text: tweet_text, x: x, y: y, tweet_id : d.tweet_id};
     // console.log(new_d);
-    if (!clusters[i] || (r > clusters[i].radius)) clusters[i] = new_d;
+    if (!clusters_vizit[i] || (r > clusters_vizit[i].radius)) clusters_vizit[i] = new_d;
   });
 
 
-	var force = d3.layout.force()
+	var force_vizit = d3.layout.force()
     	.nodes(tweets)
-    	.size([width, height_1])
+    	.size([width_1, height_1])
     	.gravity(.01)
     	.charge(0)
-    	.on("tick", tick)
+    	.on("tick", tick_vizit)
     	.start();
 
-	var svg = d3.select("#top_d3js_box").append("svg")
+	var svg_vizit = d3.select("#top_d3js_box").append("svg").attr("id", "svg_vizit")
   //var svg = d3.select("body").append("svg")
-    	.attr("width", width)
+    	.attr("width", width_1)
     	.attr("height", height_1);
 
 
-  var circle = svg.selectAll("circle")
+  var circle_vizit = svg_vizit.selectAll("#circle_vizit")
       .data(tweets)
       .enter().append("circle")
-      .attr("id", "tweet_circle")
+      .attr("id", "circle_vizit")
       .attr("r", function(d) { return d.radius; })
       .style("fill", function(d) { return color(d.cluster); })
-      .call(force.drag)
+      .call(force_vizit.drag)
       .on("click", function(d) {
         window.location = "/dashboard/tweet?id=" + d.tweet_id;
       });
@@ -116,18 +116,18 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 
 
 
-	function tick(e) {
+	function tick_vizit(e) {
 
-  		circle
-      	.each(cluster(10 * e.alpha * e.alpha))
-      	.each(collide(.5))
+  		circle_vizit
+      	.each(cluster_vizit(10 * e.alpha * e.alpha))
+      	.each(collide_vizit(.5))
       	.attr("cx", function(d) { return d.x; })
       	.attr("cy", function(d) { return d.y; });
 	}
 
-  function cluster(alpha) {
+  function cluster_vizit(alpha) {
       return function(d) {
-        var cluster = clusters[d.cluster];
+        var cluster = clusters_vizit[d.cluster];
         // console.log(clusters);
         // console.log(d.cluster);
         // console.log(cluster);
@@ -150,10 +150,10 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
   }
 
 // Resolves collisions between d and all other circles.
-	function collide(alpha) {
+	function collide_vizit(alpha) {
   		var quadtree = d3.geom.quadtree(tweets);
   		return function(d) {
-    		var r = 12 + 12 + Math.max(padding, clusterPadding),
+    		var r = 12 + 12 + Math.max(padding_vizit, clusterPadding_vizit),
         	nx1 = d.x - r,
         	nx2 = d.x + r,
         	ny1 = d.y - r,
@@ -163,7 +163,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
         			var x = d.x - quad.point.x,
             		y = d.y - quad.point.y,
             		l = Math.sqrt(x * x + y * y),
-            		r = d.radius + quad.point.radius + (d.cluster === quad.point.cluster ? padding : clusterPadding);
+            		r = d.radius + quad.point.radius + (d.cluster === quad.point.cluster ? padding_vizit : clusterPadding_vizit);
         			if (l < r) {
           				l = (l - r) / l * alpha;
           				d.x -= x *= l;
@@ -177,14 +177,14 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
   		};
 	}
 
-    var index_elem = d3.select("svg").append("g").attr("id", "index_elem");
+    var index_elem = d3.select("#svg_vizit").append("g").attr("id", "index_elem");
 
     var color_index_data = [{"text": "positive", "y": 40}, {"text": "negative", "y": 80}, {"text":"neutral", "y": 120}];
-    var color_index = d3.select("svg").append("g").attr("id", "color_index");
+    var color_index = d3.select("#svg_vizit").append("g").attr("id", "color_index");
     color_index.append("text").text("Color of circle").attr({x:100, y: 20, "text-anchor":"middle"}).attr("font-size", "11px");
     color_index.append("text").text("indicates sentiment").attr({x:100, y: 32, "text-anchor":"middle"}).attr("font-size", "11px");
     color_index.selectAll("circle").data(color_index_data).enter().append("circle")
-      .attr({cx:100, cy: function(d) {return 20+d.y}, r: maxRadius})
+      .attr({cx:100, cy: function(d) {return 20+d.y}, r: maxRadius_vizit})
       .style({fill: function(d, i) {return color(i)}});
 
     // var size_index_data = [{"text": ">1000", "y": 10}, {"text": "500-1000", "y": 20}, {"text":"<500", "y": 50}];
@@ -201,7 +201,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
       d3.select("#small-circle-value").text("0.0");
 
 
-      d3.selectAll("#tweet_circle").attr("r", function (d) {
+      d3.selectAll("#circle_vizit").attr("r", function (d) {
         // d.radius = maxRadius + maxRadius * d.sentiment.subjectivity;
         if (d.sentiment.subjectivity == 1.0) {
           d.radius = 40;
@@ -218,7 +218,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 
         return d.radius;
       });
-      force.start();
+      force_vizit.start();
     });
 
     index_elem.append("text").attr("id", "fav").text("favorites").attr({x:100,y:height_1-132,"text-anchor":"middle"}).attr("font-size", "11px")
@@ -226,7 +226,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
       d3.select(this).attr("font-weight", "bold");
       d3.select("#subj").attr("font-weight", "normal");
       d3.select("#retweet").attr("font-weight", "normal");
-      d3.selectAll("#tweet_circle").attr("r", function (d) {
+      d3.selectAll("#circle_vizit").attr("r", function (d) {
         // console.log(d);
         // console.log(Math.log(d.favorite_count + 1));
         // d.radius = maxRadius + Math.log(d.favorite_count + 1);
@@ -249,7 +249,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
       d3.select("#small-circle-value").text("<100 favorites");
       //   return d.radius;
       // });
-      force.start();
+      force_vizit.start();
     });
 
     index_elem.append("text").attr("id", "retweet").text("retweets").attr({x:100,y:height_1-116,"text-anchor":"middle"}).attr("font-size", "11px")
@@ -257,7 +257,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
       d3.select(this).attr("font-weight", "bold");
       d3.select("#fav").attr("font-weight", "normal");
       d3.select("#subj").attr("font-weight", "normal");
-      d3.selectAll("#tweet_circle").attr("r", function (d) {
+      d3.selectAll("#circle_vizit").attr("r", function (d) {
         // d.radius = maxRadius + Math.log(d.retweet_count + 1);
         if (d.retweet_count < 100) {
           d.radius = 10;
@@ -275,7 +275,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
       d3.select("#medium-circle-value").text("100-500 retweets");
       d3.select("#small-circle-value").text("<100 retweets");
 
-      force.start();
+      force_vizit.start();
     });
    
 
@@ -322,7 +322,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 
 
   // make the ones in the visualization more specific
-	$('svg circle').tipsy({ 
+	$('#svg_vizit circle').tipsy({ 
         gravity: 'w', 
         html: true, 
         title: function() {
@@ -340,4 +340,6 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
     // index element for circle sizes
 
 });
+
+})(this);
 

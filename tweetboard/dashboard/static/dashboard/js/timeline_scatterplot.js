@@ -1,5 +1,6 @@
 // more about showing / hiding elements: http://bl.ocks.org/d3noob/5d621a60e2d1d02086bf
 
+(function () { 
 
 function wrap(text, width) {
   text.each(function() {
@@ -214,3 +215,6 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 
 
 });
+
+
+})(this);
