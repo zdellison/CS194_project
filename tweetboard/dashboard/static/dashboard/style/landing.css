@@ -13,6 +13,7 @@
         color: #9B9B9B;
         line-height: 60px;
         text-align: center;
+        margin-left: -5vw;
 }
 
 #tweetBoard{
@@ -45,8 +46,8 @@
         
 }
 
-.spacing{
-  height: 10vh;
+.spacing_cand{
+  height: 8vh;
 }
 
 #candidates{
