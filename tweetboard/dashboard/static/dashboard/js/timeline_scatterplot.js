@@ -112,7 +112,9 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 // draw favorite dots
   svg.selectAll("#dotfav")
       .data(dataset)
-    .enter().append("circle")
+    .enter().append("circle").on("click", function(d) {
+        window.location = "/dashboard/tweet?id=" + d.tweet_id;
+      })
       .attr("id", "dotfav")
       .transition()  // Transition from old to new
       .duration(10000)  // Length of animation
@@ -126,12 +128,15 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
        })
                         //.ease("linear")  // Transition easing - default 'variable' (i.e. has acceleration), also: 'circle', 'elastic', 'bounce', 'linear'
        .attr("cx", xMap)
-       .attr("cy", yMap); 
+       .attr("cy", yMap);
+
 
       // draw retweet dots
   svg.selectAll("#retweetdot")
       .data(dataset)
-   		.enter().append("circle")
+   		.enter().append("circle").on("click", function(d) {
+        window.location = "/dashboard/tweet?id=" + d.tweet_id;
+      })
       .attr("id", "retweetdot") 
       .transition()  // Transition from old to new
       .duration(10000)  // Length of animation
@@ -145,7 +150,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
        })
                         //.ease("linear")  // Transition easing - default 'variable' (i.e. has acceleration), also: 'circle', 'elastic', 'bounce', 'linear'
        .attr("cx", xMap)
-       .attr("cy", yMap2); 
+       .attr("cy", yMap2);
 
 
 	svg.append("text").attr("id", "favorites_text")

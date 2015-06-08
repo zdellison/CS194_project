@@ -20,7 +20,7 @@ var y = d3.scale.linear().range([height, 0]);
 var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom")
-    .tickFormat(d3.time.format("%m-%d %I%p"));
+    .tickFormat(d3.time.format("%b-%d %I%p"));
 
 var yAxis = d3.svg.axis()
     .scale(y)
@@ -59,16 +59,21 @@ d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
 
     });
 
+    var keys = Object.keys(dates);
+    keys = keys.sort();
+    console.log(keys);
+
 
     var num_dif_dates = Object.keys(dates).length;
     
     var d3_format_dates = new Array(num_dif_dates);
 
-    var i = 0;
-    for (date in dates) {
-    	d3_format_dates[i] = {"date": bucketParser2(date), "count": +dates[date]};
-    	i += 1;
+    // var i = 0;
+    for (var i = 0; i < num_dif_dates; i++) {
+    	d3_format_dates[i] = {"date": bucketParser2(keys[i]), "count": +dates[keys[i]]};
+    	// i += 1;
 	}	
+
 
 
 
