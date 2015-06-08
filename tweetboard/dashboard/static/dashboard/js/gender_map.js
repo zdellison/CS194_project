@@ -70,7 +70,7 @@ d3.json("/api/get_gender_total_for_recent_tweets?user_id="+user_id, function(err
       .style("text-anchor", "middle")
       .text(function(d) { return d.data.gender; });
 
-});
+
 
 
 })(this);

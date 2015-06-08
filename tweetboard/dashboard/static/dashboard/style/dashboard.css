@@ -47,9 +47,10 @@
 }
 .wrapper_box{
 	width: 45%;
-	height: 28vw;
+	height: 35vw;
 	float: left;
 }
+
 #top_d3js_box{
 	height: 60vh;
 	
@@ -73,6 +74,15 @@
 	margin-left: 5vw;
 	margin-right: 10vw;
 	float: left;
+	
+}
+.body_d3js_box_map{
+	height: 25vw;
+	width: 86%;
+	margin-left: 5vw;
+	margin-right: 10vw;
+	float: left;
+	margin-bottom: 5vh;
 	
 }
 .nomargin{
@@ -322,4 +332,12 @@
   	text-align: center;
 }
 
+.viz_title_map{
+	font-family: Raleway;
+	font-size: 22px;
+	padding: 15px;
+  	color: rgba(36,44,57,0.90);
+  	text-align: center;
+  	margin-left: 7vw;
+}
 
