@@ -1,0 +1,11 @@
+#tweet_d3js_box { font: 9px Arial;
+	font-weight: normal;}
+
+
+
+.axis {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}

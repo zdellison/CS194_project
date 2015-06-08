@@ -235,8 +235,8 @@ def get_retweet_user_info(request):
     for retweet in retweets:
         users.append({
             'user': retweet.user_data.to_obj(),
-	    # THIS IS THE TWEET INFO FOR THE ORIGINAL TWEET
-            'retweet': get_tweet_info(tweet)
+	    # TODO: THIS IS THE TWEET INFO FOR THE ORIGINAL TWEET
+            'retweet': { 'created_at': retweet.created_at }
         })
 
     response = {'users': users}

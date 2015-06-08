@@ -4,17 +4,11 @@
 
 <html>
     <head>
-     
-
-    
-
     </head>
   
-    <body>
-       
-       <div id="hidden_tweet_id" style="visibility: hidden; height: 0px">{{tweet_id}}</div>
-         <div id="block"></div>
-          
+     <body>
+      <div id="block"></div>
+      <div id="hidden_user" style="visibility: hidden; height: 0px"> {{user_id}} </div>
 
       <div id="container">
 
@@ -31,12 +25,11 @@
             </a>
             <div class="row top_divisor"></div>
             <div class="row top_divisor"></div>
-            <div class="row top_divisor"></div>
               
               <div class="row" id="profile">
                 <div class="col-md-2"></div>
                 <div class="col-md-5">
-                  <div id="profile_name">  </div>
+                  <div id="profile_name"> </div>
 
                   <div class="profile_text" id="user_handle"> </div>
                   <div class="profile_text" id="user_location"></div>
@@ -52,9 +45,8 @@
               <div class="top_divisor"></div>
 
                <ul class="mtree nomargin">
-
-
-                <li class="side_button">
+                  
+                  <li class="side_button">
                    
                          <a id="dashboard_link" class="side_button_text"> DASHBOARD </a>
                     
@@ -66,7 +58,7 @@
                   </li>
                   <li class="side_button">
                    
-                        <a href="#" class="side_button_text" id="questions"> </a>
+                        <a class="side_button_text" id="questions"> </a>
                     
                   </li>
                   <li class="side_button">
@@ -82,12 +74,14 @@
                         <ul id="tweet_items_list"></ul>
     
                   </li>
-               
+                
+                 
               </ul>
 
             </div>  
         
           </div>
+        
         
           <div class="col-md-9">
             <div class="row" id="top_header_tweet">
@@ -118,53 +112,57 @@
 
                 <div class="col-md-1"></div>
                 <div class="col-md-6">
-                  <div id="page_title"> TWEET </div>
-                  <div class="row" id="tweet_body"> </div>
+                  <div id="page_title"> MAP </div>
+                  <div class="row" id="tweet_body"> Click on the states to visualize tweets at the candidate </div>
                 </div>
+              
                 
-                <div class="col-md-4">
-                  <div id="top_bar_d3js_box nomargin">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-4 stats_box">
-                      <div class="stats" id="retweet_count"></div>
-                      <div class="stats_text"> retweets </div>
-                    </div>
-                    <div class="col-md-4"></div>
-                     <div class="col-md-4 stats_box">
-                      <div class="stats" id="favorite_count"></div>
-                      <div class="stats_text"> favorites </div>
-                    </div>
-                   
-                    
-                    
-
-                  </div>
-                </div>  
-                <div class="col-md-1"></div>
             </div>
 
        
             
             <div class="row divisor"></div>
             
-            <div class="row dashboard" id="dashboard_body_top">
-              <div class="viz_title"> Number of followers for retweeters </div>
-              <div class="d3js_box" id="tweet_d3js_box">
-              	
-              </div>
+            <div class="row">
+              <div class="col-md-1"></div>
+              <div class="col-md-10" id="map" style="margin-left: 15vw; width: 70vw; height: 60vh;"></div>
+              <div id="clicked-state"></div>
+
             </div>
-            <div class="row divisor"></div>
-            <div class="row dashboard secondary_level">
+
+            <div id="only_show_click" style="visibility: hidden;">
+            
+             <div class="row dashboard secondary_level">
               <div class="wrapper_box nomargin">
                 <div class="viz_title" style="margin-left: 7vw;"> Gender breakdown </div>
                 <div class="d3js_box body_d3js_box" id="gender_d3"></div>
               </div>
               <div class="wrapper_box nomargin">
-                <div class="viz_title" style="margin-left: 7vw;"> Retweets by hour </div>
+                <div class="viz_title" style="margin-left: 7vw;"> Retweets by day </div>
                 <div class="d3js_box body_d3js_box" id="not_gender_d3"></div>
               </div>
               
             </div>
+
+            <div class="row divisor"></div>
+            <div class="row divisor"></div>
+
+            <div class="row">
+              <div class="col-md-1"></div>
+              <table class="col-md-10" id="questions_table">
+                  <tr>
+                    <th>Question</th>
+                    <th>User</th>  
+                    <th>Retweets</th>
+                    <th>Favorites</th>
+                  </tr>
+                  
+              </table>
+            </div>
+
+
+          </div>
+            
 
 
            
@@ -180,7 +178,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/bootstrap.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/bootstrap-theme.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/mtree.css' %}" />
-  
+    <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/grey_box.css' %}" />
 
 
     
@@ -192,7 +190,7 @@
      <script src="{% static 'dashboard/js/jquery.tipsy.js' %}"></script>
     
     
-   
+    <script src="{% static 'dashboard/js/grey_box.js' %}"></script>
     
     
     
@@ -200,13 +198,12 @@
 
      <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/tipsy.css' %}" />
       <script src="{% static 'dashboard/js/mtree.js' %}"></script> 
-       <script src="{% static 'dashboard/js/tweet_data.js' %}"></script>
+        <script src="{% static 'dashboard/js/map_data.js' %}"></script>
+         <script src="{% static 'dashboard/js/raphael.js' %}"></script>
+          <script src="{% static 'dashboard/js/jquery.usmap.js' %}"></script>
       
+     
        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/dashboard.css' %}" />
-       <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/retweet_timeline.css' %}" />
-         <script src="{% static 'dashboard/js/retweet_timeline.js' %}"></script>
-         <script src="{% static 'dashboard/js/gender_piechart.js' %}"></script>
-         <script src="{% static 'dashboard/js/bucket_time.js' %}"></script>
-         <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/bucket_time.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/questions.css' %}" />
     </body>
 </html>
