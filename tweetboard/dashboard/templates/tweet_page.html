@@ -14,11 +14,7 @@
        
        <div id="hidden_tweet_id" style="visibility: hidden; height: 0px">{{tweet_id}}</div>
          <div id="block"></div>
-          <div id="grey_container">
-              
-              <div id="closebtn">x</div>
-              <iframe id="iframe" style="width:85vw; height: 85vh; outline: 1px solid gray;"></iframe>
-          </div>
+          
 
       <div id="container">
 
@@ -152,21 +148,22 @@
             <div class="row divisor"></div>
             
             <div class="row dashboard" id="dashboard_body_top">
-              <div class="d3js_box" id="top_d3js_box">
+              <div class="viz_title"> Number of followers for retweeters </div>
+              <div class="d3js_box" id="tweet_d3js_box">
               	
               </div>
             </div>
             <div class="row divisor"></div>
             <div class="row dashboard secondary_level">
               <div class="wrapper_box nomargin">
-                <div class="d3js_box body_d3js_box"></div>
+                <div class="viz_title" style="margin-left: 7vw;"> Gender breakdown </div>
+                <div class="d3js_box body_d3js_box" id="gender_d3"></div>
               </div>
               <div class="wrapper_box nomargin">
-                <div class="d3js_box body_d3js_box"></div>
+                <div class="viz_title" style="margin-left: 7vw;"> Retweets by hour </div>
+                <div class="d3js_box body_d3js_box" id="not_gender_d3"></div>
               </div>
-              <div class="wrapper_box nomargin">
-                <div class="d3js_box body_d3js_box"></div>
-              </div>
+              
             </div>
 
 
@@ -183,7 +180,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/bootstrap.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/bootstrap-theme.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/mtree.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/grey_box.css' %}" />
+  
 
 
     
@@ -195,7 +192,7 @@
      <script src="{% static 'dashboard/js/jquery.tipsy.js' %}"></script>
     
     
-    <script src="{% static 'dashboard/js/grey_box.js' %}"></script>
+   
     
     
     
@@ -204,6 +201,12 @@
      <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/tipsy.css' %}" />
       <script src="{% static 'dashboard/js/mtree.js' %}"></script> 
        <script src="{% static 'dashboard/js/tweet_data.js' %}"></script>
+      
        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/dashboard.css' %}" />
+       <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/retweet_timeline.css' %}" />
+         <script src="{% static 'dashboard/js/retweet_timeline.js' %}"></script>
+         <script src="{% static 'dashboard/js/gender_piechart.js' %}"></script>
+         <script src="{% static 'dashboard/js/bucket_time.js' %}"></script>
+         <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/bucket_time.css' %}" />
     </body>
 </html>

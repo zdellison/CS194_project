@@ -17,7 +17,7 @@ d3.json("/api/get_user_by_id?user_id="+user_id, function(data) {
 	document.getElementById("map_text").innerHTML = name.substr(0, name.indexOf(' ')).toUpperCase() + "'S MAP";
 	document.getElementById("questions").innerHTML = "QUESTIONS FOR " + name.substr(0, name.indexOf(' ')).toUpperCase();
 	document.getElementById("questions").setAttribute("href", "/dashboard/questions?user="+screen_name);
-
+	document.getElementById("map_text").setAttribute("href", "/dashboard/maps?user="+screen_name);
 	document.getElementById("back_home").setAttribute("href", "/dashboard?user="+screen_name);
 	document.getElementById("logout").setAttribute("href", "/login/logout");
 	
@@ -120,8 +120,8 @@ d3.json("/api/get_question_tweets_at_user_id?user_id="+user_id, function(data) {
 			favorite_total = favorite_total + d.tweet.favorite_count;
 			retweet_total = retweet_total + d.tweet.retweet_count;
 
-			document.getElementById("retweet_count").innerHTML = Math.trunc(retweet_total/15);
-			document.getElementById("favorite_count").innerHTML = Math.trunc(favorite_total/15);
+			document.getElementById("retweet_count").innerHTML = Math.trunc(retweet_total);
+			document.getElementById("favorite_count").innerHTML = Math.trunc(favorite_total);
 
 		    document.getElementById("questions_table").appendChild(list_div);
 	});

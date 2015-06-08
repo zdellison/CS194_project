@@ -4,14 +4,14 @@
 }
 
 #viewport{
-	height: 165vh;
+	height: 215vh;
 	background-image: url(squared_metal.png);
 
 }
 #left_header{
 	background: rgba(36,44,57,0.90);
-	height: 165vh;
-	max-width: 400px; 
+	height: 215vh;
+	max-width: 450px; 
 	min-width: 250px;
 }
 #top_header{
@@ -42,7 +42,7 @@
 	border: 1px solid #979797;
 }
 .divisor{
-	height: 7vh;
+	height: 5vh;
 	background-image: url(squared_metal.png);
 }
 .wrapper_box{
@@ -53,6 +53,11 @@
 #top_d3js_box{
 	height: 60vh;
 	
+}
+
+#tweet_d3js_box{
+	height: 60vh;
+	width: 66.5vw;
 }
 #top_d3js_box_2{
 	height: 40vh;
@@ -240,6 +245,9 @@
 	margin-left: 1vw;
 	margin-right: 1vw;
 }
+#tweet_items_list{
+	max-height: 110vh;
+}
 
 #page_title{
 	/* DASHBOARD: */
@@ -304,6 +312,14 @@
 
 #side_tweets_at_me{
 	position: relative;
+}
+
+.viz_title{
+	font-family: Raleway;
+	font-size: 22px;
+	padding: 15px;
+  	color: rgba(36,44,57,0.90);
+  	text-align: center;
 }
 
 

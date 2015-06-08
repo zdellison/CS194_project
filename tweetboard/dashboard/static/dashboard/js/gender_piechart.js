@@ -1,8 +1,8 @@
 // used tutorial: http://bl.ocks.org/mbostock/3887235
+(function () {
 
-
-var width = 960,
-    height = 500,
+var width = $("#gender_d3").width(),
+    height = $("#gender_d3").height(),
     radius = Math.min(width, height) / 2;
 
 var color = d3.scale.ordinal()
@@ -16,13 +16,16 @@ var pie = d3.layout.pie()
     .sort(null)
     .value(function(d) { return d.count; });
 
-var svg_gender_tweet = d3.select("body").append("svg")
+var svg_gender_tweet = d3.select("#gender_d3").append("svg")
     .attr("width", width)
     .attr("height", height)
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-d3.json("/api/get_retweet_user_info?tweet_id=602656356953399296", function(error, data) {
+
+var tweet_id = document.getElementById("hidden_tweet_id").innerHTML;
+d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
+  
 
   users = data.users;
   gender_counts = {};
@@ -35,7 +38,7 @@ d3.json("/api/get_retweet_user_info?tweet_id=602656356953399296", function(error
   // });
 
   users.forEach(function(d) {
-    var gender = d.gender;
+    var gender = d.user.gender;
     gender_counts[gender] += 1;
   });
 
@@ -62,3 +65,5 @@ d3.json("/api/get_retweet_user_info?tweet_id=602656356953399296", function(error
       .text(function(d) { return d.data.gender; });
 
 });
+
+})(this);
