@@ -30,8 +30,8 @@ def get_api_with_auth(request):
 
     return api
 
-def get_gender(user):
-    first_name = user.name.split(' ', 1)[0]
+def get_gender(name):
+    first_name = name.split(' ', 1)[0]
     if re.match('[A-Za-z]+', first_name):
         return detector.guess(first_name)
     else: return 'unknown'
@@ -52,7 +52,7 @@ def get_user_info(user_resp):
     user['profile_image_url'] = user_resp.profile_image_url
 
    # Get gender:
-    user['gender'] = get_gender(user_resp)
+    user['gender'] = get_gender(user_resp.name)
 
     return user
 
@@ -196,8 +196,6 @@ def get_question_tweets_at_user_id(request):
 # NOTE: Don't use this, it burns through rate limiting and was only an example
 @login_required
 def get_users_retweet_by_original_user(request):
-    api = get_api_with_auth(request)
-
     users = []
     retweeted_tweets = []
     tweets = Tweet.objects.filter(created_by=request.GET['user_id'])[:10]
@@ -206,7 +204,7 @@ def get_users_retweet_by_original_user(request):
             retweeted_tweets.append(tweet.tweet_id)
             retweets = Retweet.objects.filter(tweet=tweet)
             for retweet in retweets:
-                users.append(get_user_info(retweet.author))
+                users.append(retweet.user_data.to_obj())
 
     response = {'tweets':retweeted_tweets,'users':users}
     return JsonResponse(response)
@@ -219,12 +217,9 @@ def get_user_by_id(request):
     response = {'user': get_user_info(user)}
     return JsonResponse(response)
 
-
 # Return tweet info when given Tweet ID
 @login_required
 def get_tweet_by_id(request):
-    api = get_api_with_auth(request)
-
     tweet = Tweet.objects.get(tweet_id=request.GET['tweet_id'])
     response = {'tweet': tweet.to_obj()}
 
@@ -233,14 +228,16 @@ def get_tweet_by_id(request):
 # Given a Tweet ID, return user info about previous 100 users that retweeted it
 @login_required
 def get_retweet_user_info(request):
-    api = get_api_with_auth(request)
-    retweets = api.retweets(request.GET['tweet_id'], count=100)
+    tweet = Tweet.objects.get(tweet_id=request.GET['tweet_id'])
+    retweets = Retweet.objects.filter(tweet=tweet)
+
     users = []
     for retweet in retweets:
         users.append({
-            'user': get_user_info(retweet.author),
-            'retweet': get_tweet_info(retweet)
-            })
+            'user': retweet.user_data.to_obj(),
+	    # THIS IS THE TWEET INFO FOR THE ORIGINAL TWEET
+            'retweet': get_tweet_info(tweet)
+        })
 
     response = {'users': users}
     return JsonResponse(response)
@@ -249,31 +246,26 @@ def get_retweet_user_info(request):
 # were male, female or unknown.
 @login_required
 def get_gender_total_for_recent_tweets(request):
-    api = get_api_with_auth(request)
-
     gender_totals = {
-            'male': 0,
-            'female': 0,
-            'unknown': 0,
-            }
+        'male': 0,
+        'female': 0,
+        'unknown': 0,
+    }
     retweet_count = 0
     total_retweets = 0
-    # Set to 10 for now to prevent hitting rate limit as much...
-    # TODO: Switch back to 25 once Paul has integrated DB
-    tweets = api.user_timeline(id=request.GET['user_id'], count=10)
+    tweets = Tweet.objects.filter(tweet_id=request.GET['user_id'])
     for tweet in tweets:
-        retweets = api.retweets(tweet.id, count=100)
-        total_retweets += tweet.retweet_count
+	retweets = Retweet.objects.filter(tweet=tweet)
+        total_retweets += tweet.num_retweets
         for retweet in retweets:
             retweet_count += 1
-            user = retweet.author
-            gender_totals[get_gender(user)] += 1
+            gender_totals[get_gender(retweet.user_data.name)] += 1
 
     response = {
-            'gender_totals': gender_totals,
-            'retweet_count': retweet_count,
-            'total_retweets': total_retweets,
-            }
+	'gender_totals': gender_totals,
+	'retweet_count': retweet_count,
+	'total_retweets': total_retweets,
+    }
     return JsonResponse(response)
 
 

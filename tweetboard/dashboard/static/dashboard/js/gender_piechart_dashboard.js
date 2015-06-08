@@ -1,6 +1,8 @@
 // used tutorial: http://bl.ocks.org/mbostock/3887235
 
 
+(function() {
+
 //pedro
 var w_gender = $('#d3js_box_1').width(),
     h_gender = $('#d3js_box_1').height(),
@@ -69,3 +71,6 @@ d3.json("/api/get_gender_total_for_recent_tweets?user_id="+user_id, function(err
       .text(function(d) { return d.data.gender; });
 
 });
+
+
+})(this);

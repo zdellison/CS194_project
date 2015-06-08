@@ -1,5 +1,6 @@
 // notes:
 
+(function () {
 
 var hashtags;
 
@@ -50,7 +51,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(json) {
 	var color_hashtags = d3.scale.category10().domain(d3.range(m_hashtags));
 
 	// The largest node for each cluster.
-	var clusters = new Array(m_hashtags);
+	var clusters_hashtags = new Array(m_hashtags);
 
   var keys = Object.keys(hashtags_to_numtimes);
 
@@ -93,7 +94,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(json) {
 
     // console.log(new_d);
     // hashtags_to_numtimes[d] = new_d;
-    if (!clusters[i] || (r > clusters[i].radius)) clusters[i] = new_d;
+    if (!clusters_hashtags[i] || (r > clusters_hashtags[i].radius)) clusters_hashtags[i] = new_d;
   });
 
 
@@ -110,17 +111,17 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(json) {
     	.nodes(data_hashtags)
     	.size([width_hashtags, height_hashtags])
     	.gravity(.05)
-    	.charge(10)
-    	.on("tick", tick)
+    	.charge(0)
+    	.on("tick", tick_hashtags)
     	.start();
 
-	var svg_hashtags = d3.select("#d3js_box_2").append("svg")
+	var svg_hashtags = d3.select("#d3js_box_2").append("svg").attr("id", "svg_hashtags")
     	.attr("width", width_hashtags)
     	.attr("height", height_hashtags);
 
-	var circle_hashtags = svg_hashtags.selectAll("circle")
+	var circle_hashtags = svg_hashtags.selectAll("#circle_hashtags")
     	.data(data_hashtags)
-  		.enter().append("circle")
+  		.enter().append("circle").attr("id", "circle_hashtags")
     	.attr("r", function(d) { 
         // console.log(d);
         return d.radius; })
@@ -147,38 +148,38 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(json) {
 
 
     var color_index_data_hashtags = [{"text": "0-50 retweets", "y": 40}, {"text": "50-100 retweets", "y": 80}, {"text":"100-500 retweets", "y": 120}, {"text":">500 retweets", "y": 160}];
-    var color_index_hashtags = d3.select("svg").append("g").attr("id", "color_index");
+    var color_index_hashtags = d3.select("#svg_hashtags").append("g").attr("id", "hashtag_index");
     // color_index.append("text").text("Color of circle").attr({x:800, y: 100, "text-anchor":"middle"});
     // color_index.append("text").text("indicates sentiment").attr({x:800, y: 112, "text-anchor":"middle"});
-    color_index_hashtags.selectAll("circle").data(color_index_data).enter().append("circle")
-      .attr({cx:100, cy: function(d) {return 100+d.y}, r: maxRadius_hashtags})
+    color_index_hashtags.selectAll("#hashtag_index").data(color_index_data_hashtags).enter().append("circle")
+      .attr({cx:30, cy: function(d) {return d.y}, r: maxRadius_hashtags})
       .style({fill: function(d, i) {return color_hashtags(i)}});
 
     // var text_color_index = d3.select('svg').append('g').attr('id', 'text_index');
     // text_color_index.selectAll("text").data(color_index_data).enter().append("text")
     //   .text(function (d) { return d.text; }).style("fill", function(d,i) {return color(i)});
 
-    color_index_hashtags.append("text").text("0-50 retweets").attr({x:150, y: 140, "text-anchor": "middle", "font-size": "10px"})
-    color_index_hashtags.append("text").text("50-100 retweets").attr({x:150, y: 180, "text-anchor": "middle", "font-size": "10px"});
-    color_index_hashtags.append("text").text("100-500 retweets").attr({x:150, y: 220, "text-anchor": "middle", "font-size": "10px"});
-    color_index_hashtags.append("text").text(">500 retweets").attr({x:150, y: 260, "text-anchor": "middle", "font-size": "10px"});
+    color_index_hashtags.append("text").text("0-50 retweets").attr({x:80, y: 40, "text-anchor": "middle", "font-size": "10px"})
+    color_index_hashtags.append("text").text("50-100 retweets").attr({x:80, y: 80, "text-anchor": "middle", "font-size": "10px"});
+    color_index_hashtags.append("text").text("100-500 retweets").attr({x:80, y: 120, "text-anchor": "middle", "font-size": "10px"});
+    color_index_hashtags.append("text").text(">500 retweets").attr({x:80, y: 160, "text-anchor": "middle", "font-size": "10px"});
 
 
 
 
-	function tick(e) {
+	function tick_hashtags(e) {
   		circle_hashtags
-      	.each(cluster(10 * e.alpha * e.alpha))
-      	.each(collide(.5))
-      	.attr("cx", function(d) { return d.x; })
+      	.each(cluster_hashtags(10 * e.alpha * e.alpha))
+      	.each(collide_hashtags(.5))
+      	.attr("cx", function(d) { return d.x + 100; })
       	.attr("cy", function(d) { return d.y; });
 	}
 
 // Move d to be adjacent to the cluster node.
-	function cluster(alpha) {
+	function cluster_hashtags(alpha) {
   		return function(d) {
         // console.log(d);
-   			var cluster = clusters[d.cluster];
+   			var cluster = clusters_hashtags[d.cluster];
 
     		if (cluster === d) return;
     		var x = d.x - cluster.x,
@@ -196,15 +197,15 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(json) {
 	}
 
 // Resolves collisions between d and all other circles.
-	function collide(alpha) {
-  		var quadtree = d3.geom.quadtree(data_hashtags);
+	function collide_hashtags(alpha) {
+  		var quadtree_hashtags = d3.geom.quadtree(data_hashtags);
   		return function(d) {
     		var r = d.radius + maxRadius_hashtags + Math.max(padding_hashtags, clusterPadding_hashtags),
         	nx1 = d.x - r,
         	nx2 = d.x + r,
         	ny1 = d.y - r,
         	ny2 = d.y + r;
-    		quadtree.visit(function(quad, x1, y1, x2, y2) {
+    		quadtree_hashtags.visit(function(quad, x1, y1, x2, y2) {
       			if (quad.point && (quad.point !== d)) {
         			var x = d.x - quad.point.x,
             		y = d.y - quad.point.y,
@@ -225,7 +226,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(json) {
 
 
   // make the ones in the visualization more specific
-	$('svg circle').tipsy({ 
+	$('#svg_hashtags circle').tipsy({ 
         gravity: 'w', 
         html: true, 
         title: function() {
@@ -240,3 +241,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(json) {
 
     });
 });
+
+
+
+})(this);
