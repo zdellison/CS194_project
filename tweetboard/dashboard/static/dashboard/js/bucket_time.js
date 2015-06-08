@@ -100,7 +100,7 @@ d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
   svg.selectAll("bar")
       .data(d3_format_dates)
     .enter().append("rect")
-      .style("fill", "steelblue")
+      .style("fill", "#242C39")
       .attr("x", function(d) { return x(d.date); })
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.count); })

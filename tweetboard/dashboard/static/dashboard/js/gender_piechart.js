@@ -6,7 +6,7 @@ var width = $("#gender_d3").width(),
     radius = Math.min(width, height) / 2;
 
 var color = d3.scale.ordinal()
-    .range(["#98abc5", "#8a89a6", "#7b6888"]);
+    .range(["#50E3C2", "#205B4E", "#9B9B9B"]);
 
 var arc = d3.svg.arc()
     .outerRadius(radius - 10)

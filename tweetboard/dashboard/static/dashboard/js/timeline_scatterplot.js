@@ -86,7 +86,9 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
     var yValue2 = function(d) { return d.retweet_count;},
     	yMap2 = function(d) {return y(yValue2(d));}
 
-	var color = d3.scale.category10();
+	// var color = d3.scale.category10();
+  var color = d3.scale.ordinal()
+    .range(["#50E3C2", "#205B4E", "#9B9B9B"]);
 
 
 
@@ -116,7 +118,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
       .duration(10000)  // Length of animation
       .each("start", function() {  // Start animation
          d3.select(this)  // 'this' means the current element
-         .attr("fill", "steelblue")  // Change color
+         .attr("fill", color(0))  // Change color
          .attr("r", 7);  // Change size
       })
        .delay(function(d, i) {
@@ -135,7 +137,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
       .duration(10000)  // Length of animation
       .each("start", function() {  // Start animation
          d3.select(this)  // 'this' means the current element
-         .attr("fill", "coral")  // Change color
+         .attr("fill", color(1))  // Change color
          .attr("r", 7);  // Change size
       })
        .delay(function(d, i) {
@@ -148,7 +150,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 
 	svg.append("text").attr("id", "favorites_text")
 		.attr("transform", "translate(" + 30 + "," + (10) + ")")
-		.style("fill", "steelblue")
+		.style("fill", color(0))
 		.on("click", function(){
 
       d3.select(this).attr("font-weight", "bold");
@@ -162,7 +164,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 
 	svg.append("text").attr("id", "retweets_text")
 		.attr("transform", "translate(" + 30 + "," + (30) + ")")
-		.style("fill", "coral").
+		.style("fill", color(1)).
 		on("click", function(){
       d3.select(this).attr("font-weight", "bold");
       d3.select("#both_text").attr("font-weight", "normal");
@@ -174,7 +176,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 
   svg.append("text").attr("id", "both_text")
     .attr("transform", "translate(" + 30 + "," + (50) + ")").attr("font-weight", "bold")
-    .style("fill", "green").
+    .style("fill", color(2)).
     on("click", function(){
       d3.select(this).attr("font-weight", "bold");
       d3.select("#retweets_text").attr("font-weight", "normal");
