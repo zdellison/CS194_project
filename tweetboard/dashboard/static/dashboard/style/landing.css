@@ -64,12 +64,17 @@ border: 3px solid #979797;
 border-radius: 21px;
 position: relative;
 overflow: hidden;
+text-decoration: none;
 }
 
 .actual_pic{
     max-width: 100%;
     opacity: 0.6;
     position: absolute;
+}
+
+.actual_pic:hover{
+    opacity: 0.9;
 }
 
 .candidates_names{
@@ -81,4 +86,7 @@ color: #979797;
 line-height: 60px;
 text-align: center;
 padding-right: 4vw;
+}
+.candidates_pics:hover{
+    text-decoration: none;
 }
