@@ -253,13 +253,13 @@ def get_gender_total_for_recent_tweets(request):
     }
     retweet_count = 0
     total_retweets = 0
-    tweets = Tweet.objects.filter(tweet_id=request.GET['user_id'])
+    tweets = Tweet.objects.filter(created_by=request.GET['user_id'])
     for tweet in tweets:
 	retweets = Retweet.objects.filter(tweet=tweet)
         total_retweets += tweet.num_retweets
         for retweet in retweets:
             retweet_count += 1
-            gender_totals[get_gender(retweet.user_data.name)] += 1
+            gender_totals[retweet.user_data.gender] += 1
 
     response = {
 	'gender_totals': gender_totals,
