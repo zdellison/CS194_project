@@ -28,7 +28,7 @@ function wrap(text, width) {
 
 var	margin_timeline = {top: 30, right: 40, bottom: 30, left: 50},
 	width_timeline = $('#tweet_d3js_box').width() - margin_timeline.left - margin_timeline.right,
-	height_timeline = $('#tweet_d3js_box').height() - 60;
+	height_timeline = $('#tweet_d3js_box').height() - margin_timeline.top - margin_timeline.bottom - 20;
 
   console.log(width_timeline);
   console.log(height_timeline);
@@ -134,13 +134,13 @@ d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
 		// setup x 
 	var xValue = function(d) { return d.created_at;}, // data -> value
    		 // value -> display
-    		xMap = function(d) { return x(xValue(d)) + 10;} // data -> display
+    		xMap = function(d) { return x(xValue(d)) ;} // data -> display
     		// xAxis = d3.svg.axis().scale(xScale).orient("bottom");
 
 
   // setup y
   var yValue = function(d) { return d.followers_count;}, // data -> value
-      yMap = function(d) { return y(yValue(d)) -40;} // data -> display
+      yMap = function(d) { return y(yValue(d)) -15;} // data -> display
 
 
 
@@ -261,23 +261,29 @@ d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
 
     svg_retweet_timeline.append("g")     // Add the X Axis
     .attr("class", "x axis")
-    .attr("transform", "translate(10," + (height_timeline - 40) + ")")
+    .attr("transform", "translate(0," + (height_timeline-15) + ")")
     .call(xAxis).selectAll(".tick text").call(wrap, 20);;
 
     svg_retweet_timeline.append("g")     // Add the Y Axis
     .attr("class", "y axis")
-    .attr("transform", "translate(10, " + (-40) + ")")
-    .call(yAxis);
+    .attr("transform", "translate(0," + (-15) + ")")
+    // .attr("transform", "translate(0, " + (height_timeline) + ")")
+    .call(yAxis).append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("# followers");;
 
 
        // Add the text label for the Y axis
-    svg_retweet_timeline.append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 0 - margin_timeline.left + 5)
-        .attr("x",0 - (height_timeline / 2))
-        .attr("dy", "1em")
-        .style("text-anchor", "middle")
-        .text("# of followers").attr("font-size", "14px");
+    // svg_retweet_timeline.append("text")
+    //     .attr("transform", "rotate(-90)")
+    //     .attr("y", 0 - margin_timeline.left + 5)
+    //     .attr("x",0 - (height_timeline / 2))
+    //     .attr("dy", "1em")
+    //     .style("text-anchor", "middle")
+    //     .text("# of followers").attr("font-size", "14px");
 
     // svg_retweet_timeline.append("g")
     //   .attr("class", "y axis")
