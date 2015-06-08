@@ -38,12 +38,9 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 		$(href_wrapper).attr("href", "tweet?id="+d.tweet_id);
 		var div_tweet_name = document.createElement("div");
 		$(div_tweet_name).attr("class", "tweet_prof_name").text(name);
-		//console.log(name);
-		//$(div_tweet_name).html = name;
 		console.log($(div_tweet_name).html);
 		var div_tweet_handle = document.createElement("div");
 		$(div_tweet_handle).attr("class", "tweet_prof_twitter").text("   @"+name.replace(/\s+/g, ''));
-		//console.log(handle);
 		//$(div_tweet_handle).html(handle);
 		var div_tweet_body = document.createElement("div");
 		$(div_tweet_body).attr("class", "tweet").text(d.text);
