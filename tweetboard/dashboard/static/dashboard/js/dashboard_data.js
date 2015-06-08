@@ -58,8 +58,8 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 	    document.getElementById("tweet_items_list").appendChild(list_div);
 	});
 
-	document.getElementById("retweet_count").innerHTML = retweet_total/count;
-	document.getElementById("favorite_count").innerHTML = favorite_total/count;
+	document.getElementById("retweet_count").innerHTML = Math.trunc(retweet_total/count);
+	document.getElementById("favorite_count").innerHTML = Math.trunc(favorite_total/count);
 	
 });
 })(this);
