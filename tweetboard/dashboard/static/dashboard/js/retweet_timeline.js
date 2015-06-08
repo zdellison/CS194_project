@@ -273,11 +273,11 @@ d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
        // Add the text label for the Y axis
     svg_retweet_timeline.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("y", 0 - margin_timeline.left)
-        .attr("x",0 - (height_timeline / 2) + 10)
+        .attr("y", 0 - margin_timeline.left + 5)
+        .attr("x",0 - (height_timeline / 2))
         .attr("dy", "1em")
         .style("text-anchor", "middle")
-        .text("# of followers").attr("font-size", "12px");
+        .text("# of followers").attr("font-size", "14px");
 
     // svg_retweet_timeline.append("g")
     //   .attr("class", "y axis")

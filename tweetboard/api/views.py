@@ -116,7 +116,7 @@ def get_tweets_by_user_id(request):
     api = get_api_with_auth(request)
 
     response = {}
-    response['tweets'] = Tweet.get_recent_tweets(api, request.GET['user_id'], 25)
+    response['tweets'] = Tweet.get_recent_tweets(api, request.GET['user_id'], 40)
 
     return JsonResponse(response)
 
@@ -198,7 +198,7 @@ def get_question_tweets_at_user_id(request):
 def get_users_retweet_by_original_user(request):
     users = []
     retweeted_tweets = []
-    tweets = Tweet.objects.filter(created_by=request.GET['user_id'])[:10]
+    tweets = Tweet.objects.filter(created_by=request.GET['user_id'])[:40]
     for tweet in tweets:
         if tweet.num_retweets > 0:
             retweeted_tweets.append(tweet.tweet_id)
@@ -235,14 +235,13 @@ def get_retweet_user_info(request):
     for retweet in retweets:
         users.append({
             'user': retweet.user_data.to_obj(),
-	    # TODO: THIS IS THE TWEET INFO FOR THE ORIGINAL TWEET
             'retweet': { 'created_at': retweet.created_at }
         })
 
     response = {'users': users}
     return JsonResponse(response)
 
-# Given User ID, for the last 25 tweets, how many of the users that retweeted
+# Given User ID, for the last 40 tweets, how many of the users that retweeted
 # were male, female or unknown.
 @login_required
 def get_gender_total_for_recent_tweets(request):
@@ -255,16 +254,16 @@ def get_gender_total_for_recent_tweets(request):
     total_retweets = 0
     tweets = Tweet.objects.filter(created_by=request.GET['user_id'])
     for tweet in tweets:
-	retweets = Retweet.objects.filter(tweet=tweet)
+        retweets = Retweet.objects.filter(tweet=tweet)
         total_retweets += tweet.num_retweets
         for retweet in retweets:
             retweet_count += 1
             gender_totals[retweet.user_data.gender] += 1
 
     response = {
-	'gender_totals': gender_totals,
-	'retweet_count': retweet_count,
-	'total_retweets': total_retweets,
+        'gender_totals': gender_totals,
+        'retweet_count': retweet_count,
+        'total_retweets': total_retweets,
     }
     return JsonResponse(response)
 

@@ -32,21 +32,15 @@ d3.json("/api/get_gender_total_for_recent_tweets?user_id="+user_id, function(err
 
 
   totals = data.gender_totals;
-  // gender_counts = {};
-  // gender_counts["female"] = 0;
-  // gender_counts["male"] = 0;
-  // gender_counts["unknown"] = 0;
 
-  // // data.forEach(function(d) {
-  // //   d.population = +d.population;
-  // // });
-
-  // users.forEach(function(d) {
-  //   var gender = d.gender;
-  //   gender_counts[gender] += 1;
-  // });
-// 
   // console.log(totals);
+  if (totals["female"] == 0 && totals["male"] == 0 && totals["unknown"] == 0) {
+    svg1.append("text").text("no gender info").attr("transform", "translate(" + (- 40) + "," + 0 + ")");
+  }
+  else {
+
+
+
 
   var d3format_gender_counts = new Array(3);
 
@@ -67,9 +61,14 @@ d3.json("/api/get_gender_total_for_recent_tweets?user_id="+user_id, function(err
   g.append("text")
       .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
       .attr("dy", ".35em")
+      .attr("fill", "white")
       .style("text-anchor", "middle")
-      .text(function(d) { return d.data.gender; });
+      .text(function(d) { 
+        return d.data.gender; 
+      });
 
+
+  }
 });
 
 
