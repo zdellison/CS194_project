@@ -48,7 +48,9 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(json) {
 
   n_hashtags = Object.keys(hashtags_to_numtimes).length;
 
-	var color_hashtags = d3.scale.category10().domain(d3.range(m_hashtags));
+	// var color_hashtags = d3.scale.category10().domain(d3.range(m_hashtags));
+  var color_hashtags = d3.scale.ordinal()
+    .range(["#50E3C2", "#205B4E", "#9B9B9B", "#242C39"]);
 
 	// The largest node for each cluster.
 	var clusters_hashtags = new Array(m_hashtags);

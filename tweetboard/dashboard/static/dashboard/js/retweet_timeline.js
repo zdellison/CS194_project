@@ -93,8 +93,9 @@ d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
   
 
 
-	var color = d3.scale.category10();
-
+	// var color = d3.scale.category10();
+  var color = d3.scale.ordinal()
+    .range(["#50E3C2", "#205B4E", "#9B9B9B", "#242C39"]);
 
   
 
@@ -164,10 +165,10 @@ d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
          .attr("fill", function (d) {
           if (d.gender == "male" ) 
             {
-              return "steelblue";
+              return color(0);
             }
-          else if (d.gender == "female") {return "coral";}
-          return "green"})  // Change color
+          else if (d.gender == "female") {return color(1);}
+          return color(2)})  // Change color
          .attr("r", 7);  // Change size
       })
        .delay(function(d, i) {
@@ -183,7 +184,7 @@ d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
     // index 
       svg_retweet_timeline.append("text").attr("id", "males_text")
     .attr("transform", "translate(" + (width_timeline-50) + "," + (10) + ")")
-    .style("fill", "steelblue")
+    .style("fill", color(0))
     .on("click", function(){
 
       d3.select(this).attr("font-weight", "bold");
@@ -199,7 +200,7 @@ d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
 
   svg_retweet_timeline.append("text").attr("id", "females_text")
     .attr("transform", "translate(" + (width_timeline - 50) + "," + (40) + ")")
-    .style("fill", "coral").
+    .style("fill", color(1)).
     on("click", function(){
       d3.select(this).attr("font-weight", "bold");
       d3.select("#males_text").attr("font-weight", "normal");
@@ -213,7 +214,7 @@ d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
 
   svg_retweet_timeline.append("text").attr("id", "unknown_text")
     .attr("transform", "translate(" + (width_timeline - 50) + "," + (70) + ")")
-    .style("fill", "green").
+    .style("fill", color(2)).
     on("click", function(){
       d3.select(this).attr("font-weight", "bold");
       d3.select("#females_text").attr("font-weight", "normal");
@@ -227,7 +228,7 @@ d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
 
       svg_retweet_timeline.append("text").attr("id", "all_text")
     .attr("transform", "translate(" + (width_timeline - 50) + "," + (100) + ")").attr("font-weight", "bold")
-    .style("fill", "purple").
+    .style("fill", color(3)).
     on("click", function(){
       d3.select(this).attr("font-weight", "bold");
       d3.select("#females_text").attr("font-weight", "normal");
@@ -260,12 +261,12 @@ d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
 
     svg_retweet_timeline.append("g")     // Add the X Axis
     .attr("class", "x axis")
-    .attr("transform", "translate(10," + (height_timeline - 30) + ")")
+    .attr("transform", "translate(10," + (height_timeline - 40) + ")")
     .call(xAxis).selectAll(".tick text").call(wrap, 20);;
 
     svg_retweet_timeline.append("g")     // Add the Y Axis
     .attr("class", "y axis")
-    .attr("transform", "translate(10, " + (-30) + ")")
+    .attr("transform", "translate(10, " + (-40) + ")")
     .call(yAxis);
 
 
@@ -273,10 +274,20 @@ d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
     svg_retweet_timeline.append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", 0 - margin_timeline.left)
-        .attr("x",0 - (height_timeline / 2))
+        .attr("x",0 - (height_timeline / 2) + 10)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .text("# of followers").attr("font-size", "12px");
+
+    // svg_retweet_timeline.append("g")
+    //   .attr("class", "y axis")
+    //   .call(yAxis)
+    // .append("text")
+    //   .attr("transform", "rotate(-90)")
+    //   .attr("y", -40)
+    //   .attr("dy", ".71em")
+    //   .style("text-anchor", "end")
+    //   .text("# followers");
 
     // var labelheight = height - 25;
     // var labelgobj = svg.append("g").attr("id", "vis_label").attr("transform", "translate(0," + labelheight + ")");

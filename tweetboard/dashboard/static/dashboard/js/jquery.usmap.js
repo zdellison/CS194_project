@@ -1,3 +1,77 @@
+function abbrState(input, to){
+    
+    var states = [
+        ['Arizona', 'AZ'],
+        ['Alabama', 'AL'],
+        ['Alaska', 'AK'],
+        ['Arizona', 'AZ'],
+        ['Arkansas', 'AR'],
+        ['California', 'CA'],
+        ['Colorado', 'CO'],
+        ['Connecticut', 'CT'],
+        ['Delaware', 'DE'],
+        ['Florida', 'FL'],
+        ['Georgia', 'GA'],
+        ['Hawaii', 'HI'],
+        ['Idaho', 'ID'],
+        ['Illinois', 'IL'],
+        ['Indiana', 'IN'],
+        ['Iowa', 'IA'],
+        ['Kansas', 'KS'],
+        ['Kentucky', 'KY'],
+        ['Kentucky', 'KY'],
+        ['Louisiana', 'LA'],
+        ['Maine', 'ME'],
+        ['Maryland', 'MD'],
+        ['Massachusetts', 'MA'],
+        ['Michigan', 'MI'],
+        ['Minnesota', 'MN'],
+        ['Mississippi', 'MS'],
+        ['Missouri', 'MO'],
+        ['Montana', 'MT'],
+        ['Nebraska', 'NE'],
+        ['Nevada', 'NV'],
+        ['New Hampshire', 'NH'],
+        ['New Jersey', 'NJ'],
+        ['New Mexico', 'NM'],
+        ['New York', 'NY'],
+        ['North Carolina', 'NC'],
+        ['North Dakota', 'ND'],
+        ['Ohio', 'OH'],
+        ['Oklahoma', 'OK'],
+        ['Oregon', 'OR'],
+        ['Pennsylvania', 'PA'],
+        ['Rhode Island', 'RI'],
+        ['South Carolina', 'SC'],
+        ['South Dakota', 'SD'],
+        ['Tennessee', 'TN'],
+        ['Texas', 'TX'],
+        ['Utah', 'UT'],
+        ['Vermont', 'VT'],
+        ['Virginia', 'VA'],
+        ['Washington', 'WA'],
+        ['West Virginia', 'WV'],
+        ['Wisconsin', 'WI'],
+        ['Wyoming', 'WY'],
+    ];
+ 
+    if (to == 'abbr'){
+        input = input.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+        for(i = 0; i < states.length; i++){
+            if(states[i][0] == input){
+                return(states[i][1]);
+            }
+        }    
+    } else if (to == 'name'){
+        input = input.toUpperCase();
+        for(i = 0; i < states.length; i++){
+            if(states[i][1] == input){
+                return(states[i][0]);
+            }
+        }    
+    }
+  }
+
 (function($, document, window, Raphael, undefined) {
   // jQuery Plugin Factory
   function jQueryPluginFactory( $, name, methods, getters ){
@@ -65,7 +139,7 @@
     
     // The styles for the hover
     'stateHoverStyles': {
-      fill: "#33c",
+      fill: "#50E3C2",
       stroke: "#000",
       scale: [1.1, 1.1]
     },
@@ -115,7 +189,7 @@
     
     // The styles for the hover
     'labelBackingHoverStyles': {
-      fill: "#33c",
+      fill: "#50E3C2",
       stroke: "#000"
     },
     
@@ -611,6 +685,7 @@
   var getters = [];
   
   
+
   // Create the plugin
   jQueryPluginFactory($, 'usmap', methods, getters);
 
@@ -619,8 +694,399 @@
 $('#map').usmap({
   // The click action
   click: function(event, data) {
-    $('#clicked-state')
-      .text('You clicked: '+data.name);
+
+  var full_name = abbrState(data.name, 'name');
+  console.log()
+  
+   
+      
+
+
+    /*
+    //$.getScript("{% static 'dashboard/js/vizit_map.js' %}");
+    $.getScript("/dashboard/static/dashboard/js/vizit_map.js");
+    $.getScript("{% static 'dashboard/js/gender_map.js' %}");
+   // $.getScript("{% static 'dashboard/js/questions_map.js' %}");
+     $.getScript("/dashboard/static/dashboard/js/questions_map.js");
+     */
+     var user_id = document.getElementById("hidden_user").innerHTML;
+
+    d3.json("/api/get_place_tweets_at_user_id?place="+ full_name + "&user_id="+user_id, function(data) {
+
+      console.log(data);
+    var users = data.tweets;
+
+      var node = document.getElementById("questions_table");
+      while (node.hasChildNodes()) {
+        node.removeChild(node.lastChild);
+      }
+     /* var node1 = document.getElementById("gender_box");
+      while (node1.hasChildNodes()) {
+        node1.removeChild(node1.lastChild);
+      }*/
+      var node2 = document.getElementById("sentiment_box");
+      while (node2.hasChildNodes()) {
+        node2.removeChild(node2.lastChild);
+      }
+
+     
+      /*
+      var gender_title = document.createElement("div");
+      $(gender_title).attr("class", "viz_title_map").text("Gender breakdown");
+      var gender = document.createElement("div");
+      $(gender).attr("class", "d3js_box body_d3js_box");
+      $(gender).attr("id", "gender_d3");
+       */
+      var no_gender_title = document.createElement("div");
+      $(no_gender_title).attr("class", "viz_title_map").text("Sentiment breakdown for "+ full_name); 
+      var no_gender = document.createElement("div");
+      $(no_gender).attr("class", "d3js_box body_d3js_box_map");
+      $(no_gender).attr("id", "not_gender_d3");
+
+     // document.getElementById("gender_box").appendChild(gender_title);
+      // document.getElementById("gender_box").appendChild(gender);
+      document.getElementById("sentiment_box").appendChild(no_gender_title);
+      document.getElementById("sentiment_box").appendChild(no_gender);
+
+      var list_div = document.createElement("tr");
+      $(list_div).attr("class", "table_row");
+
+      var question_tweet = document.createElement("th");
+      $(question_tweet).attr("class", "question_tweet").text("Question");
+      var question_user = document.createElement("th");
+      $(question_user).attr("class", "question_user").text("User");
+      var question_location = document.createElement("th");
+      $(question_location).attr("class", "question_location").text("Location");
+      var question_retweets = document.createElement("th");
+      $(question_retweets).attr("class", "question_retweets").text("Retweets");
+      var question_favorites = document.createElement("th");
+      $(question_favorites).attr("class", "question_favorites").text("Favorites");
+
+
+      $(list_div).append(question_tweet);
+      $(list_div).append(question_user);
+      $(list_div).append(question_location);
+      $(list_div).append(question_retweets);
+      $(list_div).append(question_favorites);
+      
+
+      document.getElementById("questions_table").appendChild(list_div);
+
+    users.forEach(function(d) {
+        
+
+      var list_div = document.createElement("tr");
+      $(list_div).attr("class", "table_row");
+
+
+      var question_tweet = document.createElement("td");
+      $(question_tweet).attr("class", "question_tweet").text(d.text);
+      var question_user = document.createElement("td");
+      $(question_user).attr("class", "question_user").text(d.created_by_id);
+      var question_location = document.createElement("td");
+      $(question_location).attr("class", "question_location").text(data.place.name);
+      var question_retweets = document.createElement("td");
+      $(question_retweets).attr("class", "question_retweets").text(d.retweet_count);
+      var question_favorites = document.createElement("td");
+      $(question_favorites).attr("class", "question_favorites").text(d.favorite_count);
+
+      $(list_div).append(question_tweet);
+      $(list_div).append(question_user);
+      $(list_div).append(question_location);
+      $(list_div).append(question_retweets);
+      $(list_div).append(question_favorites);
+      
+      
+        document.getElementById("questions_table").appendChild(list_div);
+  });
+
+
+var tweets;
+
+var padding_vizit = 1.5, // separation between same-color circles
+    clusterPadding_vizit = 3, // separation between different-color circles
+    maxRadius_vizit = 12;
+
+var width_1 = $('#not_gender_d3').width();
+var height_1 = $('#not_gender_d3').height();
+
+//var width = 950;
+//var height = 500;
+
+  // console.log(error);
+  tweets = data.tweets;
+  // console.log(users);
+
+
+ //  var n = hashtags.length; // a circle for each hashtag
+  // var m = 4; // number of distinct clusters, 0-100 retweets is cluster 1, 100-500 is cluster 2, 500-1000 is cluster 3
+  //      // anything above 1000 is cluster 4
+
+  var m = 3;
+  // var color = d3.scale.category10().domain(d3.range(m));
+  var color = d3.scale.ordinal()
+    .range(["#50E3C2", "#205B4E", "#9B9B9B"]);
+
+  // The largest node for each cluster.
+  var clusters_vizit = new Array(m);
+
+
+  tweets.forEach(function(d) {
+
+    // console.log(d);
+    var i = 0;
+    if (d.sentiment.polarity < 0) {
+      i = 1;
+    } else if (d.sentiment.polarity == 0) {
+      i = 2;
+    }
+
+    // console.log(d.sentiment.polarity);
+
+    var r = maxRadius_vizit + maxRadius_vizit * d.sentiment.subjectivity;
+    var r = 25;
+    if (d.sentiment.subjectivity == 1.0) {
+      r = 40;
+    }
+    else if (d.sentiment.subjectivity == 0) {
+      r = 10;
+    }
+    else if (d.sentiment.subjectivity < 0.5) {
+      r = 15;
+    }
+    // var r = maxRadius;
+    // if (d.retweet_count < 100) {
+    //       r = 10;
+    // }
+    // else if (d.retweet_count < 500) {
+    //   r = 20;
+    // }
+    // else {
+    //   r = 40;
+    // }
+
+
+    var x = Math.cos(i / m * 2 * Math.PI) * 200 + width_1 / 2 + Math.random();
+    var y = Math.sin(i / m * 2 * Math.PI) * 200 + height_1 / 2 + Math.random();
+    // console.log(x);
+    // console.log(y);
+    d.x = x;
+    d.y = y;
+    d.cluster = i;
+    d.radius = r;
+
+    var tweet_text = d.text;
+    new_d = {cluster: i, radius: r, text: tweet_text, x: x, y: y, tweet_id : d.tweet_id};
+    // console.log(new_d);
+    if (!clusters_vizit[i] || (r > clusters_vizit[i].radius)) clusters_vizit[i] = new_d;
+  });
+
+
+  var force_vizit = d3.layout.force()
+      .nodes(tweets)
+      .size([width_1, height_1])
+      .gravity(.01)
+      .charge(0)
+      .on("tick", tick_vizit)
+      .start();
+
+  var svg_vizit = d3.select("#not_gender_d3").append("svg").attr("id", "svg_vizit")
+  //var svg = d3.select("body").append("svg")
+      .attr("width", width_1)
+      .attr("height", height_1);
+
+
+  var circle_vizit = svg_vizit.selectAll("#circle_vizit")
+      .data(tweets)
+      .enter().append("circle")
+      .attr("id", "circle_vizit")
+      .attr("r", function(d) { return d.radius; })
+      .style("fill", function(d) { return color(d.cluster); })
+      .call(force_vizit.drag);
+     
+
+
+
+
+  function tick_vizit(e) {
+
+      circle_vizit
+        .each(cluster_vizit(10 * e.alpha * e.alpha))
+        .each(collide_vizit(.5))
+        .attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; });
+  }
+
+  function cluster_vizit(alpha) {
+      return function(d) {
+        var cluster = clusters_vizit[d.cluster];
+        // console.log(clusters);
+        // console.log(d.cluster);
+        // console.log(cluster);
+        // var cluster = 1;
+        if (cluster === d) return;
+        // console.log(d);
+        // console.log(cluster);
+        var x = d.x - cluster.x,
+          y = d.y - cluster.y,
+          l = Math.sqrt(x * x + y * y),
+          r = d.radius + cluster.radius;
+        if (l != r) {
+            l = (l - r) / l * alpha;
+            d.x -= x *= l;
+            d.y -= y *= l;
+            cluster.x += x;
+            cluster.y += y;
+        }
+      };
+  }
+
+// Resolves collisions between d and all other circles.
+  function collide_vizit(alpha) {
+      var quadtree = d3.geom.quadtree(tweets);
+      return function(d) {
+        var r = 12 + 12 + Math.max(padding_vizit, clusterPadding_vizit),
+          nx1 = d.x - r,
+          nx2 = d.x + r,
+          ny1 = d.y - r,
+          ny2 = d.y + r;
+        quadtree.visit(function(quad, x1, y1, x2, y2) {
+            if (quad.point && (quad.point !== d)) {
+              var x = d.x - quad.point.x,
+                y = d.y - quad.point.y,
+                l = Math.sqrt(x * x + y * y),
+                r = d.radius + quad.point.radius + (d.cluster === quad.point.cluster ? padding_vizit : clusterPadding_vizit);
+              if (l < r) {
+                  l = (l - r) / l * alpha;
+                  d.x -= x *= l;
+                  d.y -= y *= l;
+                  quad.point.x += x;
+                  quad.point.y += y;
+              }
+            }
+            return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
+        });
+      };
+  }
+
+    var index_elem = d3.select("#svg_vizit").append("g").attr("id", "index_elem");
+
+    var color_index_data = [{"text": "positive", "y": 40}, {"text": "negative", "y": 80}, {"text":"neutral", "y": 120}];
+    var color_index = d3.select("#svg_vizit").append("g").attr("id", "color_index");
+    color_index.append("text").text("Color of circle").attr({x:100, y: 20, "text-anchor":"middle"}).attr("font-size", "11px");
+    color_index.append("text").text("indicates sentiment").attr({x:100, y: 32, "text-anchor":"middle"}).attr("font-size", "11px");
+    color_index.selectAll("circle").data(color_index_data).enter().append("circle")
+      .attr({cx:100, cy: function(d) {return 20+d.y}, r: maxRadius_vizit})
+      .style({fill: function(d, i) {return color(i)}});
+
+    // var size_index_data = [{"text": ">1000", "y": 10}, {"text": "500-1000", "y": 20}, {"text":"<500", "y": 50}];
+   index_elem.append("text").text("Size of circle indicates").attr({x:100,y:height_1-124,"text-anchor":"middle"}).attr("font-size", "11px");
+   // here can have wether it's favorites or number of retweets based on what user selects from the menu
+   index_elem.append("text").attr("id", "subj").text("subjectivity").attr({x:100,y:height_1-108,"text-anchor":"middle"}).attr("font-weight", "bold").attr("font-size", "11px")
+    .on("click", function (d) {
+      d3.select(this).attr("font-weight", "bold");
+   
+
+      d3.select("#big-circle-value").text("1.0");
+      d3.select("#medium-circle-value").text("0.5");
+      d3.select("#small-circle-value").text("0.0");
+
+
+      d3.selectAll("#circle_vizit").attr("r", function (d) {
+        // d.radius = maxRadius + maxRadius * d.sentiment.subjectivity;
+        if (d.sentiment.subjectivity == 1.0) {
+          d.radius = 40;
+        }
+        else if (d.sentiment.subjectivity == 0) {
+          d.raidus = 10;
+        }
+        else if (d.sentiment.subjectivity < 0.5) {
+          d.radius = 15;
+        } else {
+          d.radius = 25;
+        }
+
+
+        return d.radius;
+      });
+      force_vizit.start();
+    });
+
+
+   index_elem.selectAll("circle").data([10,20,40]).enter().append("circle")
+        .attr({cx:100,cy:function(d) {return height_1-20-d},r:String}).attr("text", "index")
+        .style({fill:"none","stroke-width":2,stroke:"#ccc","stroke-dasharray":"2 2"});
+    index_elem.append("text").text("1.0").attr("id", "big-circle-value").attr({x:100, y: height_1-80, "text-anchor": "middle", "font-size": "12px"})
+    index_elem.append("text").text("0.5").attr("id", "medium-circle-value").attr({x:100, y: height_1-45, "text-anchor": "middle", "font-size": "10px"});
+    index_elem.append("text").text("0").attr("id", "small-circle-value").attr({x:100, y: height_1-28, "text-anchor": "middle", "font-size": "10px"});
+
+  // make the ones in the visualization more specific
+  $('#svg_vizit circle').tipsy({ 
+        gravity: 'w', 
+        html: true, 
+        title: function() {
+          var d = this.__data__
+          if (d.text) {
+            return d.text
+          } 
+          return ''
+        }
+
+    });
+/*
+    var w_gender = $('#gender_d3').width(),
+    h_gender = $('#gender_d3').height(),
+    radius = Math.min(w_gender, h_gender) / 2;
+
+
+var color = d3.scale.ordinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888"]);
+
+var arc = d3.svg.arc()
+    .outerRadius(radius - 10)
+    .innerRadius(0);
+
+var pie = d3.layout.pie()
+    .sort(null)
+    .value(function(d) { return d.count; });
+
+var svg1 = d3.select("#gender_d3").append("svg")
+    .attr("width", w_gender)
+    .attr("height", h_gender)
+  .append("g")
+    .attr("transform", "translate(" + w_gender / 2 + "," + h_gender / 2 + ")");
+
+  // create an index
+    // index element for circle sizes
+    totals = data.gender_totals;
+
+
+  var d3format_gender_counts = new Array(3);
+
+  d3format_gender_counts[0] = {"gender": "female", "count": totals.female};
+  d3format_gender_counts[1] = {"gender": "male", "count": totals.male};
+  d3format_gender_counts[2] = {"gender": "unknown", "count": totals.unknown};
+
+
+  var g = svg1.selectAll(".arc")
+      .data(pie(d3format_gender_counts))
+    .enter().append("g")
+      .attr("class", "arc");
+
+  g.append("path")
+      .attr("d", arc)
+      .style("fill", function(d) { return color(d.data.gender); });
+
+  g.append("text")
+      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+      .attr("dy", ".35em")
+      .style("text-anchor", "middle")
+      .text(function(d) { return d.data.gender; });*/
+
+});
+
+
+
 
     document.getElementById('only_show_click').style.visibility = 'visible';
 
