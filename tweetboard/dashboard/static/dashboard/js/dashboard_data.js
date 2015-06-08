@@ -9,8 +9,9 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 	d3.json("/api/get_user_by_id?user_id="+user_id, function(data) {
 
 	name = data.user.name;
-	
 
+
+	
 });
 	
   // console.log(error);

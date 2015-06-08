@@ -178,7 +178,7 @@ def get_question_tweets_at_user_id(request):
     api = get_api_with_auth(request)
 
     recent_tweets = []
-    query = '@' + str(request.GET['user_id']) + ' ?'
+    query = '@' + str(request.GET['user_id']) + ' -RT ?'
     tweets = api.search(q=query, rpp=100)
     for tweet in tweets:
         recent_tweets.append({

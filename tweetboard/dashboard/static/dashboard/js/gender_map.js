@@ -4,13 +4,13 @@
 (function() {
 
 //pedro
-var w_gender = $('#d3js_box_1').width(),
-    h_gender = $('#d3js_box_1').height(),
+var w_gender = $('#gender_d3').width(),
+    h_gender = $('#gender_d3').height(),
     radius = Math.min(w_gender, h_gender) / 2;
 
 
 var color = d3.scale.ordinal()
-    .range(["#50E3C2", "#205B4E", "#9B9B9B"]);
+    .range(["#98abc5", "#8a89a6", "#7b6888"]);
 
 var arc = d3.svg.arc()
     .outerRadius(radius - 10)
@@ -20,7 +20,7 @@ var pie = d3.layout.pie()
     .sort(null)
     .value(function(d) { return d.count; });
 
-var svg1 = d3.select("#d3js_box_1").append("svg")
+var svg1 = d3.select("#gender_d3").append("svg")
     .attr("width", w_gender)
     .attr("height", h_gender)
   .append("g")
@@ -70,7 +70,7 @@ d3.json("/api/get_gender_total_for_recent_tweets?user_id="+user_id, function(err
       .style("text-anchor", "middle")
       .text(function(d) { return d.data.gender; });
 
-});
+
 
 
 })(this);
