@@ -4,8 +4,11 @@ from gender_detector import GenderDetector as gd
 import datetime
 import thread
 import json
+import re
 from django.utils.timezone import utc
 import re
+
+limit_time = datetime.timedelta(minutes=15)
 
 detector = gd('us')
 def get_gender(name):
@@ -32,11 +35,11 @@ class Tweet(models.Model):
     def to_obj(self):
 	obj = {
 	    'tweet_id': self.tweet_id,
-            'created_by_id': self.created_by,
-            'created_at': self.created_at,
-            'text': self.text,
-            'favorite_count': self.num_favorites,
-            'retweet_count': self.num_retweets,
+	    'created_by_id': self.created_by,
+	    'created_at': self.created_at,
+	    'text': self.text,
+	    'favorite_count': self.num_favorites,
+	    'retweet_count': self.num_retweets,
 	}
 	### Hashtags
 	obj['hashtags'] = json.loads(self.hashtags)
@@ -54,7 +57,6 @@ class Tweet(models.Model):
 	tweets = []
 	to_update = []
 	for tweet in recent_tweets:
-	    print tweet.text
 	    # Check if Tweet already exists
 	    existing = Tweet.objects.filter(tweet_id=tweet.id)
 	    if len(existing) == 1:
@@ -76,16 +78,13 @@ class Tweet(models.Model):
 	    tweet_obj.num_favorites = tweet.favorite_count
 	    tweet_obj.num_retweets = tweet.retweet_count
 
-	    # Tweet creation time = a
-	    # Last updated time = b
-	    # Now = c
-	    # We update if (c - b) > (b - a) or if it's new
+	    # Update if it's been more than 15 minutes
 	    should_update = True
 	    now = datetime.datetime.utcnow().replace(tzinfo=utc)
 	    if tweet_obj.last_updated is not None:
 		time_to_update = (tweet_obj.last_updated - tweet_obj.created_at).total_seconds()
 		since_update = (now - tweet_obj.last_updated).total_seconds()
-		if since_update < time_to_update:
+		if since_update < 900.0: #time_to_update:
 		    should_update = False
 
 	    # Save so it's in the database for the retweets
@@ -134,7 +133,7 @@ class Tweet(models.Model):
 	for t in old_tweets:
 	    for rt in Retweet.objects.filter(tweet_id=t.id):
 		rt.delete()
-	    t.delete()
+		t.delete()
 
 class TwitterUser(models.Model):
     name = models.CharField(max_length=50)
@@ -145,6 +144,7 @@ class TwitterUser(models.Model):
     num_tweets = models.IntegerField()
     num_friends = models.IntegerField()
     screen_name = models.CharField(max_length=100)
+    gender = models.CharField(max_length=20)
 
     def to_obj(self):
 	obj = {}
@@ -157,7 +157,7 @@ class TwitterUser(models.Model):
 	obj['statuses_count'] = self.num_tweets
 	obj['friends_count'] = self.num_friends
 	obj['screen_name'] = self.screen_name
-	obj['gender'] = get_gender(self.name)
+	obj['gender'] = self.gender
 
 	return obj
 
@@ -173,15 +173,128 @@ class Retweet(models.Model):
 	u = TwitterUser()
 	u.name = user.name
 	u.user_id = user.id
-	u.created_at = user.created_at
+	u.created_at = user.created_at.replace(tzinfo=utc)
 	u.num_favorites = user.favourites_count
 	u.num_followers = user.followers_count
 	u.num_tweets = user.statuses_count
 	u.num_friends = user.friends_count
 	u.screen_name = user.screen_name
+	u.gender = get_gender(user.name)
 	u.save()
 	self.user_data = u
 
     def delete(self):
-	self.user_data.delete()
+	#self.user_data.delete()
         return super(Retweet, self).delete()
+
+class Place(models.Model):
+    name = models.CharField(max_length=50)
+    place_id = models.CharField(max_length=50)
+    last_updated = models.DateTimeField()
+    candidate = models.CharField(max_length=50)
+    initialized = models.BooleanField(default=False)
+
+    @staticmethod
+    def get_place(api, place_name, cand):
+        place = Place.objects.filter(name=place_name, candidate = cand)
+        if len(place) == 1:
+            return place[0]
+        # Otherwise we need to create a place
+        place = Place()
+        place.last_updated = datetime.datetime.utcnow().replace(tzinfo=utc)
+        place.initialized = False
+        place.candidate = cand
+        pid = Place.objects.filter(name=place_name)
+        if len(pid) > 0:
+            place.place_id = pid[0].place_id
+            place.name = pid[0].name
+        else:
+            print "Making API geo_search call."
+            loc = api.geo_search(query=place_name)[0]
+            place.place_id = loc.id
+            place.name = loc.name
+        # Initialize by getting some tweets
+        place.save()
+        return place
+
+    def get_tweets(self, api, tweet_type):
+        now = datetime.datetime.utcnow().replace(tzinfo=utc)
+        tweets = []
+        print "Time Delta: ", now-self.last_updated
+        print "Comparison Delta: ", limit_time
+        if (not self.initialized) or (now - self.last_updated > limit_time):
+            if not self.initialized:
+                # Remove whatever was in the database before
+                old_tweets = Place_Tweet.objects.filter(place=self)
+                for t in old_tweets:
+                    t.delete()
+                self.initialized = True
+            # Make API call and update database
+            query = '@' + self.candidate
+            for t_type in ['none', 'question']:
+                if t_type == 'question':
+                    query += ' -RT ?'
+                print "Query for tweets: ", query
+                print "Place ID: ", self.place_id
+                recent_tweets = api.search(q=query, rpp=100, place=self.place_id)
+                for tweet in recent_tweets:
+                    tweet_obj = Place_Tweet()
+                    tweet_obj.text = tweet.text
+                    tweet_obj.num_retweets = tweet.retweet_count
+                    tweet_obj.num_fav = tweet.favorite_count
+                    tweet_obj.user_name = tweet.user.name
+                    tweet_obj.user_screen_name = tweet.user.screen_name
+                    tweet_obj.user_num_followers = tweet.user.followers_count
+                    tweet_obj.place = self
+                    tweet_obj.question = (t_type == 'question')
+
+                    tweet_obj.save()
+                    if t_type == tweet_type: tweets.append(tweet_obj.to_obj())
+            print "Making API search call in get_tweets."
+            self.last_updated = datetime.datetime.utcnow().replace(tzinfo=utc)
+            self.save()
+        else:
+            if tweet_type == 'question':
+                tweet_objs = Place_Tweet.objects.filter(place=self, question=True)
+            else: tweet_objs = Place_Tweet.objects.filter(place=self, question=False)
+            for tweet_obj in tweet_objs:
+                tweets.append(tweet_obj.to_obj())
+        return tweets
+
+
+
+#    def get_sentiment_stats():
+#
+#    def get_gender_stats():
+
+
+class Place_Tweet(models.Model):
+    text = models.CharField(max_length=140)
+    num_retweets = models.IntegerField()
+    num_fav = models.IntegerField()
+    user_name = models.CharField(max_length=50)
+    user_screen_name = models.CharField(max_length=50)
+    user_num_followers = models.IntegerField()
+    place = models.ForeignKey(Place)
+    question = models.BooleanField()
+
+    def to_obj(self):
+        obj = {
+                'text' : self.text,
+                'num_retweets' : self.num_retweets,
+                'num_fav' : self.num_fav,
+                'user_name' : self.user_name,
+                'user_screen_name' : self.user_screen_name,
+                'user_num_followers' : self.user_num_followers,
+                'user_gender' : get_gender(self.user_name),
+                'place' : self.place.name,
+                'candidate' : self.place.candidate,
+                'question' : self.question,
+        }
+        blob = tb(self.text)
+        sentiment = {
+                'polarity': blob.sentiment.polarity,
+                'subjectivity': blob.sentiment.subjectivity
+        }
+        obj['sentiment'] = sentiment
+        return obj
