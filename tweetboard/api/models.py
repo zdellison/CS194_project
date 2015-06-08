@@ -230,10 +230,10 @@ class Place(models.Model):
                     t.delete()
                 self.initialized = True
             # Make API call and update database
-            query = '@' + self.candidate
+            query = '@' + self.candidate + ' -RT'
             for t_type in ['none', 'question']:
                 if t_type == 'question':
-                    query += ' -RT ?'
+                    query += ' ?'
                 print "Query for tweets: ", query
                 print "Place ID: ", self.place_id
                 recent_tweets = api.search(q=query, rpp=100, place=self.place_id)
