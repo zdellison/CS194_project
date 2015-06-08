@@ -1,23 +1,55 @@
+(function () {
+
+
+function wrap(text, width) {
+  text.each(function() {
+    var text = d3.select(this),
+        words = text.text().split(/\s+/).reverse(),
+        word,
+        line = [],
+        lineNumber = 0,
+        lineHeight = 1.1, // ems
+        y = text.attr("y"),
+        dy = parseFloat(text.attr("dy")),
+        tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+    while (word = words.pop()) {
+      line.push(word);
+      tspan.text(line.join(" "));
+      if (tspan.node().getComputedTextLength() > width) {
+        line.pop();
+        tspan.text(line.join(" "));
+        line = [word];
+        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+      }
+    }
+  });
+}
+
+
 var	margin_timeline = {top: 30, right: 40, bottom: 30, left: 50},
 	width_timeline = 800 - margin_timeline.left - margin_timeline.right,
-	height_timeline = 150 - margin_timeline.top - margin_timeline.bottom;
+	height_timeline = 500 - margin_timeline.top - margin_timeline.bottom;
 
 // "2012-02-07T01:00:24"
-var	parseDate = d3.time.format("%Y-%m-%dT%X").parse;
+var	parseDate = d3.time.format("%Y-%m-%dT%XZ").parse;
 
-var	x = d3.time.scale().range([0, width]);
+var	x = d3.time.scale().range([0, width_timeline]);
+var y = d3.scale.linear().range([height_timeline, 0]);
 
-var	xAxis = d3.svg.axis().scale(x)
+var	xAxis = d3.svg.axis().scale(x).tickFormat(d3.time.format("%d-%b-%y %H:%M%p"))
 	.orient("bottom").ticks(10);
+
+var yAxis = d3.svg.axis().scale(y)
+  .orient("left").ticks(10);
 
   
 // change what element we append it to
 var svg_retweet_timeline = d3.select("body")
-  .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+  .append("svg").attr("id", "svg_retweet_timeline")
+    .attr("width", width_timeline + margin_timeline.left + margin_timeline.right)
+    .attr("height", height_timeline + margin_timeline.top + margin_timeline.bottom)
     .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "translate(" + margin_timeline.left + "," + margin_timeline.top + ")");
 
 // d3.json("/api/get_tweet_by_id?tweet_id=602656356953399296", function(data) {
 //     console.log(data.tweet.text);
@@ -48,9 +80,13 @@ var svg_retweet_timeline = d3.select("body")
 d3.json("/api/get_retweet_user_info?tweet_id=606997297742905344", function(error, data) {
 	// dataset = data.users;
 
-  var timestamps = data.created_at;
+  var users = data.users;
 
-  
+
+
+  // var timestamps = data.created_at;
+
+  var timestamps = new Array(users.length);
   
 
 
@@ -61,7 +97,7 @@ d3.json("/api/get_retweet_user_info?tweet_id=606997297742905344", function(error
 
 
   for (var i = 0; i < timestamps.length; i++) {
-      timestamps[i] = parseDate(timestamps[i]);
+      timestamps[i] = parseDate(users[i].retweet.created_at);
   }
 
 
@@ -70,73 +106,138 @@ d3.json("/api/get_retweet_user_info?tweet_id=606997297742905344", function(error
 
 
 	// Scale the range of the data
-	x.domain(d3.extent(timestamps, function(d) { return d; }));
+	// x.domain(d3.extent(timestamps, function(d) { return d; }));
 
 
 
-	svg_retweet_timeline.append("g")			// Add the X Axis
-		.attr("class", "x axis")
-		.attr("transform", "translate(0," + height/2.0 + ")")
-		.call(xAxis);
+  users.forEach(function(d) {
+    d.created_at = parseDate(d.retweet.created_at);
+    // console.log(d);
+    console.log(d.user.followers_count);
+    d.followers_count = +d.user.followers_count;
+    d.gender = d.user.gender;
+    d.text = "tweeted by: " + d.user.screen_name;
+    // d.favorites_count = +d.favorite_count;
+    // d.text = d.text;
+    d.r = 7;
+  });
+
 
 
 
 
 
 		// setup x 
-	var xValue = function(d) { return d;}, // data -> value
+	var xValue = function(d) { return d.created_at;}, // data -> value
    		 // value -> display
-    		xMap = function(d) { return x(xValue(d));} // data -> display
+    		xMap = function(d) { return x(xValue(d)) + 10;} // data -> display
     		// xAxis = d3.svg.axis().scale(xScale).orient("bottom");
 
 
-
-      // draw retweet dots
-  // svg.selectAll(".dot")
-  //     .data(timestamps)
-  //   .enter().append("circle")
-  //     .attr("class", "dot")
-  //     .attr("r", 3.5)
-  //     .attr("cx", xMap)
-  //     .attr("cy", 0)
-  //     .style("fill", function(d) { return "coral";})
-  //     .on("mouseover", function(d) {
-  //         tooltip.transition()
-  //              .duration(200)
-  //              .style("opacity", .9);
-  //         tooltip.html(d + "<br/> (" + x(d) 
-	 //        + ", " + 30 + ")" + "<br/>" + "have any info here about the user that retweeted")
-  //              .style("left", (d3.event.pageX + 5) + "px")
-  //              .style("top", (d3.event.pageY - 28) + "px");
-  //     })
-  //     .on("mouseout", function(d) {
-  //         tooltip.transition()
-  //              .duration(500)
-  //              .style("opacity", 0);
-  //     });
+  // setup y
+  var yValue = function(d) { return d.followers_count;}, // data -> value
+      yMap = function(d) { return y(yValue(d)) -40;} // data -> display
 
 
-  // draw favorite dots
+
+        // Scale the range of the data
+  x.domain(d3.extent(users, function(d) { return d.created_at; }));
+  y.domain([0, d3.max(users, function(d) { return d.followers_count })]);
+
+
+
+
+
+  // draw retweet
   svg_retweet_timeline.selectAll("#retweet_timeline_circles")
-      .data(timestamps)
+      .data(users)
       .enter().append("circle")
-      .attr("id", "retweet_timeline_circles")
+      .attr("id", function (d) {
+        return "retweet_timeline_circles_" + d.gender; })
       .transition()  // Transition from old to new
       .duration(10000)  // Length of animation
       .each("start", function() {  // Start animation
          d3.select(this)  // 'this' means the current element
-         .attr("fill", "steelblue")  // Change color
+         .attr("fill", function (d) {
+          if (d.gender == "male" ) 
+            {
+              return "steelblue";
+            }
+          else if (d.gender == "female") {return "coral";}
+          return "green"})  // Change color
          .attr("r", 7);  // Change size
       })
        .delay(function(d, i) {
-          return i / dataset.length * 500;  // Dynamic delay (i.e. each item delays a little longer)
+          return i / users.length * 500;  // Dynamic delay (i.e. each item delays a little longer)
        })
                         //.ease("linear")  // Transition easing - default 'variable' (i.e. has acceleration), also: 'circle', 'elastic', 'bounce', 'linear'
        .attr("cx", xMap)
-       .attr("cy", 0); 
+       .attr("cy", yMap); 
 
 
-    $('svg circle').tipsy({ 
+
+
+    // index 
+      svg_retweet_timeline.append("text").attr("id", "males_text")
+    .attr("transform", "translate(" + (width_timeline-50) + "," + (10) + ")")
+    .style("fill", "steelblue")
+    .on("click", function(){
+
+      d3.select(this).attr("font-weight", "bold");
+      d3.select("#females_text").attr("font-weight", "normal");
+      d3.select("#unknown_text").attr("font-weight", "normal");
+      d3.select("#all_text").attr("font-weight", "normal");
+
+      d3.selectAll("#retweet_timeline_circles_female").style("opacity", 0);
+      d3.selectAll("#retweet_timeline_circles_unknown").style("opacity", 0);
+      d3.selectAll("#retweet_timeline_circles_male").style("opacity", 1);
+
+      }).text("males").attr("font-size", "20px");
+
+  svg_retweet_timeline.append("text").attr("id", "females_text")
+    .attr("transform", "translate(" + (width_timeline - 50) + "," + (40) + ")")
+    .style("fill", "coral").
+    on("click", function(){
+      d3.select(this).attr("font-weight", "bold");
+      d3.select("#males_text").attr("font-weight", "normal");
+      d3.select("#unknown_text").attr("font-weight", "normal");
+      d3.select("#all_text").attr("font-weight", "normal");
+
+      d3.selectAll("#retweet_timeline_circles_female").style("opacity", 1);
+      d3.selectAll("#retweet_timeline_circles_unknown").style("opacity", 0);
+      d3.selectAll("#retweet_timeline_circles_male").style("opacity", 0);
+  }).text("females").attr("font-size", "20px");
+
+  svg_retweet_timeline.append("text").attr("id", "unknown_text")
+    .attr("transform", "translate(" + (width_timeline - 50) + "," + (70) + ")")
+    .style("fill", "green").
+    on("click", function(){
+      d3.select(this).attr("font-weight", "bold");
+      d3.select("#females_text").attr("font-weight", "normal");
+      d3.select("#males_text").attr("font-weight", "normal");
+      d3.select("#all_text").attr("font-weight", "normal");
+
+      d3.selectAll("#retweet_timeline_circles_female").style("opacity", 0);
+      d3.selectAll("#retweet_timeline_circles_unknown").style("opacity", 1);
+      d3.selectAll("#retweet_timeline_circles_male").style("opacity", 0);
+  }).text("unknown").attr("font-size", "20px");
+
+      svg_retweet_timeline.append("text").attr("id", "all_text")
+    .attr("transform", "translate(" + (width_timeline - 50) + "," + (100) + ")").attr("font-weight", "bold")
+    .style("fill", "purple").
+    on("click", function(){
+      d3.select(this).attr("font-weight", "bold");
+      d3.select("#females_text").attr("font-weight", "normal");
+      d3.select("#males_text").attr("font-weight", "normal");
+      d3.select("#unknown_text").attr("font-weight", "normal");
+
+      d3.selectAll("#retweet_timeline_circles_female").style("opacity", 1);
+      d3.selectAll("#retweet_timeline_circles_unknown").style("opacity", 1);
+      d3.selectAll("#retweet_timeline_circles_male").style("opacity", 1);
+  }).text("all").attr("font-size", "20px");
+
+
+    $('#svg_retweet_timeline circle').tipsy({ 
         gravity: 'w', 
         html: true, 
         title: function() {
@@ -150,6 +251,32 @@ d3.json("/api/get_retweet_user_info?tweet_id=606997297742905344", function(error
 
     });
 
+        // Add the text label for the x axis
+    svg_retweet_timeline.append("text")
+        .attr("transform", "translate(" + (width_timeline / 2) + " ," + (height_timeline + margin_timeline.bottom) + ")")
+        .style("text-anchor", "middle")
+        .text("Date").attr("font-size", "12px");
+
+
+    svg_retweet_timeline.append("g")     // Add the X Axis
+    .attr("class", "x axis")
+    .attr("transform", "translate(10," + (height_timeline - 30) + ")")
+    .call(xAxis).selectAll(".tick text").call(wrap, 20);;
+
+    svg_retweet_timeline.append("g")     // Add the Y Axis
+    .attr("class", "y axis")
+    .attr("transform", "translate(10, " + (-30) + ")")
+    .call(yAxis);
+
+
+       // Add the text label for the Y axis
+    svg_retweet_timeline.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin_timeline.left)
+        .attr("x",0 - (height_timeline / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("# of followers").attr("font-size", "12px");
 
     // var labelheight = height - 25;
     // var labelgobj = svg.append("g").attr("id", "vis_label").attr("transform", "translate(0," + labelheight + ")");
@@ -158,3 +285,5 @@ d3.json("/api/get_retweet_user_info?tweet_id=606997297742905344", function(error
 
 
 });
+
+})(this);

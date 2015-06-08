@@ -5,6 +5,7 @@ import datetime
 import thread
 import json
 from django.utils.timezone import utc
+import re
 
 detector = gd('us')
 def get_gender(name):
