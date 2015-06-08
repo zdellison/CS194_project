@@ -823,7 +823,9 @@ var height_1 = $('#not_gender_d3').height();
   //      // anything above 1000 is cluster 4
 
   var m = 3;
-  var color = d3.scale.category10().domain(d3.range(m));
+  // var color = d3.scale.category10().domain(d3.range(m));
+  var color = d3.scale.ordinal()
+    .range(["#50E3C2", "#205B4E", "#9B9B9B"]);
 
   // The largest node for each cluster.
   var clusters_vizit = new Array(m);
