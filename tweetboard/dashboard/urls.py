@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^tweet',tweet),
     url(r'^landing', landing),
      url(r'^questions', questions),
+     url(r'^maps', maps),
  ]

@@ -68,7 +68,7 @@
                   </li>
                   <li class="side_button">
                    
-                        <a href="#" class="side_button_text" id="map_text"> </a>
+                        <a class="side_button_text" id="map_text"> </a>
                     
                   </li>
                   <li class="side_button">
@@ -162,23 +162,28 @@
             
             <div class="row divisor"></div>
 
+            <div class="viz_title"> Sentiment and general statistics </div>
             <div class="row dashboard" id="dashboard_body_top">
               <div class="d3js_box" id="top_d3js_box">
               </div>
             </div>
 
            
-
+            <div class="viz_title"> Retweets and favorites over time </div>
             <div class="row dashboard" id="dashboard_body_top_2">
               <div class="d3js_box" id="top_d3js_box_2">
               </div>
             </div>
             
             <div class="row dashboard secondary_level">
+              
               <div class=" nomargin wrapper_box">
+                <div class="viz_title" style="margin-left: 9vw;"> Gender breakdown </div>
                 <div class="d3js_box body_d3js_box" id="d3js_box_1"></div>
               </div>
+              
               <div class="nomargin wrapper_box">
+                <div class="viz_title" style="margin-left: 9vw;"> Popular hashtags </div>
                 <div class="d3js_box body_d3js_box" id="d3js_box_2"></div>
               </div>
              
@@ -213,9 +218,12 @@
       <script src="{% static 'dashboard/js/mtree.js' %}"></script> 
        <script src="{% static 'dashboard/js/vizit.js' %}"></script>
 
-       <script src="{% static 'dashboard/js/timeline_scatterplot.js' %}"></script>
-       <script src="{% static 'dashboard/js/gender_piechart_dashboard.js' %}"></script>
+
+       <script src="{% static 'dashboard/js/timeline_scatterplot.js' %}"></script> 
+       <script src="{% static 'dashboard/js/gender_piechart_dashboard.js' %}"></script> 
+
        <script src="{% static 'dashboard/js/hashtag_vis.js' %}"></script>
+
 
        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/timeline_scatterplot.css' %}" />
     </body>
