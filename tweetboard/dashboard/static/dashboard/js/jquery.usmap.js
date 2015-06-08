@@ -1,6 +1,7 @@
 function abbrState(input, to){
     
     var states = [
+        ['Washington', 'DC'],
         ['Arizona', 'AZ'],
         ['Alabama', 'AL'],
         ['Alaska', 'AK'],
@@ -713,7 +714,7 @@ $('#map').usmap({
     d3.json("/api/get_place_tweets_at_user_id?place="+ full_name + "&user_screen_name="+user_id+"&type=none", function(data) {
 
       console.log(data);
-    var users = data.tweets;
+      var users = data.tweets;
 
       var node = document.getElementById("questions_table");
       while (node.hasChildNodes()) {
@@ -751,7 +752,7 @@ $('#map').usmap({
       $(list_div).attr("class", "table_row");
 
       var question_tweet = document.createElement("th");
-      $(question_tweet).attr("class", "question_tweet").text("Question");
+      $(question_tweet).attr("class", "question_tweet").text("Tweet");
       var question_user = document.createElement("th");
       $(question_user).attr("class", "question_user").text("User");
       var question_location = document.createElement("th");
