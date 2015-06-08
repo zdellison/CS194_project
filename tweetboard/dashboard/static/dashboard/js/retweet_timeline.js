@@ -27,8 +27,11 @@ function wrap(text, width) {
 
 
 var	margin_timeline = {top: 30, right: 40, bottom: 30, left: 50},
-	width_timeline = 800 - margin_timeline.left - margin_timeline.right,
-	height_timeline = 500 - margin_timeline.top - margin_timeline.bottom;
+	width_timeline = $('#tweet_d3js_box').width() - margin_timeline.left - margin_timeline.right,
+	height_timeline = $('#tweet_d3js_box').height() - 60;
+
+  console.log(width_timeline);
+  console.log(height_timeline);
 
 // "2012-02-07T01:00:24"
 var	parseDate = d3.time.format("%Y-%m-%dT%XZ").parse;
@@ -44,7 +47,7 @@ var yAxis = d3.svg.axis().scale(y)
 
   
 // change what element we append it to
-var svg_retweet_timeline = d3.select("body")
+var svg_retweet_timeline = d3.select("#tweet_d3js_box")
   .append("svg").attr("id", "svg_retweet_timeline")
     .attr("width", width_timeline + margin_timeline.left + margin_timeline.right)
     .attr("height", height_timeline + margin_timeline.top + margin_timeline.bottom)
@@ -77,9 +80,9 @@ var svg_retweet_timeline = d3.select("body")
 //     .style("opacity", 0);
 
 // Get the data
-d3.json("/api/get_retweet_user_info?tweet_id=606997297742905344", function(error, data) {
+var tweet_id = document.getElementById("hidden_tweet_id").innerHTML;
+d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
 	// dataset = data.users;
-
   var users = data.users;
 
 
@@ -113,7 +116,7 @@ d3.json("/api/get_retweet_user_info?tweet_id=606997297742905344", function(error
   users.forEach(function(d) {
     d.created_at = parseDate(d.retweet.created_at);
     // console.log(d);
-    console.log(d.user.followers_count);
+    //console.log(d.user.followers_count);
     d.followers_count = +d.user.followers_count;
     d.gender = d.user.gender;
     d.text = "tweeted by: " + d.user.screen_name;
@@ -252,10 +255,7 @@ d3.json("/api/get_retweet_user_info?tweet_id=606997297742905344", function(error
     });
 
         // Add the text label for the x axis
-    svg_retweet_timeline.append("text")
-        .attr("transform", "translate(" + (width_timeline / 2) + " ," + (height_timeline + margin_timeline.bottom) + ")")
-        .style("text-anchor", "middle")
-        .text("Date").attr("font-size", "12px");
+    
 
 
     svg_retweet_timeline.append("g")     // Add the X Axis
