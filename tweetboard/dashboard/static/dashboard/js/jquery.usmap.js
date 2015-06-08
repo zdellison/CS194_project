@@ -622,7 +622,7 @@ $('#map').usmap({
     $('#clicked-state')
       .text('You clicked: '+data.name);
 
-    document.getElementById('#only_show_click').style.visibility = 'visible';
+    document.getElementById('only_show_click').style.visibility = 'visible';
 
   }
 });

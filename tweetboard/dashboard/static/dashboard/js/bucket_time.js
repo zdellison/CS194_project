@@ -6,8 +6,8 @@ var dates = {};
 
 // pedro select width and height
 var margin = {top: 20, right: 20, bottom: 70, left: 40},
-    width = 600 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+    width = $('#not_gender_d3').width() - margin.left - margin.right,
+    height = $('#not_gender_d3').height() - margin.top - margin.bottom;
 
 // Parse the date / time
 // var parseDate = d3.time.format("%Y-%m").parse;
@@ -20,7 +20,7 @@ var y = d3.scale.linear().range([height, 0]);
 var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom")
-    .tickFormat(d3.time.format("%m-%d %I%pZ"));
+    .tickFormat(d3.time.format("%m-%d %I%p"));
 
 var yAxis = d3.svg.axis()
     .scale(y)
@@ -29,7 +29,7 @@ var yAxis = d3.svg.axis()
 
 
 // pedro select div
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#not_gender_d3").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
@@ -37,7 +37,8 @@ var svg = d3.select("body").append("svg")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // pedro change api call
-d3.json("/api/get_retweet_user_info?tweet_id=606997297742905344", function(error, data) {
+var tweet_id = document.getElementById("hidden_tweet_id").innerHTML;
+d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
 
 	var users = data.users;
 

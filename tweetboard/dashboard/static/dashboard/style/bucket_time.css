@@ -1,9 +1,9 @@
- .axis {
+ #not_gender_d3  .axis{
    font: 10px sans-serif;
  }
 
- .axis path,
- .axis line {
+  #not_gender_d3 .axis path,
+  #not_gender_d3 .axis line {
    fill: none;
    stroke: #000;
    shape-rendering: crispEdges;
