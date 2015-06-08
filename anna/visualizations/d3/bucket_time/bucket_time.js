@@ -1,0 +1,229 @@
+// var users;
+
+
+
+
+// var dates = {};
+
+// 	var margin = {top: 20, right: 20, bottom: 70, left: 40},
+//     width = 600 - margin.left - margin.right,
+//     height = 300 - margin.top - margin.bottom;
+
+// // Parse the date / time
+// var	parseDate = d3.time.format("%Y-%m-%dT%XZ").parse;
+
+// var x = d3.scale.ordinal().range([0, width]);
+
+// var y = d3.scale.linear().range([height, 0]);
+
+// var xAxis = d3.svg.axis()
+//     .scale(x).orient("bottom").tickFormat("%m-%d %I%p");
+
+// var yAxis = d3.svg.axis()
+//     .scale(y)
+//     .orient("left")
+//     .ticks(10);
+
+// var svg = d3.select("body").append("svg")
+//     .attr("width", width + margin.left + margin.right)
+//     .attr("height", height + margin.top + margin.bottom)
+//   .append("g")
+//     .attr("transform", 
+//           "translate(" + margin.left + "," + margin.top + ")");
+
+// d3.json("data.json", function(error, data) {
+
+// 	users = data.users;
+
+// 	// var dates = {};
+
+// 	var bucketParser = d3.time.format("%Y-%m-%d%I%p");
+// 	var bucketParser2 = d3.time.format("%Y-%m-%d%I%p").parse;
+
+//     users.forEach(function(d) {
+//         d.date = parseDate(d.retweet.created_at);
+//         var date = bucketParser(d.date);
+//         //console.log(d.date);
+//         //console.log(bucketParser(d.date));
+//         if (dates[date] != null) {
+//         	dates[date] += 1;
+//         }
+//         else {
+//         	dates[date] = 1;
+//         }
+
+//     });
+
+//     console.log(dates);
+//     var num_dif_dates = Object.keys(dates).length;
+//     console.log(num_dif_dates);
+//     var d3_format_dates = new Array(Object.keys(dates).length);
+
+//     var i = 0;
+//     for (date in dates) {
+
+
+//     	d3_format_dates[i] = {"date": date, "count": dates[date]};
+//     	i += 1;
+// 	}	
+
+
+// 	 d3_format_dates.forEach(function(d) {
+//         d.date = bucketParser2(d.date);
+//         d.count = +d.count;
+//     });
+	
+
+ 
+//   x.domain(d3_format_dates.map(function(d) { return d.date; }));
+//   y.domain([0, d3.max(d3_format_dates, function(d) { return d.count; })]);
+
+
+//   svg.append("g")
+//       .attr("class", "x axis")
+//       .attr("transform", "translate(0," + height + ")")
+//       .call(xAxis)
+//     	.selectAll("text")
+//       .style("text-anchor", "end")
+//       .attr("dx", "-.8em")
+//       .attr("dy", "-.55em")
+//       .attr("transform", "rotate(-90)" );
+
+//   svg.append("g")
+//       .attr("class", "y axis")
+//       .call(yAxis)
+//     .append("text")
+//       .attr("transform", "rotate(-90)")
+//       .attr("y", 6)
+//       .attr("dy", ".71em")
+//       .style("text-anchor", "end")
+//       .text("# retweets");
+
+
+//   console.log(d3_format_dates);
+//   svg.selectAll("bar")
+//       .data(d3_format_dates)
+//     .enter().append("rect")
+//       .style("fill", "steelblue")
+//       .attr("x", function(d) { return x(d.date); })
+//       .attr("width", x.rangeBand())
+//       .attr("y", function(d) { return y(d.count); })
+//       .attr("height", function(d) { return height - y(d.count); });
+
+// });
+
+
+
+var dates = {};
+var margin = {top: 20, right: 20, bottom: 70, left: 40},
+    width = 600 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom;
+
+// Parse the date / time
+// var parseDate = d3.time.format("%Y-%m").parse;
+var	parseDate = d3.time.format("%Y-%m-%dT%XZ").parse;
+
+var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
+
+var y = d3.scale.linear().range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    .tickFormat(d3.time.format("%m-%d %I%pZ"));
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .ticks(10);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", 
+          "translate(" + margin.left + "," + margin.top + ")");
+
+d3.json("data.json", function(error, data) {
+
+	var users = data.users;
+
+	var bucketParser = d3.time.format("%Y-%m-%d%I%p");
+	var bucketParser2 = d3.time.format("%Y-%m-%d%I%p").parse;
+
+    users.forEach(function(d) {
+        var date = parseDate(d.retweet.created_at);
+        date = bucketParser(date);
+        //console.log(d.date);
+        //console.log(bucketParser(d.date));
+        if (dates[date] != null) {
+        	dates[date] += 1;
+        }
+        else {
+        	dates[date] = 1;
+        }
+
+    });
+
+
+    var num_dif_dates = Object.keys(dates).length;
+    
+    var d3_format_dates = new Array(num_dif_dates);
+
+    var i = 0;
+    for (date in dates) {
+    	d3_format_dates[i] = {"date": bucketParser2(date), "count": +dates[date]};
+    	i += 1;
+	}	
+
+
+	 // d3_format_dates.forEach(function(d) {
+  //       d.date = bucketParser2(d.date);
+  //       d.count = +d.count;
+  //   });
+
+
+ 
+  x.domain(d3_format_dates.map(function(d) { return d.date; }));
+  y.domain([0, d3.max(d3_format_dates, function(d) { return d.count; })]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+    .selectAll("text")
+      .style("text-anchor", "end")
+      .attr("dx", "-.8em")
+      .attr("dy", "-.55em")
+      .attr("transform", "rotate(-90)" );
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("# retweets");
+
+  svg.selectAll("bar")
+      .data(d3_format_dates)
+    .enter().append("rect")
+      .style("fill", "steelblue")
+      .attr("x", function(d) { return x(d.date); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.count); })
+      .attr("height", function(d) { return height - y(d.count); });
+
+});
+
+
+
+
+
+
+
+
+
+
