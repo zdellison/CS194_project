@@ -121,6 +121,7 @@ d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
     d.followers_count = +d.user.followers_count;
     d.gender = d.user.gender;
     d.text = "tweeted by: " + d.user.screen_name;
+    d.user_id = d.user.id;
     // d.favorites_count = +d.favorite_count;
     // d.text = d.text;
     d.r = 7;
@@ -155,7 +156,9 @@ d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
   // draw retweet
   svg_retweet_timeline.selectAll("#retweet_timeline_circles")
       .data(users)
-      .enter().append("circle")
+      .enter().append("circle").on("click", function (d){
+        window.location = "/dashboard/?user=" + d.user_id;
+      })
       .attr("id", function (d) {
         return "retweet_timeline_circles_" + d.gender; })
       .transition()  // Transition from old to new
