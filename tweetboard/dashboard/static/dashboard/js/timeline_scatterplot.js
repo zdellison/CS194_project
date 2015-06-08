@@ -91,9 +91,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 
 
 	dataset.forEach(function(d) {
-    console.log("old time" + d.created_at);
 		d.created_at = parseDate(d.created_at);
-    console.log("new time: " + d.created_at);
 		d.retweet_count = +d.retweet_count;
 		d.favorites_count = +d.favorite_count;
 		// d.text = d.text;
