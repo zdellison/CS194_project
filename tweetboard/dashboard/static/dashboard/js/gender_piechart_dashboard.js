@@ -61,6 +61,7 @@ d3.json("/api/get_gender_total_for_recent_tweets?user_id="+user_id, function(err
   g.append("text")
       .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
       .attr("dy", ".35em")
+      .attr("fill", "white")
       .style("text-anchor", "middle")
       .text(function(d) { 
         return d.data.gender; 
