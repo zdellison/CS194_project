@@ -4,6 +4,7 @@ from gender_detector import GenderDetector as gd
 import datetime
 import thread
 import json
+import re
 from django.utils.timezone import utc
 
 detector = gd('us')
@@ -31,11 +32,11 @@ class Tweet(models.Model):
     def to_obj(self):
 	obj = {
 	    'tweet_id': self.tweet_id,
-            'created_by_id': self.created_by,
-            'created_at': self.created_at,
-            'text': self.text,
-            'favorite_count': self.num_favorites,
-            'retweet_count': self.num_retweets,
+	    'created_by_id': self.created_by,
+	    'created_at': self.created_at,
+	    'text': self.text,
+	    'favorite_count': self.num_favorites,
+	    'retweet_count': self.num_retweets,
 	}
 	### Hashtags
 	obj['hashtags'] = json.loads(self.hashtags)
@@ -53,7 +54,6 @@ class Tweet(models.Model):
 	tweets = []
 	to_update = []
 	for tweet in recent_tweets:
-	    print tweet.text
 	    # Check if Tweet already exists
 	    existing = Tweet.objects.filter(tweet_id=tweet.id)
 	    if len(existing) == 1:
@@ -75,16 +75,13 @@ class Tweet(models.Model):
 	    tweet_obj.num_favorites = tweet.favorite_count
 	    tweet_obj.num_retweets = tweet.retweet_count
 
-	    # Tweet creation time = a
-	    # Last updated time = b
-	    # Now = c
-	    # We update if (c - b) > (b - a) or if it's new
+	    # Update if it's been more than 15 minutes
 	    should_update = True
 	    now = datetime.datetime.utcnow().replace(tzinfo=utc)
 	    if tweet_obj.last_updated is not None:
 		time_to_update = (tweet_obj.last_updated - tweet_obj.created_at).total_seconds()
 		since_update = (now - tweet_obj.last_updated).total_seconds()
-		if since_update < time_to_update:
+		if since_update < 900.0: #time_to_update:
 		    should_update = False
 
 	    # Save so it's in the database for the retweets
@@ -133,7 +130,7 @@ class Tweet(models.Model):
 	for t in old_tweets:
 	    for rt in Retweet.objects.filter(tweet_id=t.id):
 		rt.delete()
-	    t.delete()
+		t.delete()
 
 class TwitterUser(models.Model):
     name = models.CharField(max_length=50)
@@ -144,6 +141,7 @@ class TwitterUser(models.Model):
     num_tweets = models.IntegerField()
     num_friends = models.IntegerField()
     screen_name = models.CharField(max_length=100)
+    gender = models.CharField(max_length=20)
 
     def to_obj(self):
 	obj = {}
@@ -156,7 +154,7 @@ class TwitterUser(models.Model):
 	obj['statuses_count'] = self.num_tweets
 	obj['friends_count'] = self.num_friends
 	obj['screen_name'] = self.screen_name
-	obj['gender'] = get_gender(self.name)
+	obj['gender'] = self.gender
 
 	return obj
 
@@ -172,15 +170,16 @@ class Retweet(models.Model):
 	u = TwitterUser()
 	u.name = user.name
 	u.user_id = user.id
-	u.created_at = user.created_at
+	u.created_at = user.created_at.replace(tzinfo=utc)
 	u.num_favorites = user.favourites_count
 	u.num_followers = user.followers_count
 	u.num_tweets = user.statuses_count
 	u.num_friends = user.friends_count
 	u.screen_name = user.screen_name
+	u.gender = get_gender(user.name)
 	u.save()
 	self.user_data = u
 
     def delete(self):
 	self.user_data.delete()
-        return super(Retweet, self).delete()
+	return super(Retweet, self).delete()
