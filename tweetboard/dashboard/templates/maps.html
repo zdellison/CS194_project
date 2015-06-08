@@ -112,29 +112,11 @@
 
                 <div class="col-md-1"></div>
                 <div class="col-md-6">
-                  <div id="page_title"> QUESTIONS </div>
-                  <div class="row" id="tweet_body"> Last 15 questions asked to candidate </div>
+                  <div id="page_title"> MAP </div>
+                  <div class="row" id="tweet_body"> Click on the states to visualize tweets at the candidate </div>
                 </div>
+              
                 
-                  <div class="col-md-4">
-                  <div id="top_bar_d3js_box nomargin">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-4 stats_box">
-                      <div class="stats" id="retweet_count"></div>
-                      <div class="stats_text"> retweets </div>
-                    </div>
-                    <div class="col-md-4"></div>
-                     <div class="col-md-4 stats_box">
-                      <div class="stats" id="favorite_count"></div>
-                      <div class="stats_text"> favorites </div>
-                    </div>
-                   
-                    
-                    
-
-                  </div>
-                </div>
-                <div class="col-md-1"></div>
             </div>
 
        
@@ -143,16 +125,10 @@
             
             <div class="row">
               <div class="col-md-1"></div>
-              <table class="col-md-10" id="questions_table">
-                  <tr>
-                    <th>Question</th>
-                    <th>User</th>  
-                    <th>Location</th>  
-                    <th>Retweets</th>
-                    <th>Favorites</th>
-                  </tr>
-                  
-              </table>
+              <div class="col-md-10" id="map" style="margin-left: 15vw; width: 70vw; height: 60vh;"></div>
+              <div id="clicked-state"></div>
+
+              
             </div>
             
 
@@ -190,7 +166,10 @@
 
      <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/tipsy.css' %}" />
       <script src="{% static 'dashboard/js/mtree.js' %}"></script> 
-        <script src="{% static 'dashboard/js/questions_data.js' %}"></script>
+        <script src="{% static 'dashboard/js/map_data.js' %}"></script>
+         <script src="{% static 'dashboard/js/raphael.js' %}"></script>
+          <script src="{% static 'dashboard/js/jquery.usmap.js' %}"></script>
+      
      
        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/dashboard.css' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/questions.css' %}" />

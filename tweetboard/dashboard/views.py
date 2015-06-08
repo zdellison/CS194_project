@@ -31,3 +31,9 @@ def landing(request):
 def questions(request):
 	context = {'user_id': request.GET['user']}
 	return render(request, 'questions.html', context)
+
+
+@login_required
+def maps(request):
+	context = {'user_id': request.GET['user']}
+	return render(request, 'maps.html', context)
