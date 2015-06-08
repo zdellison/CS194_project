@@ -257,6 +257,8 @@
 	font-family: Dosis-Bold;
 	font-size: 15px;
 	color: #FFFFFF;
+	padding-left: 4vw;
+	padding-top: 0.5vh;
 }
 .tweet{
 	font-family: Dosis;

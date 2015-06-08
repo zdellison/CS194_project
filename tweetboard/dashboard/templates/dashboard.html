@@ -23,6 +23,7 @@
   
     <body>
       <div id="block"></div>
+      <script> console.log({{user_id}}) </script>
       <div id="hidden_user" style="visibility: hidden; height: 0px"> {{user_id}} </div>
 
       <div id="container">
@@ -210,9 +211,9 @@
     <script src="{% static 'dashboard/js/dashboard.js' %}"></script>
 
     <script src='http://cdnjs.cloudflare.com/ajax/libs/velocity/0.2.1/jquery.velocity.min.js'></script> 
-
+      <script src="{% static 'dashboard/js/user_data.js' %}"></script>
      <script src="{% static 'dashboard/js/dashboard_data.js' %}"></script>
-     <script src="{% static 'dashboard/js/user_data.js' %}"></script>
+     
       <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style/dashboard.css' %}" />
      
       <script src="{% static 'dashboard/js/mtree.js' %}"></script> 
