@@ -8,9 +8,20 @@
 	background-image: url(squared_metal.png);
 
 }
+#viewport_map{
+	height: 250vh;
+	background-image: url(squared_metal.png);
+
+}
 #left_header{
 	background: rgba(36,44,57,0.90);
 	height: 215vh;
+	max-width: 450px; 
+	min-width: 250px;
+}
+#left_header_map{
+	background: rgba(36,44,57,0.90);
+	height: 250vh;
 	max-width: 450px; 
 	min-width: 250px;
 }

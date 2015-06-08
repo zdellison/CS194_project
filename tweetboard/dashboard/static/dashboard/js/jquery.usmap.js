@@ -139,7 +139,7 @@ function abbrState(input, to){
     
     // The styles for the hover
     'stateHoverStyles': {
-      fill: "#33c",
+      fill: "#50E3C2",
       stroke: "#000",
       scale: [1.1, 1.1]
     },
@@ -189,7 +189,7 @@ function abbrState(input, to){
     
     // The styles for the hover
     'labelBackingHoverStyles': {
-      fill: "#33c",
+      fill: "#50E3C2",
       stroke: "#000"
     },
     
