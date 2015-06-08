@@ -208,7 +208,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
           d.radius = 40;
         }
         else if (d.sentiment.subjectivity == 0) {
-          d.raidus = 10;
+          d.radius = 10;
         }
         else if (d.sentiment.subjectivity < 0.5) {
           d.radius = 15;
@@ -238,7 +238,7 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
           d.radius = 20;
         }
         else {
-          d.favorite_count = 40;
+          d.radius = 40;
         }
         return d.radius;
       });
