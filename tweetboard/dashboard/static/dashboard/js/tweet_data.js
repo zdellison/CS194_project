@@ -1,4 +1,4 @@
-(function () {
+
 var tweet_id = document.getElementById("hidden_tweet_id").innerHTML;
 var user_id;
 var name;
@@ -116,5 +116,3 @@ d3.json(string, function(data) {
 });
 
 
-
-})(this);

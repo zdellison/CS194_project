@@ -1,16 +1,15 @@
-(function () {
 
 var user_id = document.getElementById("hidden_user").innerHTML;
 
 
-var name1;
+var name;
 
 d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 
 
 	d3.json("/api/get_user_by_id?user_id="+user_id, function(data) {
 
-		name1 = data.user.name;
+		name = data.user.name;
 		console.log(name1);
 
 	});
@@ -39,9 +38,9 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 		$(href_wrapper).attr("href", "tweet?id="+d.tweet_id);
 		var div_tweet_name = document.createElement("div");
 		$(div_tweet_name).attr("class", "tweet_prof_name").text(document.getElementById("profile_name").innerHTML);
-		console.log($(div_tweet_name).html);
+		
 		var div_tweet_handle = document.createElement("div");
-		console.log(name1);
+		
 		//$(div_tweet_handle).attr("class", "tweet_prof_twitter").text("   @"+name1.replace(/\s+/g, ''));
 		$(div_tweet_handle).attr("class", "tweet_prof_twitter").text("    @" + document.getElementById("hidden_user").innerHTML);
 		//$(div_tweet_handle).html(handle);
@@ -62,4 +61,4 @@ d3.json("/api/get_tweets_by_user_id?user_id="+user_id, function(data) {
 	document.getElementById("favorite_count").innerHTML = Math.trunc(favorite_total/count);
 	
 });
-})(this);
+

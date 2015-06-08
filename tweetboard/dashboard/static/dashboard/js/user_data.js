@@ -1,5 +1,5 @@
 //pull from url instead of pulling from json -- can even do it in dashboard_data
-(function (){
+
 var user_id = document.getElementById("hidden_user").innerHTML;
 
 d3.json("/api/get_user_by_id?user_id="+user_id, function(data) {
@@ -24,4 +24,3 @@ d3.json("/api/get_user_by_id?user_id="+user_id, function(data) {
 	
 
 });
-})(this);
