@@ -213,12 +213,26 @@ class Place(models.Model):
             place.name = pid[0].name
         else:
             print "Making API geo_search call."
-            loc = api.geo_search(query=place_name)[0]
+            try:
+                loc = api.geo_search(query=place_name)[0]
+            except Exception, e:
+                print(e)
+                return
             place.place_id = loc.id
             place.name = loc.name
         # Initialize by getting some tweets
         place.save()
         return place
+
+    def get_retweets_from_db(self, tweet_type):
+        tweets = []
+        if tweet_type == 'question':
+            tweet_objs = Place_Tweet.objects.filter(place=self, question=True)
+        else: tweet_objs = Place_Tweet.objects.filter(place=self, question=False)
+        for tweet_obj in tweet_objs:
+            tweets.append(tweet_obj.to_obj())
+        return tweets
+
 
     def get_tweets(self, api, tweet_type):
         now = datetime.datetime.utcnow().replace(tzinfo=utc)
@@ -239,7 +253,12 @@ class Place(models.Model):
                     query += ' ?'
                 print "Query for tweets: ", query
                 print "Place ID: ", self.place_id
-                recent_tweets = api.search(q=query, rpp=100, place=self.place_id)
+                try: recent_tweets = api.search(q=query, rpp=100, place=self.place_id)
+                except Exception, e:
+                    print str(e)
+                    return self.get_tweets_from_db(tweet_type)
+
+#                recent_tweets = api.search(q=query, rpp=100, place=self.place_id)
                 for tweet in recent_tweets:
                     tweet_obj = Place_Tweet()
                     tweet_obj.text = tweet.text
@@ -257,11 +276,12 @@ class Place(models.Model):
             self.last_updated = datetime.datetime.utcnow().replace(tzinfo=utc)
             self.save()
         else:
-            if tweet_type == 'question':
-                tweet_objs = Place_Tweet.objects.filter(place=self, question=True)
-            else: tweet_objs = Place_Tweet.objects.filter(place=self, question=False)
-            for tweet_obj in tweet_objs:
-                tweets.append(tweet_obj.to_obj())
+            tweets = self.get_retweets_from_db(tweet_type)
+#            if tweet_type == 'question':
+#                tweet_objs = Place_Tweet.objects.filter(place=self, question=True)
+#            else: tweet_objs = Place_Tweet.objects.filter(place=self, question=False)
+#            for tweet_obj in tweet_objs:
+#                tweets.append(tweet_obj.to_obj())
         return tweets
 
 

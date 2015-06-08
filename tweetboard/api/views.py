@@ -284,6 +284,9 @@ def get_place_tweets_at_user_id(request):
 #        recent_tweets.append(get_tweet_info(tweet))
 
     place = Place.get_place(api, request.GET['place'], request.GET['user_screen_name'])
+    if place is None:
+        response = {'error': 'Rate Limit Exceeded.'}
+        return JsonResponse(response)
     recent_tweets = place.get_tweets(api, request.GET['type'])
 
     response = {}
