@@ -42,8 +42,8 @@ d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
 
 	var users = data.users;
 
-	var bucketParser = d3.time.format("%Y-%m-%d%I%p");
-	var bucketParser2 = d3.time.format("%Y-%m-%d%I%p").parse;
+	var bucketParser = d3.time.format("%Y-%m-%d%H%p");
+	var bucketParser2 = d3.time.format("%Y-%m-%d%H%p").parse;
 
     users.forEach(function(d) {
         var date = parseDate(d.retweet.created_at);

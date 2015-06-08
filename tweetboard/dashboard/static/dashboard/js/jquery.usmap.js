@@ -710,8 +710,7 @@ $('#map').usmap({
      $.getScript("/dashboard/static/dashboard/js/questions_map.js");
      */
      var user_id = document.getElementById("hidden_user").innerHTML;
-
-    d3.json("/api/get_place_tweets_at_user_id?place="+ full_name + "&user_id="+user_id, function(data) {
+    d3.json("/api/get_place_tweets_at_user_id?place="+ full_name + "&user_screen_name="+user_id+"&type=none", function(data) {
 
       console.log(data);
     var users = data.tweets;
@@ -757,22 +756,22 @@ $('#map').usmap({
       $(question_user).attr("class", "question_user").text("User");
       var question_location = document.createElement("th");
       $(question_location).attr("class", "question_location").text("Location");
+      var question_favorites = document.createElement("th");
+      $(question_favorites).attr("class", "question_favorites").text("Followers");
       var question_retweets = document.createElement("th");
       $(question_retweets).attr("class", "question_retweets").text("Retweets");
-      var question_favorites = document.createElement("th");
-      $(question_favorites).attr("class", "question_favorites").text("Favorites");
 
 
       $(list_div).append(question_tweet);
       $(list_div).append(question_user);
       $(list_div).append(question_location);
-      $(list_div).append(question_retweets);
       $(list_div).append(question_favorites);
+      $(list_div).append(question_retweets);
       
 
       document.getElementById("questions_table").appendChild(list_div);
 
-    users.forEach(function(d) {
+      users.forEach(function(d) {
         
 
       var list_div = document.createElement("tr");
@@ -782,19 +781,21 @@ $('#map').usmap({
       var question_tweet = document.createElement("td");
       $(question_tweet).attr("class", "question_tweet").text(d.text);
       var question_user = document.createElement("td");
-      $(question_user).attr("class", "question_user").text(d.created_by_id);
+      $(question_user).attr("class", "question_user").text(d.user_screen_name);
       var question_location = document.createElement("td");
-      $(question_location).attr("class", "question_location").text(data.place.name);
+      $(question_location).attr("class", "question_location").text(data.place);
+       var question_favorites = document.createElement("td");
+      $(question_favorites).attr("class", "question_favorites").text(d.user_num_followers);
       var question_retweets = document.createElement("td");
-      $(question_retweets).attr("class", "question_retweets").text(d.retweet_count);
-      var question_favorites = document.createElement("td");
-      $(question_favorites).attr("class", "question_favorites").text(d.favorite_count);
+      $(question_retweets).attr("class", "question_retweets").text(d.num_retweets);
+     
 
       $(list_div).append(question_tweet);
       $(list_div).append(question_user);
       $(list_div).append(question_location);
-      $(list_div).append(question_retweets);
       $(list_div).append(question_favorites);
+      $(list_div).append(question_retweets);
+      
       
       
         document.getElementById("questions_table").appendChild(list_div);

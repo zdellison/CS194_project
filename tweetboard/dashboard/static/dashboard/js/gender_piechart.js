@@ -28,6 +28,7 @@ d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
   
 
   users = data.users;
+
   gender_counts = {};
   gender_counts["female"] = 0;
   gender_counts["male"] = 0;
@@ -61,6 +62,7 @@ d3.json("/api/get_retweet_user_info?tweet_id="+tweet_id, function(error, data) {
   g.append("text")
       .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
       .attr("dy", ".35em")
+      .attr("fill", "white")
       .style("text-anchor", "middle")
       .text(function(d) { return d.data.gender; });
 
