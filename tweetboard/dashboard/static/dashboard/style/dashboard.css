@@ -9,7 +9,7 @@
 
 }
 #viewport_map{
-	height: 260vh;
+	height: 300vh;
 	background-image: url(squared_metal.png);
 
 }
@@ -21,7 +21,7 @@
 }
 #left_header_map{
 	background: rgba(36,44,57,0.90);
-	height: 260vh;
+	height: 300vh;
 	max-width: 450px; 
 	min-width: 250px;
 }
