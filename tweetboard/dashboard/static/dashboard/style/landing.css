@@ -17,11 +17,11 @@
 }
 
 #tweetBoard{
-        text-align: center;
-       
+       text-align: center;
+        margin-left: -5vw;
         display: block;
-        margin-left: 32.5vw;
-        margin-right: auto;
+        
+       
 }
 
 #logo_1{
